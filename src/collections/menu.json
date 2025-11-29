@@ -1,0 +1,22 @@
+[
+	{
+		"name": "Hem",
+		"url": "/"
+	},
+	{
+		"name": "Tandem",
+		"url": "/tandem"
+	},
+	{
+		"name": "Kurs",
+		"url": "/works"
+	},
+		{
+		"name": "Resor",
+		"url": "/resor"
+	},
+	{
+		"name": "Butik",
+		"url": "/about"
+	}
+]

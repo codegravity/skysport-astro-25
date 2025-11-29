@@ -1,0 +1,22 @@
+---
+import { Image } from 'astro:assets';
+
+import logoLight from '../../assets/images/Skysport_Logo-white.png';
+
+
+
+---
+
+<a href="/" >
+    <Image 
+        src={logoLight} 
+        alt="Skysport Home" 
+        class="  w-2/3 lg:w-1/3  h-auto object-contain  " 
+        width={468}
+        height={86}
+        decoding="async"
+        loading="lazy"
+        format="webp"
+       
+    />
+</a>

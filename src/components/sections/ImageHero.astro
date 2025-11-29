@@ -1,0 +1,67 @@
+---
+//import Button from '@/components/ui/Button.astro';
+import { Image } from 'astro:assets';
+
+
+interface HeroContent {
+    title: string;
+    description: string;
+    descriptionImage?: string | any;
+    backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
+    overlayOpacity?: number; 
+    fadeOut?: number;// Value between 0 and 1
+}
+
+interface Props {
+    content: HeroContent;
+} 
+
+const { content } = Astro.props;
+const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
+---
+
+ <!-- <section class="header-offset relative h-screen"> -->
+ <section class="header-offset  h-screen"> 
+    {content.backgroundImage && (
+        <div class="absolute inset-0 left-0 top-0 w-full  h-full overflow-hidden bg-right">
+            <Image
+                src={content.backgroundImage}
+                alt="Skysport tandemflyg i Åre"
+                width={1920}
+                height={1080}
+                class="lg:w-full h-full object-cover object-[82%_50%] "
+                quality={70}
+                format="webp"
+                loading="eager"
+                decoding="async"
+                priority 
+       
+            />  
+            <div
+                class="hero-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden"
+                style={`opacity: ${opacity};`}
+            ></div> 
+        </div>
+    )}
+
+     <div class="site-container mx-auto p-0 relative z-10 flex flex-col h-screen items-center justify-center text-center fadeOut delay-3500">
+                {content.descriptionImage && (
+            <div class="">
+                <Image
+                    src={content.descriptionImage}
+                    alt="Skysport Skärmflygskola"
+                    width={486}
+                    height={280}
+                    class=" invisible lg:visible"
+                    quality={70}
+                    format="webp"
+                    loading="eager"
+                    decoding="async"   
+                />
+            </div>
+        )} 
+        <h1 class="text-white text-balance" data-aos="fade-up">{content.title}</h1>
+        <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
+         
+    </div> 
+</section>

@@ -1,0 +1,82 @@
+---
+//import {  Moon, SunMedium } from "@lucide/astro";
+import { Icon } from 'astro-icon/components';
+---
+        <!-- Mobile Menu Toggle Buttons -->
+      <div class="flex items-center gap-2 sm:hidden">
+        <!-- Dark Mode Toggle (Mobile) -->
+        <div id="darkToggleMobile"
+          class="flex items-center justify-center w-10 h-10 cursor-pointer rounded-full bg-gradient-to-b from-white to-[#edeefa] border-[0.5px] border-[#f3f3ff] dark:from-neutral-800 dark:to-neutral-600 dark:border-neutral-600 transition-transform duration-200 active:scale-95"
+        >
+          <div
+            class="flex justify-center items-center w-6 h-6 relative overflow-hidden rounded-full bg-[#7fa1ff]  bg-gradient-to-b from-[#85a6ff] to-[#2d6dc3] border-[0.5px] border-[#7fa1ff]"
+            style="box-shadow: 0px 2px 3px 0 rgba(55,52,209,0.21);"
+          >
+            <Icon name="sun-medium" class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease mobile-sun"  />
+            <Icon name="moon" class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease mobile-moon" /> 
+         <!--    <SunMedium class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease mobile-sun" />  -->
+<!--             <Moon class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease mobile-moon" />  -->
+          </div>
+        </div>
+        </div>
+
+      <div class="relative hidden sm:flex items-center gap-2 ml-4 lg:ml-6">
+        <span class="separator-line  hidden sm:inline-block bg-[rgba(183,202,255,0.5)] mt-[20px] -translate-y-1/2 w-px h-[20px]"></span>
+
+        <!-- Dark Mode Toggle (Desktop) -->
+        <div id="darkToggle" class="relative flex items-center h-9 px-2 gap-1.5 font-medium cursor-pointer rounded-full bg-gradient-to-b from-white to-[#edf1fa] border-[0.5px] border-[#f3f5ff] dark:from-neutral-800 dark:to-neutral-600 dark:border-neutral-600 transition-all duration-200 hover:shadow-md hover:scale-105 active:scale-95 mx-1">
+            <div class="flex justify-center items-center flex-shrink-0 w-6 h-6 relative overflow-hidden rounded-full bg-gradient-to-b from-[#85a6ff] to-[#2d6dc3] border-[0.5px] border-[#7fa1ff]" style="box-shadow: 0px 2px 3px 0 rgba(55,52,209,0.21);">
+              <Icon name="sun-medium" class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease bg-gradient-to-b from-[#85a6ff] to-[#2d6dc3] border-[0.5px] border-[#7fa1ff]" style="box-shadow: 0px 2px 3px 0 rgba(55,52,209,0.21);" id="sun" />
+              <Icon name="moon" class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease" id="moon" />
+             
+              
+      <!--         <SunMedium id="sun" class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease" />
+                <Moon class="absolute hidden text-white w-4 h-4 transition duration-200 transform ease" id="moon" /> -->
+            </div>
+            <span class="hidden sm:inline-block whitespace-nowrap">
+                <span id="dayText" class="flex-shrink-0 text-sm text-left text-[#6f6c8f] dark:text-neutral-400">Ljus</span>
+                <span id="nightText" class="hidden flex-shrink-0 text-sm text-left text-[#6f6c8f] dark:text-neutral-400">Mörk</span>
+            </span>
+        </div>
+      </div>
+
+      <script is:inline >
+ 
+  // Sync dark mode toggle between mobile and desktop
+  const darkToggle = document.getElementById('darkToggle');
+  const darkToggleMobile = document.getElementById('darkToggleMobile');
+
+  function syncDarkModeIcons() {
+    const isDark = document.documentElement.classList.contains('dark');
+    const sunIcons = document.querySelectorAll('#sun, .mobile-sun');
+    const moonIcons = document.querySelectorAll('#moon, .mobile-moon');
+
+    if (isDark) {
+      moonIcons.forEach(icon => icon.classList.remove('hidden'));
+      sunIcons.forEach(icon => icon.classList.add('hidden'));
+      document.getElementById('dayText')?.classList.add('hidden');
+      document.getElementById('nightText')?.classList.remove('hidden');
+    } else {
+      sunIcons.forEach(icon => icon.classList.remove('hidden'));
+      moonIcons.forEach(icon => icon.classList.add('hidden'));
+      document.getElementById('dayText')?.classList.remove('hidden');
+      document.getElementById('nightText')?.classList.add('hidden');
+    }
+  }
+
+  // Sync on initialization
+  document.addEventListener('DOMContentLoaded', syncDarkModeIcons);
+
+  // Listen for dark mode changes
+  const observer = new MutationObserver(syncDarkModeIcons);
+  observer.observe(document.documentElement, {
+    attributes: true,
+    attributeFilter: ['class']
+  });
+
+  // Mobile dark mode toggle
+  darkToggleMobile?.addEventListener('click', () => {
+    darkToggle?.click();
+  });
+
+</script>

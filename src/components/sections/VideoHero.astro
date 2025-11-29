@@ -1,0 +1,50 @@
+---
+//import {  Vimeo, YouTube } from 'astro-embed';
+import { Image } from 'astro:assets';
+
+
+
+const { content } = Astro.props;
+const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
+const myVideo = content.backgroundVideo;
+//const pageLink = content.page;
+
+---
+
+ <!-- <source src={myVideo} type="video/mp4" />  -->
+<section class=" ">
+  
+    <div class=" absolute inset-0 left-0 top-0 w-full h-screen  overflow-hidden  "> 
+        <video autoplay loop muted playsinline class="  min-h-full object-cover "  > 
+    <!--         {content.page === "about" &&  <source src={myVideo} type="video/mp4" /> }
+            { content.page === "start" && <source src={myVideo} type="video/mp4" /> }
+            {content.page === "tandem" && <source src={myVideo} type="video/mp4" /> } -->
+            <source src={myVideo} type="video/mp4" />
+          
+        </video> 
+    </div> 
+    
+    <div class="hero-background absolute inset-0 left-0 top-0 h-screen  lg:w-full lg:h-full overflow-hidden" style={`opacity: ${opacity};`} ></div>  
+   
+    <div class="site-container mx-auto px-4 pt-0 pb-40 relative z-10 flex flex-col h-screen md:items-center md:justify-center md:text-center">
+        
+        {content.descriptionImage && (
+            <div class="">
+                <Image
+                    src={content.descriptionImage}
+                    alt="Skysport Skärmflygskola"
+                    width={486}
+                    height={280}
+                    class=" invisible lg:visible"
+                    quality={70}
+                    format="webp"
+                    loading="eager"
+                    decoding="async"   
+                />
+            </div>
+        )} 
+        <p class="text-white text-4xl text-balance" data-aos="fade-up">{content.title}</p>
+        <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p> 
+ 
+    </div>
+</section>

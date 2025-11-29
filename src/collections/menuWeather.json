@@ -1,0 +1,78 @@
+[
+	{
+		"name": "Vind Åreskutan 1",
+		"url": "https://www.skistar.com/sv/vara-skidorter/are/vader-och-backar/?tab=89088"
+	},
+	{
+		"name": "Vind Åreskutan 2",
+		"url": "https://holfuy.com/en/weather/302"
+	},
+	{
+		"name": "Vind Åreskutan 3",
+		"url": "https://www.skistar.com/sv/vinter/vader-backar/detaljerad-vaderinformation/"
+	},
+		{
+		"name": "Vind Draklanda",
+		"url": "https://holfuy.com/en/weather/1230?fbclid=IwAR07tq5dCdp_a4G2Kl_SPC-tauh6xwXDGkJzxfwZ1Hn34cYT8hIq11llc5E"
+	},
+	{
+		"name": "Vind Hummeln",
+		"url": "http://meac.se/sub_2/hummeln/wind.asp"
+	},
+    {
+        "name": "Vind Sylarna SMHI",
+        "url": "https://www.smhi.se/vader/observationer/observationer#ws=wpt-a,proxy=wpt-a,tab=all,stationid=132030,type=weather"
+    },
+    {
+        "name": "Vind Helags STF",
+        "url": "http://www.meac.se/sub_2/helags/wind.asp"
+    },
+    {
+        "name": "LFV väderkarta",
+        "url": "https://www.aro.lfv.se/Links/Link/ViewLink?TorLinkId=229&type=MET"
+    },
+    {
+        "name": "SVT väderkarta",
+        "url": "http://www.svt.se/vader/"
+    },
+    {
+        "name": "Windguru ÅRE",
+        "url": "http://www.windguru.cz/se/index.php?sc=429&sty=m_menu"
+    },
+    {
+        "name": "Radar Nederbörd",
+        "url": "https://regnradar.se/"
+    },
+    {
+        "name": "SMHI 10 dyng Åre",
+        "url": "https://www.smhi.se/vader/prognoser/ortsprognoser/q/%C3%85re/2725432"
+    },
+    {
+        "name": "YR 2 dyng Åre",
+        "url": "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-9114206/Sverige/J%C3%A4mtland%20County/%C3%85re%20kommun/%C3%85re%20i%20Sverige"
+    },
+    {
+        "name": "Isobarkarta MetOffice",
+        "url": "http://www.metoffice.gov.uk/weather/uk/surface_pressure.html"
+    },
+    {
+        "name": "Satellitebild Norden",
+        "url": "https://www.smhi.se/vader/radar-och-satellit/satellit/q/detaljerad/dagochnatt/plats/Stockholm/2673730"
+    },
+    {
+        "name": "Satellitebild Sat24",
+        "url": "https://www.sat24.com/sv-se/continent/eu"
+    },
+    {
+        "name": "Windyty",
+        "url": "http://www.windy.com/"
+    },
+    {
+        "name": "Trafikverket",
+        "url": "https://www.trafikverket.se/trafikinformation/vag/?map_x=406433.88175&map_y=7020924.25775&map_z=5&map_l=111000001000000"
+    },
+    {
+        "name": "Earth Winds",
+        "url": "http://earth.nullschool.net/"
+    }
+]

@@ -1,0 +1,51 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
+import HeroImage from '../assets/images/paraglide-are.jpg';
+import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
+import Reco from "@components/sections/RecoBar.astro";
+
+const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-25.MP4";
+
+const VideoContent = {
+    title: "Tandemflyg i Åre ",
+    description: "Tandemflygning från Åreskutan.",
+    backgroundVideo: myVideo,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+    page: "tandem"
+}
+
+const HeroContent = {
+    title: "Tandemflyg hos Skysport",
+    description: "A good place to start.",
+    backgroundImage: HeroImage,
+    overlayOpacity: 0.2
+}
+---
+
+<Layout
+title="Skysport Tandemflyg i Åre"
+description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
+keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
+>
+
+  <VideoHero content={VideoContent}/> 
+  <section
+    class="mt-26 mb-12"
+    data-aos="fade-up-sm"
+    data-aos-delay="100"
+    data-aos-duration="600"
+    data-aos-once="true"
+  >
+     <Reco />
+  </section>
+   
+
+ 
+
+
+
+  
+
+</Layout>

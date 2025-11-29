@@ -1,0 +1,74 @@
+---
+import LogoFooter from "@components/sections/LogoFooter.astro";
+import ToTop from "@components/widgets/ToTop.astro";
+import { siteConfig, socialLinks } from "@config/site.js";
+
+import { Icon } from 'astro-icon/components';
+
+
+---
+
+
+<section  class="text-gray-700 bg-bg-primary-dark  border-t mt-20 md:mt-48  border-dashed border-primary/15 dark:border-primary-dark/15 border-[.75px]">
+  <div class="container flex flex-col items-center py-8 mx-auto px-7 max-w-7xl sm:flex-row">
+    <LogoFooter />
+    <p class="mt-4 text-sm text-neutral-100 dark:text-neutral-100 sm:ml-4 sm:pl-4 sm:border-l sm:border-neutral-300 dark:sm:border-neutral-700 sm:mt-0">
+        © {new Date().getFullYear()} <a href={siteConfig.url || " "} target="_blank">{siteConfig.author || " "}</a>
+    </p>
+    <span
+      class="inline-flex justify-center mt-4 space-x-5 sm:ml-auto sm:mt-0 sm:justify-start overflow-hidden"
+    >
+      {socialLinks.map((social) => (
+        <a
+          href={social.url}
+          target="_blank"
+          class="footer-social-icon-link text-neutral-500 dark:text-neutral-300 "
+          title={social.name}
+        >
+          <span class="sr-only">{social.name}</span>
+          <div class="footer-social-icon text-neutral-500" >
+            <div class="hs-tooltip [--placement:auto] inline-block">
+      <button type="button" class="hs-tooltip-toggle ">
+ <Icon name={social.icon} class=" sm:text-l md:text-xl  "/>
+        <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+         {social.name}
+        </span>
+      </button>
+    </div>
+              
+          </div>
+        </a>
+      ))}
+    </span>
+  </div>
+</section>
+
+<ToTop />
+
+<style is:global>
+  .footer-social-icon {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease-in-out;
+    overflow: hidden;
+  }
+
+  .footer-social-icon svg {
+    width: 30px;
+    height: 30px;
+    fill: currentColor;
+    transition: all 0.3s ease-in-out;
+  }
+  .footer-social-icon-link:hover .footer-social-icon svg {
+    width: auto;
+    height: 34px;
+    fill: currentColor;
+  }
+
+  
+  
+
+</style>

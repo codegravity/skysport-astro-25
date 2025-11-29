@@ -1,0 +1,41 @@
+---
+
+import { Icon } from 'astro-icon/components'
+
+
+interface WeatherContent {
+    title: string;
+    description: string;
+    weatherLinks: {
+        name: string;
+        url: string;
+    }[];
+    externalLinkIcon?: string;
+}
+
+interface Props {
+    content: WeatherContent;
+} 
+
+const { content } = Astro.props;
+---
+ 
+    { content.weatherLinks.map((link) => {
+              return (
+                    <a class="flex items-center gap-x-3.5 py-1 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" 
+                        href={link.url} target="_blank" >
+                        <Icon name={content.externalLinkIcon} class=" sm:text-l md:text-l  "/>{link.name}
+                    </a>
+              )
+            })
+          }
+    
+       
+
+
+
+
+ 
+      
+   
+ 

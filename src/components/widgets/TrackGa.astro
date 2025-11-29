@@ -1,0 +1,25 @@
+---
+const GAID = import.meta.env.PUBLIC_GA4_ID;
+
+// const GAID = '';
+
+if (!GAID) {
+    // console.error("Google Analytics ID (PUBLIC_GA4_ID) is missing!");
+}
+---
+
+
+{GAID && (
+    <>
+      <script  is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${GAID}`} ></script>
+      <script  is:inline define:vars={{ GAID }}>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', GAID);
+      </script>
+    </>
+)}
+
+
+
