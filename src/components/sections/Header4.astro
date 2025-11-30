@@ -22,13 +22,13 @@ import Logo from "@components/elements/LogoCG.astro";
     <MenuItems class=" w-full lg:w-auto mt-2 lg:flex lg:mt-0 ">
        <ul class="flex flex-col lg:flex-row lg:gap-6 items-center w-full lg:w-auto text-lg  text-gray-600 dark:text-neutral-400">
         <li>
-         <a class="sm:p-2 font-medium text-blue-500 focus:outline-hidden" href="/" aria-current="page"></a>
-            <div class="hs-tooltip sm:[--placement:bottom] inline-block">
-                  <Icon name="mingcute--home-4-line" class=" sm:text-2xl md:text-4xl  "/>
+         <a class="sm:p-2 font-medium text-blue-500 focus:outline-hidden" href="/" aria-current="page">HEM</a>
+ <!--            <div class="hs-tooltip sm:[--placement:bottom] inline-block">
+                  <a href="/"><Icon name="mingcute--home-4-line" class=" sm:text-2xl md:text-4xl  "/></a>
                   <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
                      HEM
                   </span>
-            </div>
+            </div> -->
          </a>
         </li>
         <li>
@@ -238,7 +238,7 @@ import Logo from "@components/elements/LogoCG.astro";
             <a href="#">BUTIK</a>
             </li>
             <li>
-               <a href="/om">OM OSS</a>
+               <a href="/omoss">OM OSS</a>
             </li>
             </li>
          </ul>
@@ -250,6 +250,10 @@ import Logo from "@components/elements/LogoCG.astro";
 
   .hidden {
   display: none;
+}
+
+[data-icon="mingcute--home-4-line"] {
+   color: var(--neutral-400); 
 }
 </style>
 <!-- This is an invisible div with relative position so that it takes up the height of the menu (because menu is absolute/fixed) -->
