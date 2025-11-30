@@ -19,6 +19,8 @@
   --max-screen: 1200px;
   --inner-screen: 800px;
 
+
+
   --color-neutral-50: #f7f9fc;
   --color-neutral-100: #edf1f8;
   --color-neutral-200: #dfe4ed;
@@ -31,10 +33,12 @@
   --color-neutral-900: #19222f;
   --color-neutral-950: #10161f;
 
+
+
   --color-primary: #2d6dc3;
   --color-primary-rgb: 45, 109, 195;
   --color-primary-strong: #0066ff;
-  --color-primary-dark: #2d6dc3;
+  --color-primary-dark: #3360AE;
   --color-primary-light: #8fb9ff;
   --color-primary-light-dark: #bcd8ff;
   --color-primary-lighter: #6da7ff;

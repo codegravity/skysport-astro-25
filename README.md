@@ -15,6 +15,12 @@ Features:
 - ✅ RSS Feed support
 - ✅ Markdown & MDX support
 
+- ✅ Astro Icon
+- ✅ Tailwind css
+- ✅ Preline UI
+- ✅ Astro Navbar
+
+
 ## 🚀 Project Structure
 
 Inside of your Astro project, you'll see the following folders and files:
