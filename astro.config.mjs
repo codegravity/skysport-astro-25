@@ -8,11 +8,11 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import robotsTxt from 'astro-robots-txt';
 
-import node from '@astrojs/node';
+//import node from '@astrojs/node';
 
 // https://astro.build/config
 export default defineConfig({
-  //output: 'hybrid',
+
   site: 'https://example.com',
 
   integrations: [
@@ -25,7 +25,7 @@ export default defineConfig({
       plugins: [tailwindcss()],
   },
 
-  adapter: node({
+/*   adapter: node({
     mode: 'standalone',
-  }),
+  }), */
 });
