@@ -1,0 +1,47 @@
+---
+export const prerender = false;
+import { siteConfig } from "@config/site";
+import Layout from "@layouts/MainLayout.astro";
+import Reco from "@components/sections/RecoBar.astro";
+
+function getWeek(d) {
+    
+    const dt = new Date(d); // Convert input string to Date object
+    const ys = new Date(dt.getFullYear(), 0, 1); // Get January 1st of the same year
+    const dp = Math.floor((dt - ys) / 86400000); // Calculate the days passed since January 1st (1000 * 60 * 60 * 24 = 86400000)
+    const sw = ys.getDay();
+    const so = (sw === 0) ? 6 : sw - 1;  // Adjust Sunday (0) to 6 (ISO starts Monday)
+    const wn = Math.floor((dp + so) / 7) + 1;
+
+    return wn;
+}
+const StartDate = Astro.url.searchParams.get('startdate') || '';
+const Weeknr = getWeek(StartDate);
+
+
+---
+
+<Layout
+title="Boka grundkurs hos Skysport Skärmflygskola i Åre"
+description=" "
+keywords=" "
+>
+
+  
+
+       
+   
+
+  <section >
+ 
+  <section  class="site-container py-80 text-neutral-100">
+ insert date into form and get week from {StartDate} </br> {Weeknr}
+</section>
+ 
+<section>
+    <Reco />
+</section>
+ 
+
+</Layout>
+

@@ -1,0 +1,33 @@
+---
+
+import { siteConfig } from "@config/site";
+
+import Layout from "@layouts/MainLayout.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
+import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+
+
+import Reco from "@components/sections/RecoBar.astro";
+
+const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
+
+const VideoContent = {
+    title: "Skärmflygkurser i Åre ",
+    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
+    backgroundVideo: myVideo,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+    page: "start"
+}
+
+
+---
+
+<Layout
+title="Skysport Skärmflygskola i Åre"
+description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
+keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
+>
+
+   <VideoHero content={VideoContent}/>  
+</Layout>

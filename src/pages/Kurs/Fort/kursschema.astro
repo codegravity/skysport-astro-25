@@ -1,55 +1,63 @@
 ---
+
 import { siteConfig } from "@config/site";
+
 import Layout from "@layouts/MainLayout.astro";
+
+
 import ImageHero from "@components/sections/ImageHero.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from '../assets/images/IMG_7595.jpg';
-import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
+//import HeroImage from '../assets/images/IMG_7595.jpg';
+//import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 import ThreeCards from "@components/sections/ThreeCards.astro";
-import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
-import CardImage2 from '../assets/images/tandemhenning23.jpg';
-import CardImage3 from '../assets/images/pie3.jpg';
+//import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
+//import CardImage2 from '../assets/images/tandemhenning23.jpg';
+//import CardImage3 from '../assets/images/pie3.jpg';
 
 import Reco from "@components/sections/RecoBar.astro";
+
+
+
+import KursSchema from "@components/sections/ClassSchedule.astro";
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
 const customLastPart = [
-  { index: "last", text: "Resor" },
-/*   {
-    "data-link": "home",
+  { index: "last", text: "Fortsättningskurser schema 2026" },
+   {
+    "data-link": "Kurs",
     "aria-label": "Go to the home page",
-    text: "Page 1",
+    text: "Kurs",
   },
   {
-    "data-link": "about",
+    "data-link": "Fort",
     "aria-label": "Go to the about page",
-    text: "Page 2",
-  }, */
+    text: "Fortsättningskurser",
+  }, 
 ];
 
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
-const VideoContent = {
+
+/* const VideoContent = {
     title: "Skärmflyg i Åre ",
     description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
     backgroundVideo: myVideo,
     descriptionImage: LogoImage,
     overlayOpacity: 0.2,
     page: "start"
-} 
+} */
 
-const HeroContent = {
-    title: "Skysport Resor 2026",
-    description: "I 2026 fokusera vi på resor till Turkiet och Columbia. Välkommen att följa med!",
+/* const HeroContent = {
+    title: "Skärmflyg i Åre",
+    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
     backgroundImage: HeroImage,
     descriptionImage: LogoImage,
     overlayOpacity: 0.2,
-    fadeOut: true,
   
-}
+} */
 
-const CardContent = {
+/* const CardContent = {
     title1: "Grundkurs",
     description1: "Förverkliga drömmen och lär dig skärmflyga. Under en 5 dagars intensivkurs i Åre flyger du både i liten backe och höjdflyg från Åreskutan. Kursen leder fram till licens.",
     image1: CardImage1,
@@ -72,6 +80,13 @@ const CardContent = {
     url3right: "/blog",
     linktext3right: "NYHETER",
 
+} */
+const SchemaContent = {
+    title: "Fortsättningskurs Schema 2026",
+    description: "Här hittar du vårt aktuella kursschema för fortsättningskurser i skärmflygning. Välj en kurs som passar dig och boka din plats idag!",
+    note: "Observera! Alla kuser börja på måndagar",
+    bookingForm: "/Kurs/Fort/boka",
+    schema: "classFortSchedule ",
 }
 ---
 
@@ -80,9 +95,7 @@ title="Skysport Skärmflygskola i Åre"
 description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
-
-   <ImageHero content={HeroContent}/>  
-   <div class=" py-4 px-58">
+<div class=" py-34 px-58">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -114,12 +127,12 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
         </svg>
     </Breadcrumbs>
 </div>
-    <section >
-     <ThreeCards content={CardContent}/>
-  </section>
-  <section >
-     <Reco />
-  </section>
+  
+
+        <KursSchema content={SchemaContent}/>
+   
+
+
   <section >
 
 </section>
