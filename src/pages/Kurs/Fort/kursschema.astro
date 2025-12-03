@@ -18,7 +18,7 @@ import Reco from "@components/sections/RecoBar.astro";
 
 
 
-import KursSchema from "@components/sections/ClassSchedule.astro";
+import KursSchema from "@components/sections/fortsattSchema.astro";
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
@@ -95,7 +95,7 @@ title="Skysport Skärmflygskola i Åre"
 description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
-<div class=" py-34 px-58">
+<div class=" py-34 sm:px-58">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -128,16 +128,8 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
     </Breadcrumbs>
 </div>
   
-
-        <KursSchema content={SchemaContent}/>
-   
-
-
-  <section >
-
+<KursSchema content={SchemaContent}/>
+<section class="hidden  sm:py-18 md:block" >
+    <Reco />
 </section>
- 
-
- 
-
 </Layout>

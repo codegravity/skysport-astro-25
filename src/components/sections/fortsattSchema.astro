@@ -1,20 +1,13 @@
 ---
-import { classSchedule } from '../../data/siteData';
 import { classFortSchedule } from '../../data/siteData';
 const { content } = Astro.props;
 
 const Datehref= content.bookingForm + "?startdate=";
-const schema = content.schema;
-
-const classSchedulex = "classFortSchedule";
-
-//(schema === "classSchedule") ? { classSchedulex = "classSchedule" }: 
-
 
 ---
 <div class="relative site-container px-0  text-center shadow-xl">
 <section id="schedule" class="py-20 bg-slate-900 pt-32 pb-20 bg-linear-to-br from-slate-900 via-slate-800 to-slate-900">
-  <div class=" w-full md:max-w-7xl mx-auto px-2 sm:px-6 lg:px-8">
+  <div class="w-full md:max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
     <div class="text-center mb-16">
       <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">{content.title}</h2>
       <p class="text-xl text-gray-300 max-w-2xl mx-auto">{content.description}</p>
@@ -44,10 +37,10 @@ const classSchedulex = "classFortSchedule";
             </thead>
             <tbody class="divide-y divide-slate-700">
              
-              {classSchedule.map((schedule) => (
+              {classFortSchedule.map((schedule) => (
                 
                 <tr class="hover:bg-slate-700/50 transition-colors">
-                  <td class="px-2 py-4 sm:hidden">
+                <td class="px-2 py-4 sm:hidden">
                     <a 
                       href={Datehref + schedule.linkDate}
                       class="text-orange-500 hover:text-orange-400 font-semibold flex items-center gap-2"
@@ -56,19 +49,19 @@ const classSchedulex = "classFortSchedule";
                       <i class="ri-arrow-right-line"></i>
                     </a>
                   </td>
-                  <td class="px-5 sm:px-8 py-4 whitespace-nowrap ">
+                  <td class="px-5 sm:px-8 py-4 whitespace-nowrap">
                     <div class="flex items-center gap-2">
                       <i class="ri-time-line text-orange-500"></i>
                       <span class="text-white font-semibold">{schedule.week}</span>
                     </div>
                   </td>
-                  <td class="px-2 sm:px-6 sm:text-left py-4  ">
+                  <td class="px-2 sm:px-6 sm:text-left py-4 ">
                     <span class="text-white font-medium">{schedule.month} </span><span class="text-white font-medium">{schedule.datum}</span>
                   </td>
-                  <td class="px-3 py-4 text-left ">
+                  <td class="px-6 py-4 text-left ">
                     <span class="text-gray-400">{schedule.kurs}</span>
                   </td>
-                  <td class="hidden sm:block px-6 py-4">
+                   <td class="hidden sm:block px-6 py-4">
                     <a 
                       href={Datehref + schedule.linkDate}
                       class="text-orange-500 hover:text-orange-400 font-semibold flex items-center gap-2"
