@@ -7,6 +7,8 @@ import Layout from "@layouts/MainLayout.astro";
 
 import ImageHero from "@components/sections/ImageHero.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
+import VimeoFeatures from "@components/sections/Features.astro";
+
 import HeroImage from '../assets/images/IMG_7595.jpg';
 import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 import ThreeCards from "@components/sections/ThreeCards.astro";
@@ -33,6 +35,34 @@ const HeroContent = {
     backgroundImage: HeroImage,
     descriptionImage: LogoImage,
     overlayOpacity: 0.2,
+  
+}
+
+const VimeoContent = {
+    title: "Mer videos av Skärmflyg i Åre",
+    description: "Du hitta mer videos om Skysport och skärmflygning i Åre :",
+    skysportonvimeo: 'https://vimeo.com/user58363115?fbclid=IwAR3oPCNzTwYeAfxtt3xHQBs413hMlK__4m6Gh4XUANqIiAzMZ70VkmA0_A8',
+    vimeovideos: [
+        {
+            text: 'Grundkurs',
+            link: 'https://vimeo.com/417602664?fl=pl&fe=sh',
+            videoID: '417602664',
+            target: '_self'
+        },
+        {
+            text: 'Tandem',
+            link: 'https://vimeo.com/418449134?fl=pl&fe=sh',
+            videoID: '418449134',
+            target: '_self'
+        },
+                {
+            text: 'Boende',
+            link: 'https://vimeo.com/409693533?fl=pl&fe=sh',
+            videoID: '409693533',
+            target: '_self'
+        },
+    ],
+
   
 }
 
@@ -69,9 +99,12 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 >
 
    <ImageHero content={HeroContent}/>  
+        <section >
+        <ThreeCards content={CardContent}/>
+    </section>
     <section >
-     <ThreeCards content={CardContent}/>
-  </section>
+        <VimeoFeatures content={VimeoContent}/>
+    </section>
   <section >
      <Reco />
   </section>

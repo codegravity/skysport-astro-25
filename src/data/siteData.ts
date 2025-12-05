@@ -55,6 +55,13 @@ export const navigation = [
   { name: "Contact", href: "/contact" },
 ];
 
+export const embedVimeo = [
+  { name: "Home", href: "/" },
+  { name: "About", href: "/about" },
+  { name: "Classes", href: "/classes" },
+  { name: "Pricing", href: "/pricing" },
+  { name: "Contact", href: "/contact" },
+];
 export const features = [
   {
     title: "24/7 Access",

@@ -19,6 +19,7 @@ Features:
 - ✅ Tailwind css
 - ✅ Preline UI
 - ✅ Astro Navbar
+- ✅ Astro Embed Vimeo
 
 
 ## 🚀 Project Structure

@@ -1,0 +1,49 @@
+---
+import { features } from '@data/siteData';
+import { Vimeo } from '@astro-community/astro-embed-vimeo';
+
+interface VimeoContent {
+    title: string;
+    description: string;
+    skysportonvimeo: string;
+        vimeovideos?: {
+        text: string;
+        link: string;
+        videoID: string;
+        target?: string;
+    }[];
+
+}
+
+interface Props {
+    content: VimeoContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="features" class="py-20 bg-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">{content.title}</h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        {content.description} <a href={content.skysportonvimeo} class="hover:text-orange-400" target="_blank">Här</a>
+      </p>
+    </div>
+      {content.vimeovideos && content.vimeovideos.length > 0 && (
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {content.vimeovideos.map((video) => (
+        <div class="bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-orange-500 transition-all transform hover:scale-105">
+{/*           <div class="w-16 h-16 bg-orange-500/10 rounded-lg flex items-center justify-center mb-6">
+            <i class={`${feature.icon} text-4xl text-orange-500`}></i>
+          </div> */}
+          <h3 class="text-2xl font-bold text-white mb-3">{video.text}</h3>
+          <Vimeo id={video.videoID} />
+         {/*  <p class="text-gray-400 leading-relaxed">{video.videoID}</p> */}
+        </div>
+      ))}
+    </div>
+     )}
+  </div>
+</section>
+
