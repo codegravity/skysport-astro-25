@@ -1,0 +1,142 @@
+---
+//import { classes } from '@data/siteData';
+import { Image } from 'astro:assets';
+
+interface ProductContent {
+    title: string;
+    description: string;
+    butikLink: string;
+    product?: {
+        title: string;
+        description: string;
+        productURL: string;
+        mainIMG: string;
+        price: string;
+        features?: {
+          featureIcon: string;
+          featureText: string;
+        }
+        colors?: {
+          productColor: string;
+        }
+        sizes?: {
+          productSizes: string;
+        }
+    }[];
+
+}
+
+interface Props {
+    content: ProductContent;
+}
+
+const { content } = Astro.props;
+---
+
+<section id="classes" class="py-20 dark:bg-slate-800">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white  mb-4">{content.title}</h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        {content.description} <a href={content.butikLink} class="hover:text-amber-500" target="_blank">Här</a>
+      </p>
+    </div>
+<!-- Detailed Classes Section -->
+ 
+    <div class="max-w-7xl mx-auto px-0 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+        {content.product.map((productItem) => (
+          <div class="bg-slate-900 rounded-xl border border-slate-700 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <!-- Image -->
+              <div class="relative h-64 lg:h-auto ">
+                <Image
+                  src={productItem.mainIMG}
+                  alt={productItem.title}
+                  width={800}
+                  height={600}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+{/*                 <div class="absolute top-4 right-4">
+                  <span class="bg-orange-500 text-white text-sm px-4 py-2 rounded-full font-semibold">
+                    {classItem.difficulty}
+                  </span>
+                </div> */}
+              </div>
+              
+              <!-- Content -->
+              <div class="py-8 px-4 sm:p-8">
+                <div class="flex items-center justify-between mb-4">
+                  <h2 class=" px-4 text-2xl md:text-2xl md:px-1 font-bold text-white">{productItem.title} </h2>
+                  
+{/*                   <div class="flex items-center text-gray-400 gap-2">
+                    <i class="ri-time-line text-orange-500"></i>
+                    <span>{classItem.duration}</span>
+                  </div> */}
+                   
+                </div>
+               <p class="text-xl text-left pb-2 font-bold dark:text-white text-orange-500">{productItem.price}</p>
+                <p class="text-gray-300 text-lg  mb-4 leading-relaxed">{productItem.description}</p>
+                
+{/*                 <div class="mb-6">
+                  <p class="text-white font-semibold mb-2">Trainer: <span class="text-orange-500">{productItem.trainer}</span></p>
+                  <p class="text-gray-400 text-sm">What to expect: {productItem.whatToExpect}</p>
+                </div> */}
+                
+                <div class="mb-6">
+                  <h4 class="text-white font-semibold mb-3">Fördelar:</h4>
+                  <ul class="grid grid-cols-1 gap-2">
+                    {productItem.features.map((feature) => (
+                      <li class="flex items-center gap-2 text-gray-300 text-sm">
+                        <i class="ri-checkbox-circle-fill text-orange-500"></i>
+                        {feature.featureText}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                <div class="mb-6">   
+                  <ul class="grid grid-cols-2 gap-2">
+                    <li>
+                      <ul>
+                        <li> <h4 class="text-white font-semibold mb-3">Färger:</h4></li>
+                          {productItem.colors.map((color) => (
+                          <li class="flex items-center gap-2 text-gray-300 text-sm">
+                            <i class="ri-checkbox-circle-fill text-orange-500"></i>
+                            {color.productColor}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                    <li>
+                      <ul>
+                        <li> <h4 class="text-white font-semibold mb-3">Storlekar:</h4></li>
+                          {productItem.sizes.map((size) => (
+                          <li class="flex items-center gap-2 text-gray-300 text-sm">
+                            <i class="ri-checkbox-circle-fill text-orange-500"></i>
+                            {size.productSize}
+                          </li>
+                        ))}
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+                
+                <a
+                  href={productItem.productURL} target="_blank"
+                  class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all"
+                >
+                  Beställa
+                  <i class="ri-arrow-right-line"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+     
+    </div>
+ 
+</section>
+
