@@ -20,6 +20,8 @@ Features:
 - ✅ Preline UI
 - ✅ Astro Navbar
 - ✅ Astro Embed Vimeo
+- ✅ Vanilla calendar-pro
+- ✅ Astro Leaflet
 
 
 ## 🚀 Project Structure

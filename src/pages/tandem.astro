@@ -3,6 +3,9 @@ import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import HeroImage from '../assets/images/paraglide-are.jpg';
 import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
+
+import GoogleMap from '@elements/karta.astro';
+import BookTandem from "@components/sections/TandemBooking.astro";
 import Reco from "@components/sections/RecoBar.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
@@ -20,6 +23,8 @@ const customLastPart = [
     text: "Page 2",
   }, */
 ];
+
+
 
 
 const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
@@ -48,8 +53,8 @@ description="Welcome to Rico's portfolio site! Explore my work as a web/UI desig
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
 
-  <VideoHero content={VideoContent}/> 
-  <div class=" py-4 px-58">
+  <VideoHero content={VideoContent}/>  
+  <div class=" py-4 px-2 md:px-58">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -80,22 +85,12 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
             ><polyline points="9 18 15 12 9 6"></polyline>
         </svg>
     </Breadcrumbs>
-</div>
-  <section
-    class="mt-26 mb-12"
-    data-aos="fade-up-sm"
-    data-aos-delay="100"
-    data-aos-duration="600"
-    data-aos-once="true"
-  >
-     <Reco />
-  </section>
+</div> 
+
+
+<BookTandem />
+
+
+ <GoogleMap />
    
-
- 
-
-
-
-  
-
 </Layout>

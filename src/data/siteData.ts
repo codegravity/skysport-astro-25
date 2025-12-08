@@ -1,8 +1,12 @@
 export const siteData = {
-  name: "FitZone Gym",
+  name: "Skysport",
+  coordinates:  { "lat": 63.402557, "lng": 13.057222 },
   tagline: "Transform Your Body, Transform Your Life",
   description: "Your premier destination for fitness and wellness",
-  address: "123 Fitness Street, Health City, HC 12345",
+  address: {
+    "full": "Årevägen 173, Åre, Sweden, 83752",
+    "short": "Draklanda, Åre",
+  },
   phone: "+1 (555) 123-4567",
   email: "info@fitzonegym.com",
   social: {
@@ -285,6 +289,11 @@ export const faqs = [
     answer: "Yes, we have free parking available for all members. The parking lot is well-lit and secure.",
   },
 ];
+
+ export const coordinates = [
+    { "lat": 63.402557, "lng": 13.057222 },
+ ];
+
 
 export const classSchedule = [
   { week: "6", month: "Feb", datum: "02 - 07", kurs: "Grundkurs", linkDate: "2026-02-02" },

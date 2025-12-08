@@ -14,14 +14,18 @@
     "@astrojs/node": "^9.5.1",
     "@astrojs/rss": "^4.0.14",
     "@astrojs/sitemap": "^3.6.0",
+    "@preline/datepicker": "^3.2.3",
     "@tailwindcss/vite": "^4.1.17",
     "astro": "^5.16.3",
     "astro-breadcrumbs": "^3.3.1",
     "astro-icon": "^1.1.5",
+    "astro-leaflet": "^1.8.1",
     "astro-navbar": "^2.4.0",
     "astro-robots-txt": "^1.0.0",
+    "lodash": "^4.17.21",
     "preline": "^3.2.3",
     "sharp": "^0.34.3",
-    "tailwindcss": "^4.1.17"
+    "tailwindcss": "^4.1.17",
+    "vanilla-calendar-pro": "^3.0.5"
   }
 }

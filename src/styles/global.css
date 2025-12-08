@@ -8,7 +8,15 @@
 
 /* Preline UI */
 @import "preline/variants.css";
-@source "../../node_modules/preline/dist/*.js";
+@import "preline/src/plugins/datepicker/styles.css";
+
+@source "preline/dist/*.js";
+
+@import 'vanilla-calendar-pro/styles/index.css';
+@import "vanilla-calendar-pro/styles/layout.css";
+@import "vanilla-calendar-pro/styles/themes/light.css";
+@import "vanilla-calendar-pro/styles/themes/dark.css";
+
 
 
 
