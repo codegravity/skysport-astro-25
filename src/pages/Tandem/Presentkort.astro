@@ -1,8 +1,5 @@
 ---
-
 import Layout from "@layouts/MainLayout.astro";
-import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from '@assets/images/paraglide-are.jpg';
 import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
 
 import Button from '@components/ui/Button.astro';
@@ -15,42 +12,14 @@ import Carosel from "@components/sections/HeroCarosel.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
-const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
 
-const VideoContent = {
-    title: "Vi erbjuder tandemflyg från Åreskutan året runt",
-    description: "TVi erbjuder tandemflyg från Åreskutan året runt",
-    backgroundVideo: myVideo,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    page: "tandem",
-    position: "justify-end",
-    buttons: [
-        {
-            text: 'Boka Tandem',
-            link: '#bokatandem',
-            target: '_self'
-        },
-        {
-            text: 'Köp Tandem Presentkort',
-            link: '#koppresentkort',
-            target: '_self'
-        },
-        {
-            text: 'Förlänga Tandem Presentkort',
-            link: '#forlanga',
-            target: '_self'
-        },
-
-    ],
-}
 
 const customLastPart = [
   { index: "last", text: "Tandem Presentkort" },
 /*   {
-    "data-link": "home",
-    "aria-label": "Go to the home page",
-    text: "Page 1",
+    "data-link": "/Tandem",
+    "aria-label": "",
+    text: "Tandem start",
   },
   {
     "data-link": "about",
@@ -58,17 +27,16 @@ const customLastPart = [
     text: "Page 2",
   }, */
 ];
----
 
+---
 
 <Layout
 title="Skysport Presentkort för Tandemflyg i Åre"
 description=""
 keywords="Tandemflyg, Paraglide, Presentkort, Åre"
 >
-
- <!--  <VideoHero content={VideoContent}/>  --> 
-  <div class=" py-4 px-2 md:px-58 dark:text-slate-200">
+    <div class="header-offset relative ">&nbsp;</div><!-- header pusher -->
+  <div class="absolute top-22   sm:top-30 py-4 pt-6 px-4 sm:px-8 sm:pt-4 md:top-32 md:py-8 md:pt-5 md:px-12 lg:top-32 lg:pt-6 lg:h-32 dark:text-slate-200">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -100,6 +68,8 @@ keywords="Tandemflyg, Paraglide, Presentkort, Åre"
         </svg>
     </Breadcrumbs>
 </div> 
+
+
  <Carosel />
     <PresentKort />
    <TandemInfo2 />
