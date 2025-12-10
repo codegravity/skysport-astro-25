@@ -1,0 +1,119 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
+import HeroImage from '@assets/images/paraglide-are.jpg';
+import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+
+import Button from '@components/ui/Button.astro';
+import GoogleMap from '@elements/karta.astro';
+
+import TandemInfo from "@components/sections/TandemInfo.astro";
+
+import BookTandem from "@components/sections/TandemBooking.astro";
+
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Tandem" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+
+
+
+const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
+
+const VideoContent = {
+    title: "Vi erbjuder tandemflyg från Åreskutan året runt",
+    description: "TVi erbjuder tandemflyg från Åreskutan året runt",
+    backgroundVideo: myVideo,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+    page: "tandem",
+    position: "justify-end",
+    buttons: [
+        {
+            text: 'Boka Tandem',
+            link: '#bokatandem',
+            target: '_self'
+        },
+        {
+            text: 'Köp Tandem Presentkort',
+            link: '#koppresentkort',
+            target: '_self'
+        },
+        {
+            text: 'Förlänga Tandem Presentkort',
+            link: '#forlanga',
+            target: '_self'
+        },
+
+    ],
+}
+
+const HeroContent = {
+    title: "Tandemflyg hos Skysport",
+    description: "A good place to start.",
+    backgroundImage: HeroImage,
+    overlayOpacity: 0.2
+}
+---
+
+<Layout
+title="Skysport Tandemflyg i Åre"
+description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
+keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
+>
+
+  <VideoHero content={VideoContent}/>  
+  <div class=" py-4 px-2 md:px-58 dark:text-slate-200">
+    <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+        <svg
+            slot="index"
+            aria-label="Home Page"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+            points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </Breadcrumbs>
+</div> 
+
+
+<BookTandem />
+
+
+
+   
+</Layout>

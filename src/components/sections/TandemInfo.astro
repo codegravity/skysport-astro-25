@@ -1,0 +1,103 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+import presentkort from '@assets/images/products/presentkort2.jpg';
+import tandemsummer from '@assets/images/tandem-tandem.jpeg';
+
+---
+
+
+<section class="py-20 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="space-y-16">
+          <div class="bg-slate-900 rounded-xl border border-slate-700 overflow-hidden">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-0">
+              <!-- Image -->
+              <div class="relative h-34 lg:h-64">
+                <Image
+                  src={tandemsummer}
+                  alt='Skysport Tandem Presentkort'
+                  width={1000}
+                  height={1000}
+                  class="w-full h-full object-cover"
+                  loading="lazy"
+                />
+                <div class="absolute top-2 right-4">
+                  <span class=" text-white text-sm px-4 py-0 rounded-full font-semibold">
+                                   <Image
+                  src={presentkort}
+                  alt='Skysport Tandem Presentkort'
+                  width={200}
+                  height={150}
+                  class="w-full h-full object-cover rounded"
+                  loading="lazy"
+                />
+                  </span>
+                </div>
+              </div>
+              
+              <!-- Content -->
+              <div class="p-8">
+                <div class="flex items-center justify-between mb-4">
+                  <h2 class="text-3xl font-bold text-white">För presentkort krävs förskottsbetalning</h2>
+ <!--                  <div class="flex items-center text-gray-400 gap-2">
+                    <i class="ri-time-line text-orange-500"></i>
+                    <span>{classItem.duration}</span>
+                  </div> -->
+                </div>
+                
+                <p class="text-gray-300 text-lg mb-4 leading-relaxed">Betala till vårt Bankgiro: 5334-1764 (Skysport AB)
+Det går även att Swisha till: 1234659926
+Tänk på att ange att betalningen avser presentkort
+Om du betalar från utlandet, finns våra bankuppgifter här</p>
+                
+               <div class="mb-6">
+                <p class="text-gray-300 text-lg mb-4 leading-relaxed">
+                  Skicka sedan ett mail till oss och meddela när du har betalat.  Maila till: bokning@skysport.se  Där infogar du även ett kvitto eller en print screen från din internetbank. </p>
+                <p class="text-gray-300 text-lg mb-4 leading-relaxed">I mailet meddelar du också:</p>
+                <ul class="text-gray-300 text-lg mb-4 leading-relaxed">
+                    <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg class="w-6 h-6 text-fg-success shrink-0 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        <span> - Namn på den som skall flyga</span>
+                    </li>
+                    <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg class="w-6 h-6 text-fg-success shrink-0 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        <span> - Adress dit presentkortet skall skickas eller mailas.</span></li>
+                    <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg class="w-6 h-6 text-fg-success shrink-0 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        <span> - Vilken sort av presentkort (med/utan film)</span></li>
+                </ul>
+                </div> 
+             <div class="mb-6">
+                <p class="text-gray-300 text-lg mb-4 leading-relaxed">
+                Så snart vi har erhållit mailet skickas presentkortet i ett kuvert, alternativt mailas som PDF.
+Behöver du presentkortet snabbt är PDF enklast. Du skriver själv ut presentkortet på ett A4 papper.
+Vanligen levererar vi presentkortet samma dag eller dagen efter vi fått beställningen.</p>
+</div>
+                
+<!--                 <div class="mb-6">
+                  <h4 class="text-white font-semibold mb-3">Key Benefits:</h4>
+                  <ul class="grid grid-cols-2 gap-2">
+                    {classItem.benefits.map((benefit) => (
+                      <li class="flex items-center gap-2 text-gray-300 text-sm">
+                        <i class="ri-checkbox-circle-fill text-orange-500"></i>
+                        {benefit}
+                      </li>
+                    ))}
+                  </ul>
+                </div> -->
+                
+<!--                 <a
+                  href="/contact"
+                  class="inline-flex items-center gap-2 bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-lg font-semibold transition-all"
+                >
+                  Book This Class
+                  <i class="ri-arrow-right-line"></i>
+                </a> -->
+              </div>
+            </div>
+          </div>
+    
+      </div>
+    </div>
+  </section>

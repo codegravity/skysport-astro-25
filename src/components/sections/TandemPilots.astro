@@ -1,0 +1,81 @@
+---
+
+import { Image } from "astro:assets";
+
+import {  pilots  } from "@data/siteData";
+
+const cdnUrl = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/";
+---
+
+
+<!-- Team Section -->
+  <section class="py-20 bg-slate-800">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <h2 class="text-4xl font-bold text-white mb-4 text-center">
+        Tandempiloter 2026
+      </h2>
+      <p class="text-xl text-gray-300 mb-12 text-center max-w-2xl mx-auto">
+        Lite fake text om tandem piloter
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-4 lg:grid-cols-6 gap-8">
+        {
+          pilots.map((pilot, index) => {
+             
+            let className = "";
+            if (index + 1 == 4) {
+              className = "lg:col-start-2";
+            }
+            else if (index + 1 == 5) {
+              className = "md:col-start-2 lg:col-start-4";
+            }
+            return (
+              <div class={`bg-slate-900 p-8 rounded-xl border border-slate-700 hover:border-orange-500 transition-all transform hover:scale-105 md:col-span-2 ${className}`}>
+                <div class="text-center mb-6">
+                  <div class="w-40 h-40 rounded-full mx-auto mb-4 overflow-hidden border-4 border-orange-500/20">
+                 
+                    <Image
+                      src={pilot.bioIMG}
+                      alt={pilot.name}
+                      width={240}
+                      height={240}
+                      class="w-full h-full object-cover"
+                      loading="lazy"
+                      
+                    />
+                  </div>
+                  <h3 class="text-xl font-bold text-white mb-2">
+                    {pilot.name}
+                  </h3>
+                   { pilot.flewSince &&
+                  <p class="text-orange-500 mb-1 font-semibold">
+                   
+                     Flugit sedan {pilot.flewSince} 
+                     
+                  </p>
+                  }
+               {/*    <p class="text-gray-400 text-sm mb-3">
+                    {trainer.specialization}
+                  </p>
+                  <p class="text-gray-500 text-xs">
+                    Flugit sedan {pilot.flewSince} 
+                  </p> */}
+                </div>
+                <p class="text-gray-300 text-sm leading-relaxed mb-4 text-center text-balance">
+                  {pilot.bio}
+                </p>
+                <div class="flex flex-wrap gap-2 justify-center">
+                  {pilot.role.map((jobb) => (
+                     jobb.working &&
+                    <span class="bg-slate-800 text-gray-300 text-xs px-3 py-1 rounded-full border border-slate-700">
+                        {jobb.type}
+                        </span>
+                
+                  ))}
+                </div>
+              </div>
+            );
+          })
+        }
+      </div>
+    </div>
+  </section>
