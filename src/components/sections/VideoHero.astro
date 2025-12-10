@@ -1,6 +1,28 @@
 ---
 //import {  Vimeo, YouTube } from 'astro-embed';
 import { Image } from 'astro:assets';
+import Button from '@components/ui/Button.astro';
+import WindLinks from '@components/elements/windlinks.astro'
+//import { Icon } from 'astro-icon/components';
+
+interface VideoContent {
+    title: string;
+    description: string;
+    descriptionImage: string;
+    backgroundVideo: string;
+        buttons?: {
+        text: string;
+        link: string;
+        target?: string;
+    }[];
+    overlayOpacity?: number; // Value between 0 and 1
+    position: string;
+    page: string;
+}
+
+interface Props {
+    content: VideoContent;
+}
 
 
 
@@ -9,7 +31,9 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const myVideo = content.backgroundVideo;
 const overlayPosition = content.position || "justify-center";
 
-//const pageLink = content.page;
+const pageLink = content.page;
+const currentPage = content.page;
+
 
 ---
 
@@ -17,7 +41,7 @@ const overlayPosition = content.position || "justify-center";
 <section class=" ">
   
     <div class=" absolute inset-0 left-0 top-0 w-full h-screen  overflow-hidden  "> 
-        <video autoplay  muted playsinline class="  min-h-full object-cover "  > 
+        <video   muted playsinline class="  min-h-full object-cover "  > 
     <!--         {content.page === "about" &&  <source src={myVideo} type="video/mp4" /> }
             { content.page === "start" && <source src={myVideo} type="video/mp4" /> }
             {content.page === "tandem" && <source src={myVideo} type="video/mp4" /> } -->
@@ -26,10 +50,25 @@ const overlayPosition = content.position || "justify-center";
         </video> 
     </div> 
     
+    <WindLinks />
+<!--      <div class="absolute top-40 right-4 w-64 bg-white opacity-86 rounded-lg px-4 shadow-xl z-20 ">
+          <div class="flex items-center justify-between">
+            <Icon type="button" name="meteocons--windsock-fill" class=" md:text-6xl text-xl  "/>
+         
+            <div class="w-auto">
+                <a href="https://meac.se/sub_2/hummeln/wind.asp"  target=_blank><span class="flex flex-row justify-between md:w-36 text-sm font-semibold text-slate-900 hover:font-bold hover:text-orange-600">Aktuel vind i Åre <Icon type="button" name="external-link" class=" sm:text-lg text-xl  "/></span></a>
+                <a href="https://www.smhi.se/vader/prognoser-och-varningar/vaderprognos/q/%C3%85reskutan/%C3%85re/2725406" target=_blank><span class="flex flex-row justify-between md:w-36 text-sm font-semibold hover:font-bold text-slate-900 hover:text-orange-600">Vindprognoss Åre <Icon type="button" name="external-link" class=" sm:text-lg text-xl  "/></span></a>
+            </div>  
+          </div>
+        </div>  -->
+
     <div class="hero-background absolute inset-0 left-0 top-0 h-screen  lg:w-full lg:h-full overflow-hidden" style={`opacity: ${opacity};`} ></div>  
    <!-- logo and text overlay -->
-    <div class="site-container mx-auto px-4 pt-0 pb-40 relative z-10 flex flex-col h-screen md:items-center md:justify-end md:text-center"  class:list={overlayPosition} >
+    <div class="site-container mx-auto px-4 pt-0 pb-40 relative z-10 flex flex-col justify-center h-screen sm:items-center md:justify-end sm:text-center"  class:list={overlayPosition} >
         
+  
+
+
         {content.descriptionImage && (
             <div class="">
                 <Image
@@ -37,16 +76,29 @@ const overlayPosition = content.position || "justify-center";
                     alt="Skysport Skärmflygskola"
                     width={486}
                     height={280}
-                    class=" invisible lg:visible"
+                    class=" invisible md:visible"
                     quality={70}
                     format="webp"
-                    loading="eager"
-                    decoding="async"   
+                    loading="lazy"
+                     
                 />
             </div>
         )} 
-        <p class="text-white text-4xl text-balance" data-aos="fade-up">{content.title}</p>
-        <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p> 
+        <p class="text-center text-white text-4xl text-balance " >{content.title}</p>
+        <p class="text-center text-white mt-2 text-balance" >{content.description}</p> 
+        {content.buttons && content.buttons.length > 0 && (
+            <div class="flex  flex-col md:flex-row gap-4 mt-8 items-center" >
+                {content.buttons.map((button) => (
+                    <Button
+                        href={button.link}
+                        target={button.target || '_self'}
+                        variant={button.variant || 'primary'}
+                    >
+                        {button.text}
+                    </Button>
+                ))}
+            </div>
+        )}
  
     </div>
 </section>

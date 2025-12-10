@@ -493,6 +493,194 @@ export const fullSchedule = {
   ],
 };
 
+
+export const pilots = [
+  {
+    name: "Pål Hammar Rognøy",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/polh.jpg",
+    bio: "Född 1973. Uppväxt i Stavanger, Norge. Har bott i Åre sedan 2005. Akrobatik som specialitet.",
+    flewSince: "1997",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: true },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Henry Palacios",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/henry.jpg",
+    bio: "Bor i Åre. Född 1983. Ursprungligen från Equador. Jobbat som tandempilot i Equador och Dubai.",
+    flewSince: "2007",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: true  },
+    ],
+  },
+    {
+    name: "Henning Westgård",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/henne.jpg",
+    bio: "Bor i Åre. Född 1966. ",
+    flewSince: "1992",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Cecilia Granerot",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/ceciliaa.jpg",
+    bio: "Bor i Åre. Född 1979. ",
+    flewSince: "2007",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Emil Krabbe",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/krabbe.jpg",
+    bio: "Bor i Åre. Född 1983. ",
+    flewSince: "2009",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Magnus Hjelm",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mHjelm.jpg",
+    bio: "Bor i Sundsvall. Född 1978. Säsongande tandempilot i Åre ",
+    flewSince: "2009",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Andreas Florén",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/floren.jpg",
+    bio: "Bor i Åre. Född 1980. ",
+    flewSince: "2003",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Jonas Ostwald",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/jonasO.jpg",
+    bio: "Bor i göteborg. Född 1969. ",
+    flewSince: "1995",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Tobbe Hinas",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/tobbe_hinas.jpg",
+    bio: "Bor i Täby. Född 1973. ",
+    flewSince: "1999",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Lars Hedström",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/larssa.jpg",
+    bio: "Bor i Åre. Född 1970. Uppväxt i Åre.  ",
+    flewSince: "1988",
+    role: [
+    { type: "Skysports drift ansvarig", working: true },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: true },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Mats andersson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mats.jpg",
+    bio: "Bor i Lund. Född 1976. Säsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
+    flewSince: "2003",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+   {
+    name: "Mauritz Sjöström",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fakeMurra.jpg",
+    bio: "Bor i Åre. Född 1969. IT ansvarig på Skysport ",
+    flewSince: "2010",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: true  },
+    ],
+  },
+   {
+    name: "Emil Svantesson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fakeEmil.jpg",
+    bio: "Bor i Åre. Född 1996. ",
+    flewSince: "",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: false },
+    { type: "Tandemaspirant", working: true },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+   {
+    name: "Pontus Olsson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fakePontus.jpg",
+    bio: "Bor i Åre. Född 1993. äsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
+    flewSince: "",
+    role: [
+    { type: "Skysports Drift Ansvarig", working: false },
+    { type: "Tandempilot", working: false },
+    { type: "Tandemaspirant", working: true },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+
+];
+
+
 export const trainers = [
   {
     name: "John Smith",

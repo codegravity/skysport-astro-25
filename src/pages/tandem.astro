@@ -4,8 +4,11 @@ import VideoHero from "@components/sections/VideoHero.astro";
 import HeroImage from '../assets/images/paraglide-are.jpg';
 import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 
+import Button from '@components/ui/Button.astro';
 import GoogleMap from '@elements/karta.astro';
 import PresentKort from "@components/sections/TandemPresentKort.astro";
+import TandemInfo from "@components/sections/TandemInfo.astro";
+import TandemInfo2 from "@components/sections/tandeminfo2.astro";
 import BookTandem from "@components/sections/TandemBooking.astro";
 import Reco from "@components/sections/RecoBar.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -31,13 +34,31 @@ const customLastPart = [
 const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
 
 const VideoContent = {
-    title: "Tandemflyg i Åre ",
-    description: "Tandemflygning från Åreskutan.",
+    title: "Vi erbjuder tandemflyg från Åreskutan året runt",
+    description: "TVi erbjuder tandemflyg från Åreskutan året runt",
     backgroundVideo: myVideo,
     descriptionImage: LogoImage,
     overlayOpacity: 0.2,
     page: "tandem",
-    position: "justify-end"
+    position: "justify-end",
+    buttons: [
+        {
+            text: 'Boka Tandem',
+            link: '#bokatandem',
+            target: '_self'
+        },
+        {
+            text: 'Köp Tandem Presentkort',
+            link: '#koppresentkort',
+            target: '_self'
+        },
+        {
+            text: 'Förlänga Tandem Presentkort',
+            link: '#forlanga',
+            target: '_self'
+        },
+
+    ],
 }
 
 const HeroContent = {
@@ -55,7 +76,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 >
 
   <VideoHero content={VideoContent}/>  
-  <div class=" py-4 px-2 md:px-58">
+  <div class=" py-4 px-2 md:px-58 dark:text-slate-200">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -88,7 +109,9 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
     </Breadcrumbs>
 </div> 
 
+
 <PresentKort />
+<TandemInfo2 />
 <BookTandem />
 
 

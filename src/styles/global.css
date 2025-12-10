@@ -5,10 +5,10 @@
  */
 
 @import "tailwindcss";
-
-/* Preline UI */
 @import "preline/variants.css";
 @import "preline/src/plugins/datepicker/styles.css";
+
+
 
 @source "preline/dist/*.js";
 
