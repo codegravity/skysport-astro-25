@@ -1,7 +1,8 @@
 ---
 import "../styles/global.css";
-import { Icon } from 'astro-icon/components'
-import Meta from '@ui//Meta.astro';
+import { ClientRouter } from "astro:transitions";
+import { Icon } from "astro-icon/components";
+import Meta from "@ui//Meta.astro";
 import TopBg from "@ui/TopBg.astro";
 import Banner from "../components/sections/banner.astro";
 import PreFooter from "@components/sections/preFooter.astro";
@@ -15,70 +16,93 @@ import Weather from "@components/sections/WeatherMenu.astro";
 import WeatherMenu from "@collections/menuWeather.json";
 
 interface Props {
-	title?: string | undefined;
-	description?: string | undefined;
-	keywords?: string | undefined;
+  title?: string | undefined;
+  description?: string | undefined;
+  keywords?: string | undefined;
 }
 
-const {
-	title,
-	description,
-	keywords
-} = Astro.props;
+const { title, description, keywords } = Astro.props;
 
 const WeatherContent = {
-    title: "VÄDER",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
-    weatherLinks: WeatherMenu,
-    externalLinkIcon: "external-link",
-}
-
-
-
-
+  title: "VÄDER",
+  description:
+    "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+  weatherLinks: WeatherMenu,
+  externalLinkIcon: "external-link",
+};
 ---
 
 <html lang="">
   <head>
     <meta charset="UTF-8" />
-    <Meta
-      title = {title}
-      description = {description}
-      keywords = {keywords}
-    />
+    <Meta title={title} description={description} keywords={keywords} />
+    <ClientRouter />
     <TrackGa />
     <!-- Used to add dark mode right away, adding here prevents any flicker -->
     <script is:inline>
-      if (typeof Storage !== 'undefined') {
+      if (typeof Storage !== "undefined") {
         if (
-          localStorage.getItem('dark_mode') &&
-          localStorage.getItem('dark_mode') == 'true'
+          localStorage.getItem("dark_mode") &&
+          localStorage.getItem("dark_mode") == "true"
         ) {
-          document.documentElement.classList.add('dark')
+          document.documentElement.classList.add("dark");
         }
       }
     </script>
 
-    <link rel="icon" type="image/x-icon" href="../components/assets/images/logo.png" />
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../components/assets/images/logo.png"
+    />
   </head>
-  <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden">
-   <!--    <TopBg />  --> 
+  <body
+    class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"
+  >
+    <!--    <TopBg />  -->
     <Banner />
-    <HeaderFour/>
-   <!--  <div class="site-container p-4"> -->
-    
+    <HeaderFour />
+    <!--  <div class="site-container p-4"> -->
+
     <slot />
     <PreFooter />
     <Footer />
     <!-- väder side panel -->
-   <div id="hs-offcanvas-example" class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700" role="dialog" tabindex="-1" aria-labelledby="hs-offcanvas-example-label">
-      <div class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700">
-        <h3 id="hs-offcanvas-example-label" class="font-bold text-gray-800 dark:text-white">
+    <div
+      id="hs-offcanvas-example"
+      class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700"
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="hs-offcanvas-example-label"
+    >
+      <div
+        class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700"
+      >
+        <h3
+          id="hs-offcanvas-example-label"
+          class="font-bold text-gray-800 dark:text-white"
+        >
           Väder länkar
         </h3>
-        <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-offcanvas-example">
+        <button
+          type="button"
+          class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+          aria-label="Close"
+          data-hs-overlay="#hs-offcanvas-example"
+        >
           <span class="sr-only">Close</span>
-          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            class="shrink-0 size-4"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M18 6 6 18"></path>
             <path d="m6 6 12 12"></path>
           </svg>
@@ -86,20 +110,47 @@ const WeatherContent = {
       </div>
       <div class="p-4">
         <p class="text-gray-800 dark:text-neutral-400">
-   <Weather content={WeatherContent} />
+          <Weather content={WeatherContent} />
         </p>
       </div>
     </div>
-<!--end väder panel -->
-<!-- väder kontakt panel -->
-   <div id="hs-offcanvas-kontakt" class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700" role="dialog" tabindex="-1" aria-labelledby="hs-offcanvas-kontakt-label">
-      <div class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700">
-        <h3 id="hs-offcanvas-example-label" class="font-bold text-gray-800 dark:text-white">
+    <!--end väder panel -->
+    <!-- väder kontakt panel -->
+    <div
+      id="hs-offcanvas-kontakt"
+      class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700"
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="hs-offcanvas-kontakt-label"
+    >
+      <div
+        class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700"
+      >
+        <h3
+          id="hs-offcanvas-example-label"
+          class="font-bold text-gray-800 dark:text-white"
+        >
           Kontakt
         </h3>
-        <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-offcanvas-kontakt">
+        <button
+          type="button"
+          class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+          aria-label="Close"
+          data-hs-overlay="#hs-offcanvas-kontakt"
+        >
           <span class="sr-only">Close</span>
-          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <svg
+            class="shrink-0 size-4"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
             <path d="M18 6 6 18"></path>
             <path d="m6 6 12 12"></path>
           </svg>
@@ -107,22 +158,29 @@ const WeatherContent = {
       </div>
       <div class="p-4">
         <p class="text-gray-800 dark:text-neutral-400">
-             <p class="text-sm/6 ">0647-51186</p>
-        <p class="text-sm/6 ">070-5699089</p>
-          <p class="text-sm/6 "> <a href="mailto:info@areskutan.se" class="text-sm/6 ">info@areskutan.se</a> </p>
+          <p class="text-sm/6">0647-51186</p>
+          <p class="text-sm/6">070-5699089</p>
+          <p class="text-sm/6">
+            <a href="mailto:info@areskutan.se" class="text-sm/6"
+              >info@areskutan.se</a
+            >
+          </p>
         </p>
       </div>
     </div>
-<!--end kontakt panel -->
-   
-     <!-- Preline UI -->
-      <script>import "preline/dist/preline.js";</script>
-     <!--  <script src="../../node_modules/preline/dist/preline.js"></script> -->
-  <!-- <script is:inline src="../../node_modules/preline/dist/index.js"></script> -->
-      <script> import "lodash/lodash.min.js";</script>
-      <!-- <script>import 'vanilla-calendar-pro/index.js';</script>  -->
-      <!-- <script src="./assets/vendor/vanilla-calendar-pro/index.js"></script> -->
-       <script src="../../node_modules/vanilla-calendar-pro/index.js"></script>
+    <!--end kontakt panel -->
+
+    <!-- Preline UI -->
+    <script>
+      import "preline/dist/preline.js";
+    </script>
+    <!--  <script src="../../node_modules/preline/dist/preline.js"></script> -->
+    <!-- <script is:inline src="../../node_modules/preline/dist/index.js"></script> -->
+    <script>
+      import "lodash/lodash.min.js";
+    </script>
+    <!-- <script>import 'vanilla-calendar-pro/index.js';</script>  -->
+    <!-- <script src="./assets/vendor/vanilla-calendar-pro/index.js"></script> -->
+    <script src="../../node_modules/vanilla-calendar-pro/index.js"></script>
   </body>
- 
 </html>

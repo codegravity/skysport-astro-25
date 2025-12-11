@@ -14,33 +14,26 @@ import robotsTxt from 'astro-robots-txt';
 
 // https://astro.build/config
 export default defineConfig({
-
+  prefetch: true,
   site: 'https://example.com',
 
   integrations: [
-      mdx(), 
-      sitemap(), 
-      icon(),
-      robotsTxt()],
- /*  image: {
-      domains: ["strapi-cdn-2.s3.eu-north-1.amazonaws.com"],
-      service: imageService({
-        placeholder: "blurhash",
-        layout: "constrained",
-      }),
-      
-  }, */
+    mdx(),
+    sitemap(),
+    icon(),
+    robotsTxt()
+  ],
   experimental: {
-     //
+    //
   },
   vite: {
-      plugins: [tailwindcss()],
-      optimizeDeps: {
-        include: ['leaflet'],
-      },
+    plugins: [tailwindcss()],
+    optimizeDeps: {
+      include: ['leaflet'],
+    },
   },
 
-/*   adapter: node({
-    mode: 'standalone',
-  }), */
+  /*   adapter: node({
+      mode: 'standalone',
+    }), */
 });
