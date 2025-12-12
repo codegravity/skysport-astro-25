@@ -22,6 +22,7 @@ Features:
 - ✅ Astro Embed Vimeo
 - ✅ Vanilla calendar-pro
 - ✅ Astro Leaflet
+- ✅ Mux Video player
 
 
 ## 🚀 Project Structure

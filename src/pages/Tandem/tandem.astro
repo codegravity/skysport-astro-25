@@ -11,6 +11,8 @@ import TandemInfo from "@components/sections/TandemInfo.astro";
 
 import BookTandem from "@components/sections/TandemBooking.astro";
 
+import TandemMasonary from "@components/sections/MasonaryCards.astro";
+
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -29,7 +31,25 @@ const customLastPart = [
 ];
 
 const myVideo =
-  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
+  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/vinter_Tandem-dji.mp4";
+const masonV1 =
+  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem-25-m22.mp4";
+const masonV2 =
+  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/humml-summer-tandem-m13.mp4";
+const masonV3 =
+  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandemapril-M6.mp4";
+const masonV4 =
+  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1000tandem-m5.m4v";
+const masonV5 =
+  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem-vinter-klipp-m3.mp4";
+
+const MasonContent = {
+  video1: masonV1,
+  video5: masonV5,
+  video2: masonV2,
+  video3: masonV3,
+  video4: masonV4,
+};
 
 const VideoContent = {
   title: "Vi erbjuder tandemflyg från Åreskutan året runt",
@@ -108,6 +128,7 @@ const HeroContent = {
       </svg>
     </Breadcrumbs>
   </div>
+  <TandemMasonary content={MasonContent} />
 
   <BookTandem />
 </Layout>
