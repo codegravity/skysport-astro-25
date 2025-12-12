@@ -1,20 +1,20 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from "@assets/images/paraglide-are.jpg";
-import LogoImage from "@assets/images/Skysport_Logo-01-invert-468.png";
-
 import Button from "@components/ui/Button.astro";
 import GoogleMap from "@elements/karta.astro";
-
 import TandemInfo from "@components/sections/TandemInfo.astro";
-
 import BookTandem from "@components/sections/TandemBooking.astro";
-
+import FeatureMain from "@components/sections/3imagefeature.astro";
 import TandemMasonary from "@components/sections/MasonaryCards.astro";
-
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
+
+import HeroImage from "@assets/images/paraglide-are.jpg";
+import LogoImage from "@assets/images/Skysport_Logo-01-invert-468.png";
+import featureImg1 from "@assets/images/tandem/tandem111.jpg";
+import featureImg2 from "@assets/images/tandem/aresweden.jpg";
+import featureImg3 from "@assets/images/tandem/magnum3.jpg";
 
 const customLastPart = [
   { index: "last", text: "Tandem" },
@@ -42,6 +42,15 @@ const masonV4 =
   "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1000tandem-m5.m4v";
 const masonV5 =
   "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem-vinter-klipp-m3.mp4";
+
+
+
+
+const Feature3Content = {
+    bild1: featureImg1,
+    bild2: featureImg2,
+    bild3: featureImg3,
+};
 
 const MasonContent = {
   video1: masonV1,
@@ -128,6 +137,8 @@ const HeroContent = {
       </svg>
     </Breadcrumbs>
   </div>
+
+  <FeatureMain content={Feature3Content}/>
   <TandemMasonary content={MasonContent} />
 
   <BookTandem />

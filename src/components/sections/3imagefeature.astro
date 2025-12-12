@@ -1,0 +1,118 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from "astro-icon/components";
+
+interface Feature3Content {
+  bild1: string;
+  bild2: string;
+  bild3: string;
+ 
+}
+
+interface Props {
+  content: Feature3Content;
+}
+const { content } = Astro.props;
+const Img1 = content.bild1;
+const Img2 = content.bild2;
+const Img3 = content.bild3;
+
+---
+
+
+<!-- Features -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Grid -->
+  <div class="lg:grid lg:grid-cols-12 lg:gap-16 lg:items-center">
+    <div class="lg:col-span-7">
+      <!-- Grid -->
+      <div class="grid grid-cols-12 gap-2 sm:gap-6 items-center lg:-translate-x-10">
+        <div class="col-span-4">
+            <Image 
+            src={Img3}
+            alt="Skysports Tandem i Åre"
+            class="w-60 h-auto object-cover rounded-xl"
+            inferSize
+            layout="constrained"
+          />
+          
+        </div>
+        <!-- End Col -->
+
+        <div class="col-span-3">
+                      <Image 
+            src={Img1}
+            alt="Skysports Tandem i Åre"
+            class="w-auto h-75 object-cover rounded-xl"
+            inferSize
+            layout="constrained"
+          />
+        </div>
+        <!-- End Col -->
+
+        <div class="col-span-5">
+                        <Image 
+            src={Img2}
+            alt="Skysports Tandem i Åre"
+            class="w-full h-full object-cover rounded-xl"
+            inferSize
+            layout="constrained"
+          />
+<!--           <img class="rounded-xl" src="https://images.unsplash.com/photo-1600194992440-50b26e0a0309?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=920&q=80" alt="Features Image">
+ -->        </div>
+        <!-- End Col -->
+      </div>
+      <!-- End Grid -->
+    </div>
+    <!-- End Col -->
+
+    <div class="mt-5 sm:mt-10 lg:mt-0 lg:col-span-5">
+      <div class="space-y-6 sm:space-y-8">
+        <!-- Title -->
+        <div class="space-y-2 md:space-y-4">
+          <h2 class="font-bold text-3xl lg:text-4xl text-gray-800 dark:text-neutral-200">
+            Vi erbjuder tandemflyg från Åreskutan året runt
+          </h2>
+          <p class="text-gray-500 dark:text-neutral-500 text-balance">
+            Utan några som helst tidigare kunskaper om skärmflygning kan du efter endast ett par minuters förberedelser koppla ihop dig med en av Skysports instruktörer och sedan flyga som en fågel.
+Hela arrangemanget inkl upptransport, instruktioner, flygning och eftersnack, tar ca 1,5 timme
+          </p>
+        </div>
+        <!-- End Title -->
+
+        <!-- List -->
+        <ul class="space-y-2 sm:space-y-4">
+          <li class="flex gap-x-3">
+            <span class="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+             <Icon type="button" name="solar--info-circle-linear" class=" sm:text-3xl text-2xl md:text-6xl "/>
+            </span>
+            <div class="grow">
+              <span class="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
+                <span class="font-bold">Vi har en åldersgräns på 7 år.</span>
+              </span>
+            </div>
+          </li>
+
+          <li class="flex gap-x-3">
+            <span class="mt-0.5 size-5 flex justify-center items-center rounded-full bg-blue-50 text-blue-600 dark:bg-blue-800/30 dark:text-blue-500">
+                <Icon type="button" name="solar--info-circle-linear" class=" sm:text-3xl text-2xl md:text-6xl "/>
+<!--               <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>
+ -->            </span>
+            <div class="grow">
+              <span class="text-sm sm:text-base text-gray-500 dark:text-neutral-500">
+               <span class="font-bold"> Viktgräns är 135 kg</span>
+              </span>
+            </div>
+          </li>
+        </ul>
+        <!-- End List -->
+                   <p class="text-gray-500 dark:text-neutral-500 text-balance">
+           Det finns möjlighet att köpa till foto/film, som du sedan får med dig på USB eller minneskort
+          </p>
+      </div>
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Grid -->
+</div>
+<!-- End Features -->
