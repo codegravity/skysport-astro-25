@@ -1,6 +1,10 @@
 ---
 import { Image } from 'astro:assets';
 import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
+
+
+
+
 ---
 
 
@@ -43,29 +47,11 @@ import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
                         <!-- Grid -->            
                          <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:gap-6"> 
                             <div class="sm:col-span-full">
-                                <div>
+                                <div class="z-100">
                                     <label for="hs-datum" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white">Önskat Datum
                                         <span class="text-orange-600 sm:text-4xl">*</span> 
                                     </label>
-                                    <input name="hs-datum" type="text" class="hs-datepicker w-s p-2 sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none"
-                                        placeholder="Välj Datum"
-                                        readonly="" 
-                                        data-hs-datepicker='{
-                                                   
-                                                    "selectedTheme": "light",
-                                                    "dateMax": "2030-12-31",
-                                                    "layouts": {
-                                                    "default": "<div class=\"--single-month flex flex-col overflow-hidden\"><div class=\"grid grid-cols-5 items-center gap-x-3 mx-1.5 pb-3\" data-vc=\"header\"><div class=\"col-span-1\"><#CustomArrowPrev /></div><div class=\"col-span-3 flex justify-center items-center gap-x-1\"><#CustomMonth /><span class=\"text-gray-800\">/</span><#CustomYear /></div><div class=\"col-span-1 flex justify-end\"><#CustomArrowNext /></div></div><div data-vc=\"wrapper\"><div data-vc=\"content\"><#Week /><#Dates /></div></div></div><#CustomTime />"
-                                                    },
-                                                    "mode": "custom-select",
-                                                    "inputModeOptions": {
-                                                    "itemsSeparator": " - "
-                                                    },
-                                                    "templates": {
-                                                    "arrowPrev": "<button data-vc-arrow=\"prev\"><svg class=\"shrink-0 size-4\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg></button>",
-                                                    "arrowNext": "<button data-vc-arrow=\"next\"><svg class=\"shrink-0 size-4\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 18 6-6-6-6\"></path></svg></button>"
-                                                    }
-                                    }'>
+                                    <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
                                     <p class="text-left pt-1 text-xs">Välj önskat datum. Vi flyger alla dagar som vädret tillåter, dock ej i november och december. 
                                         I maj månad har vi inte möjlighet att flyga före 22/5.  Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss (senast kl 21.00) 
                                         Tel: 070-2113842.  
@@ -74,26 +60,10 @@ import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
                                 <div class="py-2">
                                     <label for="hs-alt-date" class="block mb-2 text-left text-sm text-gray-200 sm:text-xl font-medium dark:text-white">Alternativ Datum</label>
                                     <!-- Datepicker -->
-                                    <input name="hs-alt-date" class="hs-datepicker  w-s p-2 sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" 
-                                    type="text" 
-                                    placeholder="Välj Datum" 
-                                    readonly="" 
-                                    data-hs-datepicker='{
-                                            "selectionDatesMode": "multiple-ranged",
-                                            "selectedTheme": "light",
-                                            "dateMax": "2050-12-31",
-                                            "layouts": {
-                                            "default": "<div class=\"--single-month flex flex-col overflow-hidden\"><div class=\"grid grid-cols-5 items-center gap-x-3 mx-1.5 pb-3\" data-vc=\"header\"><div class=\"col-span-1\"><#CustomArrowPrev /></div><div class=\"col-span-3 flex justify-center items-center gap-x-1\"><#CustomMonth /><span class=\"text-gray-800\">/</span><#CustomYear /></div><div class=\"col-span-1 flex justify-end\"><#CustomArrowNext /></div></div><div data-vc=\"wrapper\"><div data-vc=\"content\"><#Week /><#Dates /></div></div></div><#CustomTime />"
-                                            },
-                                            "mode": "custom-select",
-                                            "inputModeOptions": {
-                                            "itemsSeparator": " / "
-                                            },
-                                            "templates": {
-                                            "arrowPrev": "<button data-vc-arrow=\"prev\"><svg class=\"shrink-0 size-4\" xmlns=\"http://www.w3.org/2000/svg\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m15 18-6-6 6-6\"></path></svg></button>",
-                                            "arrowNext": "<button data-vc-arrow=\"next\"><svg class=\"shrink-0 size-4\" width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"m9 18 6-6-6-6\"></path></svg></button>"
-                                            }
-                                    }'>
+                                     <input id="flatpickr-altDate" name="hs-alt-date" class="hs-datepicker w-s p-2 sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" type="text" 
+                                            placeholder="Välj alternativ datum" 
+                                    >
+
                                     <!-- End Datepicker -->
                                     <p class="text-left pt-1 text-xs sm:text-s">Om du har flera dagar som alternativ, t ex du är i Åre en weekend eller en hel vecka, kan du informera oss i meddelande rutan.</p>
                                 </div> 
@@ -180,5 +150,24 @@ import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
        </div><!-- end 2 col grid -->
     </div>
   </section>
+<script>
+    import flatpickr from "flatpickr"
+    import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
+    window.addEventListener('load', function () {
+        flatpickr('#flatpickr-date', {
+        monthSelectorType: 'static',
+        'locale': Swedish,
+        weekNumbers: true,
+        minDate: 'today',
+        maxDate: '2026-12-31',
+        })
 
- 
+                flatpickr('#flatpickr-altDate', {
+        monthSelectorType: 'static',
+        'locale': Swedish,
+        weekNumbers: true,
+        minDate: 'today',
+        maxDate: '2026-12-31',
+        })
+    })
+</script>

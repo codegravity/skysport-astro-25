@@ -1,16 +1,18 @@
 ---
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/MainLayout.astro";
-import ImageHero from "@components/sections/ImageHero.astro";
+//import ImageHero from "@components/sections/ImageHero.astro";
 //import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from '../assets/images/IMG_7422.jpg';
-import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
+//import HeroImage from '../assets/images/IMG_7422.jpg';
+//import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 import ThreeCards from "@components/sections/ThreeCards.astro";
 import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
 import CardImage2 from '../assets/images/tandemhenning23.jpg';
 import CardImage3 from '../assets/images/pie3.jpg';
 
-import Reco from "@components/sections/RecoBar.astro";
+//import Book from "@components/sections/TandemBooking.astro";
+
+import Book from "@components/ui/datepick2.astro";
 
 /* const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
 const VideoContent = {
@@ -22,7 +24,7 @@ const VideoContent = {
     page: "start"
 } */
 
-const HeroContent = {
+/* const HeroContent = {
     title: "Om Oss",
     description: " Skysport här varit igång sedan 1991 och är en av Sveriges äldsta skärmflygskolor. Vi håller till i Åre där vi bedriver skärmflygutbildning, tandemflygning, försäljning av utrustning samt arrangerar resor och kurser både i Sverige och utomlands. Vår ambition är att erbjuda högkvalitativa tjänster inom skärmflygning med fokus på säkerhet, glädje och gemenskap.",
     backgroundImage: HeroImage,
@@ -30,9 +32,9 @@ const HeroContent = {
     overlayOpacity: 0.2,
     fadeOut: true,
   
-}
+} */
 
-/* const CardContent = {
+ const CardContent = {
     title1: "Grundkurs",
     description1: "Förverkliga drömmen och lär dig skärmflyga. Under en 5 dagars intensivkurs i Åre flyger du både i liten backe och höjdflyg från Åreskutan. Kursen leder fram till licens.",
     image1: CardImage1,
@@ -55,7 +57,7 @@ const HeroContent = {
     url3right: "/blog",
     linktext3right: "NYHETER",
 
-} */
+} 
 ---
 
 <Layout
@@ -64,10 +66,10 @@ description="Welcome to Rico's portfolio site! Explore my work as a web/UI desig
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
 
-   <ImageHero content={HeroContent}/>  
+<!--    <ImageHero content={HeroContent}/>   -->
     <section >
-    <!--  <ThreeCards content={CardContent}/> -->
-  </section>
+     <ThreeCards content={CardContent}/> 
+  </section> 
 
 
   <section >
@@ -82,6 +84,9 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 </ul>
 </div>
 </section>
+  
+<Book />
+
   <section >
     <div class="site-container px-0 py-6 text-center shadow-xl"></div>
 <!-- Subscribe -->
@@ -107,9 +112,10 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 <!-- End Subscribe -->
  </div>
     </section>
-  <section >
+<!--   <section >
      <Reco />
-  </section>
+  </section> -->
  
 
 </Layout>
+

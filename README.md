@@ -20,7 +20,7 @@ Features:
 - ✅ Preline UI
 - ✅ Astro Navbar
 - ✅ Astro Embed Vimeo
-- ✅ Vanilla calendar-pro
+- ✅ Flat-Pickr date picker
 - ✅ Astro Leaflet
 - ✅ Mux Video player
 

@@ -23,11 +23,11 @@
     "astro-leaflet": "^1.8.1",
     "astro-navbar": "^2.4.0",
     "astro-robots-txt": "^1.0.0",
+    "flatpickr": "^4.6.13",
     "lodash": "^4.17.21",
     "preline": "^3.2.3",
     "sharp": "^0.34.3",
-    "tailwindcss": "^4.1.17",
-    "vanilla-calendar-pro": "^3.0.5"
+    "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
     "eslint": "^9.39.1",

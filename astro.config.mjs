@@ -8,14 +8,12 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import robotsTxt from 'astro-robots-txt';
 
-//import { imageService } from "@unpic/astro/service";
+import node from '@astrojs/node';
 
-//import node from '@astrojs/node';
-
-// https://astro.build/config
 export default defineConfig({
   prefetch: true,
-  site: 'https://example.com',
+  output: 'server',
+  site: 'https://stage.skysport.se',
 
   integrations: [
     mdx(),
@@ -33,7 +31,7 @@ export default defineConfig({
     },
   },
 
-  /*   adapter: node({
+    adapter: node({
       mode: 'standalone',
-    }), */
+    }), 
 });

@@ -55,6 +55,8 @@ const WeatherContent = {
       type="image/x-icon"
       href="../components/assets/images/logo.png"
     />
+    <link rel="stylesheet" href="../../node_modules/flatpickr/dist/flatpickr.css" />
+    <link rel="stylesheet" href="../../node_modules/flatpickr/dist/themes/dark.css" />
   </head>
   <body
     class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"
@@ -171,16 +173,16 @@ const WeatherContent = {
     <!--end kontakt panel -->
 
     <!-- Preline UI -->
-    <script>
-      import "preline/dist/preline.js";
-    </script>
-    <!--  <script src="../../node_modules/preline/dist/preline.js"></script> -->
-    <!-- <script is:inline src="../../node_modules/preline/dist/index.js"></script> -->
-    <script>
-      import "lodash/lodash.min.js";
-    </script>
-    <!-- <script>import 'vanilla-calendar-pro/index.js';</script>  -->
-    <!-- <script src="./assets/vendor/vanilla-calendar-pro/index.js"></script> -->
-    <script src="../../node_modules/vanilla-calendar-pro/index.js"></script>
+<script>  import "preline/dist/preline.js";    </script>
+<script>  import "lodash/lodash.min.js";  </script>
+<script>  import "flatpickr/dist/flatpickr.js"; </script>
+<script>
+      document.addEventListener("astro:page-load", async () => {
+        const preline = await import("preline/dist/preline.js");
+        preline.HSStaticMethods.autoInit();
+      });
+</script>
   </body>
+ 
 </html>
+
