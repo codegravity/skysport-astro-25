@@ -1,6 +1,6 @@
 ---
 import "../styles/global.css";
-import { ClientRouter } from "astro:transitions";
+//import { ClientRouter } from "astro:transitions";
 import { Icon } from "astro-icon/components";
 import Meta from "@ui//Meta.astro";
 import TopBg from "@ui/TopBg.astro";
@@ -36,7 +36,7 @@ const WeatherContent = {
   <head>
     <meta charset="UTF-8" />
     <Meta title={title} description={description} keywords={keywords} />
-    <ClientRouter />
+   <!--  <ClientRouter /> -->
     <TrackGa />
     <!-- Used to add dark mode right away, adding here prevents any flicker -->
     <script is:inline>

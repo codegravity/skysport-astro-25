@@ -154,7 +154,25 @@ import "../../assets/css/flatpickrDark.css";
     import flatpickr from "flatpickr"
     import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
 
-    window.addEventListener('load', function () {
+   function datepickerCG () {
+        flatpickr('#flatpickr-date', {
+        monthSelectorType: 'static',
+        'locale': Swedish,
+        weekNumbers: true,
+        minDate: 'today',
+        maxDate: '2026-12-31',
+        })
+
+        flatpickr('#flatpickr-altDate', {
+        monthSelectorType: 'static',
+        'locale': Swedish,
+        weekNumbers: true,
+        minDate: 'today',
+        maxDate: '2026-12-31',
+        })
+    };
+ datepickerCG();
+ /*    window.addEventListener('load', function () {
         flatpickr('#flatpickr-date', {
         monthSelectorType: 'static',
         'locale': Swedish,
@@ -170,5 +188,5 @@ import "../../assets/css/flatpickrDark.css";
         minDate: 'today',
         maxDate: '2026-12-31',
         })
-    })
+    }) */
 </script>
