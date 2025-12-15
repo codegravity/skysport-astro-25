@@ -8,7 +8,7 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import robotsTxt from 'astro-robots-txt';
 
-import node from '@astrojs/node';
+//import node from '@astrojs/node';
 
 export default defineConfig({
   prefetch: true,
@@ -31,7 +31,7 @@ export default defineConfig({
     },
   },
 
-    adapter: node({
-      mode: 'standalone',
-    }), 
+ //   adapter: node({
+ //     mode: 'standalone',
+ //   }), 
 });
