@@ -13,7 +13,8 @@
 @source "../../node_modules/preline/dist/*.js";
 
 
-
+@import "flatpickr/dist/flatpickr.css";
+@import "flatpickr/dist/themes/dark.css";
 
 
 
