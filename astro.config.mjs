@@ -12,7 +12,7 @@ import robotsTxt from 'astro-robots-txt';
 
 export default defineConfig({
   prefetch: true,
-  output: 'server',
+  output: 'static',
   site: 'https://stage.skysport.se',
 
   integrations: [
