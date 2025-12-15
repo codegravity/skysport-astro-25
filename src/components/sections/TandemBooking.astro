@@ -2,8 +2,8 @@
 import { Image } from 'astro:assets';
 import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
 
-
-
+import "../../assets/css/flatpickr.css";
+import "../../assets/css/flatpickrDark.css";
 
 ---
 
@@ -153,6 +153,7 @@ import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
 <script>
     import flatpickr from "flatpickr"
     import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
+
     window.addEventListener('load', function () {
         flatpickr('#flatpickr-date', {
         monthSelectorType: 'static',
