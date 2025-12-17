@@ -44,7 +44,12 @@ const { content } = Astro.props;
         <nav class="grid gap-4 mt-5 md:mt-10" aria-label="Tabs" role="tablist" aria-orientation="vertical">
             {content.infoCards.map((item) => (
                 
-                <button type="button" class=" hs-tab-active:bg-white cursor-pointer hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active" id={btnID + item.cardNr}  aria-selected="true"  data-hs-tab={dataTab + item.cardNr} aria-controls={btnControls + item.cardNr} role="tab">
+                <button type="button" class=" hs-tab-active:bg-white cursor-pointer hs-tab-active:shadow-md hs-tab-active:hover:border-transparent text-start hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 p-4 md:p-5 rounded-xl dark:hs-tab-active:bg-neutral-700 dark:hover:bg-neutral-700 dark:focus:bg-neutral-700 active"
+                                             id={btnID + item.cardNr}  
+                                             aria-selected="true"  
+                                             data-hs-tab={dataTab + item.cardNr} 
+                                             aria-controls={btnControls + item.cardNr} 
+                                             role="tab">
                     <span class="flex gap-x-6">
                         {item.cardIcon &&
                          <Icon  name={item.cardIcon} class="hidden dark:block sm:text-8xl text-xl "/> 
