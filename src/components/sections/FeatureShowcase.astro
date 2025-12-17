@@ -1,0 +1,135 @@
+---
+import { Image } from "astro:assets";
+
+
+
+import summarSkutan from "@assets/images/tandem/sommar-1536x1536.jpg";
+import tandemLanding from "@assets/images/tandem/sommarskutan1.jpg";
+import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
+import { string } from "astro:schema";
+
+
+interface TandemInfoContent {
+ 
+
+   info1Title: string;
+    info1Text?: string;
+    info1Img?: ImageMetadata;
+    info2Title?: string;
+    info2Text?: string | any;
+    info2Img: ImageMetadata;
+    info3Title: string;
+    info3List?: {
+        listitem: string,
+    }[];
+    info3Img?: ImageMetadata;
+    info4Title?: string;
+    info4Img?: ImageMetadata;
+    info4Test?: string | any;
+    info4List?: {
+        listitem: string,
+    } [];
+    infoCards?: {
+      cardText: string,
+      cardImg:  ImageMetadata,
+
+    }[];
+  
+
+}
+
+interface Props {
+    content: TandemInfoContent;
+} 
+const { content } = Astro.props;
+
+// Content for the section title and subtitle
+const title = `Viktig informationen om`;
+const subTitle = `Mer text  här??`;
+
+// Features list for displaying the key highlights
+
+const features = [
+  {
+    title: content.info1Title, // Feature title
+    description: content.info1Text, // Feature description
+    image: tandemLanding, // Associated image
+    class:
+      "content-center border-b border-dashed border-slate-400 py-5 sm:col-span-2 sm:p-5", // Custom CSS classes for layout and styling
+    alignment: "mx-auto mt-10 rounded-xl shadow-lg sm:w-[75%]", // Alignment and styling for the image
+  },
+  {
+    title: content.info3Title,
+    description: `Choose from <span class="font-bold">30+</span> statistical models and <span class="font-bold">25+</span> visualization templates to unlock insights from any dataset.`,
+    image: tandemLanding,
+    class: "content-center py-5 sm:row-start-2 sm:p-5 sm:py-10",
+    alignment:
+      "ml-auto mr-auto mt-10 w-[65%] rounded-xl shadow-lg sm:ml-0 sm:w-[45%]",
+  },
+  {
+    title: "Smart analysis tools",
+    description:
+      "Let AI do the heavy lifting. Automatically detect patterns, spot anomalies, and get accurate forecasts from your historical data.",
+    image: topStugan,
+    class:
+      "content-center border-t border-dashed border-slate-400 py-5 sm:row-span-2 sm:row-start-2 sm:border-l sm:border-t-0 sm:p-5 sm:text-right",
+    alignment: "ml-auto mr-auto mt-10 w-[80%] rounded-xl shadow-lg sm:mr-0",
+  },
+  {
+    title: content.info3Title,
+    class: "content-center border-t border-dashed border-slate-400 py-5 sm:p-5",
+    moreFeatures: [
+      "Works seamlessly with all modern Excel versions (2013+) on both Windows and Mac",
+      "Build interactive dashboards that update in real-time as your data changes",
+      "Access your insights anywhere through cloud integration with Google Sheets and OneDrive",
+      "Create custom reports that tell your data's story exactly how you want",
+    ],
+  },
+];
+---
+
+<div class="mx-auto max-w-[85rem] px-4 py-10 sm:px-6 md:py-14 lg:px-8 lg:py-20">
+  {/* Section container for the title and subtitle */}
+  <div class="mx-auto mb-10 max-w-2xl text-center lg:mb-14">
+    <h2
+      class="text-balance text-2xl font-semibold text-slate-800 md:text-3xl md:leading-tight"
+    >
+      <Fragment set:html={title} />
+    </h2>
+    <p class="mt-1 text-pretty text-slate-600">
+      <Fragment set:html={subTitle} />
+    </p>
+  </div>
+
+  <div
+    class="mx-auto grid max-w-[85rem] px-4 pb-10 sm:grid-cols-2 sm:grid-rows-3 sm:px-6 lg:px-8 lg:pb-14"
+  >
+    {
+      features.map((feature) => (
+        <div class={`${feature.class}`}>
+          <h2 class="text-2xl font-bold text-slate-600">{feature.title}</h2>
+
+          <p class="mt-2 text-base/6 text-slate-600">
+            <Fragment set:html={feature.description || ""} />
+          </p>
+
+          {feature.image && (
+            <Image
+              class={`${feature.alignment || ""}`}
+              src={feature.image}
+              alt=""
+            />
+          )}
+
+          {content.info3List && (
+            <ul class="ml-4 mt-4 w-4/5 list-inside list-disc space-y-2 text-base/6 text-slate-600 marker:text-teal-600">
+              {content.info3List.map((item) => (
+                <li>{item.listitem}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      ))
+    }
+  </div>
+</div>
