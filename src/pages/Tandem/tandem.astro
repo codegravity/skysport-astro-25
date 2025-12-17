@@ -7,14 +7,22 @@ import TandemInfo from "@components/sections/TandemInfo.astro";
 import BookTandem from "@components/sections/TandemBooking.astro";
 import FeatureMain from "@components/sections/3imagefeature.astro";
 import TandemMasonary from "@components/sections/MasonaryCards.astro";
+import TandemPriceCard from "@widgets/TandemPriceCard.astro";
+import ListWidget from "@widgets/listwidget.astro";
+import VtabInfo from  "@sections/FeatureVtabs.astro";
+import BookingCTA from  "@sections/bookingCTA.astro";
+import Feature50 from  "@sections/Feature-50-50.astro";
+
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
 import HeroImage from "@assets/images/paraglide-are.jpg";
 import LogoImage from "@assets/images/Skysport_Logo-01-invert-468.png";
 import featureImg1 from "@assets/images/tandem/tandem111.jpg";
-import featureImg2 from "@assets/images/tandem/aresweden.jpg";
+import featureImg2 from "@assets/images/tandem/tandemlanding.jpg";
 import featureImg3 from "@assets/images/tandem/magnum3.jpg";
+import tandemLanding from "@assets/images/tandem/sommar-1536x1536.jpg";
+import sommarSkutan from "@assets/images/tandem/sommarskutan1.jpg";
 
 const customLastPart = [
   { index: "last", text: "Tandem" },
@@ -70,11 +78,11 @@ const VideoContent = {
   position: "justify-end",
   buttons: [
     {
-      text: "Boka Tandem",
+      text: "BOKA TANDEM",
       link: "#bokatandem",
       target: "_self",
     },
-    {
+  /*   {
       text: "Köp Tandem Presentkort",
       link: "/Tandem/Presentkort#koppresentkort",
       target: "_self",
@@ -83,7 +91,7 @@ const VideoContent = {
       text: "Förlänga Tandem Presentkort",
       link: "#forlanga",
       target: "_self",
-    },
+    }, */
   ],
 };
 
@@ -93,6 +101,126 @@ const HeroContent = {
   backgroundImage: HeroImage,
   overlayOpacity: 0.2,
 };
+
+const BookingCtaContent = {
+  title: 'Tandem Bokning',
+  text: 'Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss Tel: 070-5699089. Sedan stämmer vi av hur vädret ser ut dagen innan flygningen skall ske, eller på morgonen samma dag.',
+  ctaBild: tandemLanding,
+    buttons: [
+    {
+      text: "Boka Tandemflyg",
+      link: "#bokatandem",
+      target: "_self",
+    },
+  ],
+}
+const TandemPriceCardContent = {
+  tandemProducts:[
+    {
+      title: "Tandemflyg",
+      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      price: "1.800 kr",
+      foto: 0,
+    },
+    {
+      title:  "Tandemflyg med film/foto",
+      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      price: "2.200 kr",
+      foto: 1,
+    }
+  ],
+}
+
+const Feature50Content = {
+     infoTitle: 'Upptransport',
+     infoText: [
+      {
+        preText: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca',
+        spanText: '185 kr',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+            {
+        preText: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar ',
+        spanText: '80 kr',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+     ],
+    infoImg:  sommarSkutan,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "",
+        link: "",
+        target: "_self",
+      },
+    ],
+}
+const  TandemGearListContent = {
+  listTitle: "Utrustning du håller med själv är:",
+  listDescription: '',
+  listIcon: '',
+  listList: [
+    {
+      listItem: 'Stabila skor/kängor, handskar o tunn mössa att ha under hjälmen  (Skulle du inte ha skor har vi 4-5 par i olika storlekar att låna ut)',
+    },
+    {
+      listItem: 'Vi håller med all utrustning som rör själva flygningen'
+    },
+    {
+      listItem: 'Du kan ta med egen hjälm. Men det är inget krav. Vi har hjälmar att låna ut i samtliga storlekar.'
+    },
+  ],
+}
+
+const  TandemVaderListContent = {
+  listTitle: "Väder",
+  listDescription: 'Vi vill att du ska känna 100% säkerhet och trygghet under din flygning. Därför har vi vissa regler som gäller för väder/vind.',
+  listIcon: '',
+  listList: [
+    {
+      listItem: 'Det får inte regna',
+    },
+    {
+      listItem: 'Det får inte blåsa för mycket. Max vind ca 8 m/s'
+    },
+    {
+      listItem: 'Vinden får inte heller vara alltför byig (byvind på över 8 m/s accepteras ej)'
+    },
+    {
+      listItem: 'Det får inte heller finnas dimma eller lågt liggande moln som gör att vi inte har sikt från startplatsen till landningsplatsen'
+    },
+    {
+      listItem: 'Vi har ett 10-tal olika startplatser på Åreskutan. Vi väljer den startplats där vi bedömer att vi kan genomföra en säker start, flygning och landning. Faktorer som styr är vindstyrka, vindriktning, sikt och vilka liftar som är öppna'
+    },
+  ],
+}
+
+const VtabInfoContent = {
+  infoTitle: "Om tandemflyg i Åre.",
+  infoIcon: 'meteocons--windsock-fill',
+  infoCards:[
+    {
+      cardText: "I Åre flyger vi alla månader på året, förutom de mörkaste och  kallaste månaderna på året, november och december. Bäst förutsättningar har vi mellan mars-september.",
+      cardImg: "summarSkutan",
+      cardIcon: '',
+      cardNr: '1',
+    },
+    {
+      cardText: 'Vanligen sker flygningen på förmiddagen, mellan kl 9-12. Senare under dagen/eftermiddagen/kvällen kan också fungera, beroende på väder/årstid. Tiden för flygningen meddelas vanligen kvällen innan. Sista minuten bokning(samma dag) kan göras i mån av plats och om väder/vind är bra.',
+      cardImg: 'topStugan',
+      cardIcon: '',
+      cardNr: '2',
+    },
+    {
+      cardText: 'Samlingsplats för alla tandemflyg är Skysport, som ligger på Årevägen 173 i västra delen av Åre. Det är skyltat från bilvägen och det går att köra ända fram till samlingsplatsen.',
+      cardImg: 'cardImage2',
+      cardIcon: '',
+      cardNr: '3',
+    },
+  ],
+}
 ---
 
 <Layout
@@ -137,9 +265,13 @@ const HeroContent = {
       </svg>
     </Breadcrumbs>
   </div>
-
   <FeatureMain content={Feature3Content}/>
+  <TandemPriceCard content={TandemPriceCardContent} />
+  <Feature50 content={Feature50Content}/>
+  <BookingCTA content={BookingCtaContent}/>
   <TandemMasonary content={MasonContent} />
-
+  <ListWidget content={TandemGearListContent} />
+  <ListWidget content={TandemVaderListContent} />
+  <VtabInfo content={VtabInfoContent} />
   <BookTandem />
 </Layout>
