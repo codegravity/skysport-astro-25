@@ -29,7 +29,9 @@ const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
 const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
-const emailTo = process.env.PUBLIC_EMAIL
+const emailTo1 = process.env.PUBLIC_EMAIL
+
+const emailTo = emailTo1 + ', brett@skysport.se'
 
 export const POST: APIRoute = async ({ request }) => {
 
