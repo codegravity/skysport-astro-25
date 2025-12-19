@@ -17,6 +17,8 @@ interface Props {
     content: TandemPriceCardContent;
 } 
 const { content } = Astro.props;
+
+
 ---
 
 
@@ -24,13 +26,12 @@ const { content } = Astro.props;
              {
       content.tandemProducts && (
         <section class="">
-            <div class="site-container  gap-6 px-0 md:py-24 py-12 px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-1 gap-12 items-center ">
-         { content.tandemProducts.map((tandemproduct) => (
-
-
-
-            <!-- Card -->
             
+           {/*  <div class="site-container  gap-6 px-0 md:py-24 py-12 px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-1 gap-12 items-center "> */}
+            <div class=" gap-6 px-0 m px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-1 gap-8 items-center "><!-- för boka sidan -->
+               
+         { content.tandemProducts.map((tandemproduct) => (
+            <!-- Card -->         
                 <div class="block border border-slate-400 rounded-lg  p-4  dark:border-neutral-700  bg-white dark:bg-slate-600  ">
                     <div class="grid lg:grid-cols-3  gap-2 w-full">
                         { tandemproduct.foto === 0 ? 
@@ -56,7 +57,7 @@ const { content } = Astro.props;
                         </div>
                     </div>   
                     <div class="">
-                        <p class="text-slate-600 dark:text-slate-200 leading-relaxed text-pretty">
+                        <p class="text-slate-600 dark:text-slate-200 leading-relaxed text-balance">
                         {tandemproduct.description}
                         </p>
                     </div>    

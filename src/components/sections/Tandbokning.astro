@@ -17,7 +17,7 @@ page: 'boka',
     },
     {
       title:  "Tandemflyg med film/foto",
-      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      description: "Alla tandemflyg filmas och kan köpas efter flyget för 400 kr/st. Man måste inte köpa filmen om man inte vill. Tandemflyget kostar 1.800 kr",
       price: "2.200 kr",
       foto: 1,
     }
@@ -27,9 +27,8 @@ page: 'boka',
 
 ---
 
-
   <!-- Hero Section -->
-  <section id="bokatandem" class="scroll-m-32 relative md:h-[158vh] min-h-[600px] 2lg:min-h-[800px] pb-16 lg:py-64 flex items-center overflow-hidden">
+  <section id="bokatandem" class=" relative md:h-[158vh] min-h-[600px] 2lg:min-h-[800px] pb-16  flex items-center overflow-hidden">
     <!-- Background Image with Overlay -->
     <div class="absolute inset-0">
       <Image 
@@ -44,14 +43,103 @@ page: 'boka',
     <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
       <div class=" mx-auto text-center grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-2"><!--grid container -->
         <!-- column 1 -->
-        <div class="inline-flex place-content-center flex-col px-0 pt-4 pb-0 md:px-4 md:py-2 md:mb-6 text-white text-sm font-semibold  md:shadow-lg">
+        <div class="inline-flex  flex-col px-0 pt-4 pb-0 md:px-4 md:py-2 md:mb-6 text-white text-sm font-semibold  lg:py-14">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Boka din <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400">
                     Tandemflyg 
                 </span>
                 här.
             </h1>
-             <TandemPriceCard content={TandemPriceCardContent} />
+
+            <div class="w-full bg-neutral-800 rounded-lg shadow-md dark:bg-neutral-800">
+              <div class="hs-accordion-group">
+                <div class="hs-accordion active" id="hs-basic-heading-one">
+                  <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 px-3 md:px-6 py-3 inline-flex items-center gap-x-3 text-sm w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-hidden focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="true" aria-controls="hs-basic-collapse-one">
+                    <svg class="hs-accordion-active:hidden hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 block size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                      <path d="M12 5v14"></path>
+                    </svg>
+                    <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M5 12h14"></path>
+                    </svg>
+                    Priser:
+                  </button>
+                  <div id="hs-basic-collapse-one" class="hs-accordion-content w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-one">
+                    <div class="pb-4 px-0 md:px-6">
+                      
+                        <TandemPriceCard content={TandemPriceCardContent} />
+                    
+                    </div>
+                  </div>
+                </div>
+
+    <div class="hs-accordion" id="hs-basic-heading-two">
+      <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 px-3 md:px-6 py-3 inline-flex items-center gap-x-3 text-sm w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-hidden focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-two">
+        <svg class="hs-accordion-active:hidden hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 block size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg>
+        <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+        </svg>
+        Önskat Datum:
+      </button>
+      <div id="hs-basic-collapse-two" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-two">
+        <div class="pb-4 px-4 md:px-6">
+          <p class="text-sm text-gray-600 dark:text-neutral-200 text-left text-balance">
+            Välj önskat datum. Vi flyger alla dagar som vädret tillåter, dock ej i november och december. I maj månad har vi inte möjlighet att flyga före 22/5.  Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss (senast kl 21.00) Tel: 070-2113842.  
+          </p><br>
+          <p class="text-sm text-gray-600 dark:text-neutral-200 text-left text-balance text-pretty">
+            Om du har flera dagar som alternativ, t ex du är i Åre en weekend eller en hel vecka, kan du informera oss i meddelande rutan.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hs-accordion" id="hs-basic-heading-three">
+      <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 px-3 md:px-6 py-3 inline-flex items-center gap-x-3 text-sm w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-hidden focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-three">
+        <svg class="hs-accordion-active:hidden hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 block size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg>
+        <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+        </svg>
+        Mobil
+      </button>
+      <div id="hs-basic-collapse-three" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-three">
+        <div class="pb-4 px-4 md:px-6">
+          <p class="text-sm text-gray-600 dark:text-neutral-200 text-left text-balance text-pretty">
+            Vi behöver ett mobil nummer för att kontakta dig, angående flygförhållande(väder) och exakt tid för ditt tandemflyg.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hs-accordion" id="hs-basic-heading-four">
+      <button class="hs-accordion-toggle hs-accordion-active:text-blue-600 px-3 md:px-6 py-3 inline-flex items-center gap-x-3 text-sm w-full font-semibold text-start text-gray-800 hover:text-gray-500 focus:outline-hidden focus:text-gray-500 rounded-lg disabled:opacity-50 disabled:pointer-events-none dark:hs-accordion-active:text-blue-500 dark:text-neutral-200 dark:hover:text-neutral-400 dark:focus:text-neutral-400" aria-expanded="false" aria-controls="hs-basic-collapse-four">
+        <svg class="hs-accordion-active:hidden hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 block size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+          <path d="M12 5v14"></path>
+        </svg>
+        <svg class="hs-accordion-active:block hs-accordion-active:text-blue-600 hs-accordion-active:group-hover:text-blue-600 hidden size-4 text-gray-600 group-hover:text-gray-500 dark:text-neutral-400" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M5 12h14"></path>
+        </svg>
+        Upptransport:
+      </button>
+      <div id="hs-basic-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-four">
+        <div class="pb-4 px-4 md:px-6">
+          <p class="text-sm text-gray-600 dark:text-neutral-200 text-left text-balance">
+            Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten 60 kr/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar 185 kr/st.
+  
+          </p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+             
         </div>
       <!-- column 2 -->
         <div class="inline-flex items-center  px-0 md:px-4 md:py-2 md:mb-6  text-sm text-white text-sm">        
@@ -59,36 +147,32 @@ page: 'boka',
                 <div class=" md:max-w-xl mx-auto">
                     <div class="text-left">
                         <h1 class="text-3xl font-bold text-gray-800 sm:text-6xl dark:text-white">TANDEMBOKNING </h1>
-                        <p class="mt-1 sm:text-2xl text-gray-100 dark:text-neutral-200">Vi erbjuder tandemflyg från Åreskutan året runt. </p>
-                    </div>
+<!--                         <p class="mt-1 sm:text-2xl text-gray-100 dark:text-neutral-200">Vi erbjuder tandemflyg från Åreskutan året runt. </p>
+ -->                    </div>
 
                     <div class="mt-6 group:text-left">
                     <!-- Form -->
-                    <form>                      
+                    <form id="booking-form">                      
                         <!-- Grid -->            
-                         <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:gap-6"> 
+                         <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4  lg:grid-cols-3 lg:gap-0"> 
                             <div class="sm:col-span-full">
-                                <div class="z-100">
-                                    <label for="flatpickr-date" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white">Önskat Datum
-                                        <span class="text-orange-600 sm:text-4xl">*</span> 
-                                    
-                                    <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
-                                    </label>
-                                    <p class="text-left pt-1 text-xs">Välj önskat datum. Vi flyger alla dagar som vädret tillåter, dock ej i november och december. 
-                                        I maj månad har vi inte möjlighet att flyga före 22/5.  Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss (senast kl 21.00) 
-                                        Tel: 070-2113842.  
-                                    </p>
-                                </div>
-                                <div class="py-2">
-                                    <label for="flatpickr-altDate" class="block mb-2 text-left text-sm text-gray-200 sm:text-xl font-medium dark:text-white">Alternativ Datum</label>
-                                    <!-- Datepicker -->
-                                     <input id="flatpickr-altDate" name="hs-alt-date" class="hs-datepicker w-s p-2 sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" type="text" 
-                                            placeholder="Välj alternativ datum" 
-                                    >
-
-                                    <!-- End Datepicker -->
-                                    <p class="text-left pt-1 text-xs sm:text-s">Om du har flera dagar som alternativ, t ex du är i Åre en weekend eller en hel vecka, kan du informera oss i meddelande rutan.</p>
-                                </div> 
+                              <div class="">
+                                  <div >
+                                      <label for="flatpickr-date" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white">Önskat Datum
+                                        <span class="text-orange-600 sm:text-4xl">*</span>                              
+                                        <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                                      </label>
+                                      <!-- <p class="text-left pt-1 text-xs">Välj önskat datum. Vi flyger alla dagar som vädret tillåter, dock ej i november och december. 
+                                          I maj månad har vi inte möjlighet att flyga före 22/5.  Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss (senast kl 21.00) 
+                                          Tel: 070-2113842.  
+                                      </p> -->
+                                  </div>
+                                  <div class="py-2">
+                                      <label for="flatpickr-altDate" class="block mb-2 text-left text-sm text-gray-200 sm:text-xl font-medium dark:text-white">Alternativ Datum</label>
+                                      <input id="flatpickr-altDate" name="hs-alt-date" class="hs-datepicker w-s p-2 sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" type="text" placeholder="Välj alternativ datum"  >                
+<!--                                       <p class="text-left pt-1 text-xs sm:text-s">Om du har flera dagar som alternativ, t ex du är i Åre en weekend eller en hel vecka, kan du informera oss i meddelande rutan.</p>
+ -->                                  </div> 
+                              </div>
                                 <div class="py-4 px-0 max-w-[164px] sm:max-w-full"><!-- antal pass  -->
                                     <label for="antalPass" class="block mb-2 text-left text-sm text-gray-200 text-l sm:text-xl font-medium dark:text-white">Antal Passagerera</label>   
                                     <div class="p-2  sm:py-2 sm:px-3 sm:w-xs  border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700">
@@ -128,18 +212,18 @@ page: 'boka',
                                 <label for="hs-mobil" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Mobil<span class="text-orange-600 sm:text-4xl">*</span></label>
                                 <input type="text" name="hs-mobil" id="hs-mobil" placeholder="Mobil nr." class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         </div>
-                        <div class="col-span-2 text-left ">
+                       <!--  <div class="col-span-2 text-left ">
                                 <p class="relative">Vi behöver ett mobil nummer för att kontakta dig, angående flygförhållande(väder) och exakt tid för ditt tandemflyg.</p>
-                        </div>
-                        <p class="py-6 sm:py12 text-left">Alla tandemflyg filmas och kan köpas efter flyget för 400 kr/st. Man måste inte köpa filmen om man inte vill. Tandemflyget kostar 1.800 kr</p>
-                        <p class="py-0 sm:py-0 text-left">Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten 60 kr/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar 185 kr/st.</p>
-               
+                        </div> -->
+<!--                         <p class="py-6 sm:py12 text-left">Alla tandemflyg filmas och kan köpas efter flyget för 400 kr/st. Man måste inte köpa filmen om man inte vill. Tandemflyget kostar 1.800 kr</p>
+                       <p class="py-0 sm:py-0 text-left">Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten 60 kr/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar 185 kr/st.</p>
+ -->               
 
                         <div class="py-6 sm:py12 text-left">
                             <label for="hs-meddelande" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Meddelande</label>
-                            <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Skriv din meddelande här...." data-hs-textarea-auto-height=""></textarea>   
-                            <p>Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande.</p>
-                        </div>
+                            <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." data-hs-textarea-auto-height=""></textarea>   
+<!--                             <p>Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande.</p>
+ -->                        </div>
 
                     
                         </div>
@@ -194,14 +278,19 @@ page: 'boka',
         })
     };
  datepickerCG();
+
+ 
 </script>
 
 <script is:inline>
 
+
+
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
-  saveInput()
+  //saveInput()
   sendmail()
+
 }
 
 const getFormData = () => {
@@ -218,12 +307,12 @@ store.subject = 'Tandem Bokning'
   return store
 }
 
-const saveInput = () => {
+/* const saveInput = () => {
   const { message, subject, ...rest } = getFormData()
   localStorage.setItem('tandembookinfo', JSON.stringify(rest))
-}
+} */
 
-const retrieveInfo = () => {
+/* const retrieveInfo = () => {
   const store = JSON.parse(localStorage.getItem('tandembookinfo') || '{}')
   get('name').value = store.name || ''
   get('email').value = store.email || ''
@@ -234,13 +323,13 @@ const retrieveInfo = () => {
   get('message').value = store.message || ''
   get('checkboxOK').value = store.checkboxOK || ''
    get('subject').value = store.subject || ''
-}
+} */
 // end: localstorage
 
 const submitBtn = document.querySelector('[type="submit"]')
 submitBtn?.addEventListener('click', submitForm)
-retrieveInfo()
-;[...document.querySelectorAll('input')][0]?.focus()
+//retrieveInfo();
+//[...document.querySelectorAll('input')][0]?.focus()
 // window.onload = () => {} // don't know why this wont work
 
 const sendmail = async () => {
@@ -262,8 +351,10 @@ const sendmail = async () => {
       console.log('Error', err)
       throw new Error('Network error.')
     })
+
+
   console.log(data) // Here is the response from backend
    alert('Message successfully sent');
-
+  document.getElementById("booking-form").reset();
 }
 </script>
