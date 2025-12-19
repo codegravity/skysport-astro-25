@@ -173,21 +173,76 @@ import "../../assets/css/flatpickrDark.css";
         })
     };
  datepickerCG();
- /*    window.addEventListener('load', function () {
-        flatpickr('#flatpickr-date', {
-        monthSelectorType: 'static',
-        'locale': Swedish,
-        weekNumbers: true,
-        minDate: 'today',
-        maxDate: '2026-12-31',
-        })
+</script>
 
-                flatpickr('#flatpickr-altDate', {
-        monthSelectorType: 'static',
-        'locale': Swedish,
-        weekNumbers: true,
-        minDate: 'today',
-        maxDate: '2026-12-31',
-        })
-    }) */
+<script is:inline>
+
+const get = (id) => document.getElementById(id) || { value: '' }
+const submitForm = () => {
+  saveInput()
+  sendmail()
+}
+
+const getFormData = () => {
+  const store = Object.create(null)
+  store.altTdate = get('flatpickr-altDate')?.value
+  store.Tdate = get('flatpickr-date')?.value
+  store.TnrPass = get('antalPass')?.value
+  store.name = get('hs-name')?.value
+  store.email = get('hs-email')?.value
+  store.tel = get('hs-mobil')?.value
+  store.message = get('hs-meddelande')?.value
+  store.checkboxOK = get('remember-me')?.value
+store.subject = 'Tandem Bokning'
+  return store
+}
+
+const saveInput = () => {
+  const { message, subject, ...rest } = getFormData()
+  localStorage.setItem('tandembookinfo', JSON.stringify(rest))
+}
+
+const retrieveInfo = () => {
+  const store = JSON.parse(localStorage.getItem('tandembookinfo') || '{}')
+  get('name').value = store.name || ''
+  get('email').value = store.email || ''
+  get('tel').value = store.tel || ''
+  get('Tdate').value = store.Tdate || ''
+  get('altTdate').value = store.altTdate || ''
+  get('TnrPass').value = store.TnrPass || ''
+  get('message').value = store.message || ''
+  get('checkboxOK').value = store.checkboxOK || ''
+   get('subject').value = store.subject || ''
+}
+// end: localstorage
+
+const submitBtn = document.querySelector('[type="submit"]')
+submitBtn?.addEventListener('click', submitForm)
+retrieveInfo()
+;[...document.querySelectorAll('input')][0]?.focus()
+// window.onload = () => {} // don't know why this wont work
+
+const sendmail = async () => {
+  const { name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, subject } = getFormData()
+  const data = await fetch('/api/sendTandemBooking.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, subject }),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log('Error', err)
+      throw new Error('Network error.')
+    })
+  console.log(data) // Here is the response from backend
+   alert('Message successfully sent');
+
+}
 </script>

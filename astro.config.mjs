@@ -8,11 +8,13 @@ import tailwindcss from "@tailwindcss/vite";
 import icon from "astro-icon";
 import robotsTxt from 'astro-robots-txt';
 
-//import node from '@astrojs/node';
+import node from '@astrojs/node';
+
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   prefetch: true,
-  output: 'static',
+  
   site: 'https://stage.skysport.se',
 
   integrations: [
@@ -31,7 +33,7 @@ export default defineConfig({
     },
   },
 
- //   adapter: node({
- //     mode: 'standalone',
- //   }), 
+  output: 'server',
+  
+  adapter: vercel(), 
 });
