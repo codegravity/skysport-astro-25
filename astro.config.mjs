@@ -10,7 +10,7 @@ import robotsTxt from 'astro-robots-txt';
 
 import node from '@astrojs/node';
 
-//import vercel from '@astrojs/vercel';
+import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   prefetch: true,
