@@ -3,6 +3,7 @@ import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components';
 
 interface TandemPriceCardContent {
+    page?: string;
     tandemProducts?: {
         title: string;
         description: string;
@@ -23,7 +24,7 @@ const { content } = Astro.props;
              {
       content.tandemProducts && (
         <section class="">
-            <div class="site-container  gap-6 px-0 md:py-24 py-12 px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center ">
+            <div class="site-container  gap-6 px-0 md:py-24 py-12 px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-1 gap-12 items-center ">
          { content.tandemProducts.map((tandemproduct) => (
 
 

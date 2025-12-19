@@ -1,12 +1,28 @@
 ---
 import { Image } from 'astro:assets';
 import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
-
+import TandemPriceCard from "@widgets/TandemPriceCard.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
 
-
+const TandemPriceCardContent = {
+page: 'boka',
+  tandemProducts:[
+    {
+      title: "Tandemflyg",
+      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      price: "1.800 kr",
+      foto: 0,
+    },
+    {
+      title:  "Tandemflyg med film/foto",
+      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      price: "2.200 kr",
+      foto: 1,
+    }
+  ],
+}
 
 
 ---
@@ -28,19 +44,14 @@ import "@assets/css/flatpickrDark.css";
     <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
       <div class=" mx-auto text-center grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-2"><!--grid container -->
         <!-- column 1 -->
-       
-       
-      
-        <div class="inline-flex items-center  px-0 pt-4 pb-0 md:px-4 md:py-2 md:mb-6 text-white text-sm font-semibold  md:shadow-lg">
-         
-          
+        <div class="inline-flex place-content-center flex-col px-0 pt-4 pb-0 md:px-4 md:py-2 md:mb-6 text-white text-sm font-semibold  md:shadow-lg">
             <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white mb-6 leading-tight">
                 Boka din <span class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 via-teal-400 to-blue-400">
                     Tandemflyg 
                 </span>
                 här.
             </h1>
-         
+             <TandemPriceCard content={TandemPriceCardContent} />
         </div>
       <!-- column 2 -->
         <div class="inline-flex items-center  px-0 md:px-4 md:py-2 md:mb-6  text-sm text-white text-sm">        

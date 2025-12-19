@@ -367,6 +367,15 @@ const isCurrentPage = (link: string) => {
                                  Tandem Pilots
                               </a>
                            </li>
+                           <li class="hover:bg-neutral-100 w-full ">
+                              <a href="/Tandem/Boka" 
+                                 class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                             isCurrentPage('/Tandem/Boka') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             ]}  
+                                 aria-current={isCurrentPage('/Boka') ? 'page' : undefined}>
+                                 Boka
+                              </a>
+                           </li>
                         </ul>
                      </div>
                   </DropdownItems>
