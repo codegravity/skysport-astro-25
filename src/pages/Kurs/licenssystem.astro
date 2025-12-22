@@ -2,42 +2,14 @@
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/MainLayout.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
-import VideoHero from "@components/sections/VideoHero.astro";
+import LicSteps from "@components/sections/LicenceSteps.astro";
+import LicensIntro from "@components/sections/Feature-50-50.astro";
 import HeroImage from '@assets/images/IMG_7595.jpg';
 import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
-import ThreeCards from "@components/sections/ThreeCards.astro";
-import CardImage1 from '@assets/images/mellanmullfjallet27.jpg';
-import CardImage2 from '@assets/images/tandemhenning23.jpg';
-import CardImage3 from '@assets/images/pie3.jpg';
+import LicensFlow from '@assets/images/kurs/Hur-for-jag-licens.jpg';
+import LicensBanner from '@assets/images/kurs/balans.jpg';
+import LicensSystem from '@assets/images/kurs/Licenssystem2.jpg';
 
-import Reco from "@components/sections/RecoBar.astro";
-
-import { Breadcrumbs } from "astro-breadcrumbs";
-import "astro-breadcrumbs/breadcrumbs.css";
-
-const customLastPart = [
-  { index: "last", text: "Om Licensen" },
-/*   {
-    "data-link": "home",
-    "aria-label": "Go to the home page",
-    text: "Page 1",
-  },
-  {
-    "data-link": "about",
-    "aria-label": "Go to the about page",
-    text: "Page 2",
-  }, */
-];
-
-const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
-const VideoContent = {
-    title: "Skärmflyg i Åre ",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
-    backgroundVideo: myVideo,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    page: "start"
-} 
 
 const HeroContent = {
     title: "Skysport Resor 2026",
@@ -49,30 +21,69 @@ const HeroContent = {
   
 }
 
-const CardContent = {
-    title1: "Grundkurs",
-    description1: "Förverkliga drömmen och lär dig skärmflyga. Under en 5 dagars intensivkurs i Åre flyger du både i liten backe och höjdflyg från Åreskutan. Kursen leder fram till licens.",
-    image1: CardImage1,
-    url1left: "start",
-    linktext1left: "Läs Mer",
-    url1right: "",
-    linktext1right: "BOKA",
-    title2: "Tandem",
-    description2: "Tillsammans med en erfaren instruktör flyger du på ett säkert och avslappnat sätt från Åreskutan. Arrangeras dagligen under säsong. Inga förkunskaper krävs.",
-    image2: CardImage2,
-    url2left: "start",
-    linktext2left: "Läs Mer",
-    url2right: "tandem",
-    linktext2right: "BOKA",
-    title3: "Nyheter",
-    description3: "Vinter/Vår 2026:  Vi startar säsongen 2 februari. Under februari-september arrangeras kurser kontinuerligt.",
-    image3: CardImage3,
-    url3left: "",
-    linktext3left: "",
-    url3right: "/blog",
-    linktext3right: "NYHETER",
-
+const Feature50Content = {
+    infoOrientationL: false,
+    infoTitle: 'Licenssystem',
+    infoDescription:'',
+    infoText: [
+        {
+        preText: 'Det finns 3 olika nivåer på licens i Sverige:  Elev, Pilot 1 och Pilot 2. Man kan också ta olika behörigheter. Behörigheten avgör på vilket startsätt och flygsätt du är utbildad: Berg, Vinsch och Hang. Om du vill veta mera om licenssystemet, gå in på Svenska skärmflyg förbundets hemsida och läs mer. I',
+        spanText: 'Utbildningshandboken',
+        spanClasses: 'text-orange-500 font-bold',
+        postText: ' hittar du alla regler som gäller i Sverige.',
+        linkTarget: '_blank',
+        linkURL: '',
+        linkText: '',
+        },
+        {
+        preText: 'I',
+        spanText: ' Utbildningsmanualerna ',
+        spanClasses: 'text-orange-500 font-bold',
+        postText: 'beskrivs hur utbildningen går till, både för licensnivå och behörighet.',
+        linkTarget: '_blank',
+        linkURL: '',
+        linkText: '',
+        },
+    ],
+    infoImg: LicensBanner,
+    infoImg2: LicensSystem
 }
+
+const StegContent = {
+    title: 'Att ta ut Licensen',
+  description: 'För att få ut sin licens från Svenska skärmflygförbundet kan vara lite klurigt och sker i olika steg. Det krävs kontakt med en skärmflygskola men man måste också göra några saker genom Svenska skärmflyg Förbundet.',
+  descriptionImage: LicensFlow,
+  stegTitle: 'Steg till Licens',  
+  stegs: [
+        {
+            Text: 'Anmäl dig på kurs hos Skysport:',
+            LinkURL: '#',
+            LinkText:  'Boka kurs med Skysport',
+        },
+        {
+            Text: 'Teckna Take off kit innan kursstart:',
+            LinkURL: 'https://cloud.paragliding.se/product-category/borja-kurs-los-takeoffkit/',
+            LinkText:  'Take off kit',
+        },
+        {
+            Text: 'Gå kursen på Skysport i Åre.',
+            LinkURL: '#',
+            LinkText:  'Om Skärmflygkurser hos Skysport',
+        },
+        {
+            Text: 'När kursen är färdig och alla moment på elevkortet är ifyllda mejla in det till: kansli@paragliding.se  (OBS gör det på en gång, inga moment får vara mer än 3 månader gamla!)',
+            LinkURL: '#',
+            LinkText:  '',
+        },
+        {
+            Text: 'Gå med i en klubb genom förbundets hemsida: ',
+            LinkURL: 'https://cloud.paragliding.se/product-category/klubbmedlemskap-stod-support-eller-for-nybliven-pilot/',
+            LinkText:  'Gå med en klubb',
+        },
+    ],
+}
+
+
 ---
 
 <Layout
@@ -81,50 +92,13 @@ description="Welcome to Rico's portfolio site! Explore my work as a web/UI desig
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
 
-   <ImageHero content={HeroContent}/>  
-   <div class=" py-4 px-58">
-    <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
-        <svg
-            slot="index"
-            aria-label="Home Page"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
-            points="9 22 9 12 15 12 15 22"></polyline>
-        </svg>
-        <svg
-            slot="separator"
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            ><polyline points="9 18 15 12 9 6"></polyline>
-        </svg>
-    </Breadcrumbs>
+  
+   <div class=" py-8 sm:py-12 px-5">
+    
 </div>
-    <section >
-     <ThreeCards content={CardContent}/>
-  </section>
-  <section >
-     <Reco />
-  </section>
-  <section >
+  <LicensIntro content={Feature50Content} />
 
-</section>
+    <LicSteps content={StegContent}/>
  
-
- 
-
+  
 </Layout>

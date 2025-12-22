@@ -16,20 +16,20 @@ import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
 //const host = import.meta.env.PUBLIC_EMAIL_HOST
 
 // local testing
-/*
+
 const host = "email-smtp.eu-north-1.amazonaws.com"
 const emailTo1 = "astro@codegravity.net"
 const emailUser ="AKIAQPMQAGARF7NITJYL"
 const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
-*/
+
 //EMAIL_PORT = 587
 
-//const emailTo = emailTo1 + ', brett@skysport.se'
-//vercel env
-const emailUser = process.env.PUBLIC_EMAIL_USER
+
+//Note: Vercel env is configured in Vercel app, not from an env file!
+/* const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
-const emailTo1 = process.env.PUBLIC_EMAIL
+const emailTo1 = process.env.PUBLIC_EMAIL */
 
 const emailTo = emailTo1 + ', brett@skysport.se'
 

@@ -10,7 +10,8 @@ import robotsTxt from 'astro-robots-txt';
 
 import node from '@astrojs/node';
 
-import vercel from '@astrojs/vercel';
+// Comment out Vercel for local dev
+//import vercel from '@astrojs/vercel';
 
 export default defineConfig({
   prefetch: true,
@@ -33,11 +34,15 @@ export default defineConfig({
     },
   },
 
-  output: 'server',
-  adapter: vercel(), 
+  //comment out  Vercel  for local dev
+ /*  output: 'server',
+  adapter: vercel(),  */
 
+// use node for local dev
 
-/*   adapter: node({
+ output: 'static',
+adapter: node({
     mode: 'standalone'
-  }) */
+  }) 
+
 });

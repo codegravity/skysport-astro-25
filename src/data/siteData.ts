@@ -17,13 +17,13 @@ export const siteData = {
   },
 };
 
-export const socialLinks = [
+/* export const socialLinks = [
   { name: "facebook", icon: "ri-facebook-fill", label: "Facebook" },
   { name: "instagram", icon: "ri-instagram-fill", label: "Instagram" },
   { name: "twitter", icon: "ri-twitter-x-fill", label: "Twitter" },
   { name: "youtube", icon: "ri-youtube-fill", label: "YouTube" },
 ];
-
+*/
 export const contactInfo = [
   {
     icon: "ri-map-pin-line",
@@ -51,6 +51,7 @@ export const contactInfo = [
   },
 ];
 
+/*
 export const navigation = [
   { name: "Home", href: "/" },
   { name: "About", href: "/about" },
@@ -65,8 +66,8 @@ export const embedVimeo = [
   { name: "Classes", href: "/classes" },
   { name: "Pricing", href: "/pricing" },
   { name: "Contact", href: "/contact" },
-];
-export const features = [
+]; */
+/* export const features = [
   {
     title: "24/7 Access",
     description: "Work out on your schedule with round-the-clock access to our facilities",
@@ -97,9 +98,9 @@ export const features = [
     description: "Join a supportive community of fitness enthusiasts",
     icon: "ri-community-line",
   },
-];
+]; */
 
-export const classes = [
+/* export const classes = [
   {
     name: "HIIT Training",
     description: "High-intensity interval training for maximum calorie burn",
@@ -166,9 +167,9 @@ export const classes = [
     trainer: "John Smith",
     whatToExpect: "Varied workouts, high intensity, supportive community, measurable progress",
   },
-];
+]; */
 
-export const pricingPlans = [
+/* export const pricingPlans = [
   {
     name: "Basic",
     price: "$29",
@@ -207,9 +208,9 @@ export const pricingPlans = [
     ],
     popular: false,
   },
-];
+]; */
 
-export const testimonials = [
+/* export const testimonials = [
   {
     name: "Sarah Johnson",
     role: "Member for 2 years",
@@ -228,9 +229,9 @@ export const testimonials = [
     content: "I love the variety of classes offered. The HIIT sessions are intense but so rewarding. Highly recommend!",
     rating: 5,
   },
-];
+]; */
 
-export const facilities = [
+/* export const facilities = [
   {
     title: "Cardio Zone",
     description: "State-of-the-art treadmills, ellipticals, and bikes",
@@ -261,8 +262,8 @@ export const facilities = [
     description: "Stretching area and foam rollers",
     image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=800&h=600&fit=crop&q=80",
   },
-];
-
+]; */
+/* 
 export const faqs = [
   {
     question: "Do I need to be fit to join?",
@@ -288,7 +289,7 @@ export const faqs = [
     question: "Is there parking available?",
     answer: "Yes, we have free parking available for all members. The parking lot is well-lit and secure.",
   },
-];
+]; */
 
  export const coordinates = [
     { "lat": 63.402557, "lng": 13.057222 },
@@ -390,35 +391,7 @@ export const classSIVSchedule = [
 
 ];
 
-export const successStories = [
-  {
-    name: "Jessica Martinez",
-    age: 32,
-    duration: "8 months",
-    result: "Lost 45 lbs",
-    story: "I was skeptical at first, but FitZone changed my life. The supportive trainers and community kept me motivated. I've never felt better!",
-    beforeImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop&q=80",
-    afterImage: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=400&h=600&fit=crop&q=80",
-  },
-  {
-    name: "David Thompson",
-    age: 28,
-    duration: "6 months",
-    result: "Gained 20 lbs muscle",
-    story: "The strength training program and nutrition guidance helped me build the physique I always wanted. The trainers are true professionals.",
-    beforeImage: "https://images.unsplash.com/photo-1517836357463-d25dfeac3438?w=400&h=600&fit=crop&q=80",
-    afterImage: "https://images.unsplash.com/photo-1540497077202-7c8a3999166f?w=400&h=600&fit=crop&q=80",
-  },
-  {
-    name: "Lisa Anderson",
-    age: 35,
-    duration: "1 year",
-    result: "Completed first marathon",
-    story: "From never running to completing a marathon - FitZone's cardio programs and group classes gave me the endurance and confidence I needed.",
-    beforeImage: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=400&h=600&fit=crop&q=80",
-    afterImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&h=600&fit=crop&q=80",
-  },
-];
+
 
 export const statistics = [
   { number: "500+", label: "Active Members", icon: "ri-user-line" },
@@ -429,69 +402,48 @@ export const statistics = [
   { number: "15+", label: "Years Experience", icon: "ri-award-line" },
 ];
 
-export const fullSchedule = {
-  monday: [
-    { time: "6:00 AM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "7:00 AM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "8:00 AM", class: "Strength Training", trainer: "John Smith" },
-    { time: "9:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "12:00 PM", class: "Pilates", trainer: "Sarah Johnson" },
-    { time: "5:00 PM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "6:00 PM", class: "CrossFit", trainer: "John Smith" },
-    { time: "7:00 PM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-  ],
-  tuesday: [
-    { time: "6:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "7:00 AM", class: "Strength Training", trainer: "John Smith" },
-    { time: "8:00 AM", class: "Pilates", trainer: "Sarah Johnson" },
-    { time: "9:00 AM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "12:00 PM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "5:00 PM", class: "CrossFit", trainer: "John Smith" },
-    { time: "6:00 PM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "7:00 PM", class: "Strength Training", trainer: "John Smith" },
-  ],
-  wednesday: [
-    { time: "6:00 AM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "7:00 AM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "8:00 AM", class: "Strength Training", trainer: "John Smith" },
-    { time: "9:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "12:00 PM", class: "Pilates", trainer: "Sarah Johnson" },
-    { time: "5:00 PM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "6:00 PM", class: "CrossFit", trainer: "John Smith" },
-    { time: "7:00 PM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-  ],
-  thursday: [
-    { time: "6:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "7:00 AM", class: "Strength Training", trainer: "John Smith" },
-    { time: "8:00 AM", class: "Pilates", trainer: "Sarah Johnson" },
-    { time: "9:00 AM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "12:00 PM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "5:00 PM", class: "CrossFit", trainer: "John Smith" },
-    { time: "6:00 PM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "7:00 PM", class: "Strength Training", trainer: "John Smith" },
-  ],
-  friday: [
-    { time: "6:00 AM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "7:00 AM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "8:00 AM", class: "Strength Training", trainer: "John Smith" },
-    { time: "9:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "12:00 PM", class: "Pilates", trainer: "Sarah Johnson" },
-    { time: "5:00 PM", class: "HIIT Training", trainer: "Mike Chen" },
-    { time: "6:00 PM", class: "CrossFit", trainer: "John Smith" },
-    { time: "7:00 PM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-  ],
-  saturday: [
-    { time: "8:00 AM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "9:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-    { time: "10:00 AM", class: "Strength Training", trainer: "John Smith" },
-    { time: "11:00 AM", class: "Pilates", trainer: "Sarah Johnson" },
-  ],
-  sunday: [
-    { time: "9:00 AM", class: "Yoga & Flexibility", trainer: "Sarah Johnson" },
-    { time: "10:00 AM", class: "Pilates", trainer: "Sarah Johnson" },
-    { time: "11:00 AM", class: "Cardio Blast", trainer: "Mike Chen" },
-  ],
-};
+export const instructers = [
+  {
+    name: "Lars Hedström",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/larssa.jpg",
+    bio: "Bor i Åre. Född 1970. Uppväxt i Åre och började flyga på Åreskutan 1988.  ",
+    flewSince: "1988",
+    role: [
+    { type: "Skysports drift ansvarig", working: true },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: true },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Pål Hammar Rognøy",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/polh.jpg",
+    bio: "Född 1973. Uppväxt i Stavanger, Norge. Har bott i Åre sedan 2005. Akrobatik som specialitet.",
+    flewSince: "1997",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: true },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Emil Krabbe",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/krabbe.jpg",
+    bio: "Bor i Åre. Född 1983.Uppväxt i Danmark och började flyga 2009. Instruktör sedan 2022.",
+    flewSince: "2009",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: true },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+];
+
 
 
 export const pilots = [
@@ -556,7 +508,7 @@ export const pilots = [
     { type: "Skysports drift ansvarig", working: false },
     { type: "Tandempilot", working: true },
     { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: false },
+    { type: "Instruktör", working: true },
     { type: "Hjälpinstruktör", working: false  },
     ],
   },

@@ -3,7 +3,8 @@ import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components';
 
 interface TandemPriceCardContent {
-    page?: string;
+    bookingPageClass?: string;
+    bookingPage?: string;
     tandemProducts?: {
         title: string;
         description: string;
@@ -18,7 +19,11 @@ interface Props {
 } 
 const { content } = Astro.props;
 
+const pageKlass = content.bookingPageClass + '  gap-12' + ' max-w-[85rem] '
+//content.bookingPage &&  content.bookingPage ===  'boka' ?
 
+//( const pageClass = 'lg:grid-cols-1') :
+//( const pageClass = 'lg:grid-cols-2'))
 ---
 
 
@@ -28,7 +33,7 @@ const { content } = Astro.props;
         <section class="">
             
            {/*  <div class="site-container  gap-6 px-0 md:py-24 py-12 px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-1 gap-12 items-center "> */}
-            <div class=" gap-6 px-0 m px-4 sm:px-6 lg:px-6 grid grid-cols-1 lg:grid-cols-1 gap-8 items-center "><!-- för boka sidan -->
+            <div class='gap-6 px-0 mx-auto px-4 sm:px-6 lg:px-6 grid grid-cols-1  gap-8 items-center 'class:list={[ pageKlass]}  ><!-- för boka sidan -->
                
          { content.tandemProducts.map((tandemproduct) => (
             <!-- Card -->         
