@@ -1,0 +1,58 @@
+---
+import { Image } from 'astro:assets';
+
+
+interface ImageAndCardContent {
+    title: string;
+    description?: string;
+    bannerImage?: string | any;
+    backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
+    overlayOpacity?: number; 
+    fadeOut?: number;// Value between 0 and 1
+}
+interface Props {
+    content: ImageAndCardContent;
+} 
+const { content } = Astro.props;
+---
+
+<!-- Features -->
+<div class=" px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+
+    <div class="min-h-[35vh] md:min-h-[75vh]  bg-center bg-cover bg-no-repeat relative rounded-xl">
+   {content.bannerImage && (
+                <Image
+                    src={content.bannerImage}
+                    alt="Skärmflyg elever på kurs."
+                    class="w-full lg:h-2/3 object-cover"
+                    //class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-full object-cover rounded-xl"
+                    width={2000}
+                    height={1000}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                />
+            )}
+    
+    <div class="site-container relative md:bottom-30 lg:bottom-20 start-0 md:end-10 lg:end-10 max-w-xs text-center mx-auto p-6 md:start-auto md:text-start md:mx-0">
+      <!-- Card -->
+      <div class="px-5 py-4 inline-block bg-white rounded-lg md:p-7 dark:bg-neutral-800">
+        <div class="hidden md:block">
+          <h3 class="text-lg font-bold text-gray-800 sm:text-2xl dark:text-neutral-200">{content.title}</h3>
+          <p class="mt-2 text-gray-800 dark:text-neutral-200">{content.description && content.description}</p>
+        </div>
+
+       <!--  <div class="md:mt-16">
+          <a class="flex items-center gap-2 text-sm font-medium text-gray-800 hover:text-gray-500 focus:outline-hidden focus:text-gray-500 dark:text-white dark:hover:text-neutral-400 dark:focus:text-neutral-400" href="#">
+            <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="5 3 19 12 5 21 5 3"/></svg>
+            Watch our story
+          </a>
+        </div> -->
+      </div>
+      <!-- End Card -->
+    </div>
+  </div>
+</div>
+<!-- End Features -->
