@@ -35,14 +35,14 @@ export default defineConfig({
   },
 
   //comment out  Vercel  for local dev
-/*    output: 'server',
-  adapter: vercel(),   */
+    output: 'server',
+  adapter: vercel(),   
 
 // use node for local dev
 
-  output: 'static',
+/*   output: 'static',
 adapter: node({
     mode: 'standalone'
-  })  
+  })  */ 
 
 });
