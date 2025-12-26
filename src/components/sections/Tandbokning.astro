@@ -155,7 +155,7 @@ bookingPage : 'boka',
                     <!-- Form -->
                     <form id="booking-form">                      
                         <!-- Grid -->            
-                         <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4  lg:grid-cols-3 lg:gap-0"> 
+                         <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4  lg:grid-cols-3 lg:gap-6"> 
                             <div class="sm:col-span-full">
                               <div class="">
                                   <div >
@@ -198,16 +198,18 @@ bookingPage : 'boka',
                                     </div>
                                 </div>
                                 </div>  
-                            </div>         
-                            <div class="py-2 sm:py-0"><!-- 2 col again -->                                
+                            </div>   </div>    
+                           <!-- End Grid -->    
+                          <div class="grid grid-cols-2 gap-6">
+                            <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
                                 <label for="hs-name" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Namn<span class="text-orange-600 sm:text-4xl">*</span></label>
                                 <input type="text" name="hs-name" id="hs-name" placeholder="Namn" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             </div>   
-                            <div class="py-2 sm:py-0"><!-- col 2 of 2 cols -->
+                            <div class="py-2 sm:py-0  "><!-- col 2 of 2 cols -->
                                 <label for="hs-email" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Email<span class="text-orange-600 sm:text-4xl">*</span></label>
                                 <input type="email" name="hs-email" id="hs-email" placeholder="Email" autocomplete="email" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             </div><!-- end col 2 -->
-                        </div>    <!-- End Grid -->
+                         </div>
 
                         <div class="py-2 sm:py-0">
                                 <label for="hs-mobil" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Mobil<span class="text-orange-600 sm:text-4xl">*</span></label>

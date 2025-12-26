@@ -32,8 +32,6 @@
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {
-    "@types/nodemailer": "^7.0.4",
-    "eslint": "^9.39.1",
-    "prettier": "3.7.4"
+    "@types/nodemailer": "^7.0.4"
   }
 }

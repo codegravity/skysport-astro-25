@@ -3,7 +3,9 @@ import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import HeroImage from '@assets/images/paraglide-are.jpg';
 import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
-import Reco from "@components/sections/RecoBar.astro";
+import Feature50 from  "@sections/Feature-50-50.astro";
+import SivImage from '@assets/images/kurs/siv-inslagg.jpg';
+import SivForm from "@components/elements/forms/SIVForm.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -40,6 +42,47 @@ const HeroContent = {
     backgroundImage: HeroImage,
     overlayOpacity: 0.2
 }
+
+const Feature50Content = {
+     infoTitle: 'Säkerhetskurs i Åre',
+     infoText: [
+      {
+        preText: 'Man kan välja att göra hela kursen eller endast vissa delar. Alla manövrar görs över Åresjön. Bemannad upphämtningsbåt finns på plats. ',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+      {
+        preText: 'Piloten skall bära flytväst och radio. Innan kursen går vi igenom alla manövrar på video.Vi går igenom moment för moment efteråt.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+      {
+        preText: 'Kursen tar ca 2-3 dagar med bra väder. Antalet flyg för att hinna med alla ovanstående moment är ca 4-5 stycken. ',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+      {
+        preText: 'För att kunna gå säkerhetskursen måste du ha gilitig elevlicens eller annan licens av högre nivå. Kursen arrangeras under perioden juni-september.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+     ],
+    //infoDescription1: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca 185 kr.',
+    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
+    infoImg:  SivImage,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "",
+        link: "",
+        target: "_self",
+      },
+    ],
+}
 ---
 
 <Layout
@@ -47,9 +90,7 @@ title="Skysport Tandemflyg i Åre"
 description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
-
-  <VideoHero content={VideoContent}/> 
-  <div class=" py-4 px-58">
+  <div class=" pt-42 px-58">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -80,22 +121,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
             ><polyline points="9 18 15 12 9 6"></polyline>
         </svg>
     </Breadcrumbs>
-</div>
-  <section
-    class="mt-26 mb-12"
-    data-aos="fade-up-sm"
-    data-aos-delay="100"
-    data-aos-duration="600"
-    data-aos-once="true"
-  >
-     <Reco />
-  </section>
-   
-
- 
-
-
-
-  
-
+  </div>
+  <Feature50 content={Feature50Content} />
+  <SivForm />
 </Layout>

@@ -22,353 +22,72 @@ const isCurrentPage = (link: string) => {
     return currentPath.startsWith(link);
 };
 ---
+<section class="fixed top-10 p-5  px-1 sm:top-12 sm:py-2 sm:px-4 z-50 w-full lg:px-6 z-50 bg-white dark:bg-neutral-200  py-1   lg:flex justify-between  gap-5 mx-auto">
+    
+    <header class="relative flex flex-wrap sm:justify-start sm:flex-nowrap w-full bg-white text-sm py-3 dark:bg-neutral-200">
+        <nav class="max-w-[85rem] w-full mx-auto px-4 sm:flex sm:items-center sm:justify-between">
+        <div class="flex items-center justify-between">
+        <a class="flex-none text-xl font-semibold dark:text-white focus:outline-hidden focus:opacity-80" href="#" aria-label="Brand">
+            <a><Logo /></a>
+        </a>
+        <div class="sm:hidden">
+            <button type="button" class="hs-collapse-toggle relative size-9 flex justify-center items-center gap-x-2 rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-transparent dark:border-neutral-700 dark:text-white dark:hover:bg-white/10 dark:focus:bg-white/10" id="hs-navbar-example-collapse" aria-expanded="false" aria-controls="hs-navbar-example" aria-label="Toggle navigation" data-hs-collapse="#hs-navbar-example">
+            <svg class="hs-collapse-open:hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" x2="21" y1="6" y2="6"/><line x1="3" x2="21" y1="12" y2="12"/><line x1="3" x2="21" y1="18" y2="18"/></svg>
+            <svg class="hs-collapse-open:block hidden shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+            <span class="sr-only">Toggle navigation</span>
+            </button>
+        </div>
+        </div>
+        <div id="hs-navbar-example" class="hidden hs-collapse overflow-hidden transition-all duration-300 basis-full grow sm:block" aria-labelledby="hs-navbar-example-collapse">
+        <div class="flex flex-col gap-5 mt-5 sm:flex-row sm:items-center sm:justify-end sm:mt-0 sm:ps-5">
+            <a class="font-medium text-blue-500 focus:outline-hidden" href="/" aria-current="page">Hem</a>
+            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">TANDEM</a>
+            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">RESOR</a>
+            <a class="font-medium text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" href="#">BUTIK</a>
+            <div class="hs-dropdown [--strategy:static] sm:[--strategy:fixed] [--adaptive:none] sm:[--adaptive:adaptive] ">
+            <button id="hs-navbar-example-dropdown" type="button" class="hs-dropdown-toggle flex items-center w-full text-gray-600 hover:text-gray-400 focus:outline-hidden focus:text-gray-400 font-medium dark:text-neutral-400 dark:hover:text-neutral-500 dark:focus:text-neutral-500" aria-haspopup="menu" aria-expanded="false" aria-label="Mega Menu">
+                KURS
+                <svg class="hs-dropdown-open:-rotate-180 sm:hs-dropdown-open:rotate-0 duration-300 ms-1 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
+            </button>
 
-<header class="fixed top-20 sm:top-12 sm:py-0 z-50 w-full px-1 sm:px-4 lg:px-6   z-50  bg-white  py-1   lg:flex justify-between p-5 gap-5 mx-auto"> 
-  <Astronav >
-    <div class="flex w-full  lg:w-auto justify-between items-center ">
-      <a><Logo /></a>
-      <div class="block lg:hidden">
-        <MenuIcon class="w-4 h-4 text-gray-800" />
-      </div>
-    </div>
-    <MenuItems class=" w-full lg:w-auto mt-2 lg:flex lg:mt-0 ">
- <ul class="hidden lg:flex lg:gap-8 items-center">
-        {
-                        headerMenu.map((item, index) => (
-                            <li class="relative group">
-                                <div class="flex items-center gap-1">
-                                    <a
-                                        href={item.link}
-                                        class:list={[
-                                            'text-base font-medium rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                            isCurrentPage(item.link)
-                                                ? 'text-nav-text-current font-semibold'
-                                                : 'text-nav-text hover:text-nav-text-hover',
-                                        ]}
-                                        aria-current={isCurrentPage(item.link) ? 'page' : undefined}
-                                    >
-                                        {item.name}
-                                        {item.children && item.showArrow && (
-                                            <ChevronDown
-                                                size={16}
-                                                class="transform transition-transform inline-block ml-1"
-                                                aria-hidden="true"
-                                            />
-                                        )}
-                                    </a>
-                                    {item.children && (
-                                        <button
-                                            type="button"
-                                            class="sr-only"
-                                            aria-expanded="false"
-                                            aria-label={item.name}
-                                        />
-                                    )}
-                                </div>
-                                {item.children &&  (
-                                    <ul
-                                        class:list={[
-                                            'submenu absolute mt-2 bg-nav-submenu-bg border-black border rounded-md min-w-[200px] transition-all duration-200 opacity-0 invisible overflow-hidden z-50',
-                                            index === headerMenu.length - 1 ? 'right-0' : 'left-0',
-                                        ]}
-                                    >
-                                        {item.children.map((child) => (
-                                            <li>
-                                                <a
-                                                    href={child.link}
-                                                    class:list={[
-                                                        'block px-4 text-small py-2 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-nav-text-active',
-                                                        isCurrentPage(child.link)
-                                                            ? 'text-nav-text-current font-semibold'
-                                                            : 'text-nav-text hover:text-nav-text-hover',
-                                                    ]}
-                                                    aria-current={isCurrentPage(child.link) ? 'page' : undefined}
-                                                >
-                                                    {child.name }
-                                                </a>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                )}
-                            </li>
-                        ))
-                    }
-                </ul>
-
-                <Button href={ctaButton.link} variant="primary">{ctaButton.name}</Button>
-
-                {/* Mobile Menu Button */}
-                <button
-                    class="mobile-menu-button relative z-30 p-2 border-none cursor-pointer bg-transparent lg:hidden"
-                    aria-label="Toggle Menu"
-                    aria-expanded="false"
-                >
-                    <span class="menu-icon block">
-                        <Menu size={24} class="text-body-base" />
-                    </span>
-                    <span class="close-icon hidden">
-                        <X size={24} class="text-white" />
-                    </span>
+            <div class="hs-dropdown-menu transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 z-10 bg-white sm:shadow-md rounded-lg p-1 space-y-1 dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute top-full sm:border border-gray-200 before:-top-5 before:start-0 before:w-full before:h-5 hidden" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown">
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="#">
+                Om Skärmflyg
+                </a>
+                <div class="hs-dropdown [--strategy:static] sm:[--strategy:absolute] [--adaptive:none] relative">
+                <button id="hs-navbar-example-dropdown-sub" type="button" class="hs-dropdown-toggle w-full flex justify-between items-center text-sm text-gray-800 rounded-lg py-2 px-3 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300">
+                    Grundkurs
+                    <svg class="hs-dropdown-open:-rotate-180 sm:hs-dropdown-open:-rotate-90 sm:-rotate-90 duration-300 ms-2 shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                 </button>
 
-                {/* Mobile Menu Panel */}
-                <div
-                    class="mobile-menu fixed inset-0 z-20 px-8 pt-20 bg-primary lg:hidden hidden opacity-0 scale-95 transform transition-all duration-200 ease-out overflow-y-auto"
-                >
-                    <ul class="flex flex-col gap-4">
-                        {
-                            headerMenu.map((item) => (
-                                <li>
-                                    <div class="text-white">
-                                        <div class="flex items-center justify-between">
-                                            <a
-                                                href={item.link}
-                                                class:list={[
-                                                    'py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                    isCurrentPage(item.link)
-                                                        ? 'text-nav-mobile-text-current font-semibold'
-                                                        : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
-                                                ]}
-                                                aria-current={isCurrentPage(item.link) ? 'page' : undefined}
-                                            >
-                                                {item.name}
-                                            </a>
-                                            {item.children && (
-                                                <button
-                                                    class:list={[
-                                                        'mobile-submenu-button p-2 -mr-2 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                        isCurrentPage(item.link)
-                                                            ? 'text-nav-mobile-text-current'
-                                                            : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
-                                                    ]}
-                                                    aria-label={`Toggle ${item.name} submenu`}
-                                                    aria-expanded="false"
-                                                >
-                                                    <ChevronDown
-                                                        size={16}
-                                                        class="transform transition-transform duration-200"
-                                                    />
-                                                </button>
-                                            )}
-                                        </div>
-                                        {item.children && (
-                                            <ul class="mobile-submenu ml-4 mt-2 space-y-2 hidden" role="menu">
-                                                {item.children.map((child) => (
-                                                    <li role="none">
-                                                        <a
-                                                            href={child.link}
-                                                            class:list={[
-                                                                'block py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-nav-mobile-text-active',
-                                                                isCurrentPage(child.link)
-                                                                    ? 'text-nav-mobile-text-current font-semibold'
-                                                                    : 'text-nav-mobile-text hover:text-nav-mobile-text-hover',
-                                                            ]}
-                                                            role="menuitem"
-                                                            aria-current={
-                                                                isCurrentPage(child.link) ? 'page' : undefined
-                                                            }
-                                                        >
-                                                            {child.name}
-                                                        </a>
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        )}
-                                    </div>
-                                </li>
-                            ))
-                        }
-                    </ul>
-       <ul class="flex flex-col lg:flex-row lg:gap-6 items-center w-full lg:w-auto text-lg  text-gray-600 dark:text-neutral-400">
-         
-        <li>
-        
-         <div class="hs-tooltip sm:[--placement:bottom] inline-block">
-            <a class="sm:p-2 font-medium text-blue-500 focus:outline-hidden" href="/" aria-current="page">
-               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
-                  <rect width="28" height="28" fill="none" />
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 12L12 1l11 11m-2-2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10m6 12v-8h6v8" />
-               </svg>
-            </a>  
-            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
-               HEM
-            </span>         
-         </div>
- <!--            <div class="hs-tooltip sm:[--placement:bottom] inline-block">
-                  <a href="/"><Icon name="mingcute--home-4-line" class=" sm:text-2xl md:text-4xl  "/></a>
-                  <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
-                     HEM
-                  </span>
-            </div> 
-         </a> -->
-        </li>
-        <li>
-               <Dropdown class="group">
-                  <button class="flex items-center">
-                     <span>KURS </span>
-                     <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke-width="3"
-                        stroke="currentColor"
-                        class="w-3 h-3 mt-0.5 group-open:rotate-180">
-                        <path
-                           stroke-linecap="round"
-                           stroke-linejoin="round"
-                           d="M19.5 8.25l-7.5 7.5-7.5-7.5"></path>
-                     </svg>
-                  </button>
-                  <DropdownItems class="relative">
-                     <div
-                        class="lg:absolute bg-white top-2 w-40 border shadow rounded p-2">
-                        <ul>
-                           <li>
-                              <a href="#">Menu 1</a>
-                           </li>
-                           <li>
-                              <a href="#">Menu 2</a>
-                           </li>
-                           <li>
-                              <DropdownSubmenu class="group/submenu">
-                                 <button
-                                    class="flex w-full items-center justify-between">
-                                    <span> Dropdown</span>
-                                    <svg
-                                       xmlns="http://www.w3.org/2000/svg"
-                                       fill="none"
-                                       viewBox="0 0 24 24"
-                                       stroke-width="3"
-                                       stroke="currentColor"
-                                       class="w-3 h-3 mt-0.5 group-open/submenu:rotate-180">
-                                       <path
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                                          ></path>
-                                    </svg>
-                                 </button>
-                                 <DropdownItems class="relative">
-                                    <ul
-                                       class="lg:absolute bg-white top-0 left-full w-40 border shadow rounded p-2">
-                                       <li>
-                                          <a href="#">Submenu 1</a>
-                                       </li>
-                                       <li>
-                                          <a href="#">Submenu 2</a>
-                                       </li>
-                                       <li>
-                                          <DropdownSubmenu
-                                             class="group/nestedsubmenu">
-                                             <button
-                                                class="flex w-full items-center justify-between">
-                                                <span>
-                                                Dropdown</span>
-                                                <svg
-                                                   xmlns="http://www.w3.org/2000/svg"
-                                                   fill="none"
-                                                   viewBox="0 0 24 24"
-                                                   stroke-width="3"
-                                                   stroke="currentColor"
-                                                   class="w-3 h-3 mt-0.5 group-open/nestedsubmenu:rotate-180">
-                                                   <path
-                                                      stroke-linecap="round"
-                                                      stroke-linejoin="round"
-                                                      d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                                                      ></path>
-                                                </svg>
-                                             </button>
-                                             <DropdownItems
-                                                class="relative">
-                                                <ul
-                                                   class="lg:absolute bg-white top-0 left-full w-40 border shadow rounded p-2">
-                                                   <li>
-                                                      <a
-                                                         href="#"
-                                                         >Submenu
-                                                      1</a>
-                                                   </li>
-                                                   <li>
-                                                      <a
-                                                         href="#">Submenu
-                                                      2</a>
-                                                   </li>
-                                                </ul>
-                                             </DropdownItems>
-                                          </DropdownSubmenu>
-                                       </li>
-                                    </ul>
-                                 </DropdownItems>
-                              </DropdownSubmenu>
-                           </li>
-                           <li>
-                              <DropdownSubmenu class="group/submenu">
-                                 <button
-                                    class="flex w-full items-center justify-between">
-                                    <span> Dropdown</span>
-                                    <svg
-                                       xmlns="http://www.w3.org/2000/svg"
-                                       fill="none"
-                                       viewBox="0 0 24 24"
-                                       stroke-width="3"
-                                       stroke="currentColor"
-                                       class="w-3 h-3 mt-0.5 group-open/submenu:rotate-180">
-                                       <path
-                                          stroke-linecap="round"
-                                          stroke-linejoin="round"
-                                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                                          ></path>
-                                    </svg>
-                                 </button>
-                                 <DropdownItems class="relative">
-                                    <ul
-                                       class="lg:absolute bg-white top-0 left-full w-40 border shadow rounded p-2">
-                                       <li>
-                                          <a href="#">Submenu 1</a>
-                                       </li>
-                                       <li>
-                                          <a href="#">Submenu 2</a>
-                                       </li>
-                                    </ul>
-                                 </DropdownItems>
-                              </DropdownSubmenu>
-                           </li>
-                        </ul>
-                     </div>
-                  </DropdownItems>
-               </Dropdown>
-            </li>
-            
-               
-            <li><a href="/tandem">TANDEM</a></li>
-            <li>
-               <a href="/resor" 
-                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                              isCurrentPage(pageURL) ? 'text-nav-text-current font-semibold text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
-                              ]}  
-                  aria-current={isCurrentPage('/resor') ? 'page' : undefined}>
-                  RESOR {pageURL}
-               </a>
-            </li>
-            <li>
-            <a href="#">BUTIK</a>
-            </li>
-            <li>
-               <a href="/omoss">OM OSS</a>
-            </li>
-            
-         </ul>
-      </MenuItems>
-   </Astronav>
-</header>
+                <div class="hs-dropdown-menu transition-[opacity,margin] ease-in-out duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 sm:w-48 hidden z-10 sm:mt-2 bg-white sm:shadow-md rounded-lg dark:bg-neutral-800 sm:dark:border dark:border-neutral-700 dark:divide-neutral-700 before:absolute sm:border border-gray-200 before:-end-5 before:top-0 before:h-full before:w-5 sm:mx-2.5! top-0 end-full" role="menu" aria-orientation="vertical" aria-labelledby="hs-navbar-example-dropdown-sub">
+                    <div class="p-1 space-y-1">
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="#">
+                        Om Grundkursen
+                    </a>
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="#">
+                        Kursschema 2026
+                    </a>
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="#">
+                        Presentkort Grundkurs
+                    </a>
+                    <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="#">
+                        Boka
+                    </a>
+                    </div>
+                </div>
+                </div>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="/Kurs/SIV">
+                SIV
+                </a>
+                <a class="flex items-center gap-x-3.5 py-2 px-3 rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-hidden focus:bg-gray-100 dark:text-neutral-400 dark:hover:bg-neutral-700 dark:hover:text-neutral-300 dark:focus:bg-neutral-700 dark:focus:text-neutral-300" href="/Kurs/licenssystem">
+                Om Licensen
+                </a>
+            </div>
+            </div>
+        </div>
+        </div>
+    </nav>
+    </header>
 
-<style>
-
-  .hidden {
-  display: none;
-}
-
-[data-icon="mingcute--home-4-line"] {
-   color: red; 
-}
-</style>
+</section>
