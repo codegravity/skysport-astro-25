@@ -1,27 +1,57 @@
-
-
 {
   "extends": "astro/tsconfigs/strict",
-  "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist"],
+  "include": [
+    ".astro/types.d.ts",
+    "**/*"
+  ],
+  "exclude": [
+    "dist"
+  ],
   "compilerOptions": {
     "strictNullChecks": true,
     "baseUrl": ".",
     "paths": {
-      "@components/*": ["./src/components/*"],
-      "@layouts/*": ["./src/layouts/*"],
-      "@styles/*": ["./src/styles/*"],
-      "@images/*": ["./src/images/*"],
-      "@data/*": ["./src/data/*"],
-      "@utils/*": ["./src/utils/*"],
-      "@assets/*": ["./src/assets/*"],
-      "@config/*": ["./src/config/*"],
-      "@widgets/*": ["./src/components/widgets/*"],
-      "@sections/*": ["./src/components/sections/*"],
-      "@elements/*": ["./src/components/elements/*"],
-      "@collections/*": ["./src/collections/*"],
-      "@ui/*": ["./src/components/ui/*"]
-    }
+      "@components/*": [
+        "./src/components/*"
+      ],
+      "@layouts/*": [
+        "./src/layouts/*"
+      ],
+      "@styles/*": [
+        "./src/styles/*"
+      ],
+      "@images/*": [
+        "./src/images/*"
+      ],
+      "@data/*": [
+        "./src/data/*"
+      ],
+      "@utils/*": [
+        "./src/utils/*"
+      ],
+      "@assets/*": [
+        "./src/assets/*"
+      ],
+      "@config/*": [
+        "./src/config/*"
+      ],
+      "@widgets/*": [
+        "./src/components/widgets/*"
+      ],
+      "@sections/*": [
+        "./src/components/sections/*"
+      ],
+      "@elements/*": [
+        "./src/components/elements/*"
+      ],
+      "@collections/*": [
+        "./src/collections/*"
+      ],
+      "@ui/*": [
+        "./src/components/ui/*"
+      ]
+    },
+    "jsx": "react-jsx",
+    "jsxImportSource": "react"
   }
 }
-
