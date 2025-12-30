@@ -1,0 +1,180 @@
+---
+
+import { siteConfig } from "@config/site";
+
+import Layout from "@layouts/MainLayout.astro";
+
+import FortKurser from "@components/sections/Facilities.astro";
+import ImageHero from "@components/sections/ImageHero.astro";
+//import VideoHero from "@components/sections/VideoHero.astro";
+//import InnerHero from "@components/sections/InnerHero.astro"
+import HangImage from '@assets/images/kurs/hang-po-hummln.jpg';
+import Berg from '@assets/images/kurs/IMG_7038.jpg';
+import pilot1IMG from '@assets/images/kurs/IMG_8964.jpg';
+import pilot2IMG from '@assets/images/kurs/IMG_5851b-1.jpg';
+import Samla from '@assets/images/kurs/1000berg.jpg';
+import VolBivIMG from '@assets/images/kurs/hummeln9.jpg';
+import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+import ThreeCards from "@components/sections/ThreeCards.astro";
+import CardImage1 from '@assets/images/mellanmullfjallet27.jpg';
+import CardImage2 from '@assets/images/tandemhenning23.jpg';
+import CardImage3 from '@assets/images/pie3.jpg';
+
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Om Grundkurs" },
+   {
+    "data-link": "Kurs",
+    "aria-label": "Go to the home page",
+    text: "Kurs",
+  },/*
+  {
+    "data-link": "Grund",
+    "aria-label": "Go to the about page",
+    text: "Grundkurs",
+  }, */
+];
+
+
+
+
+const InnerHeroContent = {
+    title: "Skärmflyg i Åre",
+    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+    backgroundImage: HangImage,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+  
+}
+
+
+ 
+
+const FortKursContent = {
+    title: "Fortsättningkurser hos Skysport",
+    description: "Pilot utbildning slutar inte efter grundkursen. Hos Skysport i Åre erbjuder vi flera olika fortsättningskurser för att du ska kunna utvecklas som skärmflygare.",
+    items:[
+        {
+            title: "Berg och Termik",
+            titleStyle: "text-slate-200",
+            description: "Denna kurs passar för dig som har avslutat en grundkurs(studentlicens) och vill ta behörighet Berg.",
+            image: Berg,
+            buttons: [
+                {
+                text: "BOKA",
+                link: "/Kurs/Fort/berg-termik",
+                target: "_self",
+                },
+            ],
+        },
+        {
+            title: "Samla Flyg",
+            description: "Denna kurs passar dig som har avslutat en grundkurs och vill samla flyg för att så småningom kunna ta Pilot 1 licens.",
+            image: Samla,
+            buttons: [
+                {
+                text: "BOKA",
+                link: "/Kurs/Fort/samlaflyg",
+                target: "_self",
+                },
+            ],
+        },
+        {
+            title: "Pilot 1",
+            description: "Till Pilot 1 licens strävar de flesta nyblivna skärmflygare. Med Pilot 1 får du på egen hand, utan hjälpinstruktör, flyga höjdflyg eller hang. ",
+            image: pilot1IMG,
+            buttons: [
+                {
+                text: "BOKA",
+                link: "/Kurs/Fort/pilot1",
+                target: "_self",
+                },
+            ],
+        },
+        {
+            title: "Pilot 2",
+            description: "Pilot 2 är den högsta licensen du kan ha inom skärmflygning. Därför lägger denna utbildningen extra mycket fokus på teori.",
+            image: pilot2IMG,
+            buttons: [
+                {
+                text: "BOKA",
+                link: "/Kurs/Fort/pilot2",
+                target: "_self",
+                },
+            ],
+        },
+        {
+            title: "Hang",
+            titleStyle: "text-slate-200",
+            description: "Hang kursen är ca 2 dagar lång. Inträdeskravet är god startteknik i vindar upp till 8 m/s. ",
+            image: HangImage,
+            buttons: [
+                {
+                text: "BOKA",
+                link: "/Kurs/Fort/hang",
+                target: "_blank",
+                },
+            ],
+        },
+        {
+            title: "Vol-Biv Årefjällen",
+            description: "Vol Biv? Från franska ”vol bivouac” d.v.s. typ ”flyga campa”",
+            image: VolBivIMG,
+            buttons: [
+                {
+                text: "BOKA",
+                link: "/Kurs/Fort/vol-biv",
+                target: "_self",
+                },
+            ],
+        },
+    ],
+}
+---
+
+<Layout
+title="Fortsättnings kurser i skärmflygning hos Skysport i Åre"
+description=""
+keywords=""
+>
+
+    <div class="py-6 lg:pt-42 px-58">
+        <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+            <svg
+                slot="index"
+                aria-label="Home Page"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+                points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <svg
+                slot="separator"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </Breadcrumbs>
+    </div>
+    <section >
+        <FortKurser content={FortKursContent}/>
+    </section>
+ 
+</Layout>

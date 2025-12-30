@@ -1,0 +1,130 @@
+---
+
+import { siteConfig } from "@config/site";
+
+import Layout from "@layouts/MainLayout.astro";
+
+
+import FeatureMain from "@components/sections/3imagefeature.astro";
+import ListWidget from "@widgets/listwidget.astro";
+import BookingCTA from  "@sections/bookingCTA.astro";
+
+import hummlnHang from "@assets/images/kurs/hang-po-hummln.jpg";
+
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Hangflyg" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+
+
+
+const BookingCtaContent = {
+  title: 'Hangflygkurs på Åreskutan',
+  text: 'Hang kursen är ca 2 dagar lång. Inträdeskravet är god startteknik i vindar upp till 8 m/s. Detta tränas på plan mark eller i svagt sluttande terräng. Vi monterar sedan och justerar in ditt speedsystem, samt kontrollerar att du behärskar öron, och även öron och speed kombinerat. Teorikurs på ca 5 timmar, inkl prov. Hangkursen arrangeras i Åre kontinuerligt under februari-september.  Priset för hangkursen är 4.500 kr.',
+  ctaBild: hummlnHang,
+    buttons: [
+    {
+      text: "Boka Hangkurs",
+      link: "#bokatandem",
+      target: "_self",
+    },
+  ],
+}
+
+const  HangWindListContent = {
+  listTitle: "Hangflyg på Åreskutan",
+  listDescription: 'På Åreskutan finns hang på samtliga vindriktningar:',
+  listIcon: 'wi--day-cloudy-gusts',
+  listIconDark: 'wi--day-cloudy-gusts-white',
+  listList: [
+    {
+      listItem: 'Hummeln, NO, O, S, SV',
+    },
+    {
+      listItem: 'Olympia Berg, S o SV'
+    },
+    {
+      listItem: 'Rappet Väst, V, SV'
+    },
+    {
+      listItem: 'Rappet Syd, S'
+    },
+    {
+      listItem: '1000 m, S, SO'
+    },
+    {
+      listItem: 'Tväråvalvet, NV, N'
+    },
+    {
+      listItem: 'Stendalen, NV, N'
+    },
+  ],
+}
+
+
+---
+
+<Layout
+title="Skysport Skärmflygskola i Åre"
+description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
+keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
+>
+
+
+   <div class=" py-4 px-58">
+    <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+        <svg
+            slot="index"
+            aria-label="Home Page"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+            points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </Breadcrumbs>
+</div>
+   
+ 
+  <section >
+<BookingCTA content={BookingCtaContent}/>
+</section>
+ 
+ <ListWidget content={HangWindListContent} />
+ 
+
+</Layout>
+
