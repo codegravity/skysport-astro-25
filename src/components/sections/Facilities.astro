@@ -1,0 +1,76 @@
+---
+import { Image } from 'astro:assets';
+//import { facilities } from '../data/siteData';
+import Button from "@components/ui/Button.astro";
+interface FortKursContent {
+   
+    title: string;
+    description?: string;
+    items: {
+        title: string;
+        titleStyle?: string;
+        description?: string;
+        image: ImageMetadata;
+        buttons?: {
+            text: string;
+            link: string;
+            target?: string;
+        }[]; 
+    }[],
+}
+
+interface Props {
+    content: FortKursContent;
+} 
+const { content } = Astro.props;
+---
+
+<section id="facilities" class="py-20 bg-slate-900">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="text-center mb-16">
+      <h2 class="text-4xl md:text-5xl font-bold text-white mb-4">{content.title}</h2>
+      <p class="text-xl text-gray-300 max-w-2xl mx-auto">
+        {content.description}
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+      {content.items.map((item) => (
+        <div class="group bg-slate-800 rounded-xl overflow-hidden border border-slate-700 hover:border-orange-500 transition-all transform hover:scale-105">
+          <div class="relative h-64 overflow-hidden">
+            <Image
+              src={item.image}
+              alt={item.title}
+              width={800}
+              height={600}
+              class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+              loading="lazy"
+            />
+            <div class="absolute inset-0 bg-linear-to-t from-slate-900/80 to-transparent"></div>
+            <div class="absolute bottom-4 left-4 right-4">
+              <h4 class="text-2xl font-bold text-slate-200 mb-2">{item.title}</h4>
+            </div>
+          </div>
+          <div class="p-6 min-h-48 flex flex-col justify-between">
+            <p class="text-gray-400 leading-relaxed">{item.description}</p>
+            {
+            item.buttons && item.buttons.length > 0 && (
+                <div class=" flex flex-col md:flex-row gap-4 mt-8 items-center justify-end ">
+                {item.buttons.map((button) => (
+                    <Button
+                    href={button.link}
+                    target={button.target || "_self"}
+                    
+                    >
+                    {button.text}
+                    </Button>
+                ))}
+                </div>
+            )
+            }
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
