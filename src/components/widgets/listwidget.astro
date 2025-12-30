@@ -6,6 +6,7 @@ interface ListContent {
     listTitle: string,
     listDescription: string,
     listIcon?: string,
+    listIconDark?: string,
     listList: {
         listItem: string,
     }[];
@@ -30,6 +31,7 @@ const { content } = Astro.props;
             <li class="w-full px-4 py-2 ">
                 <div class="grid grid-cols-12 ">
                     <div class="py-1  col-span-1 ">
+                       
                         <Icon type="button" name="solar--info-circle-linear" class="dark:hidden sm:text-xl text-xl "/>
                         <Icon type="button" name="solar--info-circle-linear-vit" class="hidden dark:block sm:text-xl text-lg  "/>
                     </div>

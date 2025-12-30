@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
 interface VideoContent {
   title: string;
   description: string;
-  descriptionImage: string;
+  descriptionImage?: string;
   backgroundVideo: string;
   buttons?: {
     text: string;
@@ -19,6 +19,7 @@ interface VideoContent {
   overlayOpacity?: number; // Value between 0 and 1
   position: string;
   page: string;
+  windLinks?: boolean;
 }
 
 interface Props {
@@ -34,6 +35,7 @@ const pageLink = content.page;
 const currentPage = content.page;
 ---
 
+
 <!-- <source src={myVideo} type="video/mp4" />  -->
 <section class="">
   <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden">
@@ -44,8 +46,8 @@ const currentPage = content.page;
       <source src={myVideo} type="video/mp4" />
     </video>
   </div>
-
-  <WindLinks />
+  {content.windLinks && <WindLinks />}
+ 
 
   <div
     class="hero-background absolute inset-0 left-0 top-0 h-screen lg:w-full lg:h-full overflow-hidden"

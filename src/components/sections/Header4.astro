@@ -161,14 +161,21 @@ const isCurrentPage = (link: string) => {
                                     </svg>
                                  </button>
                                  <DropdownItems class="relative">
-                                    <ul
-                                       class="lg:absolute bg-white top-0 left-full w-46 border shadow rounded px-0 py-2">
+                                    <ul  class="lg:absolute bg-white top-0 left-full w-46 border shadow rounded px-0 py-2">
+                                       <li class="hover:bg-neutral-100 w-full ">
+                                          <a href="/Kurs/Fort/" 
+                                 class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                             isCurrentPage('/Kurs/Fort/') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             ]}  
+                                 aria-current={isCurrentPage('/Kurs/Fort/') ? 'page' : undefined}>Fortsättningskurser
+                              </a>
+                                       </li>
                                        <li class="hover:bg-neutral-100 w-full ">
                                           <a href="/Kurs/Fort/kursschema" 
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
                                              isCurrentPage('/Kurs/Fort/kursschema') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('//Kurs/Fort/kursschema') ? 'page' : undefined}>Kursschema 2026
+                                 aria-current={isCurrentPage('/Kurs/Fort/kursschema') ? 'page' : undefined}>Kursschema 2026
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">
@@ -208,7 +215,7 @@ const isCurrentPage = (link: string) => {
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
                                              isCurrentPage('/Kurs/Fort/hang') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('//Kurs/Fort/hang') ? 'page' : undefined}>Hang
+                                 aria-current={isCurrentPage('/Kurs/Fort/hang') ? 'page' : undefined}>Hang
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">
