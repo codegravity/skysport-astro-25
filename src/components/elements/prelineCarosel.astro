@@ -1,4 +1,28 @@
 ---
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import Arrow from '../../icons/icon-arrow.svg'
+
+ interface CarouselContent {
+    title: string,
+    description?: string,
+    carouselItems: {
+        title: string,
+        content: string,
+        cta?: string,
+        image: ImageMetadata,
+        image_alt: string,
+    }[],
+    buttons?: {
+        text: string,
+        link: string,
+        target?: string,
+    }[];
+}
+interface Props {
+  content: CarouselContent;
+}
+const { content } = Astro.props; 
 
 
 ---

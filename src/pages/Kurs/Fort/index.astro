@@ -5,7 +5,9 @@ import { siteConfig } from "@config/site";
 import Layout from "@layouts/MainLayout.astro";
 
 import FortKurser from "@components/sections/Facilities.astro";
-import ImageHero from "@components/sections/ImageHero.astro";
+
+import JumboCarl from "@components/elements/jumboPrelineCarousel.astro";
+import TusanStart from "@assets/images/kurs/1000berg.jpg";
 //import VideoHero from "@components/sections/VideoHero.astro";
 //import InnerHero from "@components/sections/InnerHero.astro"
 import HangImage from '@assets/images/kurs/hang-po-hummln.jpg';
@@ -133,6 +135,42 @@ const FortKursContent = {
         },
     ],
 }
+
+const CarouselContent = {
+  title: 'Berg och Termik',
+  description: 'Denna kurs passar för dig som har avslutat en grundkurs(studentlicens) och vill ta behörighet Berg. Inträdeskrav för att deltaga på kursen är Studentlicens (grundkurs i skärmflygning)',
+  carouselItems: [
+      {
+      title: "I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan. ",
+      content: "<strong>Gondolbana som snabbt transporterar oss upp till startplatsen.</strong> På morgon och kväll finns möjlighet till upptransport med minibuss. Åreskutan har 8 olika startplatser på olika vindriktningar – vilket innebär att vi ofta kan flyga. ",
+      cta: "Boka Berg och Termik kurs",
+      image: TusanStart,
+      image_alt: ""
+    },
+   /*  {
+      title: "We design websites that drive conversions and delight users.",
+      content: "<strong>Experts in imagining future interfaces and experiences.</strong> From UX to creative to analytics, we are there every step of the way.",
+      cta: "Book a website review call",
+      image: "/content-images/blackspike-wallpaper-02.avif",
+      image_alt: ""
+    },
+    {
+      title: "Design across all dimensions",
+      content: "<strong>Outstanding 3D design and concepts.</strong> We provide top-of-the-line 3D modelling services delivered by our skilled team of 3D artists.",
+      cta: "Our 3D Services",
+      image: "/content-images/blackspike-wallpaper-03.avif",
+      image_alt: ""
+    },
+    {
+      title: "Apps for all devices and seasons",
+      content: "<strong>We help companies supercharge their apps by providing world-class, effective design.</strong> Best practice design processes for your products",
+      cta: "Arrange an app demo",
+      image: "/content-images/blackspike-wallpaper-04.avif",
+      image_alt: ""
+    } */
+   
+  ],
+}
 ---
 
 <Layout
@@ -174,6 +212,7 @@ keywords=""
         </Breadcrumbs>
     </div>
     <section >
+        <JumboCarl content={CarouselContent}/>
         <FortKurser content={FortKursContent}/>
     </section>
  

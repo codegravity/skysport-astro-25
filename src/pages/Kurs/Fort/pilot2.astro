@@ -1,22 +1,22 @@
 ---
-
-import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
 
-
 import FeatureMain from "@components/sections/3imagefeature.astro";
-import ListWidget from "@widgets/listwidget.astro";
-import BookingCTA from  "@sections/bookingCTA.astro";
-
+import KursInfo from  "@sections/Feature-50-50.astro";
 import hummlnHang from "@assets/images/kurs/hang-po-hummln.jpg";
+
+import TusanStart from "@assets/images/kurs/1000berg.jpg";
+import SunnyStart from "@assets/images/kurs/IMG_7038.jpg";
+import BergImg1 from "@assets/images/kurs/p12.jpg";
+import BergImg3 from "@assets/images/kurs/IMG_7621.jpg";
+import BergImg4 from "@assets/images/mellanmullfjallet27.jpg";
 
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
 const customLastPart = [
-  { index: "last", text: "Hangflyg" },
+  { index: "last", text: "Pilot 2" },
 /*   {
     "data-link": "home",
     "aria-label": "Go to the home page",
@@ -30,61 +30,88 @@ const customLastPart = [
 ];
 
 
-
 const BookingCtaContent = {
-  title: 'Hangflygkurs på Åreskutan',
-  text: 'Hang kursen är ca 2 dagar lång. Inträdeskravet är god startteknik i vindar upp till 8 m/s. Detta tränas på plan mark eller i svagt sluttande terräng. Vi monterar sedan och justerar in ditt speedsystem, samt kontrollerar att du behärskar öron, och även öron och speed kombinerat. Teorikurs på ca 5 timmar, inkl prov. Hangkursen arrangeras i Åre kontinuerligt under februari-september.  Priset för hangkursen är 4.500 kr.',
+  title: 'Pilot 2',
+  text: 'Denna kurs passar dig som har avslutat en grundkurs och vill samla flyg för att så småningom kunna ta Pilot 1 licens. Inträdeskrav för att deltaga på kursen är Studentlicens. Om du inte har bergsbehörigheten sedan tidigare, tar du den samtidigt som du samlar flyg.',
   ctaBild: hummlnHang,
     buttons: [
     {
-      text: "Boka Hangkurs",
-      link: "#bokatandem",
+      text: "Boka Samla Flyg",
+      link: "/Kurs/Fort/boka",
       target: "_self",
     },
   ],
 }
 
-const  HangWindListContent = {
-  listTitle: "Hangflyg på Åreskutan",
-  listDescription: 'På Åreskutan finns hang på samtliga vindriktningar:',
-  listIcon: 'wi--day-cloudy-gusts',
-  listIconDark: 'wi--day-cloudy-gusts-white',
-  listList: [
-    {
-      listItem: 'Hummeln, NO, O, S, SV',
-    },
-    {
-      listItem: 'Olympia Berg, S o SV'
-    },
-    {
-      listItem: 'Rappet Väst, V, SV'
-    },
-    {
-      listItem: 'Rappet Syd, S'
-    },
-    {
-      listItem: '1000 m, S, SO'
-    },
-    {
-      listItem: 'Tväråvalvet, NV, N'
-    },
-    {
-      listItem: 'Stendalen, NV, N'
-    },
-  ],
+const Feature50Content = {
+     infoTitle: 'Pilot 2',
+     infoOrientationL: true,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'berg',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: 'Pilot 2 är den högsta licensen du kan ha inom skärmflygning. Därför lägger denna utbildningen extra mycket fokus på teori. Du skall läsa samtliga kapitel i boken ”Lär dig flyga skärm”. Dessutom komplettera med SSFF:s föreskrifter. Vi håller också extra fördjupad teoriundervisning för flyglära och flygmanövrar.',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      },
+     ],
+    infoImg:  BergImg1,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Pilot 2",
+        link: "/Kurs/Fort/boka",
+        target: "_self",
+      },
+    ],
+}
+const Feature50Content3 = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoAnchorLink: 'berg3',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: ' Uppflygningen består av minst 5 st flyg där du uppvisar att du behärskar flygning i stigande luft på ett bra sätt. Du skall ha en bra och säker flygteknik i både hang och termik. Pricklandning skall ske inom en radie på 20 meter (4 av 5 flyg). Klarar du dessa moment, inkl teoriprovet, samt bedöms lämplig, erhåller du Pilot 2 licens.',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      }, 
+      {
+        preText: ' ',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      }, 
+     ],
+    infoImg:  BergImg3,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Pilot 2",
+        link: "/Kurs/Fort/boka",
+        target: "_self",
+      },
+    ],
 }
 
 
 ---
-
 <Layout
-title="Skysport Skärmflygskola i Åre"
+title="Skysport Skärmflygskola i Åre Pilot 1 utbildning"
 description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
-
-
-   <div class=" py-4 px-58">
+   <div class="pb-4 pt-42 px-58 bg-slate-600 text-slate-200">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -117,13 +144,9 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
     </Breadcrumbs>
 </div>
    
+  <KursInfo content={Feature50Content}/>
+  <KursInfo content={Feature50Content3}/>
  
-  <section >
-<BookingCTA content={BookingCtaContent}/>
-</section>
  
- <ListWidget content={HangWindListContent} />
- 
-
 </Layout>
 
