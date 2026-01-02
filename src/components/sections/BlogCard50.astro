@@ -1,0 +1,100 @@
+---
+import { Image } from 'astro:assets';
+import { Icon } from 'astro-icon/components';
+
+interface Kurs50Content {
+    pageTitle: string;
+    pageDescription?: string;
+    kursCards: {
+        kursImg:  ImageMetadata;
+        kursOrientationL?: boolean;
+        kursTitle: string;
+        kursPreText?: string;
+        kursSpanText?: string;
+        kursSpanClasses?: string;
+        kursPostText?: string;
+        infoIcon?: string;
+        image_alt?: string;
+        kursLinkID?: string;
+        buttons?: {
+        text: string;
+        link: string;
+        target?: string;
+        }[];
+        
+    }[],
+}
+
+interface Props {
+    content: Kurs50Content;
+} 
+const { content } = Astro.props;
+
+---
+<div class="max-w-[85rem] px-4 pt-14 sm:px-6 lg:px-8 flex flex-col items-center mx-auto">
+    <h2 class="sm:lg-xl lg:text-6xl font-semibold">{content.pageTitle}</h2>
+    <p class="sm:text-lg text-gray-700 dark:text-gray-300 py-4">{content.pageDescription}</p>
+</div>
+<!-- Card Blog -->
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+  <!-- Grid -->
+  <div class="grid lg:grid-cols-2 gap-6">
+    {content.kursCards.map((card) => (
+
+    <!-- Card -->
+    <a id={card.kursLinkID} class="group relative block rounded-xl focus:outline-hidden" href={card.buttons[0].link } >
+      <div class="shrink-0 relative rounded-xl overflow-hidden w-full h-87.5 before:absolute before:inset-x-0 before:z-1 before:size-full before:bg-linear-to-t before:from-gray-900/70">
+        <Image 
+                    src={card.kursImg}
+                    alt={card.image_alt || "Skysports Tandem i Åre" }
+                    class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-full object-cover rounded-xl"
+                    width={600}
+                    height={342}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                />
+        
+     {/*    <img class="size-full absolute top-0 start-0 object-cover" src="https://images.unsplash.com/photo-1611625618313-68b87aaa0626?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Blog Image">
+      */} </div>
+
+      <div class="absolute top-0 inset-x-0 z-10">
+        <div class="p-4 flex flex-col h-full sm:p-6">
+          <!-- Avatar -->
+     {/*      <div class="flex items-center">
+            <div class="shrink-0">
+              <img class="size-11 border-2 border-white rounded-full" src="https://images.unsplash.com/photo-1669837401587-f9a4cfe3126e?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=facearea&facepad=2&w=320&h=320&q=80" alt="Avatar">
+            </div>
+            <div class="ms-2.5 sm:ms-4">
+              <h4 class="font-semibold text-white">
+                Gloria
+              </h4>
+              <p class="text-xs text-white/80">
+                May 30, 2021
+              </p>
+            </div>
+          </div> */}
+          <!-- End Avatar -->
+        </div>
+      </div>
+
+      <div class="absolute bottom-0 inset-x-0 z-10">
+        <div class="flex flex-col h-full p-4 sm:p-6">
+            <h6 style="color: rgba(0, 0, 0, 0.5);" class="w-full text-center absolute text-[12rem] font-bold -top-56 -left-0 text-slate-200 text-opacity-25"> {card.kursTitle}</h6>
+          <h4 class="text-lg sm:text-2xl font-semibold text-white group-hover:text-white/80 group-focus:text-white/80">
+          {card.kursPreText} <span class:list={card.kursSpanClasses} >{card.kursSpanText}</span>{card.kursPostText}
+          </h4>
+          <p class="mt-2 text-white/80">
+            
+          </p>
+        </div>
+      </div>
+    </a>
+    <!-- End Card -->
+    ))}
+  </div>
+  <!-- End Grid -->
+</div>
+<!-- End Card Blog -->
