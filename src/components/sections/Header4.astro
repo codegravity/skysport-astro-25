@@ -218,14 +218,7 @@ const isCurrentPage = (link: string) => {
                                  aria-current={isCurrentPage('/Kurs/Fort/hang') ? 'page' : undefined}>Hang
                               </a>
                                        </li>
-                                       <li class="hover:bg-neutral-100 w-full ">
-                                          <a href="/Kurs/Fort/volbiv" 
-                                 class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurs/Fort/volbiv') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
-                                             ]}  
-                                 aria-current={isCurrentPage('//Kurs/Fort/volbiv') ? 'page' : undefined}>Vol-Biv Årefjällen
-                              </a>
-                                       </li>
+                                       
                                        <li class="hover:bg-neutral-100 w-full ">
                                           <a href="/Kurs/Fort/boka" 
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
@@ -237,6 +230,14 @@ const isCurrentPage = (link: string) => {
                                     </ul>
                                  </DropdownItems>
                               </DropdownSubmenu>
+                           </li>
+                           <li class="hover:bg-neutral-100 w-full ">
+                              <a href="/Kurs/paramotor" 
+                                 class:list={[' px-2  py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                             isCurrentPage('/Kurs/paramotor') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             ]}  
+                                 aria-current={isCurrentPage('/Kurs/paramotor') ? 'page' : undefined}>Paramotor
+                              </a>
                            </li>
                            <li class="hover:bg-neutral-100 w-full ">
                               <a href="/Kurs/SIV" 
@@ -304,10 +305,11 @@ const isCurrentPage = (link: string) => {
                                  </DropdownItems>
                               </DropdownSubmenu>
                            </li> -->
+                           
                            <li class="hover:bg-neutral-100 w-full ">
                               <a href="/Kurs/licenssystem" 
                                  class:list={[' px-2  py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurslicenssystem') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             isCurrentPage('/Kurs/licenssystem') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
                                  aria-current={isCurrentPage('/Kurs/licenssystem') ? 'page' : undefined}>Om Licensen
                               </a>
