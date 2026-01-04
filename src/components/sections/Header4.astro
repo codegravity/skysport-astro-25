@@ -105,36 +105,44 @@ const isCurrentPage = (link: string) => {
                                     <ul
                                        class="lg:absolute bg-white top-0 left-full w-52 border shadow rounded px-0 py-2">
                                        <li class="hover:bg-neutral-100 w-full ">
-                                          <a href="/Kurs/Grund/" 
+                                          <a href="/Kurs/Grundkurs/" 
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurs/Grund/') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             isCurrentPage('/Kurs/Grundkurs/') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('/Kurs/Grund/') ? 'page' : undefined}>Om Grundkursen
+                                 aria-current={isCurrentPage('/Kurs/Grundkurs/') ? 'page' : undefined}>Om Grundkursen
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">
-                                          <a href="/Kurs/Grund/kursschema" 
+                                          <a href="/Kurs/Grundkurs/vadingor" 
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurs/Grund/kursschema') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             isCurrentPage('/Kurs/Grundkurs/vadingor') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('/Kurs/Grund/kursschema') ? 'page' : undefined}>Kursschema 2026
+                                 aria-current={isCurrentPage('/Kurs/Grundkurs/vadingor') ? 'page' : undefined}>Väd ingår i Grundkursen
+                              </a>
+                                       </li>
+                                       <li class="hover:bg-neutral-100 w-full ">
+                                          <a href="/Kurs/Grundkurs/kursschema" 
+                                 class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                             isCurrentPage('/Kurs/Grundkurs/kursschema') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             ]}  
+                                 aria-current={isCurrentPage('/Kurs/Grundkurs/kursschema') ? 'page' : undefined}>Kursschema 2026
                               </a>
                                        </li>
                                        
                                        <li class="hover:bg-neutral-100 w-full ">
-                                          <a href="/Kurs/Grund/presentkort" 
+                                          <a href="/Kurs/Grundkurs/presentkort" 
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurs/Grund/presentkort') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             isCurrentPage('/Kurs/Grundkurs/presentkort') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('/Kurs/Grund/presentkort') ? 'page' : undefined}>Presentkort Grundkurs
+                                 aria-current={isCurrentPage('/Kurs/Grundkurs/presentkort') ? 'page' : undefined}>Presentkort Grundkurs
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">
-                                          <a href="/Kurs/Grund/boka" 
+                                          <a href="/Kurs/Grundkurs/boka" 
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurs/Grund/boka') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             isCurrentPage('/Kurs/Grundkurs/boka') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('/Kurs/Grund/boka') ? 'page' : undefined}>Boka
+                                 aria-current={isCurrentPage('/Kurs/Grundkurs/boka') ? 'page' : undefined}>Boka
                               </a>
                                        </li>
                                     </ul>
@@ -191,7 +199,7 @@ const isCurrentPage = (link: string) => {
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
                                              isCurrentPage('/Kurs/Fort/samlaflyg') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('//Kurs/Fort/samlayflyg') ? 'page' : undefined}>Samlaflyg
+                                 aria-current={isCurrentPage('/Kurs/Fort/samlayflyg') ? 'page' : undefined}>Samlaflyg
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">
@@ -199,7 +207,7 @@ const isCurrentPage = (link: string) => {
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
                                              isCurrentPage('/Kurs/Fort/pilot1') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('//Kurs/Fort/pilot1') ? 'page' : undefined}>Pilot 1
+                                 aria-current={isCurrentPage('/Kurs/Fort/pilot1') ? 'page' : undefined}>Pilot 1
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">
@@ -207,7 +215,7 @@ const isCurrentPage = (link: string) => {
                                  class:list={[' rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
                                              isCurrentPage('/Kurs/Fort/pilot2') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
-                                 aria-current={isCurrentPage('//Kurs/Fort/pilot2') ? 'page' : undefined}>Pilot 2
+                                 aria-current={isCurrentPage('/Kurs/Fort/pilot2') ? 'page' : undefined}>Pilot 2
                               </a>
                                        </li>
                                        <li class="hover:bg-neutral-100 w-full ">

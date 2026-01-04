@@ -1,0 +1,334 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import FeatureMain from "@components/sections/3imagefeature.astro";
+import KursInfo from  "@sections/Feature-50-50.astro";
+import FeatureCTA from "@components/sections/FeatureCTA.astro";
+import ListWidget from "@widgets/listwidget.astro";
+import featureImg3 from "@assets/images/kurs/1a.jpg";
+import featureImg1 from "@assets/images/kurs/IMG_8673.jpg";
+import featureImg2 from "@assets/images/kurs/IMG_5851b-1.jpg";
+import BergImg3 from "@assets/images/kurs/hummeln5.jpg";
+import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
+
+import backgroundIMG from '@assets/images/kurs/nordosthummeln.jpg';
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Vad ingår i Grundkursen" },
+  /*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+const  GrundkursListContent = {
+  listTitle: "Väd ingår i Grundkursen",
+  listDescription: '',
+  listIcon: '',
+  listList: [
+    {
+      listItem: 'Startträning på plan mark och balansering av skärmen, ca 6 tim träning',
+    },
+    {
+      listItem: 'Flygning i liten backe, Backglidning, ca 30 m fallhöjd, ca 4 tim träning'
+    },
+    {
+      listItem: 'Höjdflyg från Åreskutan, 530-920 m fallhöjd, 2-3 dagars flygning, ca 5-10 st höjdflyg'
+    },
+    {
+      listItem: 'Teoriundervisning inkl skriftligt prov'
+    },
+    {
+      listItem: 'Hyra av all utrustning (skärm, sele, nödskärm, hjälm, radio)'
+    },
+    {
+      listItem: 'Examinering till färdig licens. Student licens + behörighet BERG'
+    },
+    {
+      listItem: 'Minst 2 instruktörer i varje kurs. Alltid 1 instruktör på startplatsen och 1 instruktör på landningsplatsen.'
+    },
+    {
+      listItem: 'Vädergaranti. Om du inte blir klar med kursen under din kursvecka har du möjlighet att komma tillbaka och kostnadsfritt göra färdigt kursen vid ett senare tillfälle. Gäller i 6 månader från kursens slut.'
+    },
+    {
+      listItem: 'Rabatterat boende (20% rabatt mot ordinarie pris). Välj mellan enkelrum eller dubbelrum.'
+    },
+    {
+      listItem: 'Vi garanterar dig toppmodern utrustning under kursen. Oftast är skärmarna och selarna som används under kursen årets modell'
+    },
+    {
+      listItem: 'Som elev på Skysport har du rabatt vid köp av ny utrustning.'
+    },
+   
+   
+  ],
+}
+const Feature3Content = {
+  title: "Priser Grundkursen:",
+  subTitle: 'Grundpriset är 9.500 kr.',
+  subTitleClasses: 'lg:text-2xl text-amber-400font-bold',
+  description: 'I detta pris ingår allt som står i punktform ovan.',
+  postText: '',
+  listItemsIntro: 'Eftersom det är individuellt hur många höjdflyg man behöver för att bli godkänd, tillkommer några rörliga kostnader:',
+  listItems: [
+    {
+      listIcon: 'solar--info-circle-linear',
+      listText: '200 kr/höjdflyg  (Räkna med att du gör ca 5-10 flyg för att få behörighet Berg)',
+      listClasses: 'font-semibold',
+    },
+    {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Upptransport till startplatsen, 90 kr med minibuss och 190 kr med Gondolbanan',
+      listClasses: 'font-semibold',
+    }, 
+    {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Försäkring och medlemskap i SSFF kostar 2.022 kr/år (gäller kalenderår, ca 1.400 kr för juli-dec)',
+      listClasses: 'font-semibold',
+    }, 
+     {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Boende, del i dubbelrum, kostar 1.250 kr/vecka under sommarhalvåret. Enkelrum kostar 1.800 kr under sommarhalvåret.',
+      listClasses: 'font-semibold',
+    }, 
+     {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Boende, med del i dubbelrum, kostar 1.500 kr/vecka under vinterhalvåret. Enkelrum kostar 2.200 kr/vecka under vinterhalvåret.',
+      listClasses: 'font-semibold',
+    }, 
+     {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Under Påskveckan kan vi tyvärr inte hålla dessa priser på boendet (Enkelrum 3.600 kr/vecka och del i dubbelrum 2.400 kr/vecka)Det totala priset inkl kurs, boende o försäkring hamnar därmed på ca 13.000 kr',
+      listClasses: 'font-semibold',
+    }, 
+    
+    ],
+    bild1: featureImg1,
+    bild2: featureImg2,
+    bild3: featureImg3,
+};
+
+const FeatureCTAContent ={
+    title: 'Boka Grundkurs',
+    description: '',
+    bgIMG: backgroundIMG,
+    buttons: [
+    
+      {
+        text: "Boka Grundkurs",
+        link: "/Kurs/Grundkurs/boka",
+        target: "_self",
+      },
+    ],
+    extraLink: [
+      {
+        text: "Välj kurs från kursschema",
+        link: "/Kurs/Grundkurs/kursschema",
+        target: "_self",
+      },
+    ],
+}
+const Feature50Content3 = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoAnchorLink: 'berg3',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: 'Vi har ett utbildningssystem som både sommar och vinter är mycket effektivt. Vi har 30 års erfarenhet av utbildning i Åre och vi har lärt oss att hantera väder och vind på ett optimalt sätt. Vi tar alla tillfällen som ges till flygning under kursen. Efter utbildningen kan du fortsätta flyga på egen hand, men för att behålla säkerheten, är det viktigt med regelbunden markträning, sk balansering, samt backglidning (flygning i liten backe). Om du efter kursen vill komma tillbaka och flyga mer, arrangerar Skysport fortsättningskurser som leder fram till Pilot 1 licens.',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      }, 
+      {
+        preText: '',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      }, 
+     ],
+    infoImg:  BergImg3,
+    infoIcon: '',
+}
+const Feature50Content4 = {
+     infoTitle: 'Priser Grundkurs',
+     infoOrientationL: false,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'berg4',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+       {
+        preText: ' ',
+        spanText: 'Grundpriset är 9.500 kr.',
+        spanClasses: 'text-orange-600 font-bold',
+        postText: '',
+      }, 
+      {
+        preText: '',
+        spanText: 'I detta pris ingår allt som står i punktform ovan.',
+        spanClasses: 'text-slate-800 dark:text-slate-200 italic',
+        postText: ' ',
+      }, 
+      {
+        preText: '',
+        spanText: 'Eftersom det är individuellt hur många höjdflyg man behöver för att bli godkänd, tillkommer några rörliga kostnader:',
+        spanClasses: 'text-slate-800 dark:text-slate-200 ',
+        postText: '',
+      },
+      {
+        preText: '',
+        spanText: ' 200 kr/höjdflyg  ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: '(Räkna med att du gör ca 5-10 flyg för att få behörighet Berg)',
+      },
+      {
+        preText: 'Upptransport till startplatsen, ',
+        spanText: ' 90 kr med minibuss och 190 kr med Gondolbanan',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: '',
+      },
+      {
+        preText: 'Försäkring och medlemskap i SSFF kostar ',
+        spanText: ' 2.022 kr/år ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: ' (gäller kalenderår, ca 1.400 kr för juli-dec)',
+      },
+      
+      {
+        preText: 'Boende, del i dubbelrum, kostar ',
+        spanText: ' 1.250 kr/vecka ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: 'under sommarhalvåret.',
+      },
+      {
+        preText: 'Boende, enkelrum kostar  ',
+        spanText: '1.800 kr/vecka ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: ' under sommarhalvåret.',
+      },
+      {
+        preText: 'Boende, del i dubbelrum, kostar ',
+        spanText: ' 1.500 kr/vecka ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: 'under vinterhalvåret.',
+      },
+      {
+        preText: 'Boende, enkelrum kostar  ',
+        spanText: '2.200 kr/vecka ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: ' under vinterhalvåret.',
+      },
+      {
+        preText: 'Under Påskveckan kan vi tyvärr inte hålla dessa priser på boendet ',
+        spanText: ' (Enkelrum 3.600 kr/vecka och del i dubbelrum 2.400 kr/vecka)',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: '',
+      },
+       {
+        preText: 'Det totala priset inkl kurs, boende o försäkring hamnar därmed på',
+        spanText: ' ca 13.000 kr',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: '',
+      },
+      
+     ],
+    infoImg:  featureImg3,
+    imgHeight: 1200,
+    imgWidth: 685,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Grundkurs",
+        link: "/Kurs/Grundkurs/boka",
+        target: "_self",
+      },
+    ],
+}
+const Feature50Content = {
+     infoTitle: '',
+     infoOrientationL: true,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'berg',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: 'Utbildningen följer ett kursprogram som Svenska Skärmflygförbundet fastställt. Ett visst antal moment och manövrar skall göras under kursen. Det är individuellt hur många flyg man behöver för att bli godkänd. När du blivit godkänd på alla moment, inkl teoriprovet, får du ut din licens',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      },
+     ],
+    infoImg:  BergImg1,
+    infoIcon: '',
+    
+}
+---
+<Layout
+
+title="Skysport Skärmflygskola i Åre"
+description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
+keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
+>
+<div class="py-4 lg:pt-42 px-2 md:px-58 dark:text-slate-200">
+    <Breadcrumbs
+      linkTextFormat="capitalized"
+      separatorAriaHidden={false}
+      customizeLinks={customLastPart}
+    >
+      <svg
+        slot="index"
+        aria-label="Home Page"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+        </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <svg
+        slot="separator"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </Breadcrumbs>
+  </div>
+  
+<ListWidget content={GrundkursListContent} />
+<KursInfo content={Feature50Content4}/>
+<KursInfo content={Feature50Content3}/>
+ <KursInfo content={Feature50Content}/>
+ <FeatureCTA content={FeatureCTAContent} />
+ <!-- <FeatureMain content={Feature3Content}/>  -->
+
+
+</Layout>

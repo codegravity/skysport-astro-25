@@ -1,0 +1,100 @@
+---
+
+import { siteConfig } from "@config/site";
+
+import Layout from "@layouts/MainLayout.astro";
+
+import FeatureCTA from "@components/sections/FeatureCTA.astro";
+import ImageHero from "@components/sections/ImageHero.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
+//import InnerHero from "@components/sections/InnerHero.astro"
+import HeroImage from '@assets/images/IMG_7595.jpg';
+import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+import backgroundIMG from '@assets/images/kurs/nordosthummeln.jpg';
+
+
+import Reco from "@components/sections/RecoBar.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Om Grundkurs" },
+   {
+    "data-link": "Kurs",
+    "aria-label": "Go to the home page",
+    text: "Kurs",
+  },/*
+  {
+    "data-link": "Grund",
+    "aria-label": "Go to the about page",
+    text: "Grundkurs",
+  }, */
+];
+const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
+
+const VideoContent = {
+    title: "Skärmflyg i Åre ",
+    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
+    backgroundVideo: myVideo,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+    page: "start"
+}
+
+const HeroContent = {
+    title: "Skärmflyg i Åre",
+    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+    backgroundImage: HeroImage,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+  
+}
+
+const InnerHeroContent = {
+    title: "Skärmflyg i Åre",
+    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+    backgroundImage: HeroImage,
+    descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+  
+}
+
+const FeatureCTAContent ={
+    title: 'Boka Grundkurs',
+    description: '',
+    bgIMG: backgroundIMG,
+    buttons: [
+    
+      {
+        text: "Boka Grundkurs",
+        link: "/Kurs/Grundkurs/boka",
+        target: "_self",
+      },
+    ],
+    extraLink: [
+      {
+        text: "Välj kurs från kursschema",
+        link: "/Kurs/Grundkurs/kursschema",
+        target: "_self",
+      },
+    ],
+}
+ 
+---
+
+<Layout
+title="Om Grundkurs"
+description=""
+keywords=""
+>
+  <ImageHero content={HeroContent} /> 
+    
+    <section >
+      <FeatureCTA content={FeatureCTAContent} />
+  </section>
+ 
+ 
+
+ 
+
+</Layout>
