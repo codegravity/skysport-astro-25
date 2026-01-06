@@ -13,7 +13,10 @@ import { htmlFortSkyTemplate } from './mail_templates/FortSkyBooking.js'
 
 // local testing
 
-
+const host = "email-smtp.eu-north-1.amazonaws.com"
+const emailTo1 = "astro@codegravity.net"
+const emailUser ="AKIAQPMQAGARF7NITJYL"
+const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
 
 //EMAIL_PORT = 587
 
