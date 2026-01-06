@@ -17,13 +17,6 @@ export const siteData = {
   },
 };
 
-/* export const socialLinks = [
-  { name: "facebook", icon: "ri-facebook-fill", label: "Facebook" },
-  { name: "instagram", icon: "ri-instagram-fill", label: "Instagram" },
-  { name: "twitter", icon: "ri-twitter-x-fill", label: "Twitter" },
-  { name: "youtube", icon: "ri-youtube-fill", label: "YouTube" },
-];
-*/
 export const contactInfo = [
   {
     icon: "ri-map-pin-line",
@@ -320,7 +313,7 @@ export const classSchedule = [
   { week: "32", month: "Aug",datum: "03 - 08", kurs: "Grundkurs", linkDate: "2026-08-03" },
   { week: "33", month: "Aug",datum: "10 - 15", kurs: "Grundkurs", linkDate: "2026-08-10" },
   { week: "35", month: "Aug",datum: "24 - 29", kurs: "Grundkurs", linkDate: "2026-08-24" },
-  { week: "36", month: "Sept",datum: "31 - Sep 05", kurs: "Grundkurs", linkDate: "2026-08-31" },
+  { week: "36", month: "Aug",datum: "31 - Sep 05", kurs: "Grundkurs", linkDate: "2026-08-31" },
   { week: "38", month: "Sept",datum: "14 - 19", kurs: "Grundkurs", linkDate: "2026-09-14" },
   { week: "40", month: "Sept",datum: "28 - Okt 03", kurs: "Grundkurs", linkDate: "2026-09-28" },
 ];
@@ -349,7 +342,7 @@ export const classFortSchedule = [
   { week: "32", month: "Aug",datum: "03 - 08", kurs: "Fortsättning", linkDate: "2026-08-03" },
   { week: "33", month: "Aug",datum: "10 - 15", kurs: "Fortsättning", linkDate: "2026-08-10" },
   { week: "35", month: "Aug",datum: "24 - 29", kurs: "Fortsättning", linkDate: "2026-08-24" },
-  { week: "36", month: "Sept",datum: "31 - Sep 05", kurs: "Fortsättning", linkDate: "2026-08-31" },
+  { week: "36", month: "Aug",datum: "31 - Sep 05", kurs: "Fortsättning", linkDate: "2026-08-31" },
   { week: "38", month: "Sept",datum: "14 - 19", kurs: "Fortsättning", linkDate: "2026-09-14" },
   
 ];
@@ -393,14 +386,14 @@ export const classSIVSchedule = [
 
 
 
-export const statistics = [
+/* export const statistics = [
   { number: "500+", label: "Active Members", icon: "ri-user-line" },
   { number: "50+", label: "Expert Trainers", icon: "ri-user-star-line" },
   { number: "10k+", label: "Classes Completed", icon: "ri-calendar-check-line" },
   { number: "5k+", label: "Pounds Lost", icon: "ri-line-chart-line" },
   { number: "98%", label: "Satisfaction Rate", icon: "ri-heart-line" },
   { number: "15+", label: "Years Experience", icon: "ri-award-line" },
-];
+]; */
 
 export const instructers = [
   {

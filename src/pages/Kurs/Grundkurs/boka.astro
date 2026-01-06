@@ -2,7 +2,8 @@
 //export const prerender = false;
 import { siteConfig } from "@config/site";
 import Layout from "@layouts/MainLayout.astro";
-import Reco from "@components/sections/RecoBar.astro";
+import Booking from "@components/elements/forms/Grundkursform.astro";
+import Divider1 from  "@elements/SeparatorLine.astro";
 
 function getWeek(d) {
     
@@ -18,7 +19,9 @@ function getWeek(d) {
 const StartDate = Astro.url.searchParams.get('startdate') || '';
 const Weeknr = getWeek(StartDate);
 
-
+const BookingPageContent = {
+    bookingPage: 'boka',
+}
 ---
 
 <Layout
@@ -27,20 +30,13 @@ description=" "
 keywords=" "
 >
 
-  
-
-       
+<section class="pt-30">
+        <Divider1 />
+    </section>
    
+    <Booking content={BookingPageContent}/> 
+ 
 
-  <section >
- 
-  <section  class="site-container py-80 text-neutral-100">
- insert date into form and get week from {StartDate} </br> {Weeknr}
-</section>
- 
-<section>
-    <Reco />
-</section>
  
 
 </Layout>
