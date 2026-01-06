@@ -1,0 +1,675 @@
+---
+import { fortsattningsKurser } from '@data/formData';
+import { boende2026 } from '@data/formData';
+import { flygbehorighet } from '@data/formData';
+import Hr1 from "@components/elements/SeparatorLine.astro";
+import "@assets/css/flatpickr.css";
+import "@assets/css/flatpickrDark.css";
+
+const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
+
+---
+
+<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+    <form >
+    <div class="grid grid-cols-1 lg:grid-cols-4">
+        <div class="lg:text-2xl font-bold"><!--col 1 -->
+            <h3>Välj önskat kursdatum<span class="text-amber-600 text-xl">*</span></h3>
+        </div>
+
+        <div class="lg:col-span-3"><!-- col 2,3,4 -->
+            <div class="flex flex-col gap-y-3">
+                <div >                                     
+                    <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-400 rounded-lg sm:text-sm lg:text-lg dark:text-slate-200 focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                    <label for="flatpickr-date" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white"><!-- Önskat Datum<span class="text-orange-600 sm:text-4xl">*</span> --></label>
+                    <p class="text-left pt-0 text-xs">Obs! Alla kurser börjar på måndag. Halvveckokurser börjar på måndag och slutar på torsdag. Weekend kurser börjar på torsdag och slutar på lördag.  </p> 
+                </div>
+            </div>
+        </div>
+        <div class="lg:text-2xl py-3 font-bold"><!--col 1 -->
+            <h3>Önskat Vecka<span class="text-amber-600 text-xl">*</span></h3>
+        </div>
+        <div class="lg:col-span-3 py-2"><!-- col 2,3,4 -->
+            <div class="flex flex-col gap-y-3">
+                <div >                                     
+                    <input id="kurs-veckan" placeholder="" name="kurs-veckan" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-400 rounded-lg sm:text-sm lg:text-lg dark:text-slate-200 focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                    <label for="kurs-veckan" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white"><!-- Önskat Datum<span class="text-orange-600 sm:text-4xl">*</span> --></label>
+                </div>
+            </div>
+        </div>
+
+        <div class="lg:col-span-4">
+           <Hr1 />
+        </div>
+        
+        <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
+            <h3>Fortsättnings Kurser<span class="text-amber-600 text-xl">*</span></h3>
+        </div>
+        <div class="lg:col-span-3 py-3"><!-- col 2,3,4 -->
+            <div class="flex flex-col gap-y-3">
+                { fortsattningsKurser.map((kurs, index) => (
+                        <div class="flex">
+                            
+                            <input type="radio" id={`hs-radio-vertical-group-kurs-${index + 1}`} value={kurs.kursValue} name="hs-radio-vertical-group-kurs"  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <label for={`hs-radio-vertical-group-kurs-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{kurs.kursLabel} </label>
+                        </div>
+                    ))
+                }
+            </div>
+        </div>
+        
+         <div id="kursChecked" class="lg:text-2xl font-bold hidden py-1 sm:py-4"><!--col 1 -->
+            <h3>Kurser namn </h3>
+        </div>
+        <div id="kursPris" class="py-1 sm:py-4 hidden lg:col-span-3  ">
+            <input type="hidden" id="checkedKursName" name="checkedKursName" >
+            <input type="text" id="hs-kursPris" name="hs-kursPris" value="4500?" class="py-2.5 sm:py-3 px-4 block w-s border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" > 
+            <label for="hs-kursPris" id="kursPrisLabel" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">kurs comment</label>
+        </div>
+
+        <div class="lg:col-span-4">
+           <Hr1 />
+        </div>
+
+        { boende2026.map((season) => (
+            <div id={`${season.season}-h3`} class="hidden lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
+                <h3>Boende <span>{season.season}</span><span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+
+            <div id={`${season.season}-radio`} class="hidden lg:col-span-3 py-3 "><!-- col 2,3,4 -->
+            <div class="flex flex-col gap-y-3">
+                { season.boendeTypes.map((boende, index) => (
+                        <div class="flex">
+                            <input type="radio" id={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`} value={boende.boValue} name={`hs-radio-vertical-group-bo-${season.season}`}  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <label for={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{boende.boLabel}</label>
+                        </div>
+                    ))
+                }
+                <input type="hidden" id="boendeDescription" name="boendeDescription" value="">
+                <input type="hidden" id="rawBoPrice" name="rawBoPrice" >
+                <input type="hidden" id="BoPriceISO" name="BoPriceISO" >
+            </div>
+            <p class="mt-2 text-sm text-gray-500 dark:text-neutral-400 text-justify">
+                Våra rum ligger I lägenheter. Det finns två eller tre sovrum I varje lägenhet. Om man bokar del I dubbelrum får man dela ett sovrum med en annan person. Bokar man enkelrum får man ett eget sovrum. Kök, badrum och vardagsrum delas med andra som bor I lägenheten. Om du vill bo helt själv utan någon annan I lägenheten måste du boka hel lägenhet.
+            </p>
+        </div>
+
+        ))}
+
+        <div id="apartRa" class="lg:text-2xl font-bold  hidden"></div>
+        <div id="apartRb" class="py-2 sm:py-0  lg:col-span-3 hidden ">
+            <textarea id="hs-apartR" name="hs-apartR" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Fyll i info här." data-hs-textarea-auto-height="*"></textarea>   
+            <label for="hs-apartR" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Lägenhetsförfrågan</label>
+        </div>
+
+        <div class="lg:col-span-4">
+           <Hr1 />
+        </div>
+
+
+        <div class="lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
+            <h3>Summa:</h3>
+        </div>
+        <div class="col-span-1 lg:col-span-3 py-0 sm:py-3">
+            <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
+                <input type="hidden" id="rawKursPrice" name="rawKursPrice" >
+                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                 <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">Summan räknäs efter val av kurs och boende.</label>
+          </div>      
+        </div>
+    </div><!--end grid-->
+
+    <div class="lg:text-3xl pt-6 sm:pt-0">
+            <h2>Tidigare flygerfarenhet</h2>
+            <Hr1 />
+    </div>
+    <!-- Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-4 lg:gap-6">
+            <div class="lg:text-2xl font-bold col-span-3 sm:col-span-1"><!--col 1 -->
+                <h3>Antal flygtimmar<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0  col-span-3 sm:col-span-1">
+                <input type="text" name="hs-antal-flyg-timmer" id="hs-antal-flyg-timmer" placeholder=""  class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-antal-flyg-timmer" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white"></label>
+            </div>
+            <div class="lg:text-2xl font-bold col-span-3 sm:col-span-1"><!--col 1 -->
+                <h3>Antal timmar i år<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0 col-span-3 sm:col-span-2">
+                <input type="text" name="hs-flyg-this-year" id="hs-flyg-this-year" placeholder="" class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-flyg-this-year" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Antal flygtimmar senaste 12 månader. </label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-3 sm:col-span-1"><!--col 1 -->
+                <h3>Antal flygr<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0  col-span-3 sm:col-span-1 ">
+                <input type="text" name="hs-antal-flyg" id="hs-antal-flyg" placeholder=""  class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-antal-flyg" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white"></label>
+            </div>
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
+                <h3>Antal flyg i år<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0 col-span-2 ">
+                <input type="text" name="hs-antal-flyg-this-year" id="hs-antal-flyg-this-year" placeholder="" class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-antal-flyg-this-year" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Antal starter senaste 12 månader. </label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
+                <h3>Flygbehörighet<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0 sm:py-1  col-span-2 sm:col-span-4 ">
+                <div class="flex flex-col gap-y-3">
+                    { flygbehorighet.map((level) => (
+                            <div class="flex">
+                            <input id={`hs-behorighet-${level.licID}`} name={`hs-behorighet-${level.licID}`} value={level.licValue} type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5  border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                                <label for={`hs-behorighet-${level.licID}`} class="pt-1 sm:pt-0 sm:pt-0text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400"> {level.licLabel}</label>
+                            </div>
+                        ))
+                    } 
+                </div>
+            </div>
+
+            <div class="lg:text-2xl font-bold pt-6 sm:pt-1 col-span-2 sm:col-span-1"><!--col 1 -->
+                <h3>Övrig flygerfarenhet</h3>
+            </div>
+            <div class="py-2 sm:py-0 col-span-3 sm:col-span-4 " >
+                <textarea id="hs-ovrig-flyg" name="hs-ovrig-flyg" class="py-2.5 sm:py-3 px-4 block w-full sm:w-2xl border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Fyll i info här." ></textarea>   
+                <label for="hs-ovrig-flyg" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white"></label>
+            </div>
+            
+        </div> <!-- end grid -->
+
+    <div class="lg:text-3xl pt-6 sm:pt-0">
+            <h2>Kontakt Information</h2>
+            <Hr1 />
+    </div>
+      <!-- Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2 sm:gap-4 lg:gap-6">
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
+                <h3>Namn<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0  col-span-2 ">
+                <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1" placeholder="Förnamn"  class="p-2 sm:py-3 sm:px-2 w-full block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-firstname-contacts-1" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Förnamn<span class="text-amber-600 text-lg">*</span> </label>
+            </div>
+            <div class="py-0 col-span-2 ">
+                <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1" placeholder="Efternamn" class="p-2 sm:py-3 sm:px-2 w-full block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-lastname-contacts-1" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Efternamn<span class="text-amber-600 text-lg">*</span> </label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-1 sm:col-span-1"><!--col 1 -->
+                <h3>Födelseår<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-2 sm:py-0  sm:col-span-2 ">
+                <input type="text" name="hs-birthyear" id="hs-birthyear" placeholder="xxxx"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-birthyear" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Skriv ditt födelseår XXXX</label>
+            </div>
+            <div class="lg:text-2xl font-bold "><!--col 1 -->
+                <h3>SSFF Lic nr</h3>
+            </div>
+            <div class="py-2 sm:py-0  sm:col-span-1 ">
+                <input type="text" name="hs-lic-nr" id="hs-lic-nr" placeholder="Lic. nr."  class="p-2 w-full  sm:py-3 sm:px-2 md:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-lic-nr" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">SSFF lic. nr.</label>
+            </div>
+
+            <!-- adress -->
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
+                <h3>Adress<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0 col-span-2 sm:col-span-4 ">
+                <input type="text" name="hs-gatu" id="hs-gatu" placeholder="Gatuadress"  class="p-2 sm:py-3 sm:px-2 w-full sm:w-3/4 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-gatu" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Gatuadress</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold hidden sm:block"><!--col 1 -->
+                <h3>&nbsp;</h3>
+            </div>
+            <div class="py-2 sm:py-0 col-span-1 sm:col-span-2 ">
+                <input type="text" name="hs-city" id="hs-city" placeholder="Stad"  class="p-2 sm:py-3 sm:px-2 w-full lg:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-city" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Stad</label>
+            </div>
+            <div class="py-2 sm:py-0 col-span-1 smcol-span-2 ">
+                <input type="text" name="hs-post-nr" id="hs-post-nr" placeholder="Postnummer"  class="p-2 sm:py-3 sm:px-2 w-full  block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-post-nr" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Postnummer</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold hidden sm:block"><!--col 1 -->
+                <h3>&nbsp;</h3>
+            </div>
+            <div class="py-2 sm:py-0 col-span-2 sm:col-span-4 sm:col-start-2">
+                <input type="text" name="hs-land" id="hs-land" placeholder="Land"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-3/4 lg:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-land" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Land</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-1 sm:col-span-1"><!--col 1 -->
+                <h3>E-post<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-2 sm:py-0 colspan-1 sm:col-span-4 ">
+                <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 lg:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-email-contacts-1" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">E-post</label>   
+            </div>
+            
+            <div class="lg:text-2xl font-bold col-span-1 "><!--col 1 -->
+                <h3>Telefon dagtid</h3>
+            </div>
+            <div class="py-2 sm:py-0 col-span-1 sm:col-span-4 ">
+                <input type="text" name="hs-tel-day" id="hs-tel-day" placeholder="tel. dag"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-tel-day" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Tel. dag</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold "><!--col 1 -->
+                <h3>Telefon mobil<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-2 sm:py-0 col-span-1 sm:col-span-4 ">
+                <input type="text" name="hs-mobile" id="hs-mobile" placeholder="tel. mobil"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-mobile" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Tel. Mobil</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold "><!--col 1 -->
+                <h3>Din Vikt</h3>
+            </div>
+            <div class="py-2 sm:py-0  sm:col-span-4 ">
+                <input type="text" name="hs-weight" id="hs-weight" placeholder="Vikt"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/4 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-weight" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Vikt</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
+                <h3>Meddelande</h3>
+            </div>
+            <div class="py-2 sm:py-0 col-span-2 sm:col-span-4 ">
+                <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full sm:w-2xl border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." ></textarea>   
+                <label for="hs-meddelande" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Meddelande</label>
+            </div>
+
+             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
+                <h3>Nyhetsbrev</h3>
+            </div>
+            <div class="py-0 sm:py-0 col-span-2 sm:col-span-4 flex flex-row items-center">                  
+                <input id="hs-news" name="hs-news" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                <label for="hs-news" class="pt-2 text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400">Ja tack!  Jag vill prenumerera på Skysport's Nyhetsbrev.</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2 "><!--col 1 -->
+                <h3>Integritietspolicy<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0 col-span-2 sm:col-span-4  flex flex-row items-center">                  
+                <input id="hs-integ" name="hs-integ" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5  border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                <label for="hs-integ" class="pt-2 sm:pt-0text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400"> Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
+            </div>
+
+        </div>
+      
+        <div class="mt-3 flex">
+            <div class="mt-6 grid">
+                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka SIV Bokning</button>
+            </div>
+        </div>
+        
+    </form>
+</div>
+
+<script>
+    const getWeekNumber = (date) => {
+        const firstDay = new Date(date.getFullYear(), 0, 1)
+        const days = Math.floor((date - firstDay) / (24 * 60 * 60 * 1000))
+        return Math.ceil((days + firstDay.getDay() + 1) / 7)
+    }
+
+    import flatpickr from "flatpickr"
+    import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
+
+    const winterBoDate =  new Date('2026-05-15');
+    const winterBoDateISO = winterBoDate.toISOString();
+
+   function datepickerCG () {
+        flatpickr('#flatpickr-date', {
+        monthSelectorType: 'static',
+        'locale': Swedish,
+        weekNumbers: true,
+        dateFormat: "Y-m-d",
+        minDate: 'today',
+        enable: ['2026-02-02', '2026-02-09', '2026-02-16', '2026-02-23', '2026-03-02','2026-03-16','2026-03-23', '2026-03-30', '2026-04-06', '2026-04-13', '2026-04-20', '2026-04-27',
+     '2026-05-25', '2026-06-01', '2026-06-08', '2026-06-22', '2026-06-29', '2026-07-06', '2026-07-13', '2026-07-20', '2026-07-27', '2026-08-03', '2026-08-10', '2026-08-24',
+      '2026-08-31', '2026-09-14', '2026-09-28', ],
+        disable:[
+            {
+                from: '2026-04-28',
+                to: '2026-05-24',
+            }
+        ],
+        onChange: function(selectedDates, dateStr, instance) {     
+            const theWeek = getWeekNumber(new Date(dateStr));
+            //alert('date is picked week is: ' + theWeek);
+            document.getElementById("kurs-veckan").value = theWeek;
+            document.getElementById("kurs-veckan").disabled = true;
+            // aktivate the boende options
+            const selectedDate =  new Date(dateStr);
+            const dateStrISO = selectedDate.toISOString();
+            // uncheck all the boende radio buttons
+            const clearSummerBo =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
+            clearSummerBo.forEach((button) => {
+                button.checked = false;
+                document.getElementById("hs-summa").value = '';
+                document.getElementById("rawBoPrice").value = 0;
+            });
+            const clearVinterBo =  document.getElementsByName('hs-radio-vertical-group-bo-vinter');
+            clearVinterBo.forEach((button) => {
+                button.checked = false;
+                document.getElementById("hs-summa").value = '';
+                document.getElementById("rawBoPrice").value = 0;
+            });
+            
+            if  (dateStrISO > winterBoDateISO) {          
+                document.getElementById("sommar-h3").classList.remove("hidden");
+                document.getElementById("sommar-radio").classList.remove("hidden");
+                document.getElementById("vinter-h3").classList.add("hidden");
+                document.getElementById("vinter-radio").classList.add("hidden");
+            } else {
+                document.getElementById("vinter-h3").classList.remove("hidden");
+                document.getElementById("vinter-radio").classList.remove("hidden");            
+                document.getElementById("sommar-h3").classList.add("hidden");
+                document.getElementById("sommar-radio").classList.add("hidden");
+            }
+        },        
+    })};
+
+ datepickerCG();
+</script>
+
+<script is:inline>
+    const kursbuttons =  document.getElementsByName('hs-radio-vertical-group-kurs');
+        kursbuttons.forEach((button) => {
+            button.addEventListener('click', () => { 
+            KursFunk()           
+        });
+    });
+
+    function KursFunk(){
+        var eleK = document.getElementsByName('hs-radio-vertical-group-kurs');
+
+        for (i = 0; i < eleK.length; i++) {
+                    if (eleK[i].type = "radio") {
+                        if (eleK[i].checked ) {
+                            const kursTyper = eleK[i].id; 
+                            const kursPris = eleK[i].value;
+                            const formattedPris = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(eleK[i].value);  
+                            document.getElementById("hs-kursPris").value = formattedPris;
+                            document.getElementById("rawKursPrice").value = kursPris;
+                            const bobo = document.getElementById("rawBoPrice").value;
+                            const rawTotal = (parseInt(kursPris) + parseInt(bobo)) ;
+                            const vintersumma =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(parseInt(kursPris) + parseInt(bobo)); 
+                            if (bobo > 1 ){    
+                                document.getElementById("hs-summa").value = vintersumma; 
+                            } else {
+                              //  alert('No bobo happened' + bobo);
+                            }
+                                           
+                            if(kursTyper === 'hs-radio-vertical-group-kurs-1'){
+                                document.getElementById("kursChecked").children[0].innerHTML = 'Bergsbehörighet ';
+                                document.getElementById("checkedKursName").value = 'Bergsbehörighet';
+                                document.getElementById("kursPrisLabel").innerHTML = 'Inträdeskrav = Studentlicens';
+                            } else if (kursTyper === 'hs-radio-vertical-group-kurs-2'){
+                                document.getElementById("kursChecked").children[0].innerHTML = 'Termik';
+                                document.getElementById("checkedKursName").value = 'Termik';
+                                document.getElementById("kursPrisLabel").innerHTML = 'Inträdeskrav = Pilot 1 och minst 50 flyg';
+                            } else if (kursTyper === 'hs-radio-vertical-group-kurs-3'){
+                                document.getElementById("kursChecked").children[0].innerHTML = 'Samla flyg';
+                                document.getElementById("checkedKursName").value = 'Samla flyg';
+                                document.getElementById("kursPrisLabel").innerHTML = 'Inträdeskrav = Studentlicens';
+                            } else if (kursTyper === 'hs-radio-vertical-group-kurs-4'){
+                                document.getElementById("kursChecked").children[0].innerHTML = 'Pilot 1';
+                                document.getElementById("checkedKursName").value = 'Pilot 1';
+                                document.getElementById("kursPrisLabel").innerHTML = 'Inträdeskrav = Studentlicens och minst 50 höjdflyg totalt';
+                            } else if (kursTyper === 'hs-radio-vertical-group-kurs-5'){
+                                document.getElementById("kursPrisLabel").innerHTML = 'Inträdeskrav = Pilot 1 med samtliga behörigheter';
+                                document.getElementById("kursChecked").children[0].innerHTML = 'Pilot 2';
+                                document.getElementById("checkedKursName").value = 'Pilot 2';
+                            } else if (kursTyper === 'hs-radio-vertical-group-kurs-6'){
+                                document.getElementById("kursPrisLabel").innerHTML = 'Inträdeskrav = Studentlicens';
+                                document.getElementById("kursChecked").children[0].innerHTML = 'Hangbehörighet';
+                                document.getElementById("checkedKursName").value = 'Hangbehörighet';
+                            }  
+                                           
+                                document.getElementById("kursChecked").classList.remove("hidden");
+                                document.getElementById("apartRa").innerHTML = '<h3 class="lg:text-2xl font-bold py-3">Kurs namn<span class="text-amber-600 text-xl">Pris</span></h3>';
+                                document.getElementById("kursPris").classList.remove("hidden");
+                                document.getElementById('hs-radio-vertical-group-bo-3').label.classList.add("font-semibold");
+                          
+                                document.getElementById("kursChecked").classList.add("hidden");
+                                document.getElementById("kursPris").classList.add("hidden");
+                                                                               
+                        }
+                    }
+                }
+    }
+
+
+    const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
+    bobuttons.forEach((button) => {
+            button.addEventListener('click', () => { BoSummar()
+              // alert(' bo summer');
+        });
+    });
+    const bobuttonsV =  document.getElementsByName('hs-radio-vertical-group-bo-vinter');
+        bobuttonsV.forEach((button) => {
+            button.addEventListener('click', () => { BoVinter()
+               //alert(' bo winter');
+        });
+    });
+
+    function BoSummar() {
+                var ele = document.getElementsByName('hs-radio-vertical-group-bo-sommar');                
+                for (i = 0; i < ele.length; i++) {
+                    if (ele[i].type = "radio") {
+                        if (ele[i].checked ) {
+                            const boendeTyper = ele[i].id;
+                            const boSPris =  ele[i].value;  
+                            document.getElementById("rawBoPrice").value = boSPris;
+                            const summerPrice =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(boSPris);    
+                            document.getElementById("BoPriceISO").value = summerPrice;                     
+                            const kurser = document.getElementById("rawKursPrice").value;
+                            const rawTotal = (parseInt(kurser) + parseInt(boSPris)) ;
+                            const summersumma =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(parseInt(kurser) + parseInt(boSPris));                             
+                            if (kurser > 0 ){    
+                                document.getElementById("hs-summa").value = summersumma; 
+                            } else {
+                              //  alert('bobo happened' + boVPris);
+                            }                            
+                            if(boendeTyper === 'hs-radio-vertical-group-bo-sommar-1'){
+                                document.getElementById("boendeDescription").value = 'Del av Dubbelrum';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-sommar-2'){
+                                document.getElementById("boendeDescription").value = 'Enkelrum';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-sommar-3'){
+                                document.getElementById("boendeDescription").value = 'Hel Lägenhet';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-somar-4'){
+                                document.getElementById("boendeDescription").value = 'Eget Boende';
+                            }
+                            //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value + ' Sommar') ;
+                            // show the  apartment request field
+                            if(ele[i].id === 'hs-radio-vertical-group-bo-sommar-3'){
+                                document.getElementById("apartRa").classList.remove("hidden");
+                                document.getElementById("apartRa").innerHTML = '<h3 class="lg:text-2xl font-bold py-3">Lägenhetsförfrågan<span class="text-amber-600 text-xl">*</span></h3>';
+                                document.getElementById("apartRb").classList.remove("hidden");
+                                document.getElementById('hs-radio-vertical-group-bo-3').label.classList.add("font-semibold");
+                            } else {
+                                document.getElementById("apartRa").classList.add("hidden");
+                                document.getElementById("apartRb").classList.add("hidden");
+                            }                                                       
+                        }
+                    }
+                }
+            }
+
+    function BoVinter() {
+                var eleV = document.getElementsByName('hs-radio-vertical-group-bo-vinter');                
+                for (i = 0; i < eleV.length; i++) {
+                    if (eleV[i].type = "radio") {
+                        if (eleV[i].checked ) {
+                            const boendeTyper = eleV[i].id;
+                            const boVPris =  eleV[i].value;  
+                            document.getElementById("rawBoPrice").value = boVPris; 
+                            const winterPrice =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(boVPris);    
+                            document.getElementById("BoPriceISO").value = winterPrice;                          
+                            const kurser = document.getElementById("rawKursPrice").value;
+                            const rawTotal = (parseInt(kurser) + parseInt(boVPris)) ;
+                            const vintersumma =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(parseInt(kurser) + parseInt(boVPris));                             
+                            if (kurser > 0 ){    
+                                document.getElementById("hs-summa").value = vintersumma; 
+                            } else {
+                              //  alert('bobo happened' + boVPris);
+                            }
+                                                   
+                            if(boendeTyper === 'hs-radio-vertical-group-bo-vinter-1'){
+                                document.getElementById("boendeDescription").value = 'Del av Dubbelrum';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-vinter-2'){
+                                document.getElementById("boendeDescription").value = 'Enkelrum';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-vinter-3'){
+                                document.getElementById("boendeDescription").value = 'Hel Lägenhet';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-vinter-4'){
+                                document.getElementById("boendeDescription").value = 'Eget Boende';
+                            }
+                            //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value + ' Vinter') ;
+                            // show the  apartment request field
+                            if(eleV[i].id === 'hs-radio-vertical-group-bo-vinter-3'){
+                                document.getElementById("apartRa").classList.remove("hidden");
+                                document.getElementById("apartRa").innerHTML = '<h3 class="lg:text-2xl font-bold py-3">Lägenhetsförfrågan<span class="text-amber-600 text-xl">*</span></h3>';
+                                document.getElementById("apartRb").classList.remove("hidden");
+                                document.getElementById('hs-radio-vertical-group-bo-3').label.classList.add("font-semibold");
+                            } else {
+                                document.getElementById("apartRa").classList.add("hidden");
+                                document.getElementById("apartRb").classList.add("hidden");
+                            }                                                       
+                        }
+                    }
+                }
+            }
+
+</script>
+
+<script is:inline>
+
+    function radioValue(radiogroupname) {
+        var rbv = document.getElementsByName(radiogroupname);
+        for (i = 0; i < rbv.length; i++) {
+            if (rbv[i].type = "radio") {
+                if (rbv[i].checked) 
+                    return(rbv[i].value); 
+            }   
+        }
+    }
+
+const get = (id) => document.getElementById(id) || { value: '' }
+const submitForm = () => {
+  //saveInput()
+  sendmail()
+}
+
+const getFormData = () => {
+  const store = Object.create(null)
+    // kurs och boende data
+    store.kursName = get('checkedKursName')?.value
+    store.kursDate = get("flatpickr-date")?.value
+    store.kursVeckan = get("kurs-veckan")?.value
+    store.kursRawPrice = get("rawKursPrice")?.value 
+    store.kursPrice = radioValue('hs-radio-vertical-group-kurs')
+    store.boendeType = get('boendeDescription')?.value
+    store.boendeRawPrice = get("rawBoPrice")?.value 
+    store.boendePriceISO = get('BoPriceISO')?.value
+    store.apartmentRequest = get('hs-apartR')?.value
+    store.summa = get("hs-summa")?.value
+
+    //flygerfarenhet
+    store.totalFlyingHours =  get("hs-antal-flyg-timmer")?.value
+    store.flyingHoursThisYear =  get("hs-flyg-this-year")?.value
+    store.totalFlights =  get("hs-antal-flyg")?.value
+    store.flightsThisYear =  get("hs-antal-flyg-this-year")?.value
+      if( get('hs-behorighet-berg')?.checked){
+        store.bergsflyg =  'checked'
+    }
+     if( get('hs-behorighet-hang')?.checked){
+        store.hangflyg =  'checked' 
+     }
+    if( get('hs-behorighet-termik')?.checked){
+        store.termikflyg =  'checked'
+    }
+    if( get('hs-behorighet-bogser')?.checked){
+        store.bogserflyg =  'checked'
+    }  
+
+    // Contact Info
+    store.firstName = get('hs-firstname-contacts-1')?.value
+    store.lastName = get('hs-lastname-contacts-1')?.value
+    store.birthYear = get('hs-birthyear')?.value
+    store.licNr = get('hs-lic-nr')?.value
+    store.adress = get('hs-gatu')?.value
+    store.city = get('hs-city')?.value
+    store.postNr = get('hs-post-nr')?.value
+    store.country = get('hs-land')?.value
+    store.email = get('hs-email-contacts-1')?.value
+    
+    store.telDay = get('hs-tel-day')?.value 
+    if (store.telDay.length < 3 ) 
+        store.telDay = 'N/A';
+    store.tel = get('hs-mobile')?.value
+    store.weight = get('hs-weight')?.value
+    if( store.weight.length < 2 ) 
+        store.weight = 'N/A';
+    store.message = get('hs-meddelande')?.value
+    store.newsletter = get('hs-news')?.value
+    store.checkboxOK = get('remember-me')?.value
+store.subject = 'Fortsättnings Kurs Bokning'
+  return store
+}
+
+const submitBtn = document.querySelector('[type="submit"]')
+submitBtn?.addEventListener('click', submitForm)
+
+const sendmail = async () => {
+  const {kursName, kursDate, kursVeckan, kursPrice, boendeType,boendePriceISO, apartmentRequest, summa,totalFlyingHours,flyingHoursThisYear,totalFlights,flightsThisYear,bergsflyg,hangflyg,termikflyg,bogserflyg,ovrigflyg,firstName, lastName, tel, telday, email, message,  weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
+  const data = await fetch('/api/sendFortKursBooking.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ kursName, kursDate, kursVeckan, kursPrice, boendeType,boendePriceISO, apartmentRequest, summa,totalFlyingHours,flyingHoursThisYear,totalFlights,flightsThisYear,bergsflyg,hangflyg,termikflyg,bogserflyg,ovrigflyg,firstName, lastName, tel, telday, email, message, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject }),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log('Error', err)
+      throw new Error('Network error.')
+    })
+
+  console.log(data) // Here is the response from backend
+   alert('Message successfully sent');
+  document.getElementById("booking-form").reset();
+}
+
+</script>
+
+
+
+
