@@ -614,6 +614,7 @@ const getFormData = () => {
     if( get('hs-behorighet-bogser')?.checked){
         store.bogserflyg =  'checked'
     }  
+    store.ovrigflyg =  get("hs-ovrig-flyg")?.value
 
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
