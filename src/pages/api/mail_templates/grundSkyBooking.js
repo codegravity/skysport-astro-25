@@ -1,5 +1,5 @@
 
-const htmlGrundSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
+const htmlGrundSkyTemplate = (kursDate, kursVeckan, kursPriceISO, boendeType, boendePriceISO, apartmentRequest, summa, name, tel, telday, email, Meddelande, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK, BookingTimestamp) => {
     return ` 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,7 +9,6 @@ const htmlGrundSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, si
   <title>Document</title>
 <style>
 </style>
-
 </head>
     <body style="background-color:grey">
         <table align="center" border="0" cellpadding="0" cellspacing="0"
@@ -27,7 +26,7 @@ const htmlGrundSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, si
                                         <a href="#" style="text-decoration: none;">
                                             <p style="color:white;
                                                     font-weight:bold;">
-                                            SIV kursbokning
+                                            Grundkurs bokning
                                             </p>
                                         </a>
                                     </td>
@@ -55,11 +54,18 @@ const htmlGrundSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, si
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
                          Meddelande:  ${Meddelande}
                         </p>
+                        
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
                          Gå med nyhetsbrev:  ${newsletter}
                         </p>
+                        <p style="font-weight: bold; font-size: 18px; letter-spacing: 0.025em; color:black;">
+                         God känna kursvilkor:  ${kursvilkor}
+                        </p>
+                         <p style="font-weight: bold; font-size: 18px; letter-spacing: 0.025em; color:black;">
+                         God känna integritietspolicy:  ${checkboxOK}
+                        </p>
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
-                         Vikt:  ${weight} <br>  SSFF licnr. : ${licNr}  <br> Födelseår: ${birthyr}
+                         Vikt:  ${weight}  <br> Födelseår: ${birthyr}
                         </p>
 
                     </td>
@@ -67,15 +73,18 @@ const htmlGrundSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, si
 
                 <tr style="display: inline-block;">
                     <td style="min-height: 150px; padding: 6px 20px; border: none; border-bottom: 2px solid #361B0E; background-color: white;">
-                        <h2 style="text-align: left; align-items: center;">Siv kursdate: ${kursDate}</h2>
+                        <h2 style="text-align: left; align-items: center;">Grundkurs date: ${kursDate}</h2>
+                         <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
+                            Veckan: ${kursVeckan}
+                       </p>
                         <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
-                            SIV kurspris: ${sivPrice}
+                            Grundkurs pris: ${kursPriceISO}
                        </p>
                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
                             Boende val: ${boendeType} 
                        </p>
                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
-                        Boende pris: ${boendePrice}
+                        Boende pris: ${boendePriceISO}
                        </p>
                        <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
                          Lägenhetsförfrågan:  ${apartmentRequest}

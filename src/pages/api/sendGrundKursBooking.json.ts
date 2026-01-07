@@ -33,9 +33,10 @@ export const POST: APIRoute = async ({ request }) => {
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
     const kursDate = formData.kursDate
-    const sivPrice = formData.sivPrice
+    const kursVeckan =  formData.kursVeckan
+    const kursPriceISO = formData.kursPriceISO
     const boendeType = formData.boendeType
-    const boendePrice = formData.boendePrice
+    const boendePriceISO = formData.boendePriceISO
     const apartmentRequest = formData.apartmentRequest
     const summa = formData.summa
     
@@ -47,11 +48,11 @@ export const POST: APIRoute = async ({ request }) => {
     const telday = formData.telday
     const weight = formData.weight
     const birthyr = formData.birthYear
-    const licNr = formData.licNr
     const adress = formData.adress
     const postnr = formData.postNr
     const city = formData.city
     const country = formData.country
+    const kursvilkor = formData.kursvilkor
     const newsletter = formData.newsletter
     const checkboxOK = formData.checkboxOK    
     const Tsubject = formData.subject
@@ -61,14 +62,14 @@ export const POST: APIRoute = async ({ request }) => {
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
 
-    const output = htmlGrundKundBookTemplate(name, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, BookingTimestamp )
-    const outputSky = htmlGrundSkyTemplate(name, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
+    const output = htmlGrundKundBookTemplate(kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa, name, tel, telday, email, message, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK,  BookingTimestamp )
+    const outputSky = htmlGrundSkyTemplate(kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,name, tel, telday, email, message, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter, checkboxOK, BookingTimestamp )
 
     
 
-    const Skysubject = "SIV Bokning : " + name + ' : ' + onlydate
+    const Skysubject = "Grundkurs Bokning : " + name + ' : ' + onlydate
     const Skymessage = `
-    SIV bokning: ${kursDate}   
+    Grundkurs bokning: ${kursDate}   
 
     Boende: ${boendeType}
     ----------------------------------------------------------------------
@@ -80,7 +81,7 @@ export const POST: APIRoute = async ({ request }) => {
     `
 
     const Kmessage = `
-    SIV kurs bokning: ${kursDate}  
+    Grundkurs bokning: ${kursDate}  
 
     
     ----------------------------------------------------------------------
@@ -88,7 +89,7 @@ export const POST: APIRoute = async ({ request }) => {
     Meddelande: ${formData.message}
 
     Skickade: ${BookingTimestamp}
-     Eftersom du fik våran förenklade bekräftelse, be vi ät du här av sej till oss om hur din tandemflyg ska genomförs.
+     
 
     `
    

@@ -7,11 +7,16 @@ import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
 const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
+const betarawpris =   grundKurser[0].kursPris;
+const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(betarawpris); 
 
 ---
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <form>
+    <form method="POST">
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="lg:text-2xl font-bold"><!--col 1 -->
             <h3>Välj önskat kursdatum<span class="text-amber-600 text-xl">*</span></h3>
@@ -43,19 +48,13 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
         </div>
 
         <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
-            <h3>Grundkurs</h3>
+            <h3>Grundkurs </h3>
         </div>
         <div class="lg:col-span-3 py-3"><!-- col 2,3,4 -->
-            <div class="flex flex-col gap-y-3">
-                { grundKurser.map((kurs, index) => (
-                        <div class="flex"> 
-                             <input type="text" id="hs-kursPris" name="hs-kursPris" value="4500?" class="py-2.5 sm:py-3 px-4 block w-s border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" > 
-                                 
-                            <input type="text" id={`hs-radio-vertical-group-kurs-${index + 1}`} value={kurs.kursValue} name="hs-radio-vertical-group-kurs"  class="shrink-0 mt-0.5 w-s border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
-                            <label for={`hs-radio-vertical-group-kurs-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400"></label>
-                        </div>
-                    ))
-                }
+            <div id="grundKursData" class=" hidden flex flex-col gap-y-3 ">
+                <input type="text" id="hs-kursPris" name="hs-kursPris" disabled value={grundKursPrisISO} class="py-2.5 sm:py-3 px-4 block w-s border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500 disabled:text-green-800 disabled:font-bold disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" > 
+                <label for="hs-kursPris" id="kursPrisLabel" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">{grundKurser[0].kursComment}</label>
+                <input type="hidden" id="hs-kursRawPris" name="hs-kursRawPris" value={betarawpris}  >
             </div>
         </div>
 
@@ -79,6 +78,7 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
                 }
                 <input type="hidden" id="boendeDescription" name="boendeDescription" value="">
                 <input type="hidden" id="rawBoPrice" name="rawBoPrice" >
+                <input type="hidden" id="BoPriceISO" name="BoPriceISO" >
             </div>
             <p class="mt-2 text-sm text-gray-500 dark:text-neutral-400 text-justify">
                 Våra rum ligger I lägenheter. Det finns två eller tre sovrum I varje lägenhet. Om man bokar del I dubbelrum får man dela ett sovrum med en annan person. Bokar man enkelrum får man ett eget sovrum. Kök, badrum och vardagsrum delas med andra som bor I lägenheten. Om du vill bo helt själv utan någon annan I lägenheten måste du boka hel lägenhet.
@@ -96,9 +96,9 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
         <div class="lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
             <h3>Summa:</h3>
         </div>
-        <div class="col-span-1 lg:col-span-3 py-0 sm:py-3">
+        <div class="col-span-1 lg:col-span-3 py-0  sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-summa" id="hs-summa" placeholder="4500 kr" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                  <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">Summan räknäs efter val av boende.</label>
           </div>      
         </div>
@@ -106,7 +106,7 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
     
 
     <div class="lg:text-3xl pt-6 sm:pt-0">
-            <h2>Kontakt Information</h2>
+            <h2>Elev Kontakt Information</h2>
             <Hr1 />
     </div>
       <!-- Grid -->
@@ -126,18 +126,17 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
             <div class="lg:text-2xl font-bold col-span-1 sm:col-span-1"><!--col 1 -->
                 <h3>Födelseår<span class="text-amber-600 text-xl">*</span></h3>
             </div>
-            <div class="py-2 sm:py-0  sm:col-span-2 ">
+            <div class="py-2 sm:py-0  sm:col-span-1 ">
                 <input type="text" name="hs-birthyear" id="hs-birthyear" placeholder="xxxx"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                 <label for="hs-birthyear" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Skriv ditt födelseår XXXX</label>
             </div>
-            <div class="lg:text-2xl font-bold "><!--col 1 -->
-                <h3>SSFF Lic nr</h3>
+            <div class="lg:text-2xl font-bold sm:col-span-1"><!--col 1 -->
+                <h3>Din Vikt</h3>
             </div>
-            <div class="py-2 sm:py-0  sm:col-span-1 ">
-                <input type="text" name="hs-lic-nr" id="hs-lic-nr" placeholder="Lic. nr."  class="p-2 w-full  sm:py-3 sm:px-2 md:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-lic-nr" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">SSFF lic. nr.</label>
+            <div class="py-2 sm:py-0  sm:col-span-2 ">
+                <input type="text" name="hs-weight" id="hs-weight" placeholder="Vikt"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-weight" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Vikt</label>
             </div>
-
 
             <!-- adress -->
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
@@ -192,20 +191,20 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
                 <label for="hs-mobile" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Tel. Mobil</label>
             </div>
 
-            <div class="lg:text-2xl font-bold "><!--col 1 -->
-                <h3>Din Vikt</h3>
-            </div>
-            <div class="py-2 sm:py-0  sm:col-span-4 ">
-                <input type="text" name="hs-weight" id="hs-weight" placeholder="Vikt"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/4 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-weight" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Vikt</label>
-            </div>
-
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
                 <h3>Meddelande</h3>
             </div>
             <div class="py-2 sm:py-0 col-span-2 sm:col-span-4 ">
-                <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." data-hs-textarea-auto-height=""></textarea>   
+                <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." ></textarea>   
                 <label for="hs-meddelande" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Meddelande</label>
+            </div>
+
+            <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
+                <h3>Vilkor<span class="text-amber-600 text-xl">*</span></h3>
+            </div>
+            <div class="py-0 sm:py-0 col-span-2 sm:col-span-4 flex flex-row items-center">                  
+                <input id="hs-kursvilkor" name="hs-kursvilkor" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                <label for="hs-kursvilkor" class="pt-2 text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400">Ja, jag här läst igenom kursinformationen och godkänner dessa. <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="../../Kurs/kursvilkor">KLICKA HÄR</a> för villkor och kursinformation.</label>
             </div>
 
              <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
@@ -228,7 +227,7 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
       
         <div class="mt-3 flex">
             <div class="mt-6 grid">
-                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka SIV Bokning</button>
+                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka Grundkurs Bokning</button>
             </div>
         </div>
         
@@ -236,38 +235,126 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
 
 </div>
 
+<script>
+    const getWeekNumber = (date) => {
+        const firstDay = new Date(date.getFullYear(), 0, 1)
+        const days = Math.floor((date - firstDay) / (24 * 60 * 60 * 1000))
+        return Math.ceil((days + firstDay.getDay() + 1) / 7)
+    }
+
+    import flatpickr from "flatpickr"
+    import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
+
+    const winterBoDate =  new Date('2026-05-15');
+    const winterBoDateISO = winterBoDate.toISOString();
+
+   function datepickerCG () {
+        flatpickr('#flatpickr-date', {
+        monthSelectorType: 'static',
+        'locale': Swedish,
+        weekNumbers: true,
+        dateFormat: "Y-m-d",
+        minDate: 'today',
+        enable: ['2026-02-02', '2026-02-09', '2026-02-16', '2026-02-23', '2026-03-02','2026-03-16','2026-03-23', '2026-03-30', '2026-04-06', '2026-04-13', '2026-04-20', '2026-04-27',
+     '2026-05-25', '2026-06-01', '2026-06-08', '2026-06-22', '2026-06-29', '2026-07-06', '2026-07-13', '2026-07-20', '2026-07-27', '2026-08-03', '2026-08-10', '2026-08-24',
+      '2026-08-31', '2026-09-14', '2026-09-28', ],
+        disable:[
+            {
+                from: '2026-04-28',
+                to: '2026-05-24',
+            }
+        ],
+        onChange: function(selectedDates, dateStr, instance) {     
+            const theWeek = getWeekNumber(new Date(dateStr));
+            document.getElementById("grundKursData").classList.remove("hidden");
+            //alert('date is picked week is: ' + theWeek);
+            document.getElementById("kurs-veckan").value = theWeek;
+            document.getElementById("kurs-veckan").disabled = true;
+            // aktivate the boende options
+            const selectedDate =  new Date(dateStr);
+            const dateStrISO = selectedDate.toISOString();
+            // uncheck all the boende radio buttons
+            const clearSummerBo =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
+            clearSummerBo.forEach((button) => {
+                button.checked = false;
+                document.getElementById("hs-summa").value = '';
+                document.getElementById("rawBoPrice").value = 0;
+            });
+            const clearVinterBo =  document.getElementsByName('hs-radio-vertical-group-bo-vinter');
+            clearVinterBo.forEach((button) => {
+                button.checked = false;
+                document.getElementById("hs-summa").value = '';
+                document.getElementById("rawBoPrice").value = 0;
+            });
+            
+            if  (dateStrISO > winterBoDateISO) {          
+                document.getElementById("sommar-h3").classList.remove("hidden");
+                document.getElementById("sommar-radio").classList.remove("hidden");
+                document.getElementById("vinter-h3").classList.add("hidden");
+                document.getElementById("vinter-radio").classList.add("hidden");
+            } else {
+                document.getElementById("vinter-h3").classList.remove("hidden");
+                document.getElementById("vinter-radio").classList.remove("hidden");            
+                document.getElementById("sommar-h3").classList.add("hidden");
+                document.getElementById("sommar-radio").classList.add("hidden");
+            }
+        },        
+    })};
+
+ datepickerCG();
+</script>
+
 <script is:inline>
-    const sivPrice = document.getElementById("hs-pris").value;
-    const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo');
-        bobuttons.forEach((button) => {
-            button.addEventListener('click', () => {SivSumma()
+    
+    const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
+    bobuttons.forEach((button) => {
+            button.addEventListener('click', () => { BoSummar()
+              // alert(' bo summer');
+        });
+    });
+    const bobuttonsV =  document.getElementsByName('hs-radio-vertical-group-bo-vinter');
+        bobuttonsV.forEach((button) => {
+            button.addEventListener('click', () => { BoVinter()
+               //alert(' bo winter');
         });
     });
 
-    function SivSumma() {
-                var ele = document.getElementsByName('hs-radio-vertical-group-bo');
+    function BoSummar() {
+                var ele = document.getElementsByName('hs-radio-vertical-group-bo-sommar');                
                 for (i = 0; i < ele.length; i++) {
                     if (ele[i].type = "radio") {
                         if (ele[i].checked ) {
                             const boendeTyper = ele[i].id;
-                            
-                            if(boendeTyper === 'hs-radio-vertical-group-bo-1'){
+                            const boSPris =  ele[i].value;  
+                            document.getElementById("rawBoPrice").value = boSPris;
+                           const summerPrice =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(boSPris);    
+                            document.getElementById("BoPriceISO").value = summerPrice;                    
+                            const kurser = document.getElementById("hs-kursRawPris").value;
+                            const rawTotal = (parseInt(kurser) + parseInt(boSPris)) ;
+                            const summersumma =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(parseInt(kurser) + parseInt(boSPris));                             
+                            if (kurser > 0 ){    
+                                document.getElementById("hs-summa").value = summersumma; 
+                            } else {
+                              //  alert('bobo happened' + boVPris);
+                            }                            
+                            if(boendeTyper === 'hs-radio-vertical-group-bo-sommar-1'){
                                 document.getElementById("boendeDescription").value = 'Del av Dubbelrum';
-                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-2'){
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-sommar-2'){
                                 document.getElementById("boendeDescription").value = 'Enkelrum';
-                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-3'){
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-sommar-3'){
                                 document.getElementById("boendeDescription").value = 'Hel Lägenhet';
-                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-4'){
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-somar-4'){
                                 document.getElementById("boendeDescription").value = 'Eget Boende';
                             }
-                            //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value);
-                           
-                                 
-                            
-                            document.getElementById("hs-summa").value = currencyNumber(sivPrice)/100 + (currencyNumber(ele[i].value))/100 + ',00 kr'; 
-                            //alert('apartment selected' + ele[i].id);
+                            //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value + ' Sommar') ;
                             // show the  apartment request field
-                            if(ele[i].id === 'hs-radio-vertical-group-bo-3'){
+                            if(ele[i].id === 'hs-radio-vertical-group-bo-sommar-3'){
                                 document.getElementById("apartRa").classList.remove("hidden");
                                 document.getElementById("apartRa").innerHTML = '<h3 class="lg:text-2xl font-bold py-3">Lägenhetsförfrågan<span class="text-amber-600 text-xl">*</span></h3>';
                                 document.getElementById("apartRb").classList.remove("hidden");
@@ -275,19 +362,63 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
                             } else {
                                 document.getElementById("apartRa").classList.add("hidden");
                                 document.getElementById("apartRb").classList.add("hidden");
-                            }  
-                                                      
+                            }                                                       
                         }
                     }
                 }
             }
 
-    function currencyNumber(kroners){
-        let currencyString = kroners;
-        let numericString = currencyString.replace(/[^0-9.-]+/g,""); // Removes $, commas, etc.
-        let numberValue = parseFloat(numericString);
-        return numberValue;
-    }
+    function BoVinter() {
+                var eleV = document.getElementsByName('hs-radio-vertical-group-bo-vinter');                
+                for (i = 0; i < eleV.length; i++) {
+                    if (eleV[i].type = "radio") {
+                        if (eleV[i].checked ) {
+                            const boendeTyper = eleV[i].id;
+                            const boVPris =  eleV[i].value;  
+                          
+                            document.getElementById("rawBoPrice").value = boVPris; 
+                             
+                            const winterPrice =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(boVPris);   
+                                  //  alert('bobo happened v' + boVPris); 
+                            document.getElementById("BoPriceISO").value = winterPrice;                         
+                             
+                            const kurser = document.getElementById("hs-kursRawPris").value;
+                            const rawTotal = (parseInt(kurser) + parseInt(boVPris)) ;
+                            const vintersumma =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(parseInt(kurser) + parseInt(boVPris));                             
+                            
+                            document.getElementById("hs-summa").value = vintersumma; 
+                                     
+                            if(boendeTyper === 'hs-radio-vertical-group-bo-vinter-1'){
+                                document.getElementById("boendeDescription").value = 'Del av Dubbelrum';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-vinter-2'){
+                                document.getElementById("boendeDescription").value = 'Enkelrum';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-vinter-3'){
+                                document.getElementById("boendeDescription").value = 'Hel Lägenhet';
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-vinter-4'){
+                                document.getElementById("boendeDescription").value = 'Eget Boende';
+                            }
+                            //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value + ' Vinter') ;
+                            // show the  apartment request field
+                            if(eleV[i].id === 'hs-radio-vertical-group-bo-vinter-3'){
+                                document.getElementById("apartRa").classList.remove("hidden");
+                                document.getElementById("apartRa").innerHTML = '<h3 class="lg:text-2xl font-bold py-3">Lägenhetsförfrågan<span class="text-amber-600 text-xl">*</span></h3>';
+                                document.getElementById("apartRb").classList.remove("hidden");
+                                document.getElementById('hs-radio-vertical-group-bo-3').label.classList.add("font-semibold");
+                            } else {
+                                document.getElementById("apartRa").classList.add("hidden");
+                                document.getElementById("apartRb").classList.add("hidden");
+                            }                                                       
+                        }
+                    }
+                }
+            }
+
 </script>
 
 <script is:inline>
@@ -305,29 +436,30 @@ const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
   //saveInput()
+   //alert(' NO bobo 3' + boVPris);
   sendmail()
 }
 
 const getFormData = () => {
   const store = Object.create(null)
-    store.kursDate = radioValue('hs-radio-vertical-group')
-    store.sivPrice = document.getElementById("hs-pris").value
-    store.boendeType = document.getElementById("boendeDescription").value
-    store.boendePrice = radioValue('hs-radio-vertical-group-bo')
+    store.kursDate = get("flatpickr-date")?.value
+    store.kursVeckan = get("kurs-veckan")?.value
+    store.kursPriceISO = get("hs-kursPris")?.value
+    store.boendeType = get('boendeDescription')?.value
+    store.boendeRawPrice = get("rawBoPrice")?.value 
+    store.boendePriceISO = get('BoPriceISO')?.value
     store.apartmentRequest = get('hs-apartR')?.value
-    store.summa = document.getElementById("hs-summa").value
+    store.summa = get("hs-summa")?.value
 
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
     store.lastName = get('hs-lastname-contacts-1')?.value
     store.birthYear = get('hs-birthyear')?.value
-    store.licNr = get('hs-lic-nr')?.value
     store.adress = get('hs-gatu')?.value
     store.city = get('hs-city')?.value
     store.postNr = get('hs-post-nr')?.value
     store.country = get('hs-land')?.value
     store.email = get('hs-email-contacts-1')?.value
-    
     store.telDay = get('hs-tel-day')?.value 
     if (store.telDay.length < 3 ) 
         store.telDay = 'N/A';
@@ -336,9 +468,10 @@ const getFormData = () => {
     if( store.weight.length < 2 ) 
         store.weight = 'N/A';
     store.message = get('hs-meddelande')?.value
+    store.kursvilkor = get('hs-kursvilkor')?.value
     store.newsletter = get('hs-news')?.value
     store.checkboxOK = get('remember-me')?.value
-store.subject = 'SIV Kurs Bokning'
+store.subject = 'Grundkurs Bokning'
   return store
 }
 
@@ -346,13 +479,14 @@ const submitBtn = document.querySelector('[type="submit"]')
 submitBtn?.addEventListener('click', submitForm)
 
 const sendmail = async () => {
-  const { firstName, lastName, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest,  summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
-  const data = await fetch('/api/sendSivKursBooking.json', {
+  
+  const { kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight, birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject } = getFormData()
+  const data = await fetch('/api/sendGrundKursBooking.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ firstName, lastName, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject }),
+    body: JSON.stringify({ kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight,  birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
       if (!res.ok) {

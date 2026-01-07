@@ -1,11 +1,10 @@
 
-const htmlGrundKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate, sivPrice, boendeType,boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, BookingTimestamp) => {
+const htmlGrundKundBookTemplate = (kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,name, tel, telday, email, Meddelande,  weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK, BookingTimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
 
 <head>
-
   <!--[if gte mso 9]>
   <xml>
     <o:OfficeDocumentSettings>
@@ -109,24 +108,25 @@ Skysport AB
 <h4>Du här bokad med följande informationen:</h4>
 
   <p class="p1">
-  SIV kurs bokad datum: <b>${kursDate}</b><br>
-  SIV kurs pris: <b>${sivPrice}</b><br>
+  Grundkurs bokad datum: <b>${kursDate}</b><br>
+  Veckan: <b>${kursVeckan}</b><br>
+  Grundkurs pris: <b>${kursPriceISO}</b><br>
   Boende: <b>${boendeType}</b> <br>
-  Boendepris: ${boendePrice}<br>
+  Boendepris: ${boendePriceISO}<br>
   Lägenhetsförfrågan: <b>${apartmentRequest}</b><br>
-  Summa SIV kurs och boende: <b>${summa}</b><br><br>
+  Summa Grundkurs och boende: <b>${summa}</b><br><br>
   Namn: <i>${name}</i><br>
   Tel: <i>${tel}</i><br>
   Tel dagtid: <i>${telday}</i><br>
   Email: <i>${email}</i><br>
     Adress: <i>${adress} ,&nbsp; ${postnr},&nbsp;  ${city},&nbsp;  ${country}</i><br>
-    Vikt: <i>${weight}</i>&nbsp;   SSFF licnr. : <i>${licNr}</i>&nbsp;   Födelseår: <i>${birthyr}</i><br>
+    Vikt: <i>${weight}</i>&nbsp;   Födelseår: <i>${birthyr}</i><br>
   Gå med nyhetsbrev: <i>${newsletter}</i><br>
 
   Meddelande: <i>${Meddelande}</i>
   </p>
-
-
+ Godkänna kursvilkor: <i>${kursvilkor}</i><br>
+ Gå med nyhetsbrev: <i>${newsletter}</i><br>
 <p class="p2">skickade: ${BookingTimestamp}</p>
 
 
