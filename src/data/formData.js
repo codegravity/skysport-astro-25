@@ -93,10 +93,10 @@ export const flygbehorighet = [
 export const  grundKurser = [
     {
         kursLabel: 'Grundkurs',
-        kursValue: '4500',
+        kursValue: '9500',
         kursID: 'grund',
-        kursPris: '4500',
-        kursComment: 'no comment',
+        kursPris: '9500',
+        kursComment: 'OBS! Det tillkommer en kostnad på 200 kr för varje höjdflyg detta betalas vid kursavslut. I detta pris ingår utrustning och instruktör. Under kursen gör man 1-10 st höjdflyg. Det tillkommer också transport till startplatser på berget, 80 kr/st med bil och 185 kr/st med lift. Innan man börjar kursen, måste man också teckna ett "Take off kit" hos SSFF. Det kostar 2.020 kr (för kalenderår 2025) och inkluderar försäkring, medlemskap i SSFF och licensavgift. Mera information om Take off kit får du när du har bokat kursen.',
     },
  
   
