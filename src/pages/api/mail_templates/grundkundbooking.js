@@ -94,12 +94,13 @@ const htmlGrundKundBookTemplate = (kursDate, kursVeckan, kursPriceISO, boendeTyp
               <h2 style="font-size: 20px; line-height: 24px; font-family: 'Helvetica', Arial, sans-serif; font-weight: 600; text-decoration: none; color: #000000;">
              Hej ${name}</h2>
              <h4>
-Tack att du har bokat SIV hos Skysport.
-Du har skickat följande bokningsuppgifter.
-Om nånting är fel eller inte stämmer gärna kontakt oss på: bokning@skysport.se
-Vi kommer snart att skicka ut mer information till dig inför kursen.
-mvh
-Skysport AB
+Tack för din bokning av en flygkurs hos Skysport.
+Du har skickat följande bokningsuppgifter, se nedan.
+Om någonting är fel eller inte stämmer kontakta oss gärna på e-post:
+
+bokning@skysport.se
+
+Vi kommer snart att kontakta dig med mer information inför kursen.
 </h4>
 &nbsp; 
   <p>Detta är en automatisk bokningsbekräftelse SIV kurs hos Skysport</p>

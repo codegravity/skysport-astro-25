@@ -1,165 +1,10 @@
 ---
-import { siteConfig } from "@config/site";
+
 import Layout from "@layouts/MainLayout.astro";
-//import ImageHero from "@components/sections/ImageHero.astro";
-//import VideoHero from "@components/sections/VideoHero.astro";
-//import HeroImage from '../assets/images/IMG_7422.jpg';
-//import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
-import ThreeCards from "@components/sections/ThreeCards.astro";
-import CardImage1 from '@assets/images/mellanmullfjallet27.jpg';
-import CardImage2 from '@assets/images/tandemhenning23.jpg';
-import CardImage3 from '@assets/images/pie3.jpg';
-
-import Booking from "@components/sections/TandemBooking.astro";
-import BookingCTA from  "@sections/bookingCTA.astro";
-import TandemPriceCard from "@widgets/TandemPriceCard.astro";
-import ListWidget from "@widgets/listwidget.astro";
 import VtabInfo from  "@sections/FeatureVtabs.astro";
-import Feature50 from  "@sections/Feature-50-50.astro";
-
-import tandemLanding from "@assets/images/tandem/sommar-1536x1536.jpg";
-import sommarSkutan from "@assets/images/tandem/sommarskutan1.jpg";
-import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
-
-
-
+import FAQ from  "@sections/faq1.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
 
-
-/* const HeroContent = {
-    title: "Om Oss",
-    description: " Skysport här varit igång sedan 1991 och är en av Sveriges äldsta skärmflygskolor. Vi håller till i Åre där vi bedriver skärmflygutbildning, tandemflygning, försäljning av utrustning samt arrangerar resor och kurser både i Sverige och utomlands. Vår ambition är att erbjuda högkvalitativa tjänster inom skärmflygning med fokus på säkerhet, glädje och gemenskap.",
-    backgroundImage: HeroImage,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    fadeOut: true,
-  
-} */
-
- const CardContent = {
-    title1: "Grundkurs",
-    description1: "Förverkliga drömmen och lär dig skärmflyga. Under en 5 dagars intensivkurs i Åre flyger du både i liten backe och höjdflyg från Åreskutan. Kursen leder fram till licens.",
-    image1: CardImage1,
-    url1left: "start",
-    linktext1left: "Läs Mer",
-    url1right: "",
-    linktext1right: "BOKA",
-    title2: "Tandem",
-    description2: "Tillsammans med en erfaren instruktör flyger du på ett säkert och avslappnat sätt från Åreskutan. Arrangeras dagligen under säsong. Inga förkunskaper krävs.",
-    image2: CardImage2,
-    url2left: "start",
-    linktext2left: "Läs Mer",
-    url2right: "tandem",
-    linktext2right: "BOKA",
-    title3: "Nyheter",
-    description3: "Vinter/Vår 2026:  Vi startar säsongen 2 februari. Under februari-september arrangeras kurser kontinuerligt.",
-    image3: CardImage3,
-    url3left: "",
-    linktext3left: "",
-    url3right: "/blog",
-    linktext3right: "NYHETER",
-
-} 
-
-
-const BookingCtaContent = {
-  title: 'Bokning',
-  text: 'Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss Tel: 070-5699089. Sedan stämmer vi av hur vädret ser ut dagen innan flygningen skall ske, eller på morgonen samma dag.',
-  ctaBild: tandemLanding,
-    buttons: [
-    {
-      text: "Boka Tandemflyg",
-      link: "#bokatandem",
-      target: "_self",
-    },
-  ],
-}
-
-const TandemPriceCardContent = {
-  bookingPageClass: 'lg:grid-cols-2',
-  tandemProducts:[
-    {
-      title: "Tandemflyg",
-      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
-      price: "1.800 kr",
-      foto: 0,
-    },
-    {
-      title:  "Tandemflyg med film/foto",
-      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
-      price: "2.200 kr",
-      foto: 1,
-    }
-  ],
-}
-
-const Feature50Content = {
-     infoTitle: 'Upptransport',
-     infoText: [
-      {
-        preText: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca',
-        spanText: '185 kr',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      },
-            {
-        preText: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar ',
-        spanText: '80 kr',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      },
-     ],
-    //infoDescription1: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca 185 kr.',
-    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
-    infoImg:  sommarSkutan,
-    infoIcon: '',
-    buttons: [
-      {
-        text: "",
-        link: "",
-        target: "_self",
-      },
-    ],
-}
-
-const  TandemGearListContent = {
-  listTitle: "Utrustning du håller med själv är:",
-  listDescription: '',
-  listIcon: '',
-  listList: [
-    {
-      listItem: 'Stabila skor/kängor, handskar o tunn mössa att ha under hjälmen  (Skulle du inte ha skor har vi 4-5 par i olika storlekar att låna ut)',
-    },
-    {
-      listItem: 'Vi håller med all utrustning som rör själva flygningen'
-    },
-    {
-      listItem: 'Du kan ta med egen hjälm. Men det är inget krav. Vi har hjälmar att låna ut i samtliga storlekar.'
-    },
-  ],
-}
-const  TandemVaderListContent = {
-  listTitle: "Väder",
-  listDescription: 'Vi vill att du ska känna 100% säkerhet och trygghet under din flygning. Därför har vi vissa regler som gäller för väder/vind.',
-  listIcon: '',
-  listList: [
-    {
-      listItem: 'Det får inte regna',
-    },
-    {
-      listItem: 'Det får inte blåsa för mycket. Max vind ca 8 m/s'
-    },
-    {
-      listItem: 'Vinden får inte heller vara alltför byig (byvind på över 8 m/s accepteras ej)'
-    },
-    {
-      listItem: 'Det får inte heller finnas dimma eller lågt liggande moln som gör att vi inte har sikt från startplatsen till landningsplatsen'
-    },
-    {
-      listItem: 'Vi har ett 10-tal olika startplatser på Åreskutan. Vi väljer den startplats där vi bedömer att vi kan genomföra en säker start, flygning och landning. Faktorer som styr är vindstyrka, vindriktning, sikt och vilka liftar som är öppna'
-    },
-  ],
-}
 
  const VtabInfoContent = {
   infoTitle: "Om tandemflyg i Åre.",
@@ -192,58 +37,85 @@ title="Skysport Skärmflygskola i Åre"
 description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
+ <section >
+    <div class="site-container px-0 py-42 text-center ">
+      <h5 class="text-2xl text-slate-600 lg:text-4xl w-full dark:text-slate-200" >Villkor och kursinformation</h5>
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full "><h3>Boende</h3></li>
+        <li class="w-full "><p>Boendepriset avser priset för hela kursveckan (del i 2-4 bädds rum). Du bor tillsammans med andra kursdeltagare. Vill du boka egen lägenhet(bo själv eller ta med andra familjemedlemmar som ej går kursen), kontakta oss för prisinfo och bokning Obs! Om ni är en grupp tex 4 personer, kan ni utan extra pristillägg få en egen 4-bädds lägenhet.</p></li>
+        <li class="w-full "><p>I boendepriset ingår inte sänglinne, handdukar, måltider och slutstädning.
+      Sänglinne/handdukar går att hyra för 200 kr/vecka. Slutstädning kostar 200 kr/person. Frågor? Kontakta oss</p></li>
+      <li class="w-full"><p>Ni kommer att bo i ”LAKE LODGE ÅRE” eller i Storskutan.</p></li>
+      </ul>
 
-<!--    <ImageHero content={HeroContent}/>   -->
-    <section >
-     <ThreeCards content={CardContent}/> 
-  </section> 
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Betalning</h3></li>
+        <li class="w-full"><p>Vi skickar ut faktura när du har anmält dig till kursen. Betalning av fakturan görs senast 2 veckor före kursstart.</p></li>
+      </ul>
 
-<BookingCTA content={BookingCtaContent}/>
-<TandemPriceCard content={TandemPriceCardContent} />
-<Feature50 content={Feature50Content}/>
-<ListWidget content={TandemGearListContent} />
-<ListWidget content={TandemVaderListContent} />
-  <section >
-    <div class="site-container px-0 py-12 text-center ">
-<p class="h-4 bg-gray-200 rounded-full dark:bg-neutral-700" style="width: 40%;"></p>
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Vädergaranti</h3></li>
+        <li class="w-full"><p>VI kursen ingår en vädergaranti, den innebär att skulle du inte bli klar med de flygningar som ingår i kursen under veckan, kan du stanna kvar 1 dag extra(lördag) och komplettera med återstående flygningar(kostnadsfritt). Skulle inte heller detta räcka, har du flygen innestående och kan utan extra kostnad återkomma inom 6 månader och göra färdigt det som ingår i kursen.För att kunna utnyttja vädergarantin så måste man boka på sig en ny vecka där vi har en pågående kurs.</p></li>
+        <li class="w-full"><p>Om det går längre tid, 6-12 månader, och du vill återvända och göra klart kursen,krävs först en Avrostningskurs. Den kostar 3.000 kr.  I detta pris ingår utrustning och instruktörer.</p></li>
+        <li class="w-full"><p>Vädergarantin gäller under förutsättning att du ej på eget initiativ avbrutit.</p></li>
+        <li class="w-full"><p>Kursen slutar senast lördag 20.00. Den kan sluta tidigare om flygningarna som ingår i kursen redan är avklarade eller om instruktören bedömer att väderprognosen för reservdagen(lördag) är dålig.</p></li>
+        
+      </ul>
 
-<ul class="mt-5 space-y-3">
-  <li class="w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700"></li>
-  <li class="w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700"></li>
-  <li class="w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700"></li>
-  <li class="w-full h-4 bg-gray-200 rounded-full dark:bg-neutral-700"></li>
-</ul>
-</div>
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>När startar/slutar kursen?</h3></li>
+        <li class="w-full"><p>Kurserna startar måndag klockan 09.00 och pågår tom fredag eftermiddag/kväll. Lördag är reservdag. Lördag är reservdag och kan bedömas som vädergarantidag och skall utnyttjas för att vädergarantin skall gälla.</p></li>
+        <li class="w-full"><p>Om de flygningar som ingår i kursen är klara under fredagen, så avslutas kursen då. Obs! Om du på eget initiativ väljer att avbryta kursen innan instruktörerna har avslutat kursen gäller inte den s k vädergarantin.</p></li>
+        <li class="w-full"><p>dvs att du kostnadsfritt får återkomma och göra klart dina flyg inom 6 månader.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Försäkring</h3></li>
+        <li class="w-full"><p>Obs! Tillkommer till kursavgiften gör: 200kr per höjdflyg, försäkring, och medlemskap i Svenska Skärmflygförbundet, SSFF, beloppet är 1.750 kr. Dessa 1.750 kr innehåller följande: SSFF(årsavgift), Ansvarsförsäkring, Olycksfallförsäkring, adm avgift till SSFF, teoribok(inkl porto) .</p></li>
+        <li class="w-full"><p>Skall sättas in, innan kursstart, på BG 5819-5132, bet.mottagare är SSFF. Ange namn, adress, tel nr och personnummer. Denna avgift gäller kalenderår och förnyas vid årsskiftet. Om du efter avslutad kurs vill ta ut din licens och flyga på egen hand under året, tillkommer inga andra kostnader än medlemskap i en klubb.</p></li>
+        <li class="w-full"><p>En utförligare information om vad försäkringen täcker finner du i det utskick som vi skickar ut ca 1 månad innan kursstart.</p></li>
+        <li class="w-full"><p></p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Höjdflyg</h3></li>
+        <li class="w-full"><p>Förutom grundavgiften på 8000-8500kr tar vi betalt för varje höjdflyg du gör. Om man vill ha en studentlicens med bergsbehörighet så gör vi 5-10 st höjdflyg.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Liftkort</h3></li>
+        <li class="w-full"><p>Vintertid tillkommer liftkort till kursavgiften. Vinter och vårvinter ca 360 kr/dag(räkna med ca 720 kr för en veckokurs). Sommar och höst betalar du för liftkort(300 kr/dagkort) om flygning sker dagtid. Om flygningen sker på morgonen eller kvällen, när liftarna inte är öppna, sker transporterna upp med bil, priset för detta är 60kr/tur.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Min antal för att en kurs skall bli av</h3></li>
+        <li class="w-full"><p>Det krävs minst 4 st kursdeltagare för att en kurs skall arrangeras. Vårt mål är att arrangera kurs alla veckor vi utlyser kurs. Men blir det inte tillräckligt antal anmälda kommer kursen inte att bli av. Kontakta oss så får du veta hur många som är anmälda den veckan du är intresserad av.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Fullbokade kurser</h3></li>
+        <li class="w-full"><p>Fullbokade kurser är ganska sällsynt, men det kan förekomma t.ex under juli månad. Boka därför i god tid om du vill vara säker på plats.  Grundkurser startar varje vecka, enligt kurskalendern De kurser som är markerade i fet kursiv stil med texten ”fullbokad” är fullbokade. Du kan få stå som reserv till en fullbokad vecka, eftersom det förekommer att avbokningar sker endast ett par dagar innan kursstart. Därför kan du alltså ändå anmäla dig till en kurs även om den är fullbokad. Vi kontaktar dig i så fall så snart vi fått någon avbokning eller senast 3 dygn innan kursstart.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full"><h3>Avbokning av kurs</h3></li>
+        <li class="w-full"><p>1. Om avbokning sker mer än 2 veckor innan kursstart blir det ingen avbokningskostnad.</p></li>
+        <li class="w-full"><p>2. Om avbokning sker mindre än 2 veckor innan kursstart blir det en avbokningskostnad på 1.000 kr</p></li>
+        <li class="w-full"><p>3. Om avbokning sker mindre än 1 vecka innan kursstart blir det en avbokningskostnad på 2.000 kr</p></li>
+        <li class="w-full"><p>4. Om person blir sjuk eller skadad och inte kan anlända till kurs blir det ingen avbokningskostnad. Förutsättning att ett skriftligt läkarintyg skickas till Skysport.</p></li>
+        <li class="w-full"><p>5. Om person, inbokad på kursen, inte anländer utan att meddela något måste hela kursavgiften betalas ändå.</p></li>
+        <li class="w-full"><p>6. Om person, inbokad på kursen och som deltar i kursen, själv bestämmer sig för att avbryta kursen, återbetalas ej kursavgiften.</p></li>
+      </ul>  
+  </div>
 </section>
+<!--    <ImageHero content={HeroContent}/>   -->
+ 
+
+<FAQ />
 
   <Divider1 />
  <VtabInfo content={VtabInfoContent} />
-<Booking />
-  <section >
-    <div class="site-container px-0 py-6 text-center shadow-xl"></div>
-    <!-- Subscribe -->
-    <div class="max-w-6xl py-10 px-4 sm:px-6 lg:px-8 lg:py-16 mx-auto">
-      <div class="max-w-xl text-center mx-auto">
-        <div class="mb-5">
-          <h2 class="text-2xl font-bold md:text-3xl md:leading-tight dark:text-white">Prenumerera till Skysports nyhetsbrev</h2>
-        </div>
 
-        <form>
-          <div class="mt-5 lg:mt-8 flex flex-col items-center gap-2 sm:flex-row sm:gap-3">
-            <div class="w-full">
-              <label for="nyhetsBrevCTA" class="sr-only">Search</label>
-              <input type="text" id="nyhetsBrevCTA" name="hero-input" class="py-2.5 sm:py-3 px-4 block w-full border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600" placeholder="Skriv din epost här" />
-            </div>
-            <a class="w-full sm:w-auto whitespace-nowrap py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none" href="#">
-              Prenumerera
-            </a>
-          </div>
-        </form>
-      </div>
-    </div>
-    <!-- End Subscribe -->
- </div>
-    </section>
 
 </Layout>
 
