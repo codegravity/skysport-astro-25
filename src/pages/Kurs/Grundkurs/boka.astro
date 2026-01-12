@@ -6,9 +6,13 @@ import Booking from "@components/elements/forms/Grundkursform.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
 
 
+const schemaDate = Astro.url.searchParams.get("startdate") || "";
 const BookingPageContent = {
     bookingPage: 'Boka',
+    schemaDate: schemaDate,
 }
+
+
 ---
 
 <Layout
@@ -19,11 +23,7 @@ keywords=" "
 <section class="pt-30">
         <Divider1 />
     </section>
-   
     <Booking content={BookingPageContent}/> 
- 
-
- 
-
 </Layout>
+
 

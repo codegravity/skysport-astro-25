@@ -1,35 +1,12 @@
 ---
-
+import { kursPriser26 } from "@data/prisData";
+import { boendePriser26 } from "@data/prisData";
 import Layout from "@layouts/MainLayout.astro";
-import VtabInfo from  "@sections/FeatureVtabs.astro";
 import FAQ from  "@sections/faq1.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
 
 
- const VtabInfoContent = {
-  infoTitle: "Om tandemflyg i Åre.",
-  infoIcon: 'meteocons--windsock-fill',
-  infoCards:[
-    {
-      cardText: "I Åre flyger vi alla månader på året, förutom de mörkaste och  kallaste månaderna på året, november och december. Bäst förutsättningar har vi mellan mars-september.",
-      cardImg: "summarSkutan",
-      cardIcon: '',
-      cardNr: 1,
-    },
-    {
-      cardText: 'Vanligen sker flygningen på förmiddagen, mellan kl 9-12. Senare under dagen/eftermiddagen/kvällen kan också fungera, beroende på väder/årstid. Tiden för flygningen meddelas vanligen kvällen innan. Sista minuten bokning(samma dag) kan göras i mån av plats och om väder/vind är bra.',
-      cardImg: 'topStugan',
-      cardIcon: '',
-      cardNr: 2,
-    },
-    {
-      cardText: 'Samlingsplats för alla tandemflyg är Skysport, som ligger på Årevägen 173 i västra delen av Åre. Det är skyltat från bilvägen och det går att köra ända fram till samlingsplatsen.',
-      cardImg: 'cardImage2',
-      cardIcon: '',
-      cardNr: 3,
-    },
-  ],
-}
+ 
 ---
 <Layout
 
@@ -39,12 +16,12 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 >
  <section >
     <div class="site-container px-0 py-42 text-center ">
-      <h5 class="text-2xl text-slate-600 lg:text-4xl w-full dark:text-slate-200" >Villkor och kursinformation</h5>
+      <h5 class="text-2xl text-slate-600 lg:text-4xl w-full dark:text-slate-200" >Villkor och kursinformation (Grundkurs)</h5>
       <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
         <li class="w-full "><h3>Boende</h3></li>
         <li class="w-full "><p>Boendepriset avser priset för hela kursveckan (del i 2-4 bädds rum). Du bor tillsammans med andra kursdeltagare. Vill du boka egen lägenhet(bo själv eller ta med andra familjemedlemmar som ej går kursen), kontakta oss för prisinfo och bokning Obs! Om ni är en grupp tex 4 personer, kan ni utan extra pristillägg få en egen 4-bädds lägenhet.</p></li>
         <li class="w-full "><p>I boendepriset ingår inte sänglinne, handdukar, måltider och slutstädning.
-      Sänglinne/handdukar går att hyra för 200 kr/vecka. Slutstädning kostar 200 kr/person. Frågor? Kontakta oss</p></li>
+      Sänglinne/handdukar går att hyra för {boendePriser26.linneHanddukar} kr/vecka. Slutstädning kostar {boendePriser26.slutStad} kr/person. Frågor? Kontakta oss</p></li>
       <li class="w-full"><p>Ni kommer att bo i ”LAKE LODGE ÅRE” eller i Storskutan.</p></li>
       </ul>
 
@@ -79,7 +56,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 
       <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
         <li class="w-full"><h3>Höjdflyg</h3></li>
-        <li class="w-full"><p>Förutom grundavgiften på 8000-8500kr tar vi betalt för varje höjdflyg du gör. Om man vill ha en studentlicens med bergsbehörighet så gör vi 5-10 st höjdflyg.</p></li>
+        <li class="w-full"><p>Förutom grundavgiften på {kursPriser26[0].kursPris}kr tar vi betalt för varje höjdflyg du gör. Om man vill ha en studentlicens med bergsbehörighet så gör vi 5-10 st höjdflyg.</p></li>
       </ul>
 
       <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
@@ -106,16 +83,9 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
         <li class="w-full"><p>5. Om person, inbokad på kursen, inte anländer utan att meddela något måste hela kursavgiften betalas ändå.</p></li>
         <li class="w-full"><p>6. Om person, inbokad på kursen och som deltar i kursen, själv bestämmer sig för att avbryta kursen, återbetalas ej kursavgiften.</p></li>
       </ul>  
+       <Divider1 />
   </div>
 </section>
-<!--    <ImageHero content={HeroContent}/>   -->
- 
-
-<FAQ />
-
-  <Divider1 />
- <VtabInfo content={VtabInfoContent} />
-
-
+  <FAQ />
 </Layout>
 
