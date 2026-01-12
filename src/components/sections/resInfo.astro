@@ -1,0 +1,134 @@
+---
+
+
+import YellowAlert from "@components/elements/orangealert.astro";
+import Listwidget from "@widgets/liastwidget2.astro";
+import Feature50 from  "@sections/Feature-50-50.astro";
+
+import OlezLars from "@assets/images/res/G0038433.jpg";
+import OlezLars2 from "@assets/images/res/ölu.jpg";
+
+
+const Feature50Content = {
+     infoTitle: 'Öludeniz 2026',
+     infoText: [
+      {
+        preText: '',
+        spanText: '17 - 24 Maj 2026',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+      {
+        preText: '',
+        spanText: '20 - 27 September 2026',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+       {
+        preText: 'Ölüdeniz är Turkiets mest kända skärmflygställe och ett av de mest vädersäkra som finns i världen. Perfekt resmål där du kan kombinera skärmflyg och sol/bad semester. ',
+        spanText: ' ',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: 'Det går jättebra att ta med familjen om intresse finns. På September resan gör vi 2-3 flyg/dag, från olika startplatser. Och testar på termikflygning utanför startplatsen. Maj resan har SIV kurs inkluderat. Vi kommer att köra 3 dagar med SIV och resten av dagarna är friflygning. Om vädret tillåter avslutar vi veckan med ett flyg till Butterfly Valley.',
+      },
+      {
+        preText: '',
+        spanText: 'September resan kostar 12.800 kr (ej SIV kurs)',
+        spanClasses: 'text-s font-semibold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+      {
+        preText: '',
+        spanText: 'Maj resan kostar 16.800  kr, inkluderat SIV kurs(3 dagar)',
+        spanClasses: 'text-s font-semibold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+     ],
+    infoDescription: ' Det går jättebra att ta med familjen om intresse finns. På September resan gör vi 2-3 flyg/dag, från olika startplatser. Och testar på termikflygning utanför startplatsen. Maj resan har SIV kurs inkluderat. Vi kommer att köra 3 dagar med SIV och resten av dagarna är friflygning. Om vädret tillåter avslutar vi veckan med ett flyg till Butterfly Valley.',
+    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
+    infoImg:  OlezLars,
+    infoIcon: '',
+    /* buttons: [
+      {
+        text: "",
+        link: "",
+        target: "_self",
+      },
+    ], */
+}
+
+const Feature50bContent = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: '',
+        spanText: 'Berget vi flyger från heter Babadag med hela 2000 meter fallhöjd.',
+        spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+      {
+        preText: 'Väderförhållandena i området är mycket stabila med lagom mycket termik, svaga vindar och en temperatur på omkring 30 grader. Startplatser finns i både syd och nordlig riktning. Den lägre starten har 1750 m fallhöjd och den högsta starten 2000 m. En lägre nybyggd start finns också, med 1200 meters fallhöjd. Utnyttjas om molnen är för låga på toppen. Runt starten och berget finns oftast en hel del termik som ibland är lugn, men mitt på dagen betydligt kraftigare.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+       {
+        preText: ' Så snart man kommer ut över vattnet blir det lugnt och stabilt i luften. Och fritt fram att prova lite olika manövrar. Allt lett av instruktören som står på landningen och hjälper dig på radio.',
+        spanText: ' ',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+      
+     ],
+    infoDescription: ' Det går jättebra att ta med familjen om intresse finns. På September resan gör vi 2-3 flyg/dag, från olika startplatser. Och testar på termikflygning utanför startplatsen. Maj resan har SIV kurs inkluderat. Vi kommer att köra 3 dagar med SIV och resten av dagarna är friflygning. Om vädret tillåter avslutar vi veckan med ett flyg till Butterfly Valley.',
+    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
+    infoImg:  OlezLars2,
+    infoIcon: '',
+    /* buttons: [
+      {
+        text: "",
+        link: "",
+        target: "_self",
+      },
+    ], */
+}
+
+
+const YellowAlertContent = {
+    title: 'Flygbiljetter t/r Arlanda- Dalaman ingår inte i priset.',
+    description: 'Flygbiljett köper man själv, köp dock inte några biljetter utan att få klartecken från oss att resan blir av. Minimum antal för att resan skall bli av är 6 st deltagare.',
+
+}
+
+const  ResaInkListContent = {
+  listTitle: "Detta ingår:",
+  listDescription: '',
+  listIcon: '',
+  listList: [
+    {
+      listItem: 'Flygplats transfer',
+    },
+    {
+      listItem: 'Boende på hotell med pool och frukost.',
+    },
+    {
+      listItem: 'Transport upp på berget(2 flyg/dag)'
+    },
+    {
+      listItem: 'Guidning och instruktör (min 2 instruktörer med följer på resan).'
+    },
+  ],
+}
+---
+ 
+
+ <Feature50 content={Feature50Content} />
+  <Feature50 content={Feature50bContent} />
+<div class="site-container px-0 py-6 text-pretty ">
+   
+    <Listwidget content={ResaInkListContent} />
+    <YellowAlert content={YellowAlertContent} />
+ </div>
+ 
