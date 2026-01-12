@@ -6,12 +6,23 @@ import Hr1 from "@components/elements/SeparatorLine.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
+interface BookingPageContent {
+  bookingPage?: string;
+  schemaDate?: string;
+}
+
+interface Props {
+  content: BookingPageContent;
+}
+const { content } = Astro.props;
+
 const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
 const betarawpris =   grundKurser[0].kursPris;
 const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
                                     }).format(betarawpris); 
+
 
 ---
 
@@ -24,8 +35,12 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
 
         <div class="lg:col-span-3"><!-- col 2,3,4 -->
             <div class="flex flex-col gap-y-3">
-                <div >                                     
-                    <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-400 rounded-lg sm:text-sm lg:text-lg dark:text-slate-200 focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                <div > 
+                    { content.schemaDate ?
+                        <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" value={content.schemaDate} type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-400 rounded-lg sm:text-sm lg:text-lg dark:text-slate-200 focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                    :                                
+                        <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-400 rounded-lg sm:text-sm lg:text-lg dark:text-slate-200 focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                    }
                     <label for="flatpickr-date" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white"><!-- Önskat Datum<span class="text-orange-600 sm:text-4xl">*</span> --></label>
                     <p class="text-left pt-0 text-xs">Obs! Alla kurser börjar på måndag. Halvveckokurser börjar på måndag och slutar på torsdag. Weekend kurser börjar på torsdag och slutar på lördag.  </p> 
                 </div>
@@ -236,6 +251,57 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
 </div>
 
 <script>
+    
+    window.onload = (event) => {
+         const getWeekNumberx = (date) => {
+            const firstDay = new Date(date.getFullYear(), 0, 1)
+            const days = Math.floor((date - firstDay) / (24 * 60 * 60 * 1000))
+            return Math.ceil((days + firstDay.getDay() + 1) / 7)
+        }
+
+        const workTheDate = (datestr) => {
+
+            const selectedDate =  new Date(datestr);
+            const dateStrISO = selectedDate.toISOString();
+            const clearSummerBo =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
+            clearSummerBo.forEach((button) => {
+                button.checked = false;
+                document.getElementById("hs-summa").value = '';
+                document.getElementById("rawBoPrice").value = 0;
+            });
+            const clearVinterBo =  document.getElementsByName('hs-radio-vertical-group-bo-vinter');
+            clearVinterBo.forEach((button) => {
+                button.checked = false;
+                document.getElementById("hs-summa").value = '';
+                document.getElementById("rawBoPrice").value = 0;
+            });
+            if  (dateStrISO > winterBoDateISO) {          
+                document.getElementById("sommar-h3").classList.remove("hidden");
+                document.getElementById("sommar-radio").classList.remove("hidden");
+                document.getElementById("vinter-h3").classList.add("hidden");
+                document.getElementById("vinter-radio").classList.add("hidden");
+            } else {
+                document.getElementById("vinter-h3").classList.remove("hidden");
+                document.getElementById("vinter-radio").classList.remove("hidden");            
+                document.getElementById("sommar-h3").classList.add("hidden");
+                document.getElementById("sommar-radio").classList.add("hidden");
+            }
+        }
+        const bookingdate = document.getElementById("flatpickr-date");
+            if(bookingdate && bookingdate.value){
+                const datestr = bookingdate.value;
+                const theWeek = getWeekNumberx(new Date(datestr));
+                document.getElementById("grundKursData").classList.remove("hidden");
+                document.getElementById("kurs-veckan").value = theWeek;
+                document.getElementById("kurs-veckan").disabled = true;
+                // aktivate the boende options
+                workTheDate(datestr);
+            } else{
+                return false;
+            }
+    };
+
+
     const getWeekNumber = (date) => {
         const firstDay = new Date(date.getFullYear(), 0, 1)
         const days = Math.floor((date - firstDay) / (24 * 60 * 60 * 1000))
@@ -271,6 +337,7 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
             document.getElementById("kurs-veckan").value = theWeek;
             document.getElementById("kurs-veckan").disabled = true;
             // aktivate the boende options
+            
             const selectedDate =  new Date(dateStr);
             const dateStrISO = selectedDate.toISOString();
             // uncheck all the boende radio buttons
@@ -305,7 +372,9 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
 </script>
 
 <script is:inline>
-    
+ 
+
+
     const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
     bobuttons.forEach((button) => {
             button.addEventListener('click', () => { BoSummar()
