@@ -1,0 +1,137 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+
+import Button from '@components/ui/Button.astro';
+
+import KursInfo from  "@sections/Feature-50-50.astro";
+import KortInfo2 from "@components/sections/presentkort2.astro";
+import Carosel from "@components/sections/HeroCarosel.astro";
+import BergImg4 from "@assets/images/mellanmullfjallet27.jpg";
+import presentkort from '@assets/images/products/presentkort2.jpg';
+import balans from '@assets/images/kurs/balans.jpg';
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const Feature50Content4 = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoAnchorLink: 'berg4',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+        {
+        preText: ' ',
+        spanText: 'Presentkort Grundkurs',
+        spanClasses: ' dark:text-slate-200 text-3xl font-bold',
+        postText: '',
+      }, 
+       {
+        preText: ' ',
+        spanText: 'Vi säljer 4 olika varianter av presentkort:',
+        spanClasses: 'text-slate-600 font-bold',
+        postText: '',
+      }, 
+      {
+        preText: '',
+        spanText: '4.500 kr ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: ' Prova på kurs 3 dagar (exkl boende)',
+      }, 
+      {
+        preText: '',
+        spanText: ' 5.100 kr',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: ' Prova på kurs 3 dagar (inkl boende)',
+      },
+      {
+        preText: '',
+        spanText: '9.500 kr ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: 'Grundkurs 1 vecka  (exkl boende)',
+      },
+      {
+        preText: 'Från ',
+        spanText: ' 11.000 kr',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: ' Grundkurs 1 vecka (inkl boende)',
+      },
+      
+      
+     ],
+    infoImg:  balans,
+    imgHeight: 360,
+    imgWidth: 600,
+    infoIcon: '',
+    /* buttons: [
+      {
+        text: "Boka Berg Kursen",
+        link: "/Kurs/Fort/boka",
+        target: "_self",
+      },
+    ], */
+}
+
+const customLastPart = [
+  { index: "last", text: "Grundkurs Presentkort" },
+/*   {
+    "data-link": "/Tandem",
+    "aria-label": "",
+    text: "Tandem start",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+---
+
+<Layout
+title="Skysport Presentkort för Grundkurs skärmflyg i Åre"
+description=""
+keywords="Grundkurs, Paraglide, Presentkort, Åre"
+>
+    <div class="header-offset relative ">&nbsp;</div><!-- header pusher -->
+    <div class="absolute top-22   sm:top-30 py-4 pt-6 px-4 sm:px-8 sm:pt-4 md:top-32 md:py-8 md:pt-5 md:px-12 lg:top-32 lg:pt-6 lg:h-32 dark:text-slate-200">
+        <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+            <svg
+                slot="index"
+                aria-label="Home Page"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+                points="9 22 9 12 15 12 15 22"></polyline>
+            </svg>
+            <svg
+                slot="separator"
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="2"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                ><polyline points="9 18 15 12 9 6"></polyline>
+            </svg>
+        </Breadcrumbs>
+    </div> 
+
+
+    <Carosel />
+    <KursInfo content={Feature50Content4}/>
+    <KortInfo2 /> 
+</Layout>

@@ -1,0 +1,99 @@
+---
+import { Image } from 'astro:assets';
+import presentkort from '@assets/images/products/presentkort2.jpg';
+import grundkurs from '@assets/images/kurs/1a.jpg';
+
+
+---
+<section
+  class="px-6 py-16 flex flex-col md:flex-row items-center gap-12 max-w-7xl mx-auto"
+>
+  <!-- Left Image -->
+  <div class="w-full md:w-1/2 relative">
+   
+    <Image
+        src={grundkurs}
+        alt='Skysport Tandem Presentkort'
+        width={2000}
+        height={2650}
+        class="w-full h-full  object-cover rounded-3xl "
+        loading="lazy"
+    />
+                    <div class="absolute top-2 right-4">
+                  <span class=" text-white text-sm px-4 py-0 rounded-full font-semibold">
+                                   <Image
+                  src={presentkort}
+                  alt='Skysport Tandem Presentkort'
+                  width={200}
+                  height={150}
+                  class="w-full h-full object-cover rounded"
+                  loading="lazy"
+                />
+                  </span>
+                </div>
+
+  </div>
+
+  <!-- Right Text -->
+  <div
+    class="w-full md:w-1/2 flex flex-col items-center md:items-start text-center md:text-left"
+  >
+    <h2
+      class="text-green-800 text-2xl md:text-3xl font-extrabold uppercase tracking-[4px] mb-4"
+    >
+      För presentkort krävs förskottsbetalning
+    </h2>
+
+    <p class="text-gray-200 text-base md:text-lg leading-7 mb-6">
+        Betala till vårt Bankgiro: 5334-1764 (Skysport AB)
+Det går även att Swisha till: 1234659926
+Tänk på att ange att betalningen avser presentkort
+Om du betalar från utlandet, finns våra bankuppgifter 
+       <span class="font-bold "><a href="/" class="hover:text-orange-400" target="_blank">här</a></span>
+      <br />
+      
+    </p>
+ <div class="mb-6">
+                <p class="text-gray-200 text-lg mb-4 leading-relaxed">
+                  Skicka sedan ett mail till oss och meddela när du har betalat.  Maila till: bokning@skysport.se  Där infogar du även ett kvitto eller en print screen från din internetbank. </p>
+                <p class="dark:text-gray-300 text-lg mb-4 leading-relaxed">I mailet meddelar du också:</p>
+                <ul class="dark:text-gray-300 text-lg mb-4 leading-relaxed">
+                    <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg class="w-6 h-6 text-fg-success shrink-0 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        <span> - Namn på den som skall flyga</span>
+                    </li>
+                    <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg class="w-6 h-6 text-fg-success shrink-0 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        <span> - Adress dit presentkortet skall skickas eller mailas.</span></li>
+                    <li class="flex items-center space-x-3 rtl:space-x-reverse">
+                        <svg class="w-6 h-6 text-fg-success shrink-0 me-1.5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="green" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.5 11.5 11 14l4-4m6 2a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"/></svg>
+                        <span> - Vilken sort av presentkort (prova-på, grundkurs, boende)</span>
+                    </li>
+                    
+                </ul>
+                </div> 
+             <div class="mb-6">
+                <p class="dark:text-gray-300 text-lg mb-4 leading-relaxed">
+                Så snart vi har erhållit mailet skickas presentkortet i ett kuvert, alternativt mailas som PDF.
+Behöver du presentkortet snabbt är PDF enklast. Du skriver själv ut presentkortet på ett A4 papper.
+Vanligen levererar vi presentkortet samma dag eller dagen efter vi fått beställningen.</p>
+</div>
+<!--     <a
+      href="/about"
+      class="px-6 py-3 bg-green-800 hover:bg-green-900 text-white font-semibold rounded-3xl transition"
+    >
+      Learn More
+    </a> -->
+  </div>
+</section>
+
+<section id="forlanga" class="scroll-mt-48 py-20 bg-linear-to-r from-orange-500 to-orange-600"> 
+  <div  class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
+       Har du ett presentkort från Skysport som håller på att gå ut? 
+    </h2>
+    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto text-balance">
+       Det går bra att förlänga 6 månader mot en kostnad på 500 kr. Kontakta oss på telefon eller mail.
+    </p>
+  </div>
+</section>
