@@ -1,0 +1,215 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import Button from "@components/ui/Button.astro";
+
+interface MasonContent {
+    
+    title?: string;
+    dsescription?: string;
+    masoncards: {
+        masonImg: ImageMetadata;
+        imgHeight?: number;
+        imgWidth?: number;
+        imgAlt?: string;
+        link: {
+          
+            text?: string,
+            link?: string,
+            target?: string,
+          
+        }[],
+        linkTarget?: string;
+        linkText?: string;
+        linkUrl?: string; 
+    }[],
+}
+
+interface Props {
+    content: MasonContent;
+} 
+const { content } = Astro.props;
+
+const img0 = content.masoncards[0].masonImg ;
+const w0 = content.masoncards[0].imgWidth || 560;
+const h0 = content.masoncards[0].imgHeight;
+const alt0 = content.masoncards[0].imgAlt || 'Skysport i Åre';
+
+const img1 = content.masoncards[1].masonImg;
+const w1 = content.masoncards[1].imgWidth;
+const h1 = content.masoncards[1].imgHeight;
+const alt1 = content.masoncards[1].imgAlt;
+
+const img2 = content.masoncards[2].masonImg;
+const w2 = content.masoncards[2].imgWidth;
+const h2 = content.masoncards[2].imgHeight;
+const alt2 = content.masoncards[2].imgAlt;
+
+const img3 = content.masoncards[3].masonImg;
+const w3 = content.masoncards[3].imgWidth;
+const h3 = content.masoncards[3].imgHeight;
+const alt3 = content.masoncards[3].imgAlt;
+
+const img4 = content.masoncards[4].masonImg;
+const w4 = content.masoncards[4].imgWidth;
+const h4 = content.masoncards[4].imgHeight;
+const alt4 = content.masoncards[4].imgAlt;
+
+
+---
+
+<section   class="scroll-m-32 relative md:h-[158vh] min-h-[600px] 2lg:min-h-[800px] pb-16 lg:py-64 flex items-center overflow-hidden bg-bg-primary-dark">
+<!-- Masonry Cards -->
+<div class="max-w-6xl px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
+    <h2 class="text-center text-5xl text-bold py-12  dark:text-slate-300">{content.title}</h2>
+  <!-- Grid -->
+  <div class="grid sm:grid-cols-12 gap-6">
+    <div class="sm:self-end col-span-12 sm:col-span-7 md:col-span-8 lg:col-span-5 lg:col-start-3">
+      <!-- Card -->
+      <a class="group relative block rounded-xl overflow-hidden focus:outline-hidden" href="#">
+        <div class="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
+            <Image
+                    src={img0}
+                    alt={alt0}
+                    //class="w-full lg:h-2/3 object-cover"
+                    class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover"
+                    width={w0}
+                    height={h0}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                /> 
+        <!--    <img class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://images.unsplash.com/photo-1606868306217-dbf5046868d2?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Masonry Cards Image">
+         --> </div>
+        <div class="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+          <div class="text-sm font-semibold text-gray-800 rounded-lg bg-white p-2 md:text-lg dark:bg-neutral-800 dark:text-neutral-200">
+           {content.masoncards[0].link[0].text}
+          </div>
+        </div>
+      </a>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="sm:self-end col-span-12 sm:col-span-5 md:col-span-4 lg:col-span-3">
+      <!-- Card -->
+      <a class="group relative block rounded-xl overflow-hidden focus:outline-hidden" href="#">
+        <div class="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
+             <Image
+                    src={img1}
+                    alt={alt1}
+                    //class="w-full lg:h-2/3 object-cover"
+                    class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover"
+                    width={280}
+                    height={380}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                /> 
+       <!--    <img class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://images.unsplash.com/photo-1605629921711-2f6b00c6bbf4?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Masonry Cards Image">
+         --></div>
+        <div class="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+          <div class="text-sm font-semibold text-gray-800 rounded-lg bg-white p-2 md:text-lg dark:bg-neutral-800 dark:text-neutral-200">
+             {content.masoncards[1].link[0].text}
+          </div>
+        </div>
+      </a>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-span-12 md:col-span-4">
+      <!-- Card -->
+      <a class="group relative block rounded-xl overflow-hidden focus:outline-hidden" href="#">
+        <div class="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
+            <Image
+                    src={img2}
+                    alt={alt2}
+                    //class="w-full lg:h-2/3 object-cover"
+                    class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover"
+                    width={w2}
+                    height={h2}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                /> 
+       <!--    <img class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://images.unsplash.com/photo-1606836576983-8b458e75221d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Masonry Cards Image">
+        --> </div>
+        <div class="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+          <div class="text-sm font-semibold text-gray-800 rounded-lg bg-white p-2 md:text-lg dark:bg-neutral-800 dark:text-neutral-200">
+            {content.masoncards[2].link[0].text}
+          </div>
+        </div>
+      </a>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-span-12 sm:col-span-6 md:col-span-4">
+      <!-- Card -->
+      <a class="group relative block rounded-xl overflow-hidden focus:outline-hidden" href="#">
+        <div class="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
+            <Image
+                    src={img3}
+                    alt={alt3}
+                    //class="w-full lg:h-2/3 object-cover"
+                    class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover"
+                    width={w3}
+                    height={h3}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                /> 
+<!--           <img class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://images.unsplash.com/photo-1598929438701-ef29ab0bb61a?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Masonry Cards Image">
+ -->        </div>
+        <div class="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+          <div class="text-sm font-semibold text-gray-800 rounded-lg bg-white p-2 md:text-lg dark:bg-neutral-800 dark:text-neutral-200">
+             {content.masoncards[3].link[0].text}
+          </div>
+        </div>
+      </a>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+
+    <div class="col-span-12 sm:col-span-6 md:col-span-4">
+      <!-- Card -->
+      <a class="group relative block rounded-xl overflow-hidden focus:outline-hidden" href="#">
+        <div class="aspect-w-12 aspect-h-7 sm:aspect-none rounded-xl overflow-hidden">
+             <Image
+                    src={img4}
+                    alt={alt4}
+                    //class="w-full lg:h-2/3 object-cover"
+                    class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover"
+                    width={320}
+                    height={560}
+                    quality={70}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                /> 
+       <!--    <img class="group-hover:scale-105 group-focus:scale-105 transition-transform duration-500 ease-in-out rounded-xl w-full object-cover" src="https://images.unsplash.com/photo-1467043153537-a4fba2cd39ef?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=560&q=80" alt="Masonry Cards Image">
+        --> </div>
+        <div class="absolute bottom-0 start-0 end-0 p-2 sm:p-4">
+          <div class="text-sm font-semibold text-gray-800 rounded-lg bg-white p-2 md:text-lg dark:bg-neutral-800 dark:text-neutral-200">
+           {content.masoncards[4].link[0].text}
+          </div>
+        </div>
+      </a>
+      <!-- End Card -->
+    </div>
+    <!-- End Col -->
+  </div>
+  <!-- End Grid -->
+</div>
+<!-- End Masonry Cards -->
+ </section>
