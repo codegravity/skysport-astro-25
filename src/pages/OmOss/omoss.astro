@@ -21,7 +21,7 @@ import sommarSkutan from "@assets/images/tandem/sommarskutan1.jpg";
 import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
 import toptandem from "@assets/images/tandem-tandem.jpeg";
 import hummelnare from "@assets/images/pie3.jpg"
-import draklanda from "@assets/images/omoss/draklanda19.jpg";
+import draklanda200 from "@assets/images/omoss/draklandafrom200m.jpg";
 import draklanda2 from "@assets/images/omoss/dl5.jpg";
 import hummelneast from "@assets/images/kurs/1.jpg";
 import grundkurs from "@assets/images/kurs/1a.jpg";
@@ -110,7 +110,6 @@ import Divider1 from  "@elements/SeparatorLine.astro";
      ],
 }
 
-
 const BookingCtaContent = {
   subtitle: 'Företaget består även av en boendeanläggning, Lake Lodge Åre',
   text: 'Behöver du boende på den bästa lägget för alla din aktiviteter, kolla in på www.lakelodgeare.com',
@@ -124,8 +123,6 @@ const BookingCtaContent = {
   ],
   posttext: 'Vi erbjuder också andra aktiviteter som tex skidguidning, fiskeguidning, färdledda vandringsturer, företagsarrangemang, kick off mm. Våra kunder/gäster är både privatpersoner och företag.',
 }
-
-
 
 const Feature50Content = {
      infoTitle: '',
@@ -186,31 +183,25 @@ const Feature50bContent = {
 }
 const Feature50cContent = {
      infoTitle: '',
-      infoTitle: '',
      infoOrientationL: false,
      infoColL: 'sm:order-1',
      infoColR: 'sm:order-2',
      infoText: [
       {
-        preText: 'Skysport ägs och drivs av Lars Hedström, Åre som började flyga 1988.',
+        preText: 'Skysport ligger i västra delen av Åre, precis vid Åresjöns strand. Boendeanläggningen Lake Lodge Åre ligger bredvid',
         spanText: '',
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },
       {
-        preText: 'Lars har genom åren samlat på sig en bred erfarenhet av utbildning, tandemflygning och tävlingsflygning. Tillsammans med några av Sveriges mest erfarna instruktörer och tandempiloter utgör Skysport ett väl sammansvetsat team, som gärna delar med sig av sin kunskap.',
+        preText: 'Draklanda skärmflyglandningsfält ligger i västra delen av Åre. Fältet är ca 300 meter långt och 70 brett. Landningen är lämpliga för samtliga vindriktningar förutom Nordlig vind.',
         spanText: '',
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },
-      {
-        preText: 'Skysports affärsidé är att året runt kunna erbjuda utbildningar i skärmflyg som leder fram till licens. Även prova på utbildningar och tandemflyg i skärmflygning. Vi erbjuder också en komplett butik och web-butik, med både ny och begagnad utrustning. Butiken är belägen vid Draklanda i Åre. Vi utför också service och reparationer av utrustning.',
-        spanText: '',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      },
+      
      ],
-   infoImg:  draklanda2,
+   infoImg:  draklanda200,
     infoIcon: '',  
 }
 
@@ -250,15 +241,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 <Feature50 content={Feature50Content}/>
 <Feature50 content={Feature50bContent}/>
 <BookingCTA content={BookingCtaContent}/>
-
-
-
-  
-
-  <Divider1 />
- <VtabInfo content={VtabInfoContent} />
-
-  
+<Feature50 content={Feature50cContent}/>
 
 </Layout>
 
