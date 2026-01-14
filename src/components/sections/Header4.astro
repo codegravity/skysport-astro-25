@@ -26,7 +26,7 @@ const isCurrentPage = (link: string) => {
 };
 ---
 
-<header class="fixed top-10 p-5  px-1 sm:top-12 sm:py-2 sm:px-4 z-50 w-full lg:px-6 z-50 bg-white  py-1   lg:flex justify-between  gap-5 mx-auto"> 
+<header id="navheader" class="fixed top-10 p-5  px-1 sm:top-12 sm:py-2 sm:px-4 z-50 w-full lg:px-6 z-50 bg-white  py-1   lg:flex justify-between  gap-5 mx-auto"> 
   <Astronav closeOnClick >
     <div class="flex w-full  lg:w-auto justify-between items-center ">
       <a><Logo /></a>
@@ -253,6 +253,14 @@ const isCurrentPage = (link: string) => {
                                              isCurrentPage('/Kurs/paramotor') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
                                              ]}  
                                  aria-current={isCurrentPage('/Kurs/paramotor') ? 'page' : undefined}>Paramotor
+                              </a>
+                           </li>
+                           <li class="hover:bg-neutral-100 w-full ">
+                              <a href="/Kurs/Speed" 
+                                 class:list={[' px-2  py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                             isCurrentPage('/Kurs/speed') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                             ]}  
+                                 aria-current={isCurrentPage('/Kurs/speed') ? 'page' : undefined}>Speed
                               </a>
                            </li>
                            <!-- <li class="hover:bg-neutral-100 w-full ">

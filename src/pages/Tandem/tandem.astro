@@ -84,20 +84,20 @@ const MasonContent = {
 };
 
 const VideoContent = {
-  title: "Vi erbjuder tandemflyg från Åreskutan året runt",
-  description: "Vi erbjuder tandemflyg från Åreskutan året runt",
+  //title: "Vi erbjuder tandemflyg från Åreskutan året runt",
+  //description: "Vi erbjuder tandemflyg från Åreskutan året runt",
   backgroundVideo: myVideo,
   //descriptionImage: LogoImage,
   overlayOpacity: 0.2,
   page: "tandem",
   position: "justify-end",
-  buttons: [
+ /* buttons: [
     {
       text: "BOKA TANDEM",
       link: "#bokatandem",
       target: "_self",
     },
-  /*   {
+     {
       text: "Köp Tandem Presentkort",
       link: "/Tandem/Presentkort#koppresentkort",
       target: "_self",
@@ -106,8 +106,8 @@ const VideoContent = {
       text: "Förlänga Tandem Presentkort",
       link: "#forlanga",
       target: "_self",
-    }, */
-  ],
+    }, 
+  ],*/
 };
 
 const HeroContent = {
@@ -165,13 +165,13 @@ const Feature50Content = {
      ],
     infoImg:  Nygondol,
     infoIcon: '',
-    buttons: [
+   /*  buttons: [
       {
         text: "",
         link: "",
         target: "_self",
       },
-    ],
+    ], */
 }
 const  TandemGearListContent = {
   listTitle: "Utrustning du håller med själv är:",
@@ -291,3 +291,30 @@ const VtabInfoContent = {
   <VtabInfo content={VtabInfoContent} />
   <BookTandem />
 </Layout>
+<script>
+  document.getElementById("banner").classList.add("hidden");
+  document.getElementById("navheader").classList.add("hidden");
+
+// I din Astro-komponent eller i en <script> tagg i layouten
+let lastScrollTop = 0;
+const navbanner = document.getElementById("banner"); 
+const navHeader = document.getElementById("navheader");// Hitta ditt nav-element
+
+window.addEventListener('scroll', () => {
+  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+
+  if (currentScroll > lastScrollTop) {
+    // Scrollar nedåt
+    //navbanner.classList.add('hidden');
+    navbanner.classList.remove('hidden');
+    navHeader.classList.remove('hidden');
+  } else {
+    // Scrollar uppåt
+   // navbanner.classList.remove('hidden');
+     navbanner.classList.add('hidden');
+     navHeader.classList.add('hidden');
+  }
+  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
+});
+
+</script>

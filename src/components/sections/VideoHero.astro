@@ -7,8 +7,8 @@ import { Icon } from "astro-icon/components";
 
 
 interface VideoContent {
-  title: string;
-  description: string;
+  title?: string;
+  description?: string;
   descriptionImage?: string;
   backgroundVideo: string;
   buttons?: {
@@ -17,8 +17,8 @@ interface VideoContent {
     target?: string;
   }[];
   overlayOpacity?: number; // Value between 0 and 1
-  position: string;
-  page: string;
+  position?: string;
+  page?: string;
   windLinks?: boolean;
 }
 
@@ -36,10 +36,9 @@ const currentPage = content.page;
 ---
 
 
-<!-- <source src={myVideo} type="video/mp4" />  -->
 <section class="">
   <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden">
-    <video  muted playsinline class="min-h-full w-full object-cover">
+    <video  autoplay loop muted playsinline class="min-h-full w-full object-cover">
       <!--         {content.page === "about" &&  <source src={myVideo} type="video/mp4" /> }
             { content.page === "start" && <source src={myVideo} type="video/mp4" /> }
             {content.page === "tandem" && <source src={myVideo} type="video/mp4" /> } -->

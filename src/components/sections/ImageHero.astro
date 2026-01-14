@@ -1,7 +1,7 @@
 ---
 //import Button from '@/components/ui/Button.astro';
+import Button from "@components/ui/Button.astro";
 import { Image } from 'astro:assets';
-
 
 interface HeroContent {
     title: string;
@@ -10,11 +10,17 @@ interface HeroContent {
     backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
     overlayOpacity?: number; 
     fadeOut?: number;// Value between 0 and 1
+    buttons?: {
+    text: string;
+    link: string;
+    target?: string;
+  }[];
 }
 
 interface Props {
     content: HeroContent;
 } 
+
 
 const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
@@ -62,6 +68,21 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
         )} 
         <h1 class="text-white text-balance" data-aos="fade-up">{content.title}</h1>
         <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
+        {
+      content.buttons && content.buttons.length > 0 && (
+        <div class="flex  flex-col md:flex-row gap-4 mt-8 items-center">
+          {content.buttons.map((button) => (
+            <Button
+              href={button.link}
+              target={button.target || "_self"}
+              variant={button.variant || "primary"}
+            >
+              {button.text}
+            </Button>
+          ))}
+        </div>
+      )
+    }
          
     </div> 
 </section>
