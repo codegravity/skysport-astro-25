@@ -3,9 +3,11 @@ import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import Button from "@components/ui/Button.astro";
 import GoogleMap from "@elements/karta.astro";
+import navScroll from "@components/scripts/scrollfornav.astro";
 import TandemInfo from "@components/sections/TandemInfo.astro";
 import BookTandem from "@components/sections/TandemBooking.astro";
 import FeatureMain from "@components/sections/3imagefeature.astro";
+import FourImgFeature from "@components/sections/4imagefeature.astro";
 import TandemMasonary from "@components/sections/MasonaryCards.astro";
 import TandemPriceCard from "@widgets/TandemPriceCard.astro";
 import ListWidget from "@widgets/listwidget.astro";
@@ -54,7 +56,7 @@ const masonV5 =
 
 
 
-const Feature3Content = {
+const Feature4Content = {
   title: "Vi arrangerar tandemflyg året runt",
   description: 'Utan några som helst tidigare kunskaper om skärmflygning kan du efter endast ett par minuters förberedelser koppla ihop dig med en av Skysports instruktörer och sedan flyga som en fågel. Hela arrangemanget inkl upptransport, instruktioner, flygning och eftersnack, tar ca 1,5 timme',
   postText: 'Det finns möjlighet att köpa till foto/film, som du sedan får med dig på USB eller minneskort.',
@@ -281,7 +283,7 @@ const VtabInfoContent = {
       </svg>
     </Breadcrumbs>
   </div>
-  <FeatureMain content={Feature3Content}/>
+  <FourImgFeature content={Feature4Content}/>
   <TandemPriceCard content={TandemPriceCardContent} />
   <Feature50 content={Feature50Content}/>
   <BookingCTA content={BookingCtaContent}/>
@@ -291,30 +293,31 @@ const VtabInfoContent = {
   <VtabInfo content={VtabInfoContent} />
   <BookTandem />
 </Layout>
-<script>
+
+
+ <script>
   document.getElementById("banner").classList.add("hidden");
   document.getElementById("navheader").classList.add("hidden");
 
-// I din Astro-komponent eller i en <script> tagg i layouten
-let lastScrollTop = 0;
-const navbanner = document.getElementById("banner"); 
-const navHeader = document.getElementById("navheader");// Hitta ditt nav-element
+  let lastScrollTop = 0;
+  const navbanner = document.getElementById("banner"); 
+  const navHeader = document.getElementById("navheader");
 
-window.addEventListener('scroll', () => {
-  let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
+  window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
 
-  if (currentScroll > lastScrollTop) {
-    // Scrollar nedåt
-    //navbanner.classList.add('hidden');
-    navbanner.classList.remove('hidden');
-    navHeader.classList.remove('hidden');
-  } else {
-    // Scrollar uppåt
-   // navbanner.classList.remove('hidden');
-     navbanner.classList.add('hidden');
-     navHeader.classList.add('hidden');
-  }
-  lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-});
+    if (currentScroll > lastScrollTop) {
+      // Scrollar nedåt
+      //navbanner.classList.add('hidden');
+      navbanner.classList.remove('hidden');
+      navHeader.classList.remove('hidden');
+    } else {
+      // Scrollar uppåt
+    // navbanner.classList.remove('hidden');
+      navbanner.classList.add('hidden');
+      navHeader.classList.add('hidden');
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
+  });
 
-</script>
+</script> 
