@@ -11,6 +11,7 @@ interface VideoContent {
   description?: string;
   descriptionImage?: string;
   backgroundVideo: string;
+  mobileVideo?: string;
   buttons?: {
     text: string;
     link: string;
@@ -38,11 +39,14 @@ const currentPage = content.page;
 
 <section class="">
   <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden">
-    <video  autoplay loop muted playsinline class="min-h-full w-full object-cover">
+    <video  autoplay loop muted playsinline class="hidden md:block min-h-full w-full object-cover">
       <!--         {content.page === "about" &&  <source src={myVideo} type="video/mp4" /> }
             { content.page === "start" && <source src={myVideo} type="video/mp4" /> }
             {content.page === "tandem" && <source src={myVideo} type="video/mp4" /> } -->
       <source src={myVideo} type="video/mp4" />
+    </video>
+    <video  autoplay loop muted playsinline class="md:hidden min-h-full w-full object-cover">
+      <source src={content.mobileVideo} type="video/mp4" />
     </video>
   </div>
   {content.windLinks && <WindLinks />}
