@@ -10,6 +10,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                                     currency: 'SEK'
                                     }).format(anhorigaRawPrice) + ' person.');  
 
+
 ---
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
@@ -47,8 +48,8 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
 
                         <div id={`hs-resInfo-${index + 1}`} class="hidden col-span-1 lg:col-span-3 py-0  sm:py-3">
                             <span class="flex flex-col sm:flex-row gap-1 ">
-                                <input type="text" name={`hs-resPriceISO-${index + 1}`} id={`hs-resPriceISO-${index + 1}`} disabled placeholder="" value='' class="lg:w-1/5 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                                <label for={`hs-resPriceISO-${index + 1}`} class="text-sm  lg:text-md text-gray-500 ms-2 dark:text-neutral-400">{resdata.resComment}</label>
+                                <input type="text" name={`hs-resPriceISO-${index + 1}`} id={`hs-resPriceISO-${index + 1}`} disabled  value='' class="lg:w-1/5 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg   disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <label for={`hs-resPriceISO-${index + 1}`} class="text-sm  lg:text-md text-gray-500 ms-2 lg:w-2xl dark:text-neutral-400">{resdata.resComment}</label>
                             </span>
                         </div>       
                     ))
@@ -62,10 +63,10 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
             <div id="anhoriga-data" class=" col-span-1 lg:col-span-3 py-0  sm:py-3">
                 <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
                     <span class="flex flex-col sm:flex-row gap-1 ">
-                        <input type="text" name="hs-anhoriga-pris" id="hs-anhoriga-pris" disabled placeholder="4 500,00 kr person"  disabled class="lg:w-1/3 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                        <input type="text" name="hs-anhoriga-pris" id="hs-anhoriga-pris" disabled placeholder="4 900,00 kr person"  disabled class="lg:w-1/3 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         <label for="hs-anhoriga-pris" class="px-2 py-0.5 sm:py-0 text-lg text-gray-600  sm:text-xl dark:text-neutral-400"></label>
                         <div class="py-3 px-3 sm:w-1/3 bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700">
-                            <div id="antalCon" class="w-auto flex justify-between items-center gap-x-3" data-hs-input-number="">
+                            <div id="antalCon" class="w-auto flex justify-between items-center gap-x-3" data-hs-input-number>
                                 <div>
                             <input id="hs-anhor-antal" class="w-1/2 sm:w-1/2 p-0 bg-transparent border-0 text-gray-800 focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style="-moz-appearance: textfield;" type="text" aria-roledescription="Number field" value="0" data-hs-input-number-input="">
                             </div>
@@ -87,6 +88,8 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                              <label for="hs-anhoriga-pris" class="text-sm  lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{anhorigaComment}</label>
                     </span>
                 </div> 
+
+           
                   <Hr1 />     
             </div>
            
@@ -232,39 +235,40 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
 
 <script is:inline>
 
- 
+ document.getElementById("hs-raw-summa").value = 0;
+
  const resbuttons =  document.getElementsByName('hs-res-checkbox');
     resbuttons.forEach((checkbox) => {
         checkbox.addEventListener('change', () => { 
             ShowResData();
-            //calcSumma();
-               // alert(' checked resor');
         });
     });
 
-    const el = HSInputNumber.getInstance('antalCon');
-    el.on('change', ({inputValue}) => {
-        alert(' change anhoriga antal');
     
-    
-    });
-    const anhorigaAntalBTN =  document.getElementById('antalCon');
-
-    const antalSelector =  document.getElementsByName('data-hs-input-number-input');
  
-        anhorigaAntalBTN.addEventListener("change", () => { 
-             
-                alert(' change anhoriga antal');
+//document.getElementById("hs-anhor-antal").addEventListener("input", calcAnhorigaSumma);
+ 
+ const guestantalbuttons =  document.getElementsByName('anhorigaBTN');
+ guestantalbuttons.forEach((btn) => {
+        btn.addEventListener('click', () => { 
+           // alert('super duper');
+            calcAnhorigaSumma();
         });
-  
+    });
 
     function calcAnhorigaSumma() {
 
         //const currentSumma =  document.getElementById("hs-summa" ).value;
 
-        const antalAnhoriga = document.getElementById("hs-anhor-antal" ).value;
+       /*  const el = HSInputNumber.getInstance('hs-anhor-antal');
+        el.on('change', ({inputValue}) => {
+                alert('help');
+        }); */
+
+        const antalAnhoriga = document.getElementById("hs-anhor-antal" );
+        antalAnhoriga.addEventListener
        // const totalRAWAnhorigaCost = (parseInt(antalAnhoriga) + parseInt(anhorigaRawPrice)) 
-        alert(' change anhoriga antal' + antalAnhoriga );
+        alert(' change anhoriga antal' +  antalAnhoriga );
 
     }
 
@@ -284,9 +288,9 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                             const currentRawSumma =  document.getElementById("hs-raw-summa" ).value;
                             const resanRawPrice = document.getElementById("hs-resRawPris-" + (i + 1)  ).value;
                             // alert(resanRawPrice);
-                            //const rawTotal = (parseInt(currentRawSumma) + parseInt(resanRawPrice)) ;
-                            //document.getElementById("hs-raw-summa" ).value = rawTotal;
-                            //document.getElementById("hs-summa" ).value = rawTotal;
+                            const rawTotal = (parseInt(currentRawSumma) + parseInt(resanRawPrice)) ;
+                            document.getElementById("hs-raw-summa" ).value = rawTotal;
+                            document.getElementById("hs-summa" ).value = rawTotal;
                            
                             const resPriceISO =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
