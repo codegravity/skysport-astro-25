@@ -9,7 +9,7 @@ import { Icon } from "astro-icon/components";
 interface VideoContent {
   title?: string;
   description?: string;
-  descriptionImage?: string;
+  descriptionImage?: ImageMetadata;
   backgroundVideo: string;
   mobileVideo?: string;
   buttons?: {
@@ -22,7 +22,6 @@ interface VideoContent {
   page?: string;
   windLinks?: boolean;
 }
-
 interface Props {
   content: VideoContent;
 }
