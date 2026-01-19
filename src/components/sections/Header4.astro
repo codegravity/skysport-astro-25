@@ -225,7 +225,15 @@ const isCurrentPage = (link: string) => {
                                              ]}  
                                  aria-current={isCurrentPage('/Kurs/Fort/hang') ? 'page' : undefined}>Hang
                               </a>
-                                       </li>
+                              </li>
+                               <li class="hover:bg-neutral-100 w-full ">
+                                 <a href="/Kurs/Fort/SIV" 
+                                    class:list={[' px-2  py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                                                isCurrentPage('/Kurs/Fort/SIV') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                                                ]}  
+                                    aria-current={isCurrentPage('/Kurs/Fort/SIV') ? 'page' : undefined}>Säkerhetskurs
+                                 </a>
+                              </li>
                                        
                                        <li class="hover:bg-neutral-100 w-full ">
                                           <a href="/Kurs/Fort/Boka" 
@@ -235,14 +243,7 @@ const isCurrentPage = (link: string) => {
                                  aria-current={isCurrentPage('/Kurs/Fort/Boka') ? 'page' : undefined}>Boka
                               </a>
                                        </li>
-                                       <li class="hover:bg-neutral-100 w-full ">
-                              <a href="/Kurs/Fort/SIV" 
-                                 class:list={[' px-2  py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
-                                             isCurrentPage('/Kurs/Fort/SIV') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
-                                             ]}  
-                                 aria-current={isCurrentPage('/Kurs/Fort/SIV') ? 'page' : undefined}>Säkerhetskurs
-                              </a>
-                           </li>
+                                      
                                     </ul>
                                  </DropdownItems>
                               </DropdownSubmenu>
@@ -423,7 +424,12 @@ const isCurrentPage = (link: string) => {
                </a>
             </li>
             <li>
-            <a href="#">BUTIK</a>
+               <a href="/butik" 
+                  class:list={[' rounded-md  py-1 focus:outline-none focus:ring-2 focus:ring-nav-text-active',
+                              isCurrentPage('/butik') ? 'text-nav-text-current  text-color-primary-dark text-xl no-underline md:underline md:decoration-3 md:decoration-primary-dark md:underline-offset-6 ' : ' text-nav-text hover:text-nav-text-hover',
+                              ]}  
+                  aria-current={isCurrentPage('/butik') ? 'page' : undefined}>BUTIK
+               </a>
             </li>
             
             <li>

@@ -10,6 +10,7 @@ interface HeroContent {
     backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
     overlayOpacity?: number; 
     fadeOut?: number;// Value between 0 and 1
+    position?: string;
     buttons?: {
     text: string;
     link: string;
@@ -21,9 +22,9 @@ interface Props {
     content: HeroContent;
 } 
 
-
 const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
+const overlayPosition = content.position || "justify-center";
 ---
 
  <!-- <section class="header-offset relative h-screen"> -->
@@ -50,7 +51,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
         </div>
     )}
 
-     <div class="site-container mx-auto p-0 relative z-10 flex flex-col h-screen items-center justify-center text-center fadeOut delay-3500">
+     <div class="site-container mx-auto p-20 relative z-10 flex flex-col h-screen items-center justify-center text-center fadeOut delay-3500" class:list={overlayPosition}>
                 {content.descriptionImage && (
             <div class="">
                 <Image
@@ -66,7 +67,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
                 />
             </div>
         )} 
-        <h1 class="text-white text-balance" data-aos="fade-up">{content.title}</h1>
+        <h4 class="lg:text-white text-balance lg:text-6xl lg:text-bold" >{content.title}</h4>
         <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
         {
       content.buttons && content.buttons.length > 0 && (

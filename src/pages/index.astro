@@ -12,17 +12,16 @@ import HeroImage from '../assets/images/IMG_7595.jpg';
 import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 
 import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
-import Tandem1 from '../assets/images/IMG_7595.jpg';
+import Tandem1 from '../assets/images/tandem/3.jpg';
 import kurs1 from '../assets/images/kurs/1.jpg';
+import butik1 from '@assets/images/IMG_7038.jpg';
 
 import ProductIMG from '@assets/images/products/solarxon.jpg'
 
 import Reco from "@components/sections/RecoBar.astro";
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1ASIDA.mp4";
 const mobVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/start/1ASIDA-mobb.mp4"
-//const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/vinter_Tandem-dji.mp4";
-//const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
-//const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem-vinter-klipp-m3.mp4";
+
 const VideoContent = {
   //title: "Vi erbjuder tandemflyg från Åreskutan året runt",
   //description: "Vi erbjuder tandemflyg från Åreskutan året runt",
@@ -51,11 +50,12 @@ const VideoContent = {
   ],
 };
 
- const HeroContent = {
+ const HeroTandemContent = {
     title: "Tandemflyg från Åreskutan",
-    description: "Boka Tandemflyg",
+    description: "",
     backgroundImage: Tandem1,
     overlayOpacity: 0.2,
+    position: "justify-end",
     buttons: [
         {
         text: "Boka Tandemflyg",
@@ -64,21 +64,49 @@ const VideoContent = {
         },
     ],
 };
- const HerobContent = {
-    title: "Boka Skärmflygkurs hos skysport",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+ const HeroKursContent = {
+    title: "Skärmflygutbildning i Åre",
+    description: "Skysport erbjuder grundkurs, fortsättningskurser, säkerhetskurser och paramotorkurser",
     backgroundImage: kurs1,
     overlayOpacity: 0.2,
+    position: "justify-end",
     buttons: [
     {
-      text: "Boka Kurs",
+      text: "Skärmflyg Kurser",
       link: "/Kurs/omskarmflyg",
       target: "_self",
     },
   ], 
 }; 
 
- 
+ const HeroButikContent = {
+    title: "Butik",
+    description: "Återförsljare för Ozone, BDG Design, U-Turn, Swing, Icaro, Sup Air, mm ",
+    backgroundImage: butik1,
+    overlayOpacity: 0.2,
+    position: "justify-end",
+    buttons: [
+    {
+      text: "Butik",
+      link: "/butik",
+      target: "_self",
+    },
+  ], 
+}; 
+const HeroResContent = {
+    title: "Resor",
+    description: "Turkiet, Columbia, mm",
+    backgroundImage: kurs1,
+    overlayOpacity: 0.2,
+    position: "justify-end",
+    buttons: [
+    {
+      text: "Resor",
+      link: "/resor",
+      target: "_self",
+    },
+  ], 
+}; 
 
 
 
@@ -90,8 +118,19 @@ description="Welcome to Rico's portfolio site! Explore my work as a web/UI desig
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
  <VideoHero content={VideoContent}/> 
-<!--  <ImageHero content={HeroContent}/>
-<ImageHero content={HerobContent}/>  -->
+
+ <section class="relative">
+    <ImageHero content={HeroTandemContent}/>
+</section>
+<section class="relative">
+<ImageHero content={HeroKursContent}/> 
+</section>
+<section class="relative">
+<ImageHero content={HeroButikContent}/> 
+</section>
+<section class="relative">
+<ImageHero content={HeroResContent}/> 
+</section>
    
    
      

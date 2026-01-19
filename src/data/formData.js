@@ -150,31 +150,31 @@ export const  fortsattningsKurser = [
 export const  resor = [
     {   resDestinationLand: 'Turkiet',
         resDestinationPlats: 'Ölüdeniz',
-        resAnhorigaPris: 4500,
+        resAnhorigaPris: 4900,
         resAnhorigaPrisLabel: 'per pers.',
         resAnhorigaComment: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra. De betalar då 4.900 kr. I det priset ingår: transfer, boende inkl frukost.',
         rescheckbox: [
             {
-                resLabel: '17 - 24 Maj Turkiet',
-                resValue: '16000',
+                resLabel: '17 - 24 Maj Ölüdeniz SIV',
+                resValue: '16800',
                 resID: 'turkietMaj',
-                resPris: '16000',
-                resComment: 'Resan kostar 16 000 kr ( SIV kurs 3 dagar är inkluderad i priset) I det priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer).',
+                resPris: '16800',
+                resComment: 'Resan kostar 16 800 kr ( SIV kurs 3 dagar är inkluderad i priset) I det priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer).',
             },
             {
-                resLabel: '20 - 27 Sept Turkiet',
+                resLabel: '20 - 27 Sept Ölüdeniz ',
                 resValue: '12800',
                 resID: 'turkietSept',
                 resPris: '12800',
                 resComment: 'Resan kostar 12 800 kr ( ingen SIV kurs ) I det priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer). Boende i dubbelrum. Enkelrum mot tillägg 1.900 kr.',
             },
-            {
+           /*  {
                 resLabel: '20 - 27 Sept Ölüdeniz SIV',
                 resValue: '16800',
                 resID: 'turkietSeptSIV',
                 resPris: '16800',
                 resComment: 'Resan kostar 16 800 kr ( inkl SIV kurs ) Vill du ej gå SIV kursen, utan endast flyga, är priset 12.8000 kr I priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer). Boende i dubbelrum. Enkelrum mot tillägg 1.900 kr.',
-            },
+            }, */
         ],
     },
 ];

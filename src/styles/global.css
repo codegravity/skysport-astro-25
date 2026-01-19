@@ -16,6 +16,8 @@
 @import "flatpickr/dist/flatpickr.css";
 @import "flatpickr/dist/themes/dark.css";
 
+@import "./cookiebanner.css";
+
 
 
 @theme {
