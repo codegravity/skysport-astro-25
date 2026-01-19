@@ -7,7 +7,7 @@ import HeroImage from '../assets/images/IMG_7595.jpg';
 import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 import ThreeCards from "@components/sections/ThreeCards.astro";
 
-
+import SimpleText from '@components/sections/simpletext.astro'
 import ResInfo from "@components/sections/resInfo.astro";
 import ResBooking from "@components/elements/forms/resbookform.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
@@ -45,11 +45,31 @@ const HeroContent = {
     backgroundImage: HeroImage,
     //descriptionImage: LogoImage,
     overlayOpacity: 0.2,
-    //fadeOut: true,
-  
 }
 
-
+const SimpleTextContent = {
+    colWidth: 'max-w-full sm:w-4/5 lg:max-w-[65rem]',
+     infoText: [
+        {
+          preText: 'Om du vill ta med anhöriga på resan (ej skärmflygare) så går det bra. De betalar då 4.500 kr. I det priset ingår:  transfer, boende inkl frukost.',
+          spanText: '',
+          spanClasses: 'text-xl font-bold text-orange-600',
+          postText: '',
+        },
+        {
+          preText: '',
+          spanText: 'Obs! Det går att få singelrum mot tillägg 2.950 kr, När ni skickar in anmälan så nämner ni detta i meddelande rutan.',
+          spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+          postText: '',
+        },
+        {
+          preText: '',
+          spanText: 'När vi får in bokningen så skickar vi en Faktura på 3000 kr som är en anmälningsavgift som inte går att få tillbaka vid avbokning. Resten av kostnaden betalas senast 3 veckor innan avresa.',
+          spanClasses: 'text-lg uppercase font-semibold text-slate-600 dark:text-slate-200',
+          postText: '',
+        },
+     ],
+}
 ---
 
 <Layout
@@ -60,7 +80,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 
    <ImageHero content={HeroContent}/>  
   <ResInfo />
-
+<SimpleText content={SimpleTextContent} />
 <ResBooking />
    
    
