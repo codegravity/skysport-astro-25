@@ -1,7 +1,7 @@
 ---
-
+import { Icon } from 'astro-icon/components';
 import { siteData, navigation, contactInfo } from '@data/siteData';
-
+import NewsForm from '@elements/forms/nyhetsbrevForm.astro';
 import HittaOss from '@elements/altKarta.astro';
 ---
 <section class="bg-slate-600 border-t border-slate-800">
@@ -9,21 +9,50 @@ import HittaOss from '@elements/altKarta.astro';
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
         <!-- Newsletter -->
         <div class="sm:w-auto">
-            <h4 class="text-lg font-semibold text-white mb-4">Newsletter</h4>
-            <p class="text-gray-400 mb-4">Subscribe to get fitness tips and updates</p>
-            <form class="flex flex-col space-y-2">
-            <input id="nyhetsBrev"
-                type="email"
-                placeholder="Your email"
-                class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500"
-            />
-            <button
-                type="submit"
-                class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors"
-            >
-                Subscribe
-            </button>
-            </form>
+            <h4 class="text-lg font-semibold text-white mb-4">Skysports Nyhetsbrev</h4>
+            <NewsForm />
+
+            <div class="pt-6 flex flex-1 justify-center sm:justify-end gap-x-3 sm:gap-x-6 items-center">
+        <div class="hs-tooltip [--placement:auto] inline-block">
+            <Icon type="button" name="logos--facebook" class=" sm:text-3xl text-2l  "/>
+            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                Följ oss på Facebook
+            </span>
+        </div>
+        <div class="hs-tooltip [--placement:auto] inline-block">
+            <Icon type="button" name="logos--instagram-icon" class=" sm:text-3xl text-2l  "/>
+            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                Följ oss på Instagram
+            </span>
+        </div>
+        <div class="hs-tooltip [--placement:auto] inline-block">
+            <Icon type="button" name="logos--vimeo-icon (1)" class=" sm:text-3xl text-2l  "/>
+            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                Följ oss på Vimeo
+            </span>
+        </div>
+
+         <p class="text-2l sm:xl  px-2 sm:px-1  text-sm text-neutral-100 dark:text-neutral-100    sm:text-neutral-100 dark:sm:text-neutral-100"> | </p>   
+       
+        <div class="text-center  px-0 sm:px-1 sm:pt-2">
+            <div class="hs-tooltip [--placement:auto] inline-block">
+                <Icon type="button" name="wi--day-cloudy-gusts-white" class=" text-2xl pt-1 sm:pt-0 sm:text-3xl" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-example" data-hs-overlay="#hs-offcanvas-example"/>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                    Väder Länkar
+                </span>
+            </div>
+        </div>
+        <div class="text-center sm:px-1 px-0 sm:pt-2">
+            <div class="hs-tooltip [--placement:auto] inline-block">
+                <Icon type="button" name="mdi-light--phone (1)" class=" sm:text-3xl text-2xl pt-1  sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-kontakt" data-hs-overlay="#hs-offcanvas-kontakt"/>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                    Kontakt
+                </span>
+            </div>
+        
+        </div>    
+    </div>
+         
         </div>
 
 

@@ -1,26 +1,22 @@
 ---
-
-import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
-
-import Button from "@components/ui/Button.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
+import Reco from "@components/sections/RecoBar.astro";
+import Button from "@components/ui/Button.astro";
 
-import HeroImage from '../assets/images/IMG_7595.jpg';
-import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
-
-import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
 import Tandem1 from '../assets/images/tandem/summartandem.jpg';
 import kurs1 from '../assets/images/kurs/1.jpg';
 import butik1 from '@assets/images/IMG_7038.jpg';
+import HeroImage from '../assets/images/IMG_7595.jpg';
+import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
+import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
+import ProductIMG from '@assets/images/products/solarxon.jpg';
+import { siteConfig } from "@config/site";
 
-import ProductIMG from '@assets/images/products/solarxon.jpg'
 
-import Reco from "@components/sections/RecoBar.astro";
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1ASIDA.mp4";
-const mobVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/start/1ASIDA-mobb.mp4"
+const mobVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/start/1ASIDA-mobb.mp4";
 
 const VideoContent = {
   //title: "Vi erbjuder tandemflyg från Åreskutan året runt",
@@ -37,16 +33,6 @@ const VideoContent = {
       link: "#bokatandem",
       target: "_self",
     },*/
-  /*   {
-      text: "Köp Tandem Presentkort",
-      link: "/Tandem/Presentkort#koppresentkort",
-      target: "_self",
-    },
-    {
-      text: "Förlänga Tandem Presentkort",
-      link: "#forlanga",
-      target: "_self",
-    }, */
   ],
 };
 
@@ -108,8 +94,6 @@ const HeroResContent = {
   ], 
 }; 
 
-
-
 ---
 
 <Layout
@@ -117,34 +101,32 @@ title="Skysport Skärmflygskola i Åre"
 description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
 keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
 >
+
  <VideoHero content={VideoContent}/> 
 
  <section class="relative">
-    <ImageHero content={HeroTandemContent}/>
+  <ImageHero content={HeroTandemContent}/>
 </section>
 <section class="relative">
-<ImageHero content={HeroKursContent}/> 
+  <ImageHero content={HeroKursContent}/> 
 </section>
 <section class="relative">
-<ImageHero content={HeroButikContent}/> 
+  <ImageHero content={HeroButikContent}/> 
 </section>
 <section class="relative">
-<ImageHero content={HeroResContent}/> 
+  <ImageHero content={HeroResContent}/> 
 </section>
-   
-   
-     
-  <section >
-     <Reco />
-  </section>
+<section >
+    <Reco />
+</section>
  
 </Layout>
 <script>
-  document.getElementById("banner").classList.add("hidden");
+  //document.getElementById("banner").classList.add("hidden");
   document.getElementById("navheader").classList.add("hidden");
 
   let lastScrollTop = 0;
-  const navbanner = document.getElementById("banner"); 
+ // const navbanner = document.getElementById("banner"); 
   const navHeader = document.getElementById("navheader");
 
   window.addEventListener('scroll', () => {
@@ -153,12 +135,12 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
     if (currentScroll > lastScrollTop) {
       // Scrollar nedåt
       //navbanner.classList.add('hidden');
-      navbanner.classList.remove('hidden');
+   //   navbanner.classList.remove('hidden');
       navHeader.classList.remove('hidden');
     } else {
       // Scrollar uppåt
     // navbanner.classList.remove('hidden');
-      navbanner.classList.add('hidden');
+    //  navbanner.classList.add('hidden');
       navHeader.classList.add('hidden');
     }
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll

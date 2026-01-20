@@ -1,0 +1,153 @@
+---
+import Weather from "@components/sections/WeatherMenu.astro";
+import WeatherMenu from "@collections/menuWeather.json";
+import { Icon } from 'astro-icon/components';
+const WeatherContent = {
+  title: "VÄDER",
+  description:
+    "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+  weatherLinks: WeatherMenu,
+  externalLinkIcon: "external-link",
+};
+---
+<div
+      id="hs-offcanvas-example"
+      class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700"
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="hs-offcanvas-example-label"
+    >
+      <div
+        class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700"
+      >
+        <h3
+          id="hs-offcanvas-example-label"
+          class="font-bold text-gray-800 dark:text-white"
+        >
+          Väder länkar
+        </h3>
+        <button
+          type="button"
+          class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+          aria-label="Close"
+          data-hs-overlay="#hs-offcanvas-example"
+        >
+          <span class="sr-only">Close</span>
+          <svg
+            class="shrink-0 size-4"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="p-4">
+        <p class="text-gray-800 dark:text-neutral-400">
+          <Weather content={WeatherContent} />
+        </p>
+      </div>
+    </div>
+    <!--end väder panel -->
+    <!-- väder kontakt panel -->
+    <div
+      id="hs-offcanvas-kontakt"
+      class="hs-overlay hs-overlay-open:translate-x-0 hidden translate-x-full fixed top-0 end-0 transition-all duration-300 transform h-full max-w-xs w-full z-80 bg-white border-e border-gray-200 dark:bg-neutral-800 dark:border-neutral-700"
+      role="dialog"
+      tabindex="-1"
+      aria-labelledby="hs-offcanvas-kontakt-label"
+    >
+      <div
+        class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700"
+      >
+        <h3
+          id="hs-offcanvas-example-label"
+          class="font-bold text-gray-800 dark:text-white"
+        >
+          Kontakt
+        </h3>
+        <button
+          type="button"
+          class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
+          aria-label="Close"
+          data-hs-overlay="#hs-offcanvas-kontakt"
+        >
+          <span class="sr-only">Close</span>
+          <svg
+            class="shrink-0 size-4"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M18 6 6 18"></path>
+            <path d="m6 6 12 12"></path>
+          </svg>
+        </button>
+      </div>
+      <div class="p-4">
+        <p class="text-gray-800 dark:text-neutral-400">
+          <p class="text-sm/6">0647-51186</p>
+          <p class="text-sm/6">070-5699089</p>
+          <p class="text-sm/6">
+            <a href="mailto:bokning@skysport.se" class="text-sm/6"
+              >bokning@skysport.se</a
+            >
+          </p>
+        </p>
+      </div>
+      <div class="flex flex-1 justify-center sm:justify-end gap-x-3 sm:gap-x-6 items-center">
+        <div class="hs-tooltip [--placement:auto] inline-block">
+            <Icon type="button" name="logos--facebook" class=" sm:text-3xl text-2l  "/>
+            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                Följ oss på Facebook
+            </span>
+        </div>
+        <div class="hs-tooltip [--placement:auto] inline-block">
+            <Icon type="button" name="logos--instagram-icon" class=" sm:text-3xl text-2l  "/>
+            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                Följ oss på Instagram
+            </span>
+        </div>
+        <div class="hs-tooltip [--placement:auto] inline-block">
+            <Icon type="button" name="logos--vimeo-icon (1)" class=" sm:text-3xl text-2l  "/>
+            <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                Följ oss på Vimeo
+            </span>
+        </div>
+
+         <p class="text-2l sm:xl  px-2 sm:px-1  text-sm text-neutral-100 dark:text-neutral-100    sm:text-neutral-100 dark:sm:text-neutral-100"> | </p>   
+       
+        <div class="text-center  px-0 sm:px-1 sm:pt-2">
+            <div class="hs-tooltip [--placement:auto] inline-block">
+                <Icon type="button" name="wi--day-cloudy-gusts-white" class=" text-2xl pt-1 sm:pt-0 sm:text-3xl" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-example" data-hs-overlay="#hs-offcanvas-example"/>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                    Väder Länkar
+                </span>
+            </div>
+        </div>
+        <div class="text-center sm:px-1 px-0 sm:pt-2">
+            <div class="hs-tooltip [--placement:auto] inline-block">
+                <Icon type="button" name="mdi-light--phone (1)" class=" sm:text-3xl text-2xl pt-1  sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-kontakt" data-hs-overlay="#hs-offcanvas-kontakt"/>
+                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
+                    Kontakt
+                </span>
+            </div>
+        
+        </div>    
+    </div>
+    </div>
+    <!--end kontakt panel -->

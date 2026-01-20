@@ -8,6 +8,7 @@ import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu
 import { headerMenu } from '@data/menu';
 import { Icon } from 'astro-icon/components';
 import Logo from "@components/elements/LogoCG.astro";
+import NavSuffix from '@elements/bannersuffix.astro'
 
 
 
@@ -26,9 +27,9 @@ const isCurrentPage = (link: string) => {
 };
 ---
 
-<header id="navheader" class="fixed top-10 p-5  px-1 sm:top-12 sm:py-2 sm:px-4 z-50 w-full lg:px-6 z-50 bg-white  py-1   lg:flex justify-between  gap-5 mx-auto"> 
+<header id="navheader" class="fixed  w-full lg:px-6 z-50   py-1   grid grid-cols-[32rem_auto_32rem]  gap-2 mx-auto"> 
   <Astronav closeOnClick >
-    <div class="flex w-full  lg:w-auto justify-between items-center ">
+    <div class="flex w-full  lg:w-auto justify-stretch items-center ">
       <a><Logo /></a>
       <div class="block lg:hidden">
         <MenuIcon class="w-4 h-4 text-gray-800" />
@@ -36,14 +37,12 @@ const isCurrentPage = (link: string) => {
     </div>
     <MenuItems class=" w-full lg:w-auto mt-2 lg:flex lg:mt-0 ">
       
-       <ul class="flex flex-col lg:flex-row lg:gap-6 sm:items-center w-full px-3 lg:w-auto text-lg  text-gray-600 dark:text-neutral-400">
+       <ul class="flex flex-col lg:flex-row lg:gap-6 sm:items-center w-full px-3 lg:w-auto text-lg  text-gray-200 dark:text-neutral-400">
         <li>
          <div class="hs-tooltip sm:[--placement:bottom] inline-block">
-            <a class="sm:p-2 font-medium text-blue-500 focus:outline-hidden" href="/" aria-current="page">
-               <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24">
-                  <rect width="28" height="28" fill="none" />
-                  <path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 12L12 1l11 11m-2-2v10a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V10m6 12v-8h6v8" />
-               </svg>
+            <a class="sm:p-2 font-medium  focus:outline-hidden" href="/" aria-current="page">
+               <Icon type="button" name="mingcute--home-blue" class="hidden text-2xl pt-1 sm:pt-0 sm:text-3xl"   />
+               <Icon type="button" name="mingcute--home-Vit" class=" text-2xl pt-1 sm:pt-0 sm:text-3xl"   />
             </a>  
             <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
                HEM
@@ -497,7 +496,9 @@ const isCurrentPage = (link: string) => {
             
          </ul>
       </MenuItems>
+        <NavSuffix />
    </Astronav>
+ 
    
 </header>
 

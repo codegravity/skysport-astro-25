@@ -7,7 +7,10 @@ import HeroImage from '../assets/images/IMG_7595.jpg';
 import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
 import HeroCarosel from "@components/sections/HeroCarosel.astro";
 
-
+import CardGrid1 from '../assets/images/tandemlanding.jpg';
+import CardGrid2 from '../assets/images/kurs/IMG_5851b-1.jpg';
+import CardGrid3 from '../assets/images/tandem/tandem111.jpg';
+import CardGrid4 from '../assets/images/kurs/hang-po-hummln.jpg';
 
 import Divider1 from  "@elements/SeparatorLine.astro";
 
@@ -48,6 +51,47 @@ const HeroContent = {
   
 }
 
+const FourCardContent = {
+  sectionTitle: 'test title',
+    sectionDescription: 'test sub text',
+    gridCards:[
+     {
+        title: '',
+        subtitle: '',
+        cardImage:  CardGrid1,
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '', 
+    },
+    {
+        title: '',
+        subtitle: '',
+        cardImage:  CardGrid2,
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '', 
+    },
+    {
+        title: '',
+        subtitle: '',
+        cardImage:  CardGrid3,
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '', 
+    },
+    {
+        title: '',
+        subtitle: '',
+        cardImage:  CardGrid4,
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '', 
+    },
+  ],
+   
+
+}
+
 
 ---
 
@@ -58,7 +102,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 >
 
    <ImageHero content={HeroContent}/>  
-<Card4Hero />
+<Card4Hero content={FourCardContent}/>
    
    <HeroCarosel />
 
