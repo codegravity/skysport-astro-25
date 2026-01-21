@@ -18,7 +18,7 @@ import { htmlSivSkyTemplate } from './mail_templates/SIVSkyBooking.js'
 // local testing
 
 const host = "email-smtp.eu-north-1.amazonaws.com"
-const emailTo1 = "astro@codegravity.net"
+const emailTo1 = "no-reply@skysport.se"
 const emailUser ="AKIAQPMQAGARF7NITJYL"
 const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
 

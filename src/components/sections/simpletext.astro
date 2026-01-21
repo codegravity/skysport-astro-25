@@ -5,7 +5,7 @@ import Button from "@components/ui/Button.astro";
 interface SimpleTextContent {
     colWidth?: string;
     infoAnchorLink?: string;
-    infoTitle: string;
+    infoTitle?: string;
     infoDescription?: string;
     infoText: {
         h2Text?: string;
@@ -17,14 +17,14 @@ interface SimpleTextContent {
         linkText?: string;
         linkUrl?: string; 
     }[],
-    infoImg:  ImageMetadata;
+    infoImg?:  ImageMetadata;
     imgHeight?: number;
     imgWidth?: number;
     infoImg2?:  ImageMetadata;
     infoIcon?: string;
     buttons?: {
-        text: string;
-        link: string;
+        text?: string;
+        link?: string;
         target?: string;
     }[];
     text?: string;
@@ -37,6 +37,7 @@ const { content } = Astro.props;
 const anchorLink = content.infoAnchorLink || '';
 const colWidthClasses = content.colWidth || 'max-w-full lg:max-w-[85rem]';
 ---
+
 
 
 <div id={anchorLink} class=" px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto" class:list={colWidthClasses}>
@@ -63,7 +64,7 @@ const colWidthClasses = content.colWidth || 'max-w-full lg:max-w-[85rem]';
             <Button
               href={button.link}
               target={button.target || "_self"}
-              variant={button.variant || "primary"}
+              
             >
               {button.text}
             </Button>
