@@ -26,8 +26,8 @@ const isCurrentPage = (link: string) => {
     return currentPath.startsWith(link);
 };
 ---
-
-<header id="navheader" class="fixed  w-full lg:px-6 z-50   py-1   grid grid-cols-[32rem_auto_32rem]  gap-2 mx-auto"> 
+<div id="header-container" class="flex justify-center">
+<header id="navheader" class="fixed lg:max-w-8xl mx-auto  lg:px-6 z-50   py-1   grid grid-cols-[32rem_auto_32rem]  gap-2  "> 
   <Astronav closeOnClick >
     <div class="flex w-full  lg:w-auto justify-stretch items-center ">
       <a><Logo /></a>
@@ -75,7 +75,7 @@ const isCurrentPage = (link: string) => {
                </button>
                <DropdownItems class="relative dark:text-slate-600">
                      <div
-                        class="lg:absolute bg-white top-2 w-48 border shadow rounded py-2 px-0 dark:text-slate-600">
+                        class="lg:absolute bg-white top-2 w-48 border shadow rounded py-2 px-0 text-slate-800 dark:text-slate-600">
                         <ul >
                            <li class="hover:bg-neutral-100 w-full ">
                               <a href="/Kurs/omskarmflyg" class="px-2 dark:text-slate-600">Om Skärmflyg</a>
@@ -371,7 +371,7 @@ const isCurrentPage = (link: string) => {
                      </svg>
                   </button>
                   <DropdownItems class="relative">
-                     <div class="lg:absolute bg-white top-2 w-48 border shadow rounded py-2 px-0 dark:text-slate-600">
+                     <div class="lg:absolute bg-white top-2 w-48 border shadow rounded py-2 px-0 text-slate-800 dark:text-slate-600">
                         <ul >
                            <li class="hover:bg-neutral-100 w-full ">
                               <a href="/Tandem/tandem" 
@@ -449,7 +449,7 @@ const isCurrentPage = (link: string) => {
                      </svg>
                   </button>
                   <DropdownItems class="relative">
-                     <div class="lg:absolute bg-white top-2 w-48 border shadow rounded py-2 px-0 dark:text-slate-600">
+                     <div class="lg:absolute bg-white top-2 w-48 border shadow rounded py-2 px-0 text-slate-800 dark:text-slate-600">
                         <ul >
                            <li>
                               <a href="/OmOss/omoss" 
@@ -499,9 +499,8 @@ const isCurrentPage = (link: string) => {
         <NavSuffix />
    </Astronav>
  
-   
 </header>
-
+</div>
 <style>
   .hidden {  display: none;}
 </style>
