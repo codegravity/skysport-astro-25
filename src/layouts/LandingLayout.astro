@@ -1,0 +1,77 @@
+---
+import "../styles/global.css";
+//import { ClientRouter } from "astro:transitions";
+import { Icon } from "astro-icon/components";
+import Meta from "@ui//Meta.astro";
+import TrackGa from "@widgets/TrackGa.astro";
+import Banner from "../components/sections/banner.astro";
+import PreFooter from "@components/sections/preFooter.astro";
+import HeaderFour from "@components/sections/Header4.astro";
+import Footer from "@components/sections/Footer.astro";
+import SideDrawer from "@components/elements/sideDrawer.astro";
+import TopBg from "@ui/TopBg.astro";
+import HeaderTwo from "@components/sections/HeaderTwo.astro";
+import HeaderFive from "@components/sections/Header5.astro";
+import favIcon from "@/components/assets/images/logo.png";
+
+
+interface Props {
+  title?: string | undefined;
+  description?: string | undefined;
+  keywords?: string | undefined;
+}
+
+const { title, description, keywords } = Astro.props;
+
+
+---
+
+<html lang="">
+  <head>
+    <meta charset="UTF-8" />
+    <Meta title={title} description={description} keywords={keywords} />
+   <!--  <ClientRouter /> -->
+    <TrackGa />
+    <!-- Used to add dark mode right away, adding here prevents any flicker -->
+    <script is:inline>
+      if (typeof Storage !== "undefined") {
+        if (
+          localStorage.getItem("dark_mode") &&
+          localStorage.getItem("dark_mode") == "true"
+        ) {
+          document.documentElement.classList.add("dark");
+        }
+      }
+    </script>
+
+    <link
+      rel="icon"
+      type="image/x-icon"
+      href="../components/assets/images/logo.png"
+    />
+  </head>
+  <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"  >
+    
+    <!--    <TopBg />  -->
+ <!--    <Banner /> -->
+    <!-- <HeaderFour /> -->
+   
+    <slot />
+
+   <!--  <PreFooter />
+    <Footer />
+    <SideDrawer /> -->
+    
+    <!-- Preline UI -->
+  <script>  import "preline/dist/preline.js";    </script>
+  <script>  import "lodash/lodash.min.js";  </script>
+  <script>  import "flatpickr/dist/flatpickr.js"; </script>
+  <script>
+        document.addEventListener("astro:page-load", async () => {
+          const preline = await import("preline/dist/preline.js");
+          preline.HSStaticMethods.autoInit();
+        });
+  </script>
+  </body>
+</html>
+
