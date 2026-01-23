@@ -9,6 +9,22 @@ import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
 
 
 import Divider1 from  "@elements/SeparatorLine.astro";
+import Topper from  "@elements/navTopper.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+const customLastPart = [
+  { index: "last", text: "Boka" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
 
 const schemaDate = Astro.url.searchParams.get("startdate") || "";
 const BookingPageContent = {
@@ -40,16 +56,41 @@ bookingPage: 'boka',
 
 
 ---
-<Layout
-title="Boka tandemflyg hos Skysport i Åre"
-description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
-keywords="Tandemflyg, Paragliding, Åre"
->
-    <section class="pt-30">
-        <Divider1 />
-    </section>
-   
-    <Booking content={BookingPageContent}/> 
-
+<Layout title="Boka tandemflyg hos Skysport i Åre" description="" keywords="Tandemflyg, Paragliding, Åre" >
+  <Topper />
+    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+          <svg
+              slot="index"
+              aria-label="Home Page"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+              points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </Breadcrumbs>
+  </div> 
+  <Divider1 />
+  <Booking content={BookingPageContent}/> 
 </Layout>
 

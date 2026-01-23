@@ -96,11 +96,7 @@ const HeroResContent = {
 
 ---
 
-<Layout
-title="Skysport Skärmflygskola i Åre"
-description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
-keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
->
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
 
  <VideoHero content={VideoContent}/> 
 
@@ -121,27 +117,3 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 </section>
  
 </Layout>
-<!-- <script is:inline>
- 
-  const checkVideoHero = document.querySelector('.videohero');
-  if (checkVideoHero) {
-    checkVideoHero.classList.remove('videohero');
-    document.getElementById("navheader").classList.add("hidden");
-  };
-
-  document.getElementById("navheader").classList.add("hidden");
-  let lastScrollTop = 0;
-  const navHeader = document.getElementById("navheader");
-  window.addEventListener('scroll', () => {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-    if (currentScroll > lastScrollTop) {
-      // Scrollar nedåt
-      navHeader.classList.remove('hidden');
-    } else {
-      // Scrollar uppåt
-      navHeader.classList.add('hidden');
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-  });
-
-</script>  -->
