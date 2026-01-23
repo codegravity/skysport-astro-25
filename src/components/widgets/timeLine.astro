@@ -7,11 +7,11 @@ interface TimeLineContent {
     description?: string,
     orderByDate?: boolean,
     timeLineItems:  {
-        date: string,
+        date?: string,
         icon?: string,
-        title: string,
+        title?: string,
         description?: string,
-        image?: string,
+        image?: ImageMetadata,
         imgWidth?: number,
         imgHeight?: number,
 

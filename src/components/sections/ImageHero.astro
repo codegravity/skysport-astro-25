@@ -87,3 +87,26 @@ const overlayPosition = content.position || "justify-center";
          
     </div> 
 </section>
+<script is:inline>
+
+ const checkImageHero = document.querySelector('.imagehero');
+
+ if (checkImageHero) {
+  let lastScrollTop = 0;
+  let windowHeight = window.innerHeight;
+  const navHeader = document.getElementById("navheader");
+  window.addEventListener('scroll', () => {
+    let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
+    if (currentScroll > windowHeight) {
+      // Scrollar nedåt   
+      navHeader.classList.add('lg:bg-slate-600/50');
+      navHeader.classList.add('lg:rounded-full');
+    } else {
+      // Scrollar uppåt
+      navHeader.classList.remove('lg:bg-slate-600/50');
+      navHeader.classList.remove('lg:rounded-full');
+    }
+    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
+  });
+ };
+</script>

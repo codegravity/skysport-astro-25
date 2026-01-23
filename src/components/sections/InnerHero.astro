@@ -2,9 +2,10 @@
 import { Image } from 'astro:assets';
 
 interface InnerHeroContent {
-    title: string;
-    description: string;
+    title?: string;
+    description?: string;
     backgroundImage?: any;
+    bgPosition?: string;
     overlayOpacity?: number; // Value between 0 and 1
 }
 
@@ -25,7 +26,7 @@ const opacity = content.overlayOpacity ?? 1;
                     src={content.backgroundImage}
                     alt="Tandem Pilots"
                    inferSize
-                    class="w-full h-1/4 sm:h-1/3 object-cover"
+                    class="w-full h-1/4 sm:h-1/3 object-contain "
                     quality={86}
                     format="webp"
                     loading="eager"
@@ -40,7 +41,7 @@ const opacity = content.overlayOpacity ?? 1;
     <div class="site-container mx-auto p-0 relative z-10 flex flex-col h-auto items-center justify-center text-center fadeOut delay-3500">
         <div>
             <h1 class="text-white" >{content.title}</h1>
-            {content.description && <p class="subtitle text-white" data-aos="fade-up" data-aos-delay="100">{content.description}</p>}
+            {content.description && <p class="subtitle text-white" data-aos="fade-up" >{content.description}</p>}
         </div>
     </div>
  </section> 
