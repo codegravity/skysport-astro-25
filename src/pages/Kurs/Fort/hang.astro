@@ -87,14 +87,10 @@ const  HangWindListContent = {
 
 ---
 
-<Layout
-title="Skysport Skärmflygskola i Åre"
-description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
-keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
->
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
 
    <VideoHero content={VideoContent}/>  
-   <div class=" py-4 px-58">
+   <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
             slot="index"
@@ -127,13 +123,14 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
     </Breadcrumbs>
 </div>
    
- 
   <section >
-<BookingCTA content={BookingCtaContent}/>
-</section>
+    <BookingCTA content={BookingCtaContent}/>
+  </section>
  
- <ListWidget content={HangWindListContent} />
+  <ListWidget content={HangWindListContent} />
  
-
 </Layout>
+
+
+
 

@@ -287,78 +287,73 @@ const Feature50Content = {
     infoIcon: '',
     
 }
----
-<Layout
 
-title="Skysport Skärmflygskola i Åre"
-description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
-keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
->
-<InnerHero content={InnerHeroContent} />
-<div id="scrollChange" class="mt-1/3 py-4  px-2 md:px-58 dark:text-slate-200">
-    <Breadcrumbs
-      linkTextFormat="capitalized"
-      separatorAriaHidden={false}
-      customizeLinks={customLastPart}
-    >
-      <svg
-        slot="index"
-        aria-label="Home Page"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
-        </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
-      </svg>
-      <svg
-        slot="separator"
-        xmlns="http://www.w3.org/2000/svg"
-        width="24"
-        height="24"
-        viewBox="0 0 24 24"
-        fill="none"
-        stroke="currentColor"
-        stroke-width="2"
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        ><polyline points="9 18 15 12 9 6"></polyline>
-      </svg>
-    </Breadcrumbs>
-  </div>
-  
-<ListWidget content={GrundkursListContent} />
-<KursInfo content={Feature50Content4}/>
-<KursInfo content={Feature50Content3}/>
- <KursInfo content={Feature50Content}/>
- <FeatureCTA content={FeatureCTAContent} />
- <!-- <FeatureMain content={Feature3Content}/>  -->
+---
+<Layout title="Skysport Tandem Piloter" description="" keywords="">
+  <InnerHero content={InnerHeroContent} />
+  <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs
+        linkTextFormat="capitalized"
+        separatorAriaHidden={false}
+        customizeLinks={customLastPart}
+      >
+        <svg
+          slot="index"
+          aria-label="Home Page"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+          </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+          slot="separator"
+          xmlns="http://www.w3.org/2000/svg"
+          width="24"
+          height="24"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+      </Breadcrumbs>
+    </div>
+    
+  <ListWidget content={GrundkursListContent} />
+  <KursInfo content={Feature50Content4}/>
+  <KursInfo content={Feature50Content3}/>
+  <KursInfo content={Feature50Content}/>
+  <FeatureCTA content={FeatureCTAContent} />
 
 </Layout>
 <script is:inline>
   // nav header change on white page with inner Hero
-  const scrollChangeID = document.getElementById("scrollChange");
-  let lastScrollTop = 0;
-  const navHeader = document.getElementById("navheader");
-  let ssc = scrollChangeID.scrollTop;
-  let sscy = 400; 
-  window.addEventListener('scroll', () => {
-    let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
-    if (currentScroll > sscy) {
-      // Scrollar nedåt   
-      navHeader.classList.add('bg-slate-600/50');
-      navHeader.classList.add('rounded-full');
-    } else {
-      // Scrollar uppåt
-      navHeader.classList.remove('bg-slate-600/50');
-      navHeader.classList.remove('rounded-full');
-    }
-    lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-  });
-
+  const checkInnerHero = document.querySelector('.innerhero');
+  if (checkInnerHero) {
+    let lastScrollTop = 0;
+    const navHeader = document.getElementById("navheader");
+    let sscy = 400; 
+    window.addEventListener('scroll', () => {
+      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
+      if (currentScroll > sscy) {
+        // Scrollar nedåt   
+        navHeader.classList.add('lg:bg-slate-600/50');
+        navHeader.classList.add('lg:rounded-full');
+      } else {
+        // Scrollar uppåt
+        navHeader.classList.remove('lg:bg-slate-600/50');
+        navHeader.classList.remove('lg:rounded-full');
+      }
+      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
+    });
+  }
 </script> 

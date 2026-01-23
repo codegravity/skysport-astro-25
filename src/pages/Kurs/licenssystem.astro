@@ -9,7 +9,22 @@ import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
 import LicensFlow from '@assets/images/kurs/Hur-for-jag-licens.jpg';
 import LicensBanner from '@assets/images/kurs/balans.jpg';
 import LicensSystem from '@assets/images/kurs/Licenssystem2.jpg';
-
+import Topper from  "@elements/navTopper.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+const customLastPart = [
+  { index: "last", text: "Licenssystem" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
 
 const HeroContent = {
     title: "Skysport Resor 2026",
@@ -86,19 +101,42 @@ const StegContent = {
 
 ---
 
-<Layout
-title="Skysport Skärmflygskola i Åre"
-description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
-keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
->
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
 
-  
-   <div class=" py-8 sm:py-12 px-5">
-    
-</div>
-  <LicensIntro content={Feature50Content} />
-
+    <Topper />
+    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+          <svg
+              slot="index"
+              aria-label="Home Page"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+              points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </Breadcrumbs>
+  </div> 
+   
+    <LicensIntro content={Feature50Content} />
     <LicSteps content={StegContent}/>
- 
-  
 </Layout>
