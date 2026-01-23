@@ -25,7 +25,7 @@ const VideoContent = {
   mobileVideo: mobVideo,
   //descriptionImage: LogoImage,
   overlayOpacity: 0.2,
-  page: "tandem",
+  page: "start",
   position: "justify-end",
   buttons: [
    /* {
@@ -121,29 +121,27 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
 </section>
  
 </Layout>
-<script is:inline>
-  //document.getElementById("banner").classList.add("hidden");
+<!-- <script is:inline>
+ 
+  const checkVideoHero = document.querySelector('.videohero');
+  if (checkVideoHero) {
+    checkVideoHero.classList.remove('videohero');
+    document.getElementById("navheader").classList.add("hidden");
+  };
+
   document.getElementById("navheader").classList.add("hidden");
-
   let lastScrollTop = 0;
- // const navbanner = document.getElementById("banner"); 
   const navHeader = document.getElementById("navheader");
-
   window.addEventListener('scroll', () => {
     let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-
     if (currentScroll > lastScrollTop) {
       // Scrollar nedåt
-      //navbanner.classList.add('hidden');
-   //   navbanner.classList.remove('hidden');
       navHeader.classList.remove('hidden');
     } else {
       // Scrollar uppåt
-    // navbanner.classList.remove('hidden');
-    //  navbanner.classList.add('hidden');
       navHeader.classList.add('hidden');
     }
     lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
   });
 
-</script> 
+</script>  -->
