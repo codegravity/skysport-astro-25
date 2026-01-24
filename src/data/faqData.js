@@ -1,4 +1,27 @@
+export const FAQParamotor = [
+    {
+        faqQuestion: 'Vad kostar det att lära sig flyga paramotor från grunden? ',
+        faqAnswer: 'En grundutbildning för skärmflyg kostar 7.500-8.000 kr beroende vilken säsong du går. Du måste först börja med grundutbildningen för skärmflyg, för att sen börja med paramotor. När du har gått skärmflygutbildningen kan du påbörja med paramotor och den utbildningen kostar 6.000:-. Kostnad tillkommer till Svenska skärmflygförbundet ( SSFF) för din förbundsavgift/försäkring på 1.900 kr',
+    },
+    {
+        faqQuestion: 'Kan man ta både grundkursen och paramotor utbildning som en intensiv kurs?',
+        faqAnswer: 'Ja, det är möjligt. Grundkursen tar 1 vecka och paramotorkursen 1 vecka, totalt 2 veckor. När du har gått grundkursen tar instruktören och eleven gemensamt beslutet om att gå vidare med paramotorkursen omgående. Det är dock ganska vanligt att man går grundkursen först, fortsätter och flyger och tränar på egen hand, för att gå motorkursen lite senare samma år.',
+    },
+     {
+        faqQuestion: 'Vilken utrustning ingår under kursen?',
+        faqAnswer: 'Skysport håller med all utrustning, förutom själva motorn. Här finns 2 möjligheter, antingen hyr du motor av Skysport under kursen, eller köper du innan kursen/ i samband med kursen. Har du bestämt dig för att bli paramotorpilot ser vi helst att du har egen motor. En paramotor är en personlig utrustning, som är viktig att lära sig utan och innan. Det är också viktigt att justera selen och viktinställningen så att propellern trycker i rätt vinkel. Att hyra motor under kursen kostar 1.100 kr/dag. Räkna med att du behöver motorn 2-3 dagar under kursen.',
+    },
+     {
+        faqQuestion: 'Priset för en motorflygutrustning?',
+        faqAnswer: 'Beror på om du vill köpa nytt eller begagnat och vilka prylar som lämpar sig för dig. Storlek på motor och skärm avgörs av din kroppsvikt.',
+        faqAnswer1: 'Ny komplett utrustning kostar ca 85.000-90.000 kr. Då ingår motor, skärm, sele och nödskärm. En hel del pengar, men definitivt det billigaste sättet att äga en egen flygfarkost!',
+        faqAnswer2: 'Det som ingår i en komplett utrustning är: paramotor(inkl sele), skärm, nödskärm och hjälm. Begagnad utrustning går att få komplett för ca 40.000-70.000 kr',
+        faqAnswer3: 'Skysport är en av de ledande skolorna för Paramotor i Sverige.Vi har flugit motor sedan mitten av 90-talet och har genom åren samlat på oss en gedigen erfarenhet. Vi har ett väl genomarbetat utbildningssystem som gör att du snabbt kommer i luften. Vi utbildar till båda licensnivåer som finns i Sverige, PM1 och PM2.',
+        faqAnswer4: '',
+    },
 
+
+];
 
 export const  FAQKursVillkor = [
     {
