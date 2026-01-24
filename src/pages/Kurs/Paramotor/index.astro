@@ -6,7 +6,6 @@ import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
 import BergImg2 from "@assets/images/kurs/gondola-winter.jpg";
 import ParamotorFAQ from '@sections/faqPara.astro';
 
-import ParaForm from "@components/elements/forms/paraForm.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
 import Topper from  "@elements/navTopper.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -128,12 +127,8 @@ const Feature50Content2 = {
     </div> 
     <Divider1 />
 
-
-<KursInfo content={Feature50Content}/>
-<KursInfo content={Feature50Content2}/>
-<ParamotorFAQ />
-<ParaForm />
-
-
+    <KursInfo content={Feature50Content}/>
+    <KursInfo content={Feature50Content2}/>
+    <ParamotorFAQ />
 
 </Layout>

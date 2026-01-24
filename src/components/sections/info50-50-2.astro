@@ -1,0 +1,154 @@
+---
+import { Image } from 'astro:assets';
+
+
+interface Info50Content {
+    infoOrientationL?: boolean;
+    infoColL?: string;
+    infoColR?: string;
+    infoAnchorLink?: string;
+    infoTitle?: string;
+    infoDescription?: string;
+    infoImg:  ImageMetadata;
+    insetImg: ImageMetadata;
+    imgHeight?: number;
+    imgWidth?: number;
+    infoImg2?:  ImageMetadata;
+    infoIcon?: string;
+    buttons?: {
+        text: string;
+        link: string;
+        target?: string;
+    }[];
+    isTandemPage?:  boolean;
+    isKursPage?:  boolean;
+    infoText: {
+        preText?: string;
+        spanText?: string;
+        spanClasses?: string;
+        postText?: string;
+        linkTarget?: string;
+        linkText?: string;
+        linkUrl?: string; 
+        infoCheckList: {
+            icon?: boolean;
+            preText?: string;
+            spanText?: string;
+            spanClasses?: string;
+            postText?: string;
+            linkTarget?: string;
+            linkText?: string;
+            linkUrl?: string; 
+        }[],
+    }[],
+    infoPostText?: string;
+    postTextClasses?: string;
+
+}
+
+interface Props {
+    content: Info50Content;
+} 
+const { content } = Astro.props;
+const classPosL = 'sm:order-2';
+const anchorLink = content.infoAnchorLink || '';
+---
+
+<div id={anchorLink} class="max-w-full lg:max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
+     {content.infoTitle &&
+       <h2 class="text-center text-2xl uppercase font-bold md:text-3xl lg:text-4xl lg:leading-tight xl:text-5xl xl:leading-tight text-gray-800 dark:text-neutral-200">
+        <a class="hover:text-blue-600 focus:outline-hidden focus:text-blue-600 dark:text-neutral-300 dark:hover:text-white dark:focus:text-white" href="#">
+          {content.infoTitle}
+        </a>
+      </h2>
+      }
+  <!-- Grid -->
+  <div class="grid sm:grid-cols-2 sm:items-center gap-8">
+  <!-- Image col -->
+    <div class={content.infoColL || 'sm:order-1'}>
+        <div class="w-full  relative">
+            <Image
+                src={content.infoImg}
+                alt='Skysport Tandem Presentkort'
+                width={2000}
+                height={2650}
+                class="w-full h-full  object-cover rounded-3xl "
+                loading="lazy"
+            />
+            <div class="absolute top-2 right-4"><!-- inset image -->
+                <span class=" text-white text-sm px-4 py-0 rounded-full font-semibold">
+                    <Image
+                        src={content.insetImg}
+                        alt='Skysport Tandem Presentkort'
+                        width={200}
+                        height={150}
+                        class="w-full h-full object-cover -rotate-14 scale-125 rounded-lg"
+                        loading="lazy"
+                    />
+                </span>
+            </div>
+
+        </div>
+    </div><!-- end col -->
+
+  <!-- Text  col -->
+   <div class={content.infoColR || 'sm:order-2'}></div>
+        <ul class="w-full  flex flex-col items-center md:items-start text-center md:text-left">
+            { content.infoText &&
+                content.infoText.map((text) => (
+                    
+                    <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400 text-balance text-pretty">{text.preText} 
+                        <span class:list={text.spanClasses} >{text.spanText}</span>
+                        { text.postText }
+                    </p>
+                    <ul class="dark:text-gray-300 text-lg mb-4 py-3 leading-relaxed">
+
+                    {text.infoCheckList.map((jobb) => (
+                             <li class="flex items-center space-x-3 py-2 rtl:space-x-reverse">
+                                {jobb.icon ?
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                        <rect width="24" height="24" fill="none" />
+                                        <g fill="none" stroke="#2a6922" stroke-linecap="round" stroke-width="1.9">
+                                            <path d="M15 2.5h-3c-4.478 0-6.718 0-8.109 1.391S2.5 7.521 2.5 12c0 4.478 0 6.718 1.391 8.109S7.521 21.5 12 21.5c4.478 0 6.718 0 8.109-1.391S21.5 16.479 21.5 12v-2" />
+                                            <path stroke-linejoin="round" d="m8.5 10l3.5 3.5l9-10" />
+                                        </g>
+                                    </svg>
+                                 : 
+                                    
+                                     jobb.spanText &&
+                                        <span class:list={jobb.spanClasses} >{jobb.spanText}</span>
+                                    
+                                }
+                                {jobb.preText &&
+                                    <p class="text-lg"> - {jobb.preText}</p>
+                                }
+                               
+                             </li>
+                  ))} 
+
+                  </ul>
+                ))
+            }
+        
+        </div>
+        {content.infoPostText &&
+            <div class:list={content.postTextClasses} >{content.infoPostText}</div>
+        }
+        </div><!-- end col -->
+        
+    </div><!-- end grid --> 
+    
+   
+</div>
+
+<!-- <div id="forlanga" class="scroll-mt-48 py-20 bg-linear-to-r from-orange-500 to-orange-600"> 
+  <div  class=" max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+    <h2 class="text-4xl md:text-5xl font-bold text-white mb-4 text-balance">
+       Har du ett presentkort från Skysport som håller på att gå ut? 
+    </h2>
+    <p class="text-xl text-white/90 mb-8 max-w-2xl mx-auto text-balance">
+       Det går bra att förlänga 6 månader mot en kostnad på 500 kr. Kontakta oss på telefon eller mail.
+    </p>
+  </div> -->
+
+   

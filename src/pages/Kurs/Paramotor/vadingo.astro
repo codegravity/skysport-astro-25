@@ -1,0 +1,240 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import IngoInfo from  "@sections/info50-50-2.astro";
+
+import ParaImg from "@assets/images/kurs/ope4.jpg";
+import ParaInset from "@assets/images/kurs/ope5.jpg";
+import insetImg from '@assets/images/products/presentkort2.jpg';
+import tandemsummer from '@assets/images/tandemlanding.jpg';
+
+import ParamotorFAQ from '@sections/faqPara.astro';
+
+import Divider1 from  "@elements/SeparatorLine.astro";
+import Topper from  "@elements/navTopper.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Vad ingör i kursen" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+
+
+const Info50Content = {
+     infoTitle: 'Paramotor Kurs',
+     infoOrientationL: true,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: false,
+     infoImg:  ParaImg,
+     insetImg: ParaInset,
+     infoText: [
+      {
+       // preText: '',
+        spanText: 'Detta ingår i grundkursen',
+        spanClasses: 'text-slate-800 text bold text-xl',
+      //  postText: ' ',
+       // linkTarget: '',
+       // linkText: 'har.',
+       // linkUrl: '',
+        infoCheckList: [
+            {
+                icon: true,
+                preText: 'Startträning på plan mark och balansering av skärmen',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+           {
+                icon: true,
+                preText: 'Startträning på plan mark och balansering med träningsbur',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Startträning på plan mark och balansering med motorn avstängd',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Min 10 st flyg där god kontroll uppvisas av eleven',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Pricklandningsträning, både med motorn igång och motorn avstängd',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Teoriundervisning, ca 8 tim, inkl skriftligt prov',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Examinering till färdig licens. PM 1.',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Vädergaranti.',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: false,
+                preText: '',
+                spanText: 'Om du inte blir klar med kursen under din kursvecka har du möjlighet att komma tillbaka och kostnadsfritt göra färdigt kursen vid ett senare tillfälle. Gäller i 6 månader från kursens slut',
+                spanClasses: 'text-base sm:text-sm italic text-center text-semibold sm:text-pretty text-balance bg-orange-200 p-2 rounded-md',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Rabatterat pris på boende. Välj mellan enkelrum eller dubbelrum.',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Skärm, nödskärm, motorhjälm och radioutrustning ingår.',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: true,
+                preText: 'Hyra av paramotor tillkommer, 1.100 kr/dag. Räkna med minst 2 dagar',
+                spanText: '',
+                spanClasses: '',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+            {
+                icon: false,
+                preText: '',
+                spanText: 'Vi rekommenderar dig som ska bli paramotorpilot och ha din egen motor under kursen. Många fördelar med att lära sig sin EGEN motor direkt på kursen. Vi vet vilken motor som passar för dig och kan garantera att du får bästa kvalitet och pris.',
+                spanClasses: 'text-semibold',
+                postText: '',
+                linkTarget: '',
+                linkText: '',
+                linkUrl: '',
+            },
+        ],
+      },
+     ],
+     infoPostText: 'Utbildningen följer ett kursprogram som Svenska Skärmflygförbundet fastställt. Ett visst antal moment och manövrar skall göras under kursen. Om du blir godkänd på alla moment inkl teoriprovet, får du ut din licens vid kursens slut.',
+     postTextClasses: 'text-center text-balance text-bold sm:text-xl uppercase bg-orange-200 p-4 rounded-md',
+  /*  infoIcon: '',
+     buttons: [
+      {
+        text: "Boka Berg Kursen",
+        link: "/Kurs/Fort/boka",
+        target: "_self",
+      },
+    ], */
+}
+
+
+---
+
+<Layout title="Paramotor" description="" keywords="">
+  <Topper />
+    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+          <svg
+              slot="index"
+              aria-label="Home Page"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+              points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </Breadcrumbs>
+    </div> 
+    <Divider1 />
+
+
+<IngoInfo content={Info50Content}/>
+
+</Layout>
