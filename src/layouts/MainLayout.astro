@@ -12,7 +12,7 @@ import SideDrawer from "@components/elements/sideDrawer.astro";
 import TopBg from "@ui/TopBg.astro";
 import HeaderTwo from "@components/sections/HeaderTwo.astro";
 import HeaderFive from "@components/sections/Header5.astro";
-import favIcon from "@/components/assets/images/logo.png";
+//import favIcon from "@/components/assets/images/favicon.ico";
 
 
 interface Props {
@@ -26,7 +26,7 @@ const { title, description, keywords } = Astro.props;
 
 ---
 
-<html lang="">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <Meta title={title} description={description} keywords={keywords} />
@@ -44,11 +44,15 @@ const { title, description, keywords } = Astro.props;
       }
     </script>
 
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="../components/assets/images/logo.png"
-    />
+    <!-- <link  rel="icon"   type="image/x-icon"   href="@/components/assets/images/favicon.ico" /> -->
+
+    <link rel="icon" type="image/png" href="/Skysport-favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="icon" type="image/svg+xml" href="/Skysport-favicon/favicon.svg" />
+    <link rel="shortcut icon" href="/Skysport-favicon/favicon.ico" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/Skysport-favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="Skysport" />
+    <!-- <link rel="manifest" href="/Skysport-favicon/site.webmanifest" /> -->
+
   </head>
   <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"  >
     
@@ -64,15 +68,20 @@ const { title, description, keywords } = Astro.props;
     
     <!-- Preline UI -->
   <script>  import "preline/dist/preline.js";    </script>
-  <script>  import "lodash/lodash.min.js";  </script>
-  <script>  import "flatpickr/dist/flatpickr.js"; </script>
+ 
+
+ <!--   <script>  import "lodash/lodash.min.js";  </script>
+  <script>  import "flatpickr/dist/flatpickr.js"; </script>  -->
   <script>
         document.addEventListener("astro:page-load", async () => {
           const preline = await import("preline/dist/preline.js");
           preline.HSStaticMethods.autoInit();
+
+         
+      
         });
   </script>
-   
+  
   </body>
 </html>
 

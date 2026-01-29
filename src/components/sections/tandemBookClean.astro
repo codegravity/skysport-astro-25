@@ -1,13 +1,11 @@
 ---
 import { Image } from 'astro:assets';
-import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
+import SkysportLogo from '@assets/images/Skysport_Logo-01-invert-468.png';
 
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
-
 ---
-
 
   <!-- Hero Section -->
   <section id="bokatandem" class="scroll-m-32 relative md:h-[158vh] min-h-[600px] 2lg:min-h-[800px] pb-16 bg-slate-600 lg:py-64 flex items-center overflow-hidden">
@@ -21,8 +19,20 @@ import "@assets/css/flatpickrDark.css";
         <div class="inline-flex items-center  px-0 md:px-4 md:py-2 md:mb-6  text-sm text-white text-sm">        
                 <div class="p-2 sm:px-4 sm:py-10 sm:px-6 lg:px-8 lg:py-14 ">
                 <div class=" md:max-w-xl mx-auto">
-                    <div class="text-center">
-                        <h1 class="text-3xl font-bold text-gray-800 sm:text-6xl dark:text-white">BOKA </h1>
+                     <div class="text-center">
+                     <!--   <Image 
+                          src={SkysportLogo}
+                          alt="Skysports Tandem i Åre"
+                          class=" flex content-center justify-center mx-auto mb-4  h-auto "
+                          width={750}
+                          height={500}
+                          quality={80}
+                          format="webp"
+                          loading="lazy"
+                          decoding="async"
+                          layout="constrained"
+                      /> -->
+                        <h1 class="text-3xl font-bold text-gray-800 sm:text-6xl dark:text-white">BOKA TANDEMFLYG</h1>
                     </div>
 
                     <div class="mt-6 group:text-left">
@@ -35,7 +45,7 @@ import "@assets/css/flatpickrDark.css";
                                     <label for="flatpickr-date" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white">Önskat Datum
                                         <span class="text-orange-600 sm:text-4xl">*</span> 
                                     
-                                    <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                                    <input required id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
                                     </label>
                                     <p class="text-left pt-1 text-xs">Välj önskat datum. Vi flyger alla dagar som vädret tillåter, dock ej i november och december. 
                                         I maj månad har vi inte möjlighet att flyga före 22/5.  Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss (senast kl 21.00) 
@@ -79,17 +89,17 @@ import "@assets/css/flatpickrDark.css";
                             </div>         
                             <div class="py-2 sm:py-0"><!-- 2 col again -->                                
                                 <label for="hs-name" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Namn<span class="text-orange-600 sm:text-4xl">*</span></label>
-                                <input type="text" name="hs-name" id="hs-name" placeholder="Namn" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <input type="text" required name="hs-name" id="hs-name" placeholder="Namn" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             </div>   
                             <div class="py-2 sm:py-0"><!-- col 2 of 2 cols -->
                                 <label for="hs-email" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Email<span class="text-orange-600 sm:text-4xl">*</span></label>
-                                <input type="email" name="hs-email" id="hs-email" placeholder="Email" autocomplete="email" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <input type="email" required name="hs-email" id="hs-email" placeholder="Email" autocomplete="email" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             </div><!-- end col 2 -->
                         </div>    <!-- End Grid -->
 
                         <div class="py-2 sm:py-0">
                                 <label for="hs-mobil" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Mobil<span class="text-orange-600 sm:text-4xl">*</span></label>
-                                <input type="text" name="hs-mobil" id="hs-mobil" placeholder="Mobil nr." class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <input type="text" required name="hs-mobil" id="hs-mobil" placeholder="Mobil nr." class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         </div>
                         <div class="col-span-2 text-left ">
                                 <p class="relative">Vi behöver ett mobil nummer för att kontakta dig, angående flygförhållande(väder) och exakt tid för ditt tandemflyg.</p>
@@ -111,10 +121,10 @@ import "@assets/css/flatpickrDark.css";
                         <!-- Checkbox -->
                         <div class="mt-3 flex">
                         <div class="flex">
-                            <input id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-1.5  cursor-pointer rounded-full w-6 h-6 p-6 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                            <input id="remember-me" required name="remember-me" type="checkbox" class="shrink-0 mt-1.5  cursor-pointer rounded-full w-6 h-6 p-6 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
                         </div>
                         <div class="ms-3">
-                            <label for="remember-me" class="text-sm text-gray-200 sm:text-2xl dark:text-neutral-400">Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
+                            <label for="remember-me" class="text-sm text-gray-200 sm:text-2xl dark:text-neutral-400">Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-orange-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
                         </div>
                         </div>
                         <!-- End Checkbox -->
@@ -127,6 +137,7 @@ import "@assets/css/flatpickrDark.css";
                         
                     </form>
                      <!-- End Form -->
+                      
                     </div>
                 </div>
                 </div>
@@ -135,6 +146,50 @@ import "@assets/css/flatpickrDark.css";
        </div><!-- end 2 col grid -->
     </div>
   </section>
+  <div id="hs-tandem-alert" class="hs-overlay hidden size-full fixed top-0 start-0 z-80 overflow-x-hidden overflow-y-auto" role="dialog" tabindex="-1" aria-labelledby="hs-tandem-alert-label">
+  <div class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all md:max-w-2xl md:w-full m-3 md:mx-auto">
+    <div class="relative flex flex-col bg-white border border-gray-200 shadow-2xs rounded-xl overflow-hidden dark:bg-neutral-900 dark:border-neutral-800">
+      <div class="absolute top-2 end-2">
+        <button type="button" class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600" aria-label="Close" data-hs-overlay="#hs-tandem-alert">
+          <span class="sr-only">Close</span>
+          <svg class="shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+        </button>
+      </div>
+
+      <div class="p-4 sm:p-10 overflow-y-auto">
+        <div class="flex gap-x-4 md:gap-x-7">
+          <!-- Icon -->
+          <span class="shrink-0 inline-flex justify-center items-center size-11 sm:w-15.5 sm:h-15.5 rounded-full border-4 border-red-50 bg-red-100 text-red-500 dark:bg-red-700 dark:border-red-600 dark:text-red-100">
+            <svg class="shrink-0 size-5" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
+              <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+          </span>
+          <!-- End Icon -->
+
+          <div class="grow">
+            <h3 id="hs-danger-alert-label" class="mb-2 text-xl font-bold text-gray-800 dark:text-neutral-200">
+              Viktig uppgifter fattas!
+            </h3>
+            <p class="text-gray-500 dark:text-neutral-500">
+              Vi behöver ditt namn, email, mobilnummer och önskad datum för tandemflyget, för att kunna behandla din bokning.</p>
+            <p class="text-gray-500 dark:text-neutral-500">
+              Vänligen fyll i alla fältet märkerad med <span class="text-orange-600 sm:text-xl">*</span> . 
+            </p>
+            <p class="text-gray-500 dark:text-neutral-500">    Tack!    </p>
+          </div>
+        </div>
+      </div>
+
+      <div class="flex justify-end items-center gap-x-2 py-3 px-4 bg-gray-50 border-t border-gray-200 dark:bg-neutral-950 dark:border-neutral-800">
+        <button type="button" class="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none focus:outline-hidden focus:bg-gray-50 dark:bg-transparent dark:border-neutral-700 dark:text-neutral-300 dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" data-hs-overlay="#hs-tandem-alert">
+          Stäng
+        </button>
+       
+      </div>
+    </div>
+  </div>
+</div>
+
 <script>
     import flatpickr from "flatpickr"
     import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
@@ -163,8 +218,9 @@ import "@assets/css/flatpickrDark.css";
 
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
-  saveInput()
-  sendmail()
+  //saveInput()
+  validateInfo()
+  //sendmail()
 }
 
 const getFormData = () => {
@@ -177,7 +233,7 @@ const getFormData = () => {
   store.tel = get('hs-mobil')?.value
   store.message = get('hs-meddelande')?.value
   store.checkboxOK = get('remember-me')?.value
-store.subject = 'Tandem Bokning'
+  store.subject = 'Tandem Bokning'
   return store
 }
 
@@ -185,6 +241,35 @@ const saveInput = () => {
   const { message, subject, ...rest } = getFormData()
   localStorage.setItem('tandembookinfo', JSON.stringify(rest))
 }
+
+const validateInfo = () => {
+
+  if (get('flatpickr-date').value.length < 4) {
+      get('flatpickr-date').classList.remove('border-gray-200')
+      get('flatpickr-date').classList.add('border-red-500')
+      get('flatpickr-date').focus();
+       HSOverlay.open('#hs-tandem-alert');
+    } else if (get('hs-name').value.length < 2) {
+      get('hs-name').classList.remove('border-gray-200')
+      get('hs-name').classList.add('border-red-500')
+      get('hs-name').focus();
+      HSOverlay.open('#hs-tandem-alert');
+    } else if (get('hs-mobil').value.length < 5) {
+      HSOverlay.open('#hs-tandem-alert');
+      get('hs-mobil').classList.remove('border-gray-200')
+      get('hs-mobil').classList.add('border-red-500')
+      get('hs-mobil').focus();
+    } else if (get('hs-email').value.length < 5 || !get('hs-email').value.includes('@')) {
+      HSOverlay.open('#hs-tandem-alert');
+      get('hs-email').classList.remove('border-gray-200')
+      get('hs-email').classList.add('border-red-500')
+      get('hs-email').focus();
+    } else {
+      sendmail()
+    }
+
+  }
+
 
 const retrieveInfo = () => {
   const store = JSON.parse(localStorage.getItem('tandembookinfo') || '{}')
@@ -196,7 +281,7 @@ const retrieveInfo = () => {
   get('TnrPass').value = store.TnrPass || ''
   get('message').value = store.message || ''
   get('checkboxOK').value = store.checkboxOK || ''
-   get('subject').value = store.subject || ''
+  get('subject').value = store.subject || ''
 }
 // end: localstorage
 
@@ -227,6 +312,7 @@ const sendmail = async () => {
     })
   console.log(data) // Here is the response from backend
    alert('Message successfully sent');
-
+ 
+  document.getElementById("booking-form").reset();
 }
 </script>

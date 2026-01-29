@@ -3,8 +3,9 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
-import { htmlTandemTemplate } from './mail_templates/tandemBooking.js'
-import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
+import { htmlResKundBookTemplate } from './mail_templates/reskundbooking.js'
+import { htmlResSkyTemplate } from './mail_templates/resSkyBooking.js'
+
 
 //const emailUser = import.meta.env.PUBLIC_EMAIL_USER
 //const emailTo1 = import.meta.env.PUBLIC_EMAIL
@@ -32,34 +33,39 @@ export const POST: APIRoute = async ({ request }) => {
 
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
-    const name = formData.name
+    const resa = formData.resa
+    const resPriceISO = formData.resPriceISO
+    const fname = formData.firstName
+    const lname = formData.lastName
+    const name = fname + ' ' + lname
     const email = formData.email
     const tel = formData.tel
-    const TandemDate = formData.Tdate
-    const AltDate = formData.altTdate
-    const AntalPass = formData.TnrPass
+    const telday = formData.telday
+    const birthyr = formData.birthYear
+    const adress = formData.adress
+    const postnr = formData.postNr
+    const city = formData.city
+    const country = formData.country
+    const vilkor = formData.vilkor
+    const newsletter = formData.newsletter
+    const checkboxOK = formData.checkboxOK 
     const Tsubject = formData.subject
-    const Meddelande = formData.message
-    const kontaktNamn = name
-    const kontaktEpost = email
-    const kontaktTel = tel
+    const message = formData.message    
     const tempDate = new Date()
     const onlydate =  (tempDate.getFullYear()) + '-' + (tempDate.getMonth()) + '-' + (tempDate.getDate())
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
 
-    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, BookingTimestamp )
-    const outputSky = htmlTandemSkyTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, BookingTimestamp )
+    const output = htmlResKundBookTemplate(name, tel, telday, email, message, resa, resPriceISO, birthyr, adress, postnr, city, country, vilkor, newsletter,checkboxOK, BookingTimestamp )
+    const outputSky = htmlResSkyTemplate(name, tel, telday, email, message, resa, resPriceISO, birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp )
 
-    if (!email || !name ) {
-      throw new Error("Missing required fields");
-    }
+  
 
-    const Skysubject = "Tandem Bokning : " + name + ' : ' + onlydate
+    const Skysubject = "Res Bokning : " + resa
     const Skymessage = `
-    Tandembokning: ${TandemDate}   • alternativ datum:${AltDate}
+    Res bokning: ${resa}   
 
-    antal passanger: ${AntalPass}
+    
     ----------------------------------------------------------------------
     From: ${name}  • email: ${email} • tel: ${tel}
     Meddelande: ${formData.message}
@@ -69,15 +75,15 @@ export const POST: APIRoute = async ({ request }) => {
     `
 
     const Kmessage = `
-    Tandembokning: ${TandemDate}   • alternativ datum:${AltDate}
+    Res bokning: ${resa}  
 
-    antal passanger: ${AntalPass}
+    
     ----------------------------------------------------------------------
     From: ${name}  • email: ${email} • tel: ${tel}
     Meddelande: ${formData.message}
 
     Skickade: ${BookingTimestamp}
-     Eftersom du fik våran förenklade bekräftelse, be vi ät du här av sej till oss om hur din tandemflyg ska genomförs.
+    
 
     `
    

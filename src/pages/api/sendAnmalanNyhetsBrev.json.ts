@@ -3,12 +3,10 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
-//import { htmlTemplate } from './mail_templates/toSkysport.js'
+import {mailTransporter} from '../../actions/index.ts';
+
 import { htmlNewsKundTemplate } from './mail_templates/kundnyhetsbrev.js'
-
 import { htmlNewsSkyTemplate } from './mail_templates/skynyhetsbrev.js'
-
-
 
 //const emailUser = import.meta.env.PUBLIC_EMAIL_USER
 //const emailTo1 = import.meta.env.PUBLIC_EMAIL
@@ -24,7 +22,6 @@ const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
 
 //EMAIL_PORT = 587
 
-
 //Note: Vercel env is configured in Vercel app, not from an env file!
 /* const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
@@ -33,24 +30,23 @@ const emailTo1 = process.env.PUBLIC_EMAIL */
 
 const emailTo = emailTo1 + ', brett@skysport.se'
 
-export const POST: APIRoute = async ({ request }) => {
+export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
    
     const email = formData.email
-    const Tsubject = formData.subject
-     
+    if (!email ) {
+    return new Response('Missing required fields', { status: 400 });
+  }
+
+    const Tsubject = 'Skysport Nyhetsbrev'
     const tempDate = new Date()
     const onlydate =  (tempDate.getFullYear()) + '-' + (tempDate.getMonth()) + '-' + (tempDate.getDate())
     const BookingTimestamp = tempDate.toISOString()
-    const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
-
+    const Ksubject = Tsubject + ' bekräftelsee'
     const output = htmlNewsKundTemplate( email, BookingTimestamp )
     const outputSky = htmlNewsSkyTemplate( email, BookingTimestamp )
-
-    
-
     const Skysubject = "Nya nyhetsbrev anmäling: "  + onlydate
     const Skymessage = `
     Icke konfirmerad nyhetsbrev anmäling: ${email}   
@@ -76,7 +72,7 @@ export const POST: APIRoute = async ({ request }) => {
     `
    
     // sendmail
-    let mailTransporter = nodemailer.createTransport({
+   /*  let mailTransporter = nodemailer.createTransport({
       host,
       port: 587,
       secure: false,
@@ -84,7 +80,7 @@ export const POST: APIRoute = async ({ request }) => {
         user: emailUser,
         pass: emailToPass,
       },
-    })
+    }) */
 // skicka till kund
     let mailDetails = {
       from: emailTo1,
@@ -111,23 +107,24 @@ export const POST: APIRoute = async ({ request }) => {
     } catch (error) {
       console.log('******* Error: ', error)
     }
-      console.log('Message sent: %s', mailresult?.messageId)
+      console.log('Message sent Client x: %s', mailresult?.messageId)
+    
 
-    let mailresultSky
+
+    /* let mailresultSky
     try {
       mailresultSky = await mailTransporter.sendMail(mailDetailsSky)
     } catch (error) {
       console.log('******* Error: ', error)
     }
-      console.log('Message sent: %s', mailresult?.messageId)
-
-
-
+      console.log('Message sent Skysport: %s', mailresult?.messageId)
+       */
 
     // return endpoint response
-    return new Response(JSON.stringify(mailDetails), {
+    //console.log('where are we' + mailDetails);
+   return new Response(JSON.stringify(mailDetails), {
       status: 200,
-
+      
     })
   }
   return new Response(null, { status: 400 }) // if not a json request

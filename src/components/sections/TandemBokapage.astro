@@ -1,9 +1,27 @@
 ---
-import { Image } from 'astro:assets';
-import BookHeroBGImage from '../../assets/images/vinter-tandem-1.png';
+export const prerender = false;
+
+if (Astro.request.method === "POST") {
+  try {
+    const data = await Astro.request.formData();
+    const name = data.get("hs-name");
+    const email = data.get("hs-email");
+    const mobile = data.get("hs-mobile");
+    const tandemdate = data.get("flatpickr-date");
+    const okGDPR = data.get("remember-me");
+    // Do something with the data
+  } catch (error) {
+    if (error instanceof Error) {
+      console.error(error.message);
+    }
+  }
+}
+
+import HSOverlay from "@elements/modals/tandembooking.astro";
 import TandemPriceCard from "@widgets/TandemPriceCard.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
+
 
 
 const TandemPriceCardContent = {
@@ -29,13 +47,13 @@ bookingPage : 'boka',
 ---
 
   <!-- Hero Section -->
-  <section id="bokatandem" class="  py-16 bg-slate-600 flex items-center overflow-hidden">
+  <section id="bokatandem" class="  py-16 bg-slate-600 dark:bg-slate-800 flex items-center overflow-hidden">
     
 
     <!-- Content -->
     <div class="container mx-auto relative z-10 px-4 sm:px-6 lg:px-8">
-          <h1 class="text-4xl md:text-5xl lg:text-6xl text-center font-bold text-white mb-6 leading-tight">
-                Tandembokning
+          <h1 class="text-4xl md:text-5xl lg:text-6xl text-center font-bold text-white mb-6 dark:text-slate-200 leading-tight">
+                Tandembokning 
             </h1>
       <div class=" mx-auto text-center grid grid-cols-1 gap-0 lg:grid-cols-2 lg:gap-2"><!--grid container -->
         <!-- column 1 -->
@@ -156,7 +174,7 @@ bookingPage : 'boka',
                                   <div >
                                       <label for="flatpickr-date" class="block mb-2 text-sm text-left text-gray-200 sm:text-xl font-medium dark:text-white">Önskat Datum
                                         <span class="text-orange-600 sm:text-4xl">*</span>                              
-                                        <input id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
+                                        <input required id="flatpickr-date" placeholder="Välj Datum" name="hs-datum" type="text" class="hs-datepicker w-s p-2  sm:py-3 sm:px-4 block  border border-gray-200 rounded-lg sm:text-sm focus:border-blue-600 focus:ring-blue-600 disabled:opacity-50 disabled:pointer-events-none" >
                                       </label>
                                       <!-- <p class="text-left pt-1 text-xs">Välj önskat datum. Vi flyger alla dagar som vädret tillåter, dock ej i november och december. 
                                           I maj månad har vi inte möjlighet att flyga före 22/5.  Flygningen bokas senast kl 18.00 dagen före, Om ni vill boka efter kl 18 så måste ni ringa oss (senast kl 21.00) 
@@ -198,17 +216,27 @@ bookingPage : 'boka',
                           <div class="grid grid-cols-2 gap-6">
                             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
                                 <label for="hs-name" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Namn<span class="text-orange-600 sm:text-4xl">*</span></label>
-                                <input type="text" name="hs-name" id="hs-name" placeholder="Namn" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <input required type="text" name="hs-name" id="hs-name" placeholder="Namn" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                             </div>   
                             <div class="py-2 sm:py-0  "><!-- col 2 of 2 cols -->
                                 <label for="hs-email" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Email<span class="text-orange-600 sm:text-4xl">*</span></label>
-                                <input type="email" name="hs-email" id="hs-email" placeholder="Email" autocomplete="email" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                            </div><!-- end col 2 -->
+                                <input required="" aria-describedby="hs-email-error-helper"  type="email" name="hs-email" id="hs-email" placeholder="Email" autocomplete="email" class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <div class="hidden absolute inset-y-0 end-0 flex items-center pointer-events-none pe-3">
+                                    <svg class="shrink-0 size-4 text-red-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                      <circle cx="12" cy="12" r="10"></circle>
+                                      <line x1="12" x2="12" y1="8" y2="12"></line>
+                                      <line x1="12" x2="12.01" y1="16" y2="16"></line>
+                                    </svg>
+                                  </div>
+                                </div>
+                                <p class="hidden text-sm text-red-600 mt-2" id="hs-email-error-helper">Please enter a valid email address.</p>
+
+                              </div><!-- end col 2 -->
                          </div>
 
                         <div class="py-2 sm:py-0">
                                 <label for="hs-mobil" class="block mb-2 text-left text-sm text-gray-200 font-medium dark:text-white">Mobil<span class="text-orange-600 sm:text-4xl">*</span></label>
-                                <input type="text" name="hs-mobil" id="hs-mobil" placeholder="Mobil nr." class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <input required type="text" name="hs-mobil" id="hs-mobil" placeholder="Mobil nr." class="w-5/6 sm:w-full p-2 sm:py-3 sm:px-4 block w-full  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                         </div>
                        <!--  <div class="col-span-2 text-left ">
                                 <p class="relative">Vi behöver ett mobil nummer för att kontakta dig, angående flygförhållande(väder) och exakt tid för ditt tandemflyg.</p>
@@ -230,10 +258,10 @@ bookingPage : 'boka',
                         <!-- Checkbox -->
                         <div class="mt-3 flex">
                         <div class="flex">
-                            <input id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-1.5  cursor-pointer rounded-full w-6 h-6 p-6 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                            <input required id="remember-me" name="remember-me" type="checkbox" class="shrink-0 mt-1.5  cursor-pointer rounded-full w-6 h-6 p-6 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
                         </div>
                         <div class="ms-3">
-                            <label for="remember-me" class="text-sm text-gray-200 sm:text-2xl dark:text-neutral-400">Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
+                            <label for="remember-me" class="text-sm text-gray-200 sm:text-2xl dark:text-slate-200">Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
                         </div>
                         </div>
                         <!-- End Checkbox -->
@@ -254,6 +282,9 @@ bookingPage : 'boka',
        </div><!-- end 2 col grid -->
     </div>
   </section>
+  <HSOverlay />
+
+
 <script>
     import flatpickr from "flatpickr"
     import  {Swedish}  from "flatpickr/dist/l10n/sv.js"
@@ -277,16 +308,45 @@ bookingPage : 'boka',
     };
  datepickerCG();
 
- 
 </script>
 
 <script is:inline>
 
-const get = (id) => document.getElementById(id) || { value: '' }
+//const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
   //saveInput()
-  sendmail()
+  //sendmail()
+  validateInfo()
 }
+
+
+const validateInfo = () => {
+
+  if (get('flatpickr-date').value.length < 4) {
+      get('flatpickr-date').classList.remove('border-gray-200')
+      get('flatpickr-date').classList.add('border-red-500')
+      get('flatpickr-date').focus();
+       HSOverlay.open('#hs-tandem-alert');
+    } else if (get('hs-name').value.length < 2) {
+      get('hs-name').classList.remove('border-gray-200')
+      get('hs-name').classList.add('border-red-500')
+      get('hs-name').focus();
+      HSOverlay.open('#hs-tandem-alert');
+    } else if (get('hs-mobil').value.length < 5) {
+      HSOverlay.open('#hs-tandem-alert');
+      get('hs-mobil').classList.remove('border-gray-200')
+      get('hs-mobil').classList.add('border-red-500')
+      get('hs-mobil').focus();
+    } else if (get('hs-email').value.length < 5 || !get('hs-email').value.includes('@')) {
+      HSOverlay.open('#hs-tandem-alert');
+      get('hs-email').classList.remove('border-gray-200')
+      get('hs-email').classList.add('border-red-500')
+      get('hs-email').focus();
+    } else {
+      sendmail()
+    }
+
+  }
 
 const getFormData = () => {
   const store = Object.create(null)
@@ -297,7 +357,7 @@ const getFormData = () => {
   store.email = get('hs-email')?.value
   store.tel = get('hs-mobil')?.value
   store.message = get('hs-meddelande')?.value
-  store.checkboxOK = get('remember-me')?.value
+  store.checkboxOK = get('hs-remember-me')?.value
 store.subject = 'Tandem Bokning'
   return store
 }

@@ -1,7 +1,7 @@
 ---
 import { resor } from '@data/formData';
 import Hr1 from "@components/elements/SeparatorLine.astro";
-
+import ResOverlay from "@elements/modals/resbooking.astro";
  
 const anhorigaRawPrice =  resor[0].resAnhorigaPris;
 const anhorigaComment = resor[0].resAnhorigaComment;
@@ -12,27 +12,29 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
 
 
 ---
-
-<div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-     <div class="lg:text-3xl pt-6 sm:pt-0">
-            <h2>Skysports Turkiet Resa 2026</h2>
+<section class="bg-slate-800">
+<div class="max-w-[85rem]  px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
+     <div class="lg:text-3xl  pt-6 sm:pt-0">
+            <h2 >Skysports Turkiet Resa 2026</h2>
             <Hr1 />
     </div>
-    <form method="POST">
+    <form id="res-booking" method="POST">
     <div class="grid grid-cols-1 lg:grid-cols-4">
         { resor.map((res) => (
             
             <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
-                <h3>Välj Resa {res.resDestinationLand}</h3>
+                <h3>Välj Resa {res.resDestinationLand}<span class="text-amber-600 text-3xl"> *</span></h3>
+                <div id="missed-resor" class="hidden text-amber-600 text-xl">Obs! Välj en av resor</div>
             </div>
             <div  class=" lg:col-span-3 py-3 ">
                 <div class="flex flex-col gap-y-3">
                     { res.rescheckbox.map((veckan, index) => (
                         <div class="flex">
-                            <input id={veckan.resID} name="hs-res-checkbox" type="checkbox" value="false" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                            <label for={veckan.resID} class="px-2 py-0.5 sm:py-0 text-lg text-gray-600  sm:text-xl dark:text-neutral-400">{veckan.resLabel}
-                                
-                            </label>
+                            
+                            <input id={veckan.resID}   name="hs-res-radio-group" type="radio"  class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                            <label for={veckan.resID} class="px-2 py-0.5 sm:py-0 text-lg text-slate-200  sm:text-xl dark:text-neutral-400">{veckan.resLabel}</label> 
+                            
+                            <input type="hidden" id={`hs-resRubrik-${index + 1}`} name={`hs-resTitle-${index + 1}`} value={veckan.resLabel}>
                             <input type="hidden" id={`hs-resRawPris-${index + 1}`} name={`hs-resRawPris-${index + 1}`} value={veckan.resPris}>
                             <input type="hidden" id={`hs-rescomment-${index + 1}`} name={`hs-rescomment-${index + 1}`} value={veckan.resComment}>  
                         </div>
@@ -48,8 +50,8 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
 
                         <div id={`hs-resInfo-${index + 1}`} class="hidden col-span-1 lg:col-span-3 py-0  sm:py-3">
                             <span class="flex flex-col sm:flex-row gap-1 ">
-                                <input type="text" name={`hs-resPriceISO-${index + 1}`} id={`hs-resPriceISO-${index + 1}`} disabled  value='' class="lg:w-1/5 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg   disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                                <label for={`hs-resPriceISO-${index + 1}`} class="text-sm  lg:text-md text-gray-500 ms-2 lg:w-2xl dark:text-neutral-400">{resdata.resComment}</label>
+                                <input type="text" name={`hs-resPriceISO-${index + 1}`} id={`hs-resPriceISO-${index + 1}`} disabled  value='' class="text-slate-200 lg:w-1/5 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg   disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                                <label for={`hs-resPriceISO-${index + 1}`} class="text-sm  lg:text-md text-gray-200 ms-2 lg:w-2xl dark:text-neutral-400">{resdata.resComment}</label>
                             </span>
                         </div>       
                     ))
@@ -60,23 +62,24 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                     <h3>Anhöriga till Turkiet</h3>
             </div>
 
-            <div id="anhoriga-data" class=" col-span-1 lg:col-span-3 py-0  sm:py-3">
+             <div id="anhoriga-data" class=" col-span-1 lg:col-span-3 py-0  sm:py-3">
                 <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
                     <span class="flex flex-col sm:flex-row gap-1 ">
-                        <input type="text" name="hs-anhoriga-pris" id="hs-anhoriga-pris" disabled placeholder="4 900,00 kr person"  disabled class="lg:w-1/3 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                        <label for="hs-anhoriga-pris" class="px-2 py-0.5 sm:py-0 text-lg text-gray-600  sm:text-xl dark:text-neutral-400"></label>
+                        <input type="text" name="hs-anhoriga-pris" id="hs-anhoriga-pris" disabled placeholder=""  disabled class="placeholder-slate-500 lg:w-1/3 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                        <label for="hs-anhoriga-pris" class="px-2 py-0.5 sm:py-0 text-lg text-slate-200  sm:text-xl dark:text-neutral-400"></label>
                         <div class="py-3 px-3 sm:w-1/3 bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700">
-                            <div id="antalCon" class="w-auto flex justify-between items-center gap-x-3" data-hs-input-number>
+                            <div id="antalCon" class="w-auto flex justify-between items-center gap-x-3" data-hs-input-number="">
                                 <div>
-                            <input id="hs-anhor-antal" class="w-1/2 sm:w-1/2 p-0 bg-transparent border-0 text-gray-800 focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style="-moz-appearance: textfield;" type="text" aria-roledescription="Number field" value="0" data-hs-input-number-input="">
+                            <input id="hs-anhor-antal" class="w-1/2 sm:w-1/2 p-0 bg-transparent border-0 text-gray-800 focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style="-moz-appearance: textfield;" type="text" 
+                            aria-roledescription="Number field" value="0" data-hs-input-number-input="">
                             </div>
                             <div class="sm:w-1/3 flex justify-end items-center gap-x-1.5 ">
-                                <button type="button" name="anhorigaBTN" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Decrease" data-hs-input-number-decrement="">
+                                <button type="button"  class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Decrease" data-hs-input-number-decrement="">
                                     <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                     </svg>
                                 </button>
-                                <button type="button" name="anhorigaBTN" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Increase" data-hs-input-number-increment="">
+                                <button type="button"  class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Increase" data-hs-input-number-increment="">
                                     <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                         <path d="M5 12h14"></path>
                                         <path d="M12 5v14"></path>
@@ -85,24 +88,23 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                             </div><span class="block text-xs text-gray-500 dark:text-neutral-400">Antal anhöriga</span>
                                 </div>
                             </div>
-                             <label for="hs-anhoriga-pris" class="text-sm  lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{anhorigaComment}</label>
-                    </span>
-                </div> 
-
-           
+                             <label for="hs-anhoriga-pris" class="text-sm  lg:text-lg text-gray-200 ms-2 dark:text-neutral-400">{anhorigaComment}</label>
+                    </span>   
+                </div>  
                   <Hr1 />     
-            </div>
-           
+            </div> 
+         
         
 
         <div class="lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
-            <h3>Summa:</h3>
+            {/* <h3>Summa:</h3> */}
         </div>
         <div class="col-span-1 lg:col-span-3 py-0  sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="" disabled class=" hidden text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                  <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400"></label>
                  <input type="number" id="hs-raw-summa" name="hs-raw-summa" hidden value='0'>
+                 <input type="text" id="hs-res-name" name="hs-res-name" hidden value='None'>
           </div>      
         </div>
 
@@ -120,20 +122,20 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                 <h3>Namn<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0  col-span-2 ">
-                <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1" placeholder="Förnamn"  class="p-2 sm:py-3 sm:px-2 w-full block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-firstname-contacts-1" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Förnamn<span class="text-amber-600 text-lg">*</span> </label>
+                <input type="text" name="hs-firstname-contacts-1" id="hs-firstname-contacts-1" placeholder="Förnamn"  class="p-2 sm:py-3 sm:px-2 w-full block  border placeholder-slate-500  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-firstname-contacts-1" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Förnamn<span class="text-amber-600 text-lg">*</span> </label>
             </div>
             <div class="py-0 col-span-2 ">
-                <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1" placeholder="Efternamn" class="p-2 sm:py-3 sm:px-2 w-full block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-lastname-contacts-1" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Efternamn<span class="text-amber-600 text-lg">*</span> </label>
+                <input type="text" name="hs-lastname-contacts-1" id="hs-lastname-contacts-1" placeholder="Efternamn" class="placeholder-slate-500 p-2 sm:py-3 sm:px-2 w-full block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-lastname-contacts-1" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Efternamn<span class="text-amber-600 text-lg">*</span> </label>
             </div>
 
             <div class="lg:text-2xl font-bold col-span-1 sm:col-span-1"><!--col 1 -->
                 <h3>Födelseår<span class="text-amber-600 text-xl">*</span></h3>
             </div>
-            <div class="py-2 sm:py-0  sm:col-span-1 ">
-                <input type="text" name="hs-birthyear" id="hs-birthyear" placeholder="xxxx"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-birthyear" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Skriv ditt födelseår XXXX</label>
+            <div class="py-2 sm:py-0  sm:col-span-4 ">
+                <input type="text" name="hs-birthyear" id="hs-birthyear" placeholder="xxxx"  class=" placeholder-slate-500 p-2 w-full sm:py-3 sm:px-2 sm:w-1/5 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-birthyear" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Skriv ditt födelseår XXXX</label>
             </div>
 
             <!-- adress -->
@@ -141,157 +143,142 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                 <h3>Adress<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0 col-span-2 sm:col-span-4 ">
-                <input type="text" name="hs-gatu" id="hs-gatu" placeholder="Gatuadress"  class="p-2 sm:py-3 sm:px-2 w-full sm:w-3/4 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-gatu" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Gatuadress</label>
+                <input type="text" name="hs-gatu" id="hs-gatu" placeholder="Gatuadress"  class="placeholder-slate-500 p-2 sm:py-3 sm:px-2 w-full sm:w-3/4 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-gatu" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Gatuadress</label>
             </div>
 
             <div class="lg:text-2xl font-bold hidden sm:block"><!--col 1 -->
                 <h3>&nbsp;</h3>
             </div>
             <div class="py-2 sm:py-0 col-span-1 sm:col-span-2 ">
-                <input type="text" name="hs-city" id="hs-city" placeholder="Stad"  class="p-2 sm:py-3 sm:px-2 w-full lg:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-city" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Stad</label>
+                <input type="text" name="hs-city" id="hs-city" placeholder="Stad"  class="placeholder-slate-500 p-2 sm:py-3 sm:px-2 w-full lg:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-city" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Stad</label>
             </div>
-            <div class="py-2 sm:py-0 col-span-1 smcol-span-2 ">
-                <input type="text" name="hs-post-nr" id="hs-post-nr" placeholder="Postnummer"  class="p-2 sm:py-3 sm:px-2 w-full  block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-post-nr" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Postnummer</label>
+            <div class="py-2 sm:py-0 col-span-1 sm:col-span-2 ">
+                <input type="text" name="hs-post-nr" id="hs-post-nr" placeholder="Postnummer"  class="placeholder-slate-500 p-2 sm:py-3 sm:px-2 w-full  block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-post-nr" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Postnummer</label>
             </div>
 
             <div class="lg:text-2xl font-bold hidden sm:block"><!--col 1 -->
                 <h3>&nbsp;</h3>
             </div>
             <div class="py-2 sm:py-0 col-span-2 sm:col-span-4 sm:col-start-2">
-                <input type="text" name="hs-land" id="hs-land" placeholder="Land"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-3/4 lg:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-land" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Land</label>
+                <input type="text" name="hs-land" id="hs-land" placeholder="tex. Sverige"   class="placeholder-slate-500 p-2 w-full sm:py-3 sm:px-2 sm:w-3/4 lg:w-1/2 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-land" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Land</label>
             </div>
 
             <div class="lg:text-2xl font-bold col-span-1 sm:col-span-1"><!--col 1 -->
                 <h3>E-post<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-2 sm:py-0 colspan-1 sm:col-span-4 ">
-                <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 lg:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-email-contacts-1" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">E-post</label>   
+                <input type="email" name="hs-email-contacts-1" id="hs-email-contacts-1" autocomplete="email"  class="placeholder-slate-500 p-2 w-full sm:py-3 sm:px-2 sm:w-1/2 lg:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-email-contacts-1" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">E-post</label>   
             </div>
             
             <div class="lg:text-2xl font-bold col-span-1 "><!--col 1 -->
                 <h3>Telefon dagtid</h3>
             </div>
             <div class="py-2 sm:py-0 col-span-1 sm:col-span-4 ">
-                <input type="text" name="hs-tel-day" id="hs-tel-day" placeholder="tel. dag"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-tel-day" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Tel. dag</label>
+                <input type="text" name="hs-tel-day" id="hs-tel-day" placeholder="tel. dag"  class="placeholder-slate-500 p-2 w-full sm:py-3 sm:px-2 sm:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-tel-day" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Tel. dag</label>
             </div>
 
             <div class="lg:text-2xl font-bold "><!--col 1 -->
                 <h3>Telefon mobil<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-2 sm:py-0 col-span-1 sm:col-span-4 ">
-                <input type="text" name="hs-mobile" id="hs-mobile" placeholder="tel. mobil"  class="p-2 w-full sm:py-3 sm:px-2 sm:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                <label for="hs-mobile" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Tel. Mobil</label>
+                <input type="text" name="hs-mobile" id="hs-mobile" placeholder="tel. mobil"  class="placeholder-slate-500 p-2 w-full sm:py-3 sm:px-2 sm:w-1/3 block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-mobile" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Tel. Mobil</label>
             </div>
 
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
                 <h3>Meddelande</h3>
             </div>
             <div class="py-2 sm:py-0 col-span-2 sm:col-span-4 ">
-                <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." ></textarea>   
-                <label for="hs-meddelande" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Meddelande</label>
+                <textarea id="hs-meddelande" name="hs-meddelande" class="placeholder-slate-500   py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-md text-slate-200 focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." ></textarea>   
+                <label for="hs-meddelande" class="block mb-2 text-sm text-gray-200 font-medium dark:text-white">Meddelande</label>
             </div>
 
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
                 <h3>Vilkor<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0 sm:py-0 col-span-2 sm:col-span-4 flex flex-row items-center">                  
-                <input id="hs-kursvilkor" name="hs-kursvilkor" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                <label for="hs-kursvilkor" class="pt-2 text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400">Ja, jag här läst igenom kursinformationen och godkänner dessa. <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="../../Kurs/kursvilkor">KLICKA HÄR</a> för villkor och kursinformation.</label>
+                <input id="hs-kursvilkor" name="hs-kursvilkor" type="checkbox"  class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                <label for="hs-kursvilkor" class="pt-8 text-sm text-gray-200 px-2 sm:text-xl dark:text-neutral-400">Ja, jag här läst igenom res vilkor och avboknings informationen och godkänner dessa.<br><span class="text-sm "> <a class="text-blue-600 decoration-2 text-sm hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" id="res-vilkor-popup">KLICKA HÄR</a> för villkor och avboknings information.</span></label>
             </div>
 
              <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
                 <h3>Nyhetsbrev</h3>
             </div>
-            <div class="py-0 sm:py-0 col-span-2 sm:col-span-4 flex flex-row items-center">                  
-                <input id="hs-news" name="hs-news" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                <label for="hs-news" class="pt-2 text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400">Ja tack!  Jag vill prenumerera på Skysport's Nyhetsbrev.</label>
+            <div class="py-0 sm:py-0 col-span-2 sm:col-span-4 flex flex-row items-center">
+                <input id="hs-news" name="hs-news" type="checkbox"  class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                <label for="hs-news" class="pt- text-sm text-gray-200 px-2 sm:text-xl dark:text-neutral-400">Ja tack!  Jag vill prenumerera på Skysport's Nyhetsbrev.</label>
             </div>
 
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2 "><!--col 1 -->
                 <h3>Integritietspolicy<span class="text-amber-600 text-xl">*</span></h3>
             </div>
-            <div class="py-0 col-span-2 sm:col-span-4  flex flex-row items-center">                  
-                <input id="hs-integ" name="hs-integ" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5  border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                <label for="hs-integ" class="pt-2 sm:pt-0text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400"> Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
+            <div class="py-0 col-span-2 sm:col-span-4  flex flex-row items-center">
+                <input id="hs-integ" name="hs-integ" type="checkbox"  class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5  border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                <label for="hs-integ" class="pt-2 sm:pt-0text-sm text-gray-200 px-2 sm:text-xl dark:text-neutral-400"> Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
             </div>
 
         </div>
-      
+        <ResOverlay /> 
         <div class="mt-3 flex">
             <div class="mt-6 grid">
-                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">SKICKA BOKNING</button>
+                <button id="hs-submit-resa" type="button" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">SKICKA BOKNING</button>
             </div>
         </div>
-        
+       
     </form>
-
 </div>
+</section>
 
 <script is:inline>
 
- document.getElementById("hs-raw-summa").value = 0;
-
- const resbuttons =  document.getElementsByName('hs-res-checkbox');
-    resbuttons.forEach((checkbox) => {
-        checkbox.addEventListener('change', () => { 
-            ShowResData();
-        });
+    const resVilkorPopup = document.getElementById('res-vilkor-popup')
+    resVilkorPopup.addEventListener('click', () => { 
+        HSOverlay.open('#hs-vilkor-alert');
     });
 
-    
- 
-//document.getElementById("hs-anhor-antal").addEventListener("input", calcAnhorigaSumma);
- 
- const guestantalbuttons =  document.getElementsByName('anhorigaBTN');
- guestantalbuttons.forEach((btn) => {
-        btn.addEventListener('click', () => { 
-           // alert('super duper');
-            calcAnhorigaSumma();
+    document.getElementById("hs-raw-summa").value = 0;
+
+    const radioResa =  document.getElementsByName('hs-res-radio-group');
+            radioResa.forEach((button) => {
+                button.addEventListener('click', () => { 
+                    ShowResData();
+            });
         });
-    });
-
-    function calcAnhorigaSumma() {
-
-        //const currentSumma =  document.getElementById("hs-summa" ).value;
-
-       /*  const el = HSInputNumber.getInstance('hs-anhor-antal');
-        el.on('change', ({inputValue}) => {
-                alert('help');
-        }); */
-
-        const antalAnhoriga = document.getElementById("hs-anhor-antal" );
-        antalAnhoriga.addEventListener
-       // const totalRAWAnhorigaCost = (parseInt(antalAnhoriga) + parseInt(anhorigaRawPrice)) 
-        alert(' change anhoriga antal' +  antalAnhoriga );
-
-    }
-
-
 
     function ShowResData() {
 
-        var ele = document.getElementsByName('hs-res-checkbox');
+        var ele = document.getElementsByName('hs-res-radio-group');
         for (i = 0; i < ele.length; i++) {
-                    if (ele[i].type = "checkbox") {
-                        if (ele[i].checked) {                    
+                    if (ele[i].type = "radio") {
+                        document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden");
+                        document.getElementById("hs-resInfo-" + (i + 1)).classList.add("hidden");
+                        document.getElementById("hs-raw-summa" ).value = 0;
+                        document.getElementById("hs-summa" ).value = '';
+                        document.getElementById("hs-res-name" ).value
+
+                        if (ele[i].checked) {
                             const resItemID = ele[i].id;
-                            const resCheckboxcheck =  ele[i].value; 
+                            const resCheckboxcheck =  ele[i].value;
                             ele[i].value = 'true';
 
-                           
                             const currentRawSumma =  document.getElementById("hs-raw-summa" ).value;
                             const resanRawPrice = document.getElementById("hs-resRawPris-" + (i + 1)  ).value;
-                            // alert(resanRawPrice);
-                            const rawTotal = (parseInt(currentRawSumma) + parseInt(resanRawPrice)) ;
+                            const resaRubrik = document.getElementById("hs-resRubrik-" + (i + 1)  ).value;
+                            //const rawTotal = (parseInt(currentRawSumma) + parseInt(resanRawPrice)) ;
+                            const rawTotal = (parseInt(resanRawPrice)) ;
+                            const summaISO =  new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawTotal);
                             document.getElementById("hs-raw-summa" ).value = rawTotal;
-                            document.getElementById("hs-summa" ).value = rawTotal;
-                           
+                            document.getElementById("hs-summa" ).value = summaISO;
+                            document.getElementById("hs-res-name" ).value = resaRubrik;
                             const resPriceISO =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
@@ -299,66 +286,129 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                             document.getElementById("hs-resPriceISO-" + (i + 1)).value = resPriceISO; 
                             document.getElementById("hs-resTitle-" + (i + 1)).classList.remove("hidden");
                             document.getElementById("hs-resInfo-" + (i + 1)).classList.remove("hidden");
-                            //const hsSumma = get('hs-summa')?.value; 
-                            //alert('summa=' + hsSumma);                   
-                            //const currentRawSumma = document.getElementById("hs-kursRawPris").value;
-                            //const rawTotal = (parseInt(kurser) + parseInt(boSPris)) ;
-                            const summersumma =  new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(parseInt(kurser) + parseInt(boSPris));                             
-                            if (kurser > 0 ){    
-                                document.getElementById("hs-summa").value = summersumma; 
-                            } else {
-                              //  alert('bobo happened' + boVPris);
-                            }                            
                             
-                                                                                 
                         } else  {  
 
-                         
                             ele[i].value = 'false';
-
-                           document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden");
+                            document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden");
                             document.getElementById("hs-resInfo-" + (i + 1)).classList.add("hidden");
                             
                         }
                     }
                 }
-       
-
     }
+
 </script>
 
 <script is:inline>
+   
+
+    const checkResa = document.getElementById('hs-submit-resa')
+    //const submitBtn = document.querySelector('[type="submit"]')
+    checkResa.addEventListener('click', () => { 
+    
+                submitResForm()
+            });
+
+       const submitResForm = () => { 
+     
+            validateResan()        
+           // sendmail()
+        }
 
     function radioValue(radiogroupname) {
-        var rbv = document.getElementsByName(radiogroupname);
-        for (i = 0; i < rbv.length; i++) {
-            if (rbv[i].type = "radio") {
-                if (rbv[i].checked) 
-                    return(rbv[i].value); 
-            }   
-        }
+            var rbv = document.getElementsByName(radiogroupname);
+            for (i = 0; i < rbv.length; i++) {
+                if (rbv[i].type = "radio") {
+                    if (rbv[i].checked) 
+                        return(rbv[i].value); 
+                }   
+            }
+        } 
+
+     
+
+const validateResan = () => {
+
+    const radioResa = radioValue('hs-res-radio-group');
+    if (radioResa !== 'true') {
+        get('missed-resor').classList.remove('hidden')
+        get('turkietMaj').focus();
+        HSOverlay.open('#hs-res-radio-alert');
+        return false;
+    } else {
+        get('missed-resor').classList.add('hidden')
+    } 
+     if (get('hs-firstname-contacts-1').value.length < 2) {
+      get('hs-firstname-contacts-1').classList.remove('border-gray-200')
+      get('hs-firstname-contacts-1').classList.add('border-red-500')
+      get('hs-firstname-contacts-1').focus();
+       HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-lastname-contacts-1').value.length < 2) {
+      get('hs-lastname-contacts-1').classList.remove('border-gray-200')
+      get('hs-lastname-contacts-1').classList.add('border-red-500')
+      get('hs-lastname-contacts-1').focus();
+      HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-birthyear').value.length < 4) {    
+      get('hs-birthyear').classList.remove('border-gray-200')
+      get('hs-birthyear').classList.add('border-red-500')
+      get('hs-birthyear').focus();
+      HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-gatu').value.length < 5) {      
+      get('hs-gatu').classList.remove('border-gray-200')
+      get('hs-gatu').classList.add('border-red-500')
+      get('hs-gatu').focus();
+      HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-city').value.length < 2) {      
+      get('hs-city').classList.remove('border-gray-200')
+      get('hs-city').classList.add('border-red-500')
+      get('hs-city').focus();
+      HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-post-nr').value.length < 5) {      
+      get('hs-post-nr').classList.remove('border-gray-200')
+      get('hs-post-nr').classList.add('border-red-500')
+      get('hs-post-nr').focus();
+      HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-land').value.length < 4) {      
+      get('hs-land').classList.remove('border-gray-200')
+      get('hs-land').classList.add('border-red-500')
+      get('hs-land').focus();
+      HSOverlay.open('#hs-res-alert');
+    } else if (get('hs-email-contacts-1').value.length < 5 || !get('hs-email-contacts-1').value.includes('@')) {
+      get('hs-email-contacts-1').classList.remove('border-gray-200')
+      get('hs-email-contacts-1').classList.add('border-red-500')
+      get('hs-email-contacts-1').focus();
+      HSOverlay.open('#hs-email-alert');
+    } else if (get('hs-mobile').value.length < 5) {      
+      get('hs-mobile').classList.remove('border-gray-200')
+      get('hs-mobile').classList.add('border-red-500')
+      get('hs-mobile').focus();
+      HSOverlay.open('#hs-mobil-alert');
+    } else if (!get('hs-kursvilkor').checked) {      
+      get('hs-kursvilkor').classList.remove('border-gray-200')
+      get('hs-kursvilkor').classList.add('border-red-500')
+      get('hs-kursvilkor').focus();
+      HSOverlay.open('#hs-res-vilkor-alert');
+    }else if (!get('hs-integ').checked) {      
+      get('hs-integ').classList.remove('border-gray-200')
+      get('hs-integ').classList.add('border-red-500')
+      get('hs-integ').focus();
+      HSOverlay.open('#hs-res-vilkor-alert');
+    }  else {
+      sendmail()
+       // alert('Validation successful! Form can be submitted.');
+       // document.getElementById("res-booking").reset(); 
     }
 
-const get = (id) => document.getElementById(id) || { value: '' }
-const submitForm = () => {
-  //saveInput()
-   //alert(' NO bobo 3' + boVPris);
-  sendmail()
-}
+  }
+
 
 const getFormData = () => {
   const store = Object.create(null)
-    store.kursDate = get("flatpickr-date")?.value
-    store.kursVeckan = get("kurs-veckan")?.value
-    store.kursPriceISO = get("hs-kursPris")?.value
-    store.boendeType = get('boendeDescription')?.value
-    store.boendeRawPrice = get("rawBoPrice")?.value 
-    store.boendePriceISO = get('BoPriceISO')?.value
-    store.apartmentRequest = get('hs-apartR')?.value
-    store.summa = get("hs-summa")?.value
+    store.resa = get("hs-res-name")?.value
+    store.resPriceISO = get("hs-summa")?.value
+    
+    //store.summa = get("hs-summa")?.value
 
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
@@ -373,29 +423,40 @@ const getFormData = () => {
     if (store.telDay.length < 3 ) 
         store.telDay = 'N/A';
     store.tel = get('hs-mobile')?.value
-    store.weight = get('hs-weight')?.value
-    if( store.weight.length < 2 ) 
-        store.weight = 'N/A';
     store.message = get('hs-meddelande')?.value
-    store.kursvilkor = get('hs-kursvilkor')?.value
-    store.newsletter = get('hs-news')?.value
-    store.checkboxOK = get('remember-me')?.value
-store.subject = 'Grundkurs Bokning'
+    if ((get('hs-kursvilkor')?.checked)) {
+        store.vilkor = 'Ja';
+    } else {
+        store.vilkor = 'Nej';
+    }
+    //store.vilkor = get('hs-kursvilkor')?.checked
+    if (get('hs-news')?.checked) {
+        store.newsletter = 'Ja';
+    } else {
+        store.newsletter = 'Nej';
+    }
+    if (get('hs-integ')?.checked) {
+        store.checkboxOK = 'Ja';
+    } else {
+        store.checkboxOK = 'Nej';
+    }
+    //store.checkboxOK = get('hs-integ')?.checked
+    store.subject = 'Res Bokning'
   return store
 }
 
-const submitBtn = document.querySelector('[type="submit"]')
-submitBtn?.addEventListener('click', submitForm)
+
 
 const sendmail = async () => {
   
-  const { kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight, birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject } = getFormData()
-  const data = await fetch('/api/sendGrundKursBooking.json', {
+  const { resa, resPriceISO, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject } = getFormData()
+  console.log('Sending booking for:', firstName, lastName, resa)
+  const data = await fetch('/api/sendResBooking.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight,  birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject }),
+    body: JSON.stringify({ resa, resPriceISO, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
       if (!res.ok) {
@@ -410,7 +471,7 @@ const sendmail = async () => {
 
   console.log(data) // Here is the response from backend
    alert('Message successfully sent');
-  document.getElementById("booking-form").reset();
+  //document.getElementById("booking-form").reset();
 }
 
 </script>

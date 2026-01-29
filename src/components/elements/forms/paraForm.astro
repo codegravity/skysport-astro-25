@@ -1,6 +1,6 @@
 ---
 import Hr1 from "@components/elements/SeparatorLine.astro";
-
+import ResModal from "@components/elements/modals/resbooking.astro";
 const kursRadioDates = [
     {
         kursLabel: 'Paramotor kurs vecka 21',
@@ -191,7 +191,7 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
       
         <div class="mt-3 flex">
             <div class="mt-6 grid">
-                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Boka Paramotor Kurs</button>
+                <button type="button" id="para-book" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Boka Paramotor Kurs</button>
             </div>
         </div>
         
@@ -199,7 +199,8 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
 
 </div>
 
-{/* <script is:inline>
+<ResModal /> 
+<script is:inline>
     const paraPrice = document.getElementById("hs-pris").value;
     
     function currencyNumber(kroners){
@@ -233,9 +234,10 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
 
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
+    HSOverlay.open('#hs-res-alert');
   //saveInput()
  //alert(radioID('hs-radio-vertical-group'));
-  sendmail()
+  //sendmail()
 }
 
 const getFormData = () => {
@@ -269,7 +271,8 @@ store.subject = 'Paramotor Kurs Bokning'
   return store
 }
 
-const submitBtn = document.querySelector('[type="submit"]')
+const submitBtn = document.getElementById('para-book')
+//const submitBtn = document.querySelector('[type="submit"]')
 submitBtn?.addEventListener('click', submitForm)
 
 const sendmail = async () => {
