@@ -3,8 +3,6 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
-import {mailTransporter} from '../../actions/index.ts';
-
 import { htmlNewsKundTemplate } from './mail_templates/kundnyhetsbrev.js'
 import { htmlNewsSkyTemplate } from './mail_templates/skynyhetsbrev.js'
 
@@ -72,7 +70,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     `
    
     // sendmail
-   /*  let mailTransporter = nodemailer.createTransport({
+     let mailTransporter = nodemailer.createTransport({
       host,
       port: 587,
       secure: false,
@@ -80,7 +78,7 @@ export const POST: APIRoute = async ({ request, redirect }) => {
         user: emailUser,
         pass: emailToPass,
       },
-    }) */
+    }) 
 // skicka till kund
     let mailDetails = {
       from: emailTo1,
@@ -111,14 +109,14 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     
 
 
-    /* let mailresultSky
+    let mailresultSky
     try {
       mailresultSky = await mailTransporter.sendMail(mailDetailsSky)
     } catch (error) {
       console.log('******* Error: ', error)
     }
       console.log('Message sent Skysport: %s', mailresult?.messageId)
-       */
+       
 
     // return endpoint response
     //console.log('where are we' + mailDetails);

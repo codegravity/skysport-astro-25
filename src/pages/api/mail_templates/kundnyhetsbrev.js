@@ -20,7 +20,7 @@ const htmlNewsKundTemplate = ( email, BookingTimestamp) => {
   <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
 
     <!-- Your title goes here -->
-    <title>Bokningsbekräftelse SIV kurs hos Skysport</title>
+    <title>Anmälningsbekräftelse Skysport Nyhetsbrev</title>
     <!-- End title -->
 
     <!-- Start stylesheet -->
@@ -92,10 +92,10 @@ const htmlNewsKundTemplate = ( email, BookingTimestamp) => {
             <td style="width: 596px; vertical-align: top; padding-left: 30px; padding-right: 30px; padding-top: 30px; padding-bottom: 40px;" width="596">
 
              <h4>
-Tack att du har bokat SIV hos Skysport.
-Du har skickat följande bokningsuppgifter.
+Tack att du har anmält till Skysports nyhetsbrev.
+Du har skickat följande email adress:
 Om nånting är fel eller inte stämmer gärna kontakt oss på: bokning@skysport.se
-Vi kommer snart att skicka ut mer information till dig inför kursen.
+
 mvh
 Skysport AB
 </h4>
