@@ -103,7 +103,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
         </div>
         <div class="col-span-1 lg:col-span-3 py-0  sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="none" class="  text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="none" hidden class="  text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                  <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400"></label>
                  <input type="number" id="hs-raw-summa" name="hs-raw-summa" hidden value='0'>
                  <input type="text" id="hs-res-name" name="hs-res-name" hidden value='None'>
@@ -245,13 +245,6 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
         HSOverlay.open('#hs-vilkor-alert');
     });
 
-       
-     const antalAnhor = document.querySelector('#hs-anhor-antal')
-    antalAnhor.addEventListener('input', () => { 
-        const anhorigaPrisInput = document.getElementById('hs-anhor-antal').value
-        alert('antal anhöriga: ' + anhorigaPrisInput);
-    });
-
     document.getElementById("hs-raw-summa").value = 0;
 
     const radioResa =  document.getElementsByName('hs-res-radio-group');
@@ -339,14 +332,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
      
 
 const validateResan = () => {
-    const antalPass = document.getElementById("hs-anhor-antal").value 
-    alert(antalPass)
-/*  if(get('hs-summa').value.length < 2) {
-    alert('no summa');
-} else {
-    alert( get('hs-summa').value)
-}   */
-
+    
     const radioResa = radioValue('hs-res-radio-group');
     if (radioResa !== 'true') {
         get('missed-resor').classList.remove('hidden')
