@@ -1,5 +1,6 @@
 ---
 import { resor } from '@data/formData';
+import Topper from  "@elements/navTopper.astro";
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import ResOverlay from "@elements/modals/resbooking.astro";
  
@@ -90,6 +91,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                             </div>
                              <label for="hs-anhoriga-pris" class="text-sm  lg:text-lg text-gray-200 ms-2 dark:text-neutral-400">{anhorigaComment}</label>
                     </span>   
+
                 </div>  
                   <Hr1 />     
             </div> 
@@ -97,11 +99,11 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
         
 
         <div class="lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
-            {/* <h3>Summa:</h3> */}
+           {/*  <h3>Summa:</h3>  */}
         </div>
         <div class="col-span-1 lg:col-span-3 py-0  sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="" disabled class=" hidden text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="none" class="  text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                  <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400"></label>
                  <input type="number" id="hs-raw-summa" name="hs-raw-summa" hidden value='0'>
                  <input type="text" id="hs-res-name" name="hs-res-name" hidden value='None'>
@@ -235,11 +237,19 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
 </div>
 </section>
 
+
 <script is:inline>
 
     const resVilkorPopup = document.getElementById('res-vilkor-popup')
     resVilkorPopup.addEventListener('click', () => { 
         HSOverlay.open('#hs-vilkor-alert');
+    });
+
+       
+     const antalAnhor = document.querySelector('#hs-anhor-antal')
+    antalAnhor.addEventListener('input', () => { 
+        const anhorigaPrisInput = document.getElementById('hs-anhor-antal').value
+        alert('antal anhöriga: ' + anhorigaPrisInput);
     });
 
     document.getElementById("hs-raw-summa").value = 0;
@@ -256,11 +266,11 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
         var ele = document.getElementsByName('hs-res-radio-group');
         for (i = 0; i < ele.length; i++) {
                     if (ele[i].type = "radio") {
-                        document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden");
-                        document.getElementById("hs-resInfo-" + (i + 1)).classList.add("hidden");
-                        document.getElementById("hs-raw-summa" ).value = 0;
-                        document.getElementById("hs-summa" ).value = '';
-                        document.getElementById("hs-res-name" ).value
+                        document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden")
+                        document.getElementById("hs-resInfo-" + (i + 1)).classList.add("hidden")
+                       // document.getElementById("hs-raw-summa" ).value = 0
+                       // document.getElementById("hs-summa" ).value = ''
+                        //document.getElementById("hs-res-name" ).value = ""
 
                         if (ele[i].checked) {
                             const resItemID = ele[i].id;
@@ -275,7 +285,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                             const summaISO =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
-                                    }).format(rawTotal);
+                                    }).format(resanRawPrice);
                             document.getElementById("hs-raw-summa" ).value = rawTotal;
                             document.getElementById("hs-summa" ).value = summaISO;
                             document.getElementById("hs-res-name" ).value = resaRubrik;
@@ -313,7 +323,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
        const submitResForm = () => { 
      
             validateResan()        
-           // sendmail()
+         
         }
 
     function radioValue(radiogroupname) {
@@ -329,6 +339,13 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
      
 
 const validateResan = () => {
+    const antalPass = document.getElementById("hs-anhor-antal").value 
+    alert(antalPass)
+/*  if(get('hs-summa').value.length < 2) {
+    alert('no summa');
+} else {
+    alert( get('hs-summa').value)
+}   */
 
     const radioResa = radioValue('hs-res-radio-group');
     if (radioResa !== 'true') {
@@ -338,6 +355,7 @@ const validateResan = () => {
         return false;
     } else {
         get('missed-resor').classList.add('hidden')
+        
     } 
      if (get('hs-firstname-contacts-1').value.length < 2) {
       get('hs-firstname-contacts-1').classList.remove('border-gray-200')
@@ -407,8 +425,6 @@ const getFormData = () => {
   const store = Object.create(null)
     store.resa = get("hs-res-name")?.value
     store.resPriceISO = get("hs-summa")?.value
-    
-    //store.summa = get("hs-summa")?.value
 
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
@@ -471,7 +487,7 @@ const sendmail = async () => {
 
   console.log(data) // Here is the response from backend
    alert('Message successfully sent');
-  //document.getElementById("booking-form").reset();
+  document.getElementById("res-booking").reset();
 }
 
 </script>
