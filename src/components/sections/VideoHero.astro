@@ -4,8 +4,6 @@ import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import WindLinks from "@components/elements/windlinks.astro";
 import { Icon } from "astro-icon/components";
-
-
 interface VideoContent {
   title?: string;
   description?: string;
@@ -95,86 +93,6 @@ const currentPage = content.page;
         </div>
       )
     }
-
   </div>
 </section>
-<script is:inline>
 
-  function startPageMenu(){
-    document.getElementById("navheader").classList.add("hidden");
-    let lastScrollTop = 0;
-    const navHeader = document.getElementById("navheader");
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop;
-      if (currentScroll > lastScrollTop) {
-        // Scrollar nedåt
-        navHeader.classList.remove('hidden');
-      } else {
-        // Scrollar uppåt
-        navHeader.classList.add('hidden');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-    });
-  }
-
-  function otherPageMenu(){
-     const checkVideoHero = document.querySelector('.videohero');
-  if (checkVideoHero) {
-    let windowHeight = window.innerHeight;
-    const navHeader = document.getElementById("navheader");
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
-      if (currentScroll > windowHeight) {
-        // Scrollar nedåt   
-        navHeader.classList.add('lg:bg-slate-600/50');
-        navHeader.classList.add('lg:rounded-full');
-      } else {
-        // Scrollar uppåt
-        navHeader.classList.remove('lg:bg-slate-600/50');
-        navHeader.classList.remove('lg:rounded-full');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-    });
-  };
-  }
-  class AstroPage extends HTMLElement {
-    connectedCallback() {
-      const page = this.dataset.page;
-      if(page === 'start'){
-        //   alert('this is the start page ' + page);
-           startPageMenu();
-      } else {
-       //  alert('this is NOT the start page ' );
-         otherPageMenu();
-      }
-     
-    }
-  }
-  customElements.define('astro-page', AstroPage);
-</script>
-
-
-<!-- <script is:inline> 
-
-
-
- 
-  const checkVideoHero = document.querySelector('.videohero');
-  if (checkVideoHero) {
-    let windowHeight = window.innerHeight;
-    const navHeader = document.getElementById("navheader");
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
-      if (currentScroll > windowHeight) {
-        // Scrollar nedåt   
-        navHeader.classList.add('lg:bg-slate-600/50');
-        navHeader.classList.add('lg:rounded-full');
-      } else {
-        // Scrollar uppåt
-        navHeader.classList.remove('lg:bg-slate-600/50');
-        navHeader.classList.remove('lg:rounded-full');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-    });
-  };
-</script>  -->

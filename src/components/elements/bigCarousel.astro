@@ -1,19 +1,25 @@
 ---
 import { Image } from "astro:assets";
 import { Icon } from 'astro-icon/components';
-import Arrow from '../../icons/icon-arrow.svg'
+import Arrow from '../../icons/icon-arrow.svg';
 
+import "@assets/css/swiper.css";
 
+const swiper2 = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
+const swiper1 = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/flying/Base3mobc.mp4";
 
-interface CarouselContent {
+interface BigSwiperContent {
     title: string,
     description?: string,
     carouselItems: {
         title: string,
         content: string,
         cta?: string,
-        image: ImageMetadata,
-        image_alt: string,
+        image?: ImageMetadata,
+        image_alt?: string,
+        imgHeight?: number,
+        imgWidth?: number,
+        video?: string,
     }[],
     buttons?: {
         text: string,
@@ -22,7 +28,7 @@ interface CarouselContent {
     }[];
 }
 interface Props {
-  content: CarouselContent;
+  content: BigSwiperContent;
 }
 const { content } = Astro.props;
 
@@ -33,23 +39,20 @@ const { content } = Astro.props;
   <!-- Header -->
   <header class="bs-container flex items-center justify-between">
 
-    { content.title && <h2 class="bs-h2">{ content.title }</h2>}
+    { content.title && <h2 class="bs-h2">{ content.title }</h2>} 
 
     <!-- Buttons -->
     <nav class="bs-st-button-wrapper flex justify-center gap-4">
 
       <!-- Prev -->
-      <button aria-label="Previous slide"
-        class="js-fc-btn-prev group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12">
+      <button aria-label="Previous slide" class="js-fc-btn-prev group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12">
 
         <Arrow class="opacity-60 h-4 w-4 -translate-x-[2px] group-active:translate-y-[1px]" height="16" width="25" />
 
       </button>
 
       <!-- Next -->
-      <button
-        aria-label="Next slide"
-        class="js-fc-btn-next group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 -scale-x-100">
+      <button aria-label="Next slide" class="js-fc-btn-next group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 -scale-x-100">
 
         <Arrow class="opacity-60 h-4 w-4 -translate-x-[2px] group-active:translate-y-[1px]" height="16" width="25" />
 
@@ -61,18 +64,25 @@ const { content } = Astro.props;
   <div class="js-fc-swiper swiper select-none bs-mt-md">
     <div class="swiper-wrapper">
 
-      { content.carouselItems.map( item =>
-
+      { content.carouselItems.map( (item, index) =>
+    
       // Slides
+     
 
       <div class="swiper-slide bg-bs-surface-0 border border-bs-surface-3 rounded-xl overflow-hidden !h-auto">
 
         <figure class="flex flex-col gap-6 isolate min-h-[50svh] md:min-h-[40rem] h-full">
 
           {/* BG image */}
+           {item.video &&
+            <video autoplay loop muted playsinline class=" opacity-20 md:opacity-80 rounded-xl grayscale overflow-hidden w-full h-full object-cover object-left absolute inset-0">
+              <source src={(index === 0 ? swiper1 : swiper2)} type="video/mp4" />
+            </video>
+            }
+          {item.image &&
            <Image
                     src={item.image}
-                    alt={item.image_alt}
+                    alt="Skysports i Åre"
                     width={1024}
                     height={768}
                     class=" opacity-20 md:opacity-80 rounded-xl grayscale overflow-hidden w-full h-full object-cover object-left absolute inset-0"
@@ -81,6 +91,9 @@ const { content } = Astro.props;
                     loading="lazy"
                     decoding="async"   
                 />
+          }
+         
+           
           {/* <img src={ item.image } alt={ item.image_alt } loading="lazy"
             class="opacity-20 md:opacity-80 rounded-xl grayscale overflow-hidden w-full h-full object-cover object-left absolute inset-0"
             height="1024" width="768" /> */}
@@ -98,7 +111,7 @@ const { content } = Astro.props;
 
             {/* Intro */}
             <div class="bs-body-text text-pretty flex-1" set:html={ item.content } />
-
+<p>{item.video}  swiper{index + 1}</p>
             {/* Cta */}
             <button type="button" class="bs-btn inline-block self-start bs-mt-sm" onclick="demo.showModal()">
               { item.cta }
@@ -118,8 +131,8 @@ const { content } = Astro.props;
 </section>
 
 <script>
-//import Swiper from "swiper"
-//import 'swiper/css'
+import Swiper from "swiper"
+import 'swiper/css'
 
 const prev_btn = document.querySelector('.js-fc-btn-prev')
 const next_btn = document.querySelector('.js-fc-btn-next')

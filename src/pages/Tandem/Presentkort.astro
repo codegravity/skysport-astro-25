@@ -72,25 +72,4 @@ const InnerHeroContent = {
     <PresentKort />
     <TandemInfo2 /> 
 </Layout>
-<script is:inline>
-  // nav header change on white page with inner Hero
-  const checkInnerHero = document.querySelector('.innerhero');
-  if (checkInnerHero) {
-    let lastScrollTop = 0;
-    const navHeader = document.getElementById("navheader");
-    let sscy = 400; 
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
-      if (currentScroll > sscy) {
-        // Scrollar nedåt   
-        navHeader.classList.add('lg:bg-slate-600/50');
-        navHeader.classList.add('lg:rounded-full');
-      } else {
-        // Scrollar uppåt
-        navHeader.classList.remove('lg:bg-slate-600/50');
-        navHeader.classList.remove('lg:rounded-full');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-    });
-  }
-</script> 
+

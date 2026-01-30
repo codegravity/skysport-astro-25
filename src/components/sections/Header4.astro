@@ -1,16 +1,15 @@
 ---
-//import { Mail, Moon, SunMedium,Download } from "@lucide/astro";
+
 //import menus from "@/collections/menu.json";
 //import Button from "@/components/ui/Button.astro";
 //import Logo from "@/components/ui/Logo.astro";
+//import { headerMenu } from '@data/menu';
 
 import { Astronav, MenuItems, MenuIcon, Dropdown, DropdownItems, DropdownSubmenu } from "astro-navbar";
-import { headerMenu } from '@data/menu';
+
 import { Icon } from 'astro-icon/components';
 import Logo from "@components/elements/LogoCG.astro";
 import NavSuffix from '@elements/bannersuffix.astro'
-
-
 
 const yeary = "2026";
 // get the page URL
@@ -27,7 +26,7 @@ const isCurrentPage = (link: string) => {
 };
 ---
 <div id="header-container" class="flex justify-center">
-<header id="navheader" class="fixed lg:max-w-8xl mx-auto  lg:px-6 z-50   py-1   grid grid-cols-[32rem_auto_32rem]  gap-2  "> 
+<header id="navheader" class="fixed lg:max-w-8xl mx-auto  lg:px-6 z-50   py-1   grid grid-cols-[32rem_auto_32rem]  gap-2  lg:bg-slate-600/50 lg:rounded-full"> 
   <Astronav closeOnClick >
     <div class="flex w-full  lg:w-auto justify-stretch items-center ">
       <a><Logo /></a>

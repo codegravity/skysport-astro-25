@@ -44,7 +44,7 @@ const VideoContent = {
     position: "justify-end",
     buttons: [
         {
-        text: "Boka Tandemflyg",
+        text: "Boka",
         link: "/Tandem/tandem",
         target: "_self",
         },
@@ -58,7 +58,7 @@ const VideoContent = {
     position: "justify-end",
     buttons: [
     {
-      text: "Skärmflyg Kurser",
+      text: "BOKA",
       link: "/Kurs/omskarmflyg",
       target: "_self",
     },
@@ -87,7 +87,7 @@ const HeroResContent = {
     position: "justify-end",
     buttons: [
     {
-      text: "Resor",
+      text: "Boka",
       link: "/resor",
       target: "_self",
     },
@@ -98,22 +98,21 @@ const HeroResContent = {
 
 <Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
 
- <VideoHero content={VideoContent}/> 
-
- <section class="relative">
-  <ImageHero content={HeroTandemContent}/>
-</section>
-<section class="relative">
-  <ImageHero content={HeroKursContent}/> 
-</section>
-<section class="relative">
-  <ImageHero content={HeroButikContent}/> 
-</section>
-<section class="relative">
-  <ImageHero content={HeroResContent}/> 
-</section>
-<section >
-    <Reco />
-</section>
+  <VideoHero content={VideoContent}/> 
+  <section class="relative">
+    <ImageHero content={HeroTandemContent}/>
+  </section>
+  <section class="relative">
+    <ImageHero content={HeroKursContent}/> 
+  </section>
+  <section class="relative">
+    <ImageHero content={HeroButikContent}/> 
+  </section>
+  <section class="relative">
+    <ImageHero content={HeroResContent}/> 
+  </section>
+  <section >
+      <Reco />
+  </section>
  
 </Layout>

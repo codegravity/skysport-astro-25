@@ -17,9 +17,7 @@ const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1;
 
 ---
-
 <section  class="relative"> 
-    
     <div  class="innerhero inset-0 left-0 top-0 w-full max-h-100 overflow-hidden ">
             {content.backgroundImage && (
                 <Image

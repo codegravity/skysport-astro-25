@@ -4,12 +4,10 @@ import "../styles/global.css";
 import { Icon } from "astro-icon/components";
 import Meta from "@ui//Meta.astro";
 import TrackGa from "@widgets/TrackGa.astro";
-import Banner from "../components/sections/banner.astro";
 import PreFooter from "@components/sections/preFooter.astro";
 import HeaderFour from "@components/sections/Header4.astro";
 import Footer from "@components/sections/Footer.astro";
 import SideDrawer from "@components/elements/sideDrawer.astro";
-import TopBg from "@ui/TopBg.astro";
 import HeaderTwo from "@components/sections/HeaderTwo.astro";
 import HeaderFive from "@components/sections/Header5.astro";
 //import favIcon from "@/components/assets/images/favicon.ico";
@@ -20,9 +18,7 @@ interface Props {
   description?: string | undefined;
   keywords?: string | undefined;
 }
-
 const { title, description, keywords } = Astro.props;
-
 
 ---
 
@@ -68,20 +64,17 @@ const { title, description, keywords } = Astro.props;
     
     <!-- Preline UI -->
   <script>  import "preline/dist/preline.js";    </script>
- 
-
  <!--   <script>  import "lodash/lodash.min.js";  </script>
   <script>  import "flatpickr/dist/flatpickr.js"; </script>  -->
   <script>
         document.addEventListener("astro:page-load", async () => {
           const preline = await import("preline/dist/preline.js");
-          preline.HSStaticMethods.autoInit();
-
-         
-      
+          preline.HSStaticMethods.autoInit();   
         });
   </script>
+
   
+
   </body>
 </html>
 
