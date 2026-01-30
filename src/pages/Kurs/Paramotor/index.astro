@@ -1,5 +1,6 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
 import KursInfo from  "@sections/Feature-50-50.astro";
 
 import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
@@ -10,6 +11,8 @@ import Divider1 from  "@elements/SeparatorLine.astro";
 import Topper from  "@elements/navTopper.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
+
+const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PMF.mp4";
 
 const customLastPart = [
   { index: "last", text: "Paramotor" },
@@ -25,7 +28,15 @@ const customLastPart = [
   }, */
 ];
 
-
+const VideoContent = {
+   // title: "SIV (säkerhetskurs) i Åre ",
+  //  description: "SIV (säkerhetskurs) för skärmflygare i Åre.",
+    backgroundVideo: myVideo,
+  //  descriptionImage: LogoImage,
+    overlayOpacity: 0.2,
+    page: "paramotor",
+    position: "justify-end"
+}
 
 const Feature50Content = {
      infoTitle: 'Paramotor Kurs',
@@ -92,7 +103,8 @@ const Feature50Content2 = {
 ---
 
 <Layout title="Paramotor" description="" keywords="">
-  <Topper />
+   <VideoHero content={VideoContent}/> 
+
     <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
       <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
           <svg
