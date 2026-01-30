@@ -27,13 +27,13 @@ const customLastPart = [
 ];
 
 
-const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/tandem-vinter-are.MP4";
+const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/SIV/SIV2.mp4";
 
 const VideoContent = {
-    title: "Tandemflyg i Åre ",
-    description: "Tandemflygning från Åreskutan.",
+    title: "SIV (säkerhetskurs) i Åre ",
+  //  description: "SIV (säkerhetskurs) för skärmflygare i Åre.",
     backgroundVideo: myVideo,
-    descriptionImage: LogoImage,
+  //  descriptionImage: LogoImage,
     overlayOpacity: 0.2,
     page: "tandem",
     position: "justify-end"
@@ -89,7 +89,8 @@ const Feature50Content = {
 ---
 
 <Layout title="Skysport Tandemflyg i Åre" description="" keywords="" >
-   <Topper />
+<!--    <Topper /> -->
+    <VideoHero content={VideoContent}/> 
     <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
       <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
           <svg
