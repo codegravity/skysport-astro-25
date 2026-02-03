@@ -76,8 +76,8 @@
 
 
   /* Text colors */
- /* --color-text-primary: #2d6dc3;*/
-    --color-text-primary: #fff;
+  --color-text-primary: #2d6dc3;
+/*     --color-text-primary: #fff; */
   --color-text-secondary: #3f4a5a;
   --color-text-tertiary: #7a6550;
 
