@@ -1,6 +1,6 @@
 ---
 import Hr1 from "@components/elements/SeparatorLine.astro";
-import ResModal from "@components/elements/modals/resbooking.astro";
+import ParaModal from "@components/elements/modals/parabooking.astro";
 const kursRadioDates = [
     {
         kursLabel: 'Paramotor kurs vecka 21',
@@ -35,15 +35,18 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="lg:text-2xl font-bold"><!--col 1 -->
             <h3>Kurser<span class="text-amber-600 text-xl">*</span></h3>
+            <div id="missed-para-kurs" class="hidden text-amber-600 text-xl">Obs! Välj en av kurser</div>
         </div>
 
         <div class="lg:col-span-3"><!-- col 2,3,4        id={`hs-radio-vertical-group-${index + 1}`}  -->
             <div class="flex flex-col gap-y-3">
                 { kursRadioDates.map((kursdate, index) => (
                         <div class="flex">
-                            <input type="radio"  id={kursdate.kursID} value={kursdate.kursValue} name="hs-radio-vertical-group" class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  checked="">
+                            <input type="radio"  id={kursdate.kursID}  name="hs-radio-vertical-group" class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800" >
                             <label for={kursdate.kursID} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{kursdate.kursLabel}</label>
                             <input type="hidden" name={`hs-kurs-date-${index + 1}`} id={`hs-kurs-date-${index + 1}`} value={kursdate.kursDate} >
+                            <input type="hidden" id={`hs-paraRubrik-${index + 1}`} name={`hs-paraTitle-${index + 1}`} value={kursdate.kursLabel}>
+                            
                         </div>
                     ))
                 }
@@ -199,7 +202,7 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
 
 </div>
 
-<ResModal /> 
+<ParaModal /> 
 <script is:inline>
     const paraPrice = document.getElementById("hs-pris").value;
     
@@ -209,7 +212,7 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
         let numberValue = parseFloat(numericString);
         return numberValue;
     }
-</script> */}
+</script> 
 
 <script is:inline>
 
@@ -231,10 +234,96 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
             }   
         }
     } 
+      function radioKurs(radiogroupname) {
+        var rbvk = document.getElementsByName(radiogroupname);
+        for (i = 0; i < rbvk.length; i++) {
+            if (rbvk[i].type = "radio") {
+                if (rbvk[i].checked) 
+                    return(rbvx[i].id); 
+            }   
+        }
+    } 
+
+    const validateParaBooking = () => {
+    
+    const radioParaKurs = radioValue('hs-radio-vertical-group');
+    
+    if (radioParaKurs !== 'on') {
+        get('missed-para-kurs').classList.remove('hidden')
+        get('vecka-21').focus();
+        HSOverlay.open('#hs-para-radio-alert');
+        return false;
+    } else {
+        get('missed-para-kurs').classList.add('hidden')
+        
+    } 
+     if (get('hs-firstname-contacts-1').value.length < 2) {
+      get('hs-firstname-contacts-1').classList.remove('border-gray-200')
+      get('hs-firstname-contacts-1').classList.add('border-red-500')
+      get('hs-firstname-contacts-1').focus();
+       HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-lastname-contacts-1').value.length < 2) {
+      get('hs-lastname-contacts-1').classList.remove('border-gray-200')
+      get('hs-lastname-contacts-1').classList.add('border-red-500')
+      get('hs-lastname-contacts-1').focus();
+      HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-birthyear').value.length < 4) {    
+      get('hs-birthyear').classList.remove('border-gray-200')
+      get('hs-birthyear').classList.add('border-red-500')
+      get('hs-birthyear').focus();
+      HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-gatu').value.length < 5) {      
+      get('hs-gatu').classList.remove('border-gray-200')
+      get('hs-gatu').classList.add('border-red-500')
+      get('hs-gatu').focus();
+      HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-city').value.length < 2) {      
+      get('hs-city').classList.remove('border-gray-200')
+      get('hs-city').classList.add('border-red-500')
+      get('hs-city').focus();
+      HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-post-nr').value.length < 5) {      
+      get('hs-post-nr').classList.remove('border-gray-200')
+      get('hs-post-nr').classList.add('border-red-500')
+      get('hs-post-nr').focus();
+      HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-land').value.length < 4) {      
+      get('hs-land').classList.remove('border-gray-200')
+      get('hs-land').classList.add('border-red-500')
+      get('hs-land').focus();
+      HSOverlay.open('#hs-para-alert');
+    } else if (get('hs-email-contacts-1').value.length < 5 || !get('hs-email-contacts-1').value.includes('@')) {
+      get('hs-email-contacts-1').classList.remove('border-gray-200')
+      get('hs-email-contacts-1').classList.add('border-red-500')
+      get('hs-email-contacts-1').focus();
+      HSOverlay.open('#hs-email-alert');
+    } else if (get('hs-mobile').value.length < 5) {      
+      get('hs-mobile').classList.remove('border-gray-200')
+      get('hs-mobile').classList.add('border-red-500')
+      get('hs-mobile').focus();
+      HSOverlay.open('#hs-mobil-alert');
+    } /* else if (!get('hs-kursvilkor').checked) {      
+      get('hs-kursvilkor').classList.remove('border-gray-200')
+      get('hs-kursvilkor').classList.add('border-red-500')
+      get('hs-kursvilkor').focus();
+      HSOverlay.open('#hs-res-vilkor-alert');} */
+     else if (!get('hs-integ').checked) {      
+      get('hs-integ').classList.remove('border-gray-200')
+      get('hs-integ').classList.add('border-red-500')
+      get('hs-integ').focus();
+      HSOverlay.open('#hs-para-vilkor-alert');
+    }  else {
+      sendmail()
+       // alert('Validation successful! Form can be submitted.');
+       // document.getElementById("res-booking").reset(); 
+    }
+
+  }
 
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
-    HSOverlay.open('#hs-res-alert');
+    validateParaBooking()
+    //HSOverlay.open('#hs-res-alert');
   //saveInput()
  //alert(radioID('hs-radio-vertical-group'));
   //sendmail()
@@ -265,10 +354,18 @@ const getFormData = () => {
     if( store.weight.length < 2 ) 
         store.weight = 'N/A';
     store.message = get('hs-meddelande')?.value
-    store.newsletter = get('hs-news')?.value
-    store.checkboxOK = get('remember-me')?.value
-store.subject = 'Paramotor Kurs Bokning'
-  return store
+    if (get('hs-news')?.checked) {
+        store.newsletter = 'Ja';
+    } else {
+        store.newsletter = 'Nej';
+    }
+    if (get('hs-integ')?.checked) {
+        store.checkboxOK = 'Ja';
+    } else {
+        store.checkboxOK = 'Nej';
+    }
+    store.subject = 'Paramotor Kurs Bokning'
+    return store
 }
 
 const submitBtn = document.getElementById('para-book')

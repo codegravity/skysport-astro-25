@@ -1,5 +1,5 @@
 
-const htmlParaSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, kursVeckan, paraPrice, summa, weight,  birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
+const htmlParaSkyTemplate = (name, tel, telday, email, Meddelande, kursVeckan, paraPrice, weight,  birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp) => {
     return ` 
 <!DOCTYPE html>
 <html lang="en">
@@ -61,13 +61,19 @@ const htmlParaSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, kur
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
                          Vikt:  ${weight} <br>   Födelseår: ${birthyr}
                         </p>
+                        <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
+                         Gå med nyhetsbrev:  ${newsletter}
+                        </p>
+                        <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
+                         Godkant vilkor:  ${checkboxOK}
+                        </p>
 
                     </td>
                 </tr>
 
                 <tr style="display: inline-block;">
                     <td style="min-height: 150px; padding: 6px 20px; border: none; border-bottom: 2px solid #361B0E; background-color: white;">
-                        <h2 style="text-align: left; align-items: center;">Paramotor kursdate: ${kursDate}&nbsp; &nbsp;  ${kursVeckan}</h2>
+                        <h2 style="text-align: left; align-items: center;">Paramotor kursdate: ${kursVeckan}</h2>
                         <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
                             Paramotor kurspris: ${paraPrice}
                        </p>

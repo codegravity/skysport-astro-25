@@ -1,5 +1,5 @@
 
-const htmlParaKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate, kursVeckan, paraPrice, summa, weight, birthyr, adress, postnr, city, country, newsletter, BookingTimestamp) => {
+const htmlParaKundBookTemplate = (name, tel, telday, email, Meddelande, kursVeckan, paraPrice, weight, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -109,7 +109,7 @@ Skysport AB
 <h4>Du här bokad med följande informationen:</h4>
 
   <p class="p1">
-  Paramotor kurs bokad datum: <b>${kursDate}</b> ${kursVeckan}<br>
+  Paramotor kurs bokad datum: <b> ${kursVeckan}</b><br>
   Paramotor kurs pris: <b>${paraPrice}</b><br>
   
   Namn: <i>${name}</i><br>
@@ -118,11 +118,12 @@ Skysport AB
   Email: <i>${email}</i><br>
     Adress: <i>${adress} ,&nbsp; ${postnr},&nbsp;  ${city},&nbsp;  ${country}</i><br>
     Vikt: <i>${weight}</i>&nbsp;   Födelseår: <i>${birthyr}</i><br>
-  Gå med nyhetsbrev: <i>${newsletter}</i><br>
+ 
 
   Meddelande: <i>${Meddelande}</i>
   </p>
-
+ Gå med nyhetsbrev: <i>${newsletter}</i><br>
+  Godkant vilkor: <i>${checkboxOK}</i><br>
 
 <p class="p2">skickade: ${BookingTimestamp}</p>
 
