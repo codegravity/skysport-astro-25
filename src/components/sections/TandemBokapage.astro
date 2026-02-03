@@ -342,6 +342,11 @@ const validateInfo = () => {
       get('hs-email').classList.remove('border-gray-200')
       get('hs-email').classList.add('border-red-500')
       get('hs-email').focus();
+    }else if (!get('remember-me').checked) {      
+      get('remember-me').classList.remove('border-gray-200')
+      get('remember-me').classList.add('border-red-500')
+      get('remember-me').focus();
+      HSOverlay.open('#hs-vilkor-alert');
     } else {
       sendmail()
     }
@@ -357,8 +362,14 @@ const getFormData = () => {
   store.email = get('hs-email')?.value
   store.tel = get('hs-mobil')?.value
   store.message = get('hs-meddelande')?.value
-  store.checkboxOK = get('hs-remember-me')?.value
-store.subject = 'Tandem Bokning'
+  store.checkboxOK = get('remember-me')?.checked
+  if ((get('remember-me')?.checked)) {
+        store.vilkor = 'Ja';
+    } else {
+        store.vilkor = 'Nej';
+    }
+  store.subject = 'Tandem Bokning'
+  store.direktBokning = 'Nej'
   return store
 }
 
@@ -388,13 +399,13 @@ submitBtn?.addEventListener('click', submitForm)
 // window.onload = () => {} // don't know why this wont work
 
 const sendmail = async () => {
-  const { name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, subject } = getFormData()
+  const { name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK,  subject, vilkor, direktBokning } = getFormData()
   const data = await fetch('/api/sendTandemBooking.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, subject }),
+    body: JSON.stringify({ name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK,  subject, vilkor, direktBokning }),
   })
     .then((res) => {
       if (!res.ok) {

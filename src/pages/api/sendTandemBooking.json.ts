@@ -2,7 +2,6 @@ export const prerender = false;
 
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
-
 import { htmlTandemTemplate } from './mail_templates/tandemBooking.js'
 import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
 
@@ -47,9 +46,11 @@ export const POST: APIRoute = async ({ request }) => {
     const onlydate =  (tempDate.getFullYear()) + '-' + (tempDate.getMonth()) + '-' + (tempDate.getDate())
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
+    const direktBokning = formData.direktBokning
+    const vilkor = formData.vilkor
 
-    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, BookingTimestamp )
-    const outputSky = htmlTandemSkyTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, BookingTimestamp )
+    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Ksubject, BookingTimestamp )
+    const outputSky = htmlTandemSkyTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, vilkor, direktBokning, BookingTimestamp )
 
     if (!email || !name ) {
       throw new Error("Missing required fields");

@@ -11,7 +11,6 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                                     currency: 'SEK'
                                     }).format(anhorigaRawPrice) + ' person.');  
 
-
 ---
 <section class="bg-slate-800">
 <div class="max-w-[85rem]  px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
@@ -411,7 +410,6 @@ const getFormData = () => {
   const store = Object.create(null)
     store.resa = get("hs-res-name")?.value
     store.resPriceISO = get("hs-summa")?.value
-
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
     store.lastName = get('hs-lastname-contacts-1')?.value

@@ -1,5 +1,5 @@
 
-const htmlTandemSkyTemplate = (name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, BookingTimestamp) => {
+const htmlTandemSkyTemplate = (name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, vilkor, direktBokning, BookingTimestamp) => {
     return ` 
 <!DOCTYPE html>
 <html lang="en">
@@ -64,6 +64,12 @@ const htmlTandemSkyTemplate = (name, tel, email, Meddelande, TandemDate, AltDate
                        </p>
                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 15px;  padding-bottom: 12px;">
                             Antal passangerare: ${AntalPass}
+                       </p>
+                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 15px;  padding-bottom: 12px;">
+                            Vilkor godkant: ${vilkor}  
+                       </p>
+                       <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 15px;  padding-bottom: 12px;">
+                            Direktbokning: ${direktBokning}
                        </p>
                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 15px;  padding-bottom: 12px;">
                             Skickade: ${BookingTimestamp}
