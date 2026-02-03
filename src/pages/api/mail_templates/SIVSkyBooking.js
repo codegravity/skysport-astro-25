@@ -1,5 +1,5 @@
 
-const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
+const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
     return ` 
 <!DOCTYPE html>
 <html lang="en">
@@ -9,6 +9,7 @@ const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, sivP
   <title>Document</title>
 <style>
 </style>
+
 
 </head>
     <body style="background-color:grey">
@@ -55,11 +56,15 @@ const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, sivP
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
                          Meddelande:  ${Meddelande}
                         </p>
+                        
+                        <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
+                         Vikt:  ${weight} <br>  SSFF licnr. : ${licNr}  <br> Födelseår: ${birthyr}
+                        </p>
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
                          Gå med nyhetsbrev:  ${newsletter}
                         </p>
                         <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
-                         Vikt:  ${weight} <br>  SSFF licnr. : ${licNr}  <br> Födelseår: ${birthyr}
+                         Godkant integritietspolicy:  ${checkboxOK}
                         </p>
 
                     </td>
@@ -67,7 +72,7 @@ const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, sivP
 
                 <tr style="display: inline-block;">
                     <td style="min-height: 150px; padding: 6px 20px; border: none; border-bottom: 2px solid #361B0E; background-color: white;">
-                        <h2 style="text-align: left; align-items: center;">Siv kursdate: ${kursDate}</h2>
+                        <h2 style="text-align: left; align-items: center;">Siv kursdate: ${kursWeek} &nbsp; </h2>
                         <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
                             SIV kurspris: ${sivPrice}
                        </p>

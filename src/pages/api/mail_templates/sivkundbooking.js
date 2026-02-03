@@ -1,5 +1,5 @@
 
-const htmlSivKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate, sivPrice, boendeType,boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, BookingTimestamp) => {
+const htmlSivKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate, kursWeek, sivPrice, boendeType,boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -14,7 +14,6 @@ const htmlSivKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate,
     </o:OfficeDocumentSettings>
   </xml>
   <![endif]-->
-
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="x-apple-disable-message-reformatting">
@@ -109,7 +108,7 @@ Skysport AB
 <h4>Du här bokad med följande informationen:</h4>
 
   <p class="p1">
-  SIV kurs bokad datum: <b>${kursDate}</b><br>
+  SIV kurs bokad datum: <b>${kursWeek}</b> &nbsp; <br>
   SIV kurs pris: <b>${sivPrice}</b><br>
   Boende: <b>${boendeType}</b> <br>
   Boendepris: ${boendePrice}<br>
@@ -122,7 +121,7 @@ Skysport AB
     Adress: <i>${adress} ,&nbsp; ${postnr},&nbsp;  ${city},&nbsp;  ${country}</i><br>
     Vikt: <i>${weight}</i>&nbsp;   SSFF licnr. : <i>${licNr}</i>&nbsp;   Födelseår: <i>${birthyr}</i><br>
   Gå med nyhetsbrev: <i>${newsletter}</i><br>
-
+  Godkant integritietspolicy: <i>${checkboxOK}</i><br>
   Meddelande: <i>${Meddelande}</i>
   </p>
 

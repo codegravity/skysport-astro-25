@@ -35,7 +35,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                             <label for={veckan.resID} class="px-2 py-0.5 sm:py-0 text-lg text-slate-200  sm:text-xl dark:text-neutral-400">{veckan.resLabel}</label> 
                             
                             <input type="hidden" id={`hs-resRubrik-${index + 1}`} name={`hs-resTitle-${index + 1}`} value={veckan.resLabel}>
-                            <input type="hidden" id={`hs-resRawPris-${index + 1}`} name={`hs-resRawPris-${index + 1}`} value={veckan.resPris}>
+                           <input type="hidden" id={`hs-resRawPris-${index + 1}`} name={`hs-resRawPris-${index + 1}`} value={veckan.resPris}> 
                             <input type="hidden" id={`hs-rescomment-${index + 1}`} name={`hs-rescomment-${index + 1}`} value={veckan.resComment}>  
                         </div>
                     ))
@@ -444,7 +444,6 @@ const getFormData = () => {
     store.subject = 'Res Bokning'
   return store
 }
-
 
 
 const sendmail = async () => {

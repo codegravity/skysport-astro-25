@@ -1,5 +1,6 @@
 ---
 import Hr1 from "@components/elements/SeparatorLine.astro";
+import SivModal from "@components/elements/modals/sivbooking.astro";
 
 const kursRadioDates = [
     {
@@ -21,7 +22,7 @@ const kursRadioDates = [
 
 
 
-const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
+//const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
 
 
 const sivPrice = 4500.00;
@@ -52,39 +53,45 @@ const boendeTypes = [
         boLabel: 'Del av Dubbelrum (1500 kr)',
         boValue: formattedDub,
         boID: 'del-dubbel',
+        boPris: delDubbel,
     },
     {
         boLabel: 'Enkeltrum (1950 kr)',
         boValue: formattedAlone,
         boID: 'enkelt',
+        boPris: enkelt,
     },
     {
         boLabel: 'Hel Lägenhet',
         boValue: '0',
         boID: 'apartment',
+        boPris: 0,
     },
     {
         boLabel: 'Jag har eget Boende',
         boValue: formattedEget,
         boID: 'eget',
+        boPris: eget,
     },
 ];
 
 ---
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <form method="POST">
+    <form id="siv-booking" method="POST">
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="lg:text-2xl font-bold"><!--col 1 -->
             <h3>Kurser<span class="text-amber-600 text-xl">*</span></h3>
+            <div id="missed-siv-kurs" class="hidden text-amber-600 text-xl">Obs! Välj en av kurser</div>
         </div>
 
         <div class="lg:col-span-3"><!-- col 2,3,4 -->
             <div class="flex flex-col gap-y-3">
                 { kursRadioDates.map((kursdate, index) => (
                         <div class="flex">
-                            <input type="radio" id={`hs-radio-vertical-group-${index + 1}`} value={kursdate.kursValue} name="hs-radio-vertical-group" class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  checked="">
-                            <label for={`hs-radio-vertical-group-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{kursdate.kursLabel}</label>
+                            <input type="radio" id={kursdate.kursID}  name="hs-radio-siv-group" class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <label for={kursdate.kursID} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{kursdate.kursLabel}</label>
+                            
                         </div>
                     ))
                 }
@@ -106,17 +113,20 @@ const boendeTypes = [
 
         <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
             <h3>Boende sommar<span class="text-amber-600 text-xl">*</span></h3>
+            <div id="missed-siv-bo" class="hidden text-amber-600 text-xl">Obs! Välj en av boendetyper</div>
         </div>
         <div class="lg:col-span-3 py-3"><!-- col 2,3,4 -->
             <div class="flex flex-col gap-y-3">
                 { boendeTypes.map((boende, index) => (
                         <div class="flex">
-                            <input type="radio" id={`hs-radio-vertical-group-bo-${index + 1}`} value={boende.boValue} name="hs-radio-vertical-group-bo"  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <input type="radio" id={`hs-radio-vertical-group-bo-${index + 1}`}  name="hs-radio-vertical-group-bo"  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
                             <label for={`hs-radio-vertical-group-bo-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{boende.boLabel}</label>
+                            <input type="hidden" id={`hs-boRawPris-${index + 1}`} name={`hs-boRawPris-${index + 1}`} value={boende.boPris} />
                         </div>
                     ))
                 }
                 <input type="hidden" id="boendeDescription" name="boendeDescription" value="">
+                <input type="hidden" id="boendeRawPrice" name="boendeRawPrice" value="">
             </div>
             <p class="mt-2 text-sm text-gray-500 dark:text-neutral-400 text-justify">
                 Våra rum ligger I lägenheter. Det finns två eller tre sovrum I varje lägenhet. Om man bokar del I dubbelrum får man dela ett sovrum med en annan person. Bokar man enkelrum får man ett eget sovrum. Kök, badrum och vardagsrum delas med andra som bor I lägenheten. Om du vill bo helt själv utan någon annan I lägenheten måste du boka hel lägenhet.
@@ -240,7 +250,7 @@ const boendeTypes = [
                 <h3>Meddelande</h3>
             </div>
             <div class="py-2 sm:py-0 col-span-2 sm:col-span-4 ">
-                <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." data-hs-textarea-auto-height=""></textarea>   
+                <textarea id="hs-meddelande" name="hs-meddelande" class="py-2.5 sm:py-3 px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" rows="3" placeholder="Om det är något mer du vill informera oss om eller fråga, kan du skriva det här! Om bokningen gäller för mer än en person kan ni meddela oss via detta meddelande." ></textarea>   
                 <label for="hs-meddelande" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Meddelande</label>
             </div>
 
@@ -259,19 +269,15 @@ const boendeTypes = [
                 <input id="hs-integ" name="hs-integ" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5  border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
                 <label for="hs-integ" class="pt-2 sm:pt-0text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400"> Jag godkänner.  Läs om Skysports integritetspolicy här: <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="https://skysport.se/integritetspolicy/">integritetspolicy(GDPR)</a></label>
             </div>
-
-        </div>
-      
+        </div>     
         <div class="mt-3 flex">
             <div class="mt-6 grid">
-                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka SIV Bokning</button>
+                <button type="button" id="siv-book" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka SIV Bokning</button>
             </div>
-        </div>
-        
+        </div>      
     </form>
-
 </div>
-
+<SivModal />
 <script is:inline>
     const sivPrice = document.getElementById("hs-pris").value;
     const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo');
@@ -280,13 +286,15 @@ const boendeTypes = [
         });
     });
 
+
     function SivSumma() {
                 var ele = document.getElementsByName('hs-radio-vertical-group-bo');
                 for (i = 0; i < ele.length; i++) {
                     if (ele[i].type = "radio") {
                         if (ele[i].checked ) {
                             const boendeTyper = ele[i].id;
-                            
+                            const boendePrisRaw = document.getElementById(`hs-boRawPris-${i + 1}`).value;
+                            document.getElementById("boendeRawPrice").value = boendePrisRaw;
                             if(boendeTyper === 'hs-radio-vertical-group-bo-1'){
                                 document.getElementById("boendeDescription").value = 'Del av Dubbelrum';
                             } else if (boendeTyper === 'hs-radio-vertical-group-bo-2'){
@@ -296,12 +304,7 @@ const boendeTypes = [
                             } else if (boendeTyper === 'hs-radio-vertical-group-bo-4'){
                                 document.getElementById("boendeDescription").value = 'Eget Boende';
                             }
-                            //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value);
-                           
-                                 
-                            
-                            document.getElementById("hs-summa").value = currencyNumber(sivPrice)/100 + (currencyNumber(ele[i].value))/100 + ',00 kr'; 
-                            //alert('apartment selected' + ele[i].id);
+                            document.getElementById("hs-summa").value = currencyNumber(sivPrice)/100 + (currencyNumber(boendePrisRaw)) + ',00 kr'; 
                             // show the  apartment request field
                             if(ele[i].id === 'hs-radio-vertical-group-bo-3'){
                                 document.getElementById("apartRa").classList.remove("hidden");
@@ -337,19 +340,113 @@ const boendeTypes = [
             }   
         }
     }
+    function radioID(radiogroupname) {
+        var rbvi = document.getElementsByName(radiogroupname);
+        for (i = 0; i < rbvi.length; i++) {
+            if (rbvi[i].type = "radio") {
+                if (rbvi[i].checked) 
+                    return(rbvi[i].id); 
+            }   
+        }
+    }
+   
 
-const get = (id) => document.getElementById(id) || { value: '' }
+//const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
-  //saveInput()
-  sendmail()
+    validateSIVBooking()
+
 }
+
+
+const validateSIVBooking = () => {
+    
+    const radioSivKurs = radioValue('hs-radio-siv-group');
+    if (radioSivKurs !== 'on') {
+        get('missed-siv-kurs').classList.remove('hidden');
+        get('vecka-28').focus();
+        HSOverlay.open('#hs-siv-radio-alert');
+        return false;
+    } else {
+        get('missed-siv-kurs').classList.add('hidden')
+        
+    } 
+    const radioSivBo = radioValue('hs-radio-vertical-group-bo');
+    if (radioSivBo !== 'on') {
+        get('missed-siv-bo').classList.remove('hidden');
+        get('hs-radio-vertical-group-bo-1').focus();
+        HSOverlay.open('#hs-bo-radio-alert');
+        return false;
+    } else {
+        get('missed-siv-bo').classList.add('hidden')
+        
+    } 
+     if (get('hs-firstname-contacts-1').value.length < 2) {
+      get('hs-firstname-contacts-1').classList.remove('border-gray-200')
+      get('hs-firstname-contacts-1').classList.add('border-red-500')
+      get('hs-firstname-contacts-1').focus();
+       HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-lastname-contacts-1').value.length < 2) {
+      get('hs-lastname-contacts-1').classList.remove('border-gray-200')
+      get('hs-lastname-contacts-1').classList.add('border-red-500')
+      get('hs-lastname-contacts-1').focus();
+      HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-birthyear').value.length < 4) {    
+      get('hs-birthyear').classList.remove('border-gray-200')
+      get('hs-birthyear').classList.add('border-red-500')
+      get('hs-birthyear').focus();
+      HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-gatu').value.length < 5) {      
+      get('hs-gatu').classList.remove('border-gray-200')
+      get('hs-gatu').classList.add('border-red-500')
+      get('hs-gatu').focus();
+      HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-city').value.length < 2) {      
+      get('hs-city').classList.remove('border-gray-200')
+      get('hs-city').classList.add('border-red-500')
+      get('hs-city').focus();
+      HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-post-nr').value.length < 5) {      
+      get('hs-post-nr').classList.remove('border-gray-200')
+      get('hs-post-nr').classList.add('border-red-500')
+      get('hs-post-nr').focus();
+      HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-land').value.length < 4) {      
+      get('hs-land').classList.remove('border-gray-200')
+      get('hs-land').classList.add('border-red-500')
+      get('hs-land').focus();
+      HSOverlay.open('#hs-siv-alert');
+    } else if (get('hs-email-contacts-1').value.length < 5 || !get('hs-email-contacts-1').value.includes('@')) {
+      get('hs-email-contacts-1').classList.remove('border-gray-200')
+      get('hs-email-contacts-1').classList.add('border-red-500')
+      get('hs-email-contacts-1').focus();
+      HSOverlay.open('#hs-email-alert');
+    } else if (get('hs-mobile').value.length < 5) {      
+      get('hs-mobile').classList.remove('border-gray-200')
+      get('hs-mobile').classList.add('border-red-500')
+      get('hs-mobile').focus();
+      HSOverlay.open('#hs-mobil-alert');
+    } else if (!get('hs-integ').checked) {      
+      get('hs-integ').classList.remove('border-gray-200')
+      get('hs-integ').classList.add('border-red-500')
+      get('hs-integ').focus();
+      HSOverlay.open('#hs-siv-vilkor-alert');
+    }  else {
+      sendmail()
+        document.getElementById("siv-booking").reset(); 
+    }
+
+  }
+
+ 
+  
 
 const getFormData = () => {
   const store = Object.create(null)
-    store.kursDate = radioValue('hs-radio-vertical-group')
+    store.kursDate =  radioID('hs-radio-siv-group')
+    store.kursWeek =  radioID('hs-radio-siv-group')
     store.sivPrice = document.getElementById("hs-pris").value
     store.boendeType = document.getElementById("boendeDescription").value
-    store.boendePrice = radioValue('hs-radio-vertical-group-bo')
+    store.boendePrice = document.getElementById("boendeRawPrice").value
     store.apartmentRequest = get('hs-apartR')?.value
     store.summa = document.getElementById("hs-summa").value
 
@@ -364,31 +461,42 @@ const getFormData = () => {
     store.country = get('hs-land')?.value
     store.email = get('hs-email-contacts-1')?.value
     
-    store.telDay = get('hs-tel-day')?.value 
-    if (store.telDay.length < 3 ) 
-        store.telDay = 'N/A';
+    store.telday = get('hs-tel-day')?.value 
+    if (store.telday.length < 3 ) {
+        store.telday = 'N/A';
+    }
     store.tel = get('hs-mobile')?.value
     store.weight = get('hs-weight')?.value
-    if( store.weight.length < 2 ) 
+    if( store.weight.length < 2 ) {
         store.weight = 'N/A';
+    }
     store.message = get('hs-meddelande')?.value
-    store.newsletter = get('hs-news')?.value
-    store.checkboxOK = get('remember-me')?.value
-store.subject = 'SIV Kurs Bokning'
+    if (get('hs-news')?.checked) {
+        store.newsletter = 'Ja';
+    } else {
+        store.newsletter = 'Nej';
+    }
+    if (get('hs-integ')?.checked) {
+        store.checkboxOK = 'Ja';
+    } else {
+        store.checkboxOK = 'Nej';
+    }
+    store.subject = 'SIV Kurs Bokning'
   return store
 }
 
-const submitBtn = document.querySelector('[type="submit"]')
+//const submitBtn = document.querySelector('[type="submit"]')
+const submitBtn = document.getElementById('siv-book')
 submitBtn?.addEventListener('click', submitForm)
 
 const sendmail = async () => {
-  const { firstName, lastName, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest,  summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
+  const { firstName, lastName, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest,  summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
   const data = await fetch('/api/sendSivKursBooking.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ firstName, lastName, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject }),
+    body: JSON.stringify({ firstName, lastName, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
       if (!res.ok) {

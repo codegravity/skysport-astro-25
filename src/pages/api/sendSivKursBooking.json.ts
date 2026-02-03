@@ -3,12 +3,8 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import nodemailer from 'nodemailer';
 
-//import { htmlTemplate } from './mail_templates/toSkysport.js'
 import { htmlSivKundBookTemplate } from './mail_templates/sivkundbooking.js'
-
 import { htmlSivSkyTemplate } from './mail_templates/SIVSkyBooking.js'
-
-
 
 //const emailUser = import.meta.env.PUBLIC_EMAIL_USER
 //const emailTo1 = import.meta.env.PUBLIC_EMAIL
@@ -38,6 +34,7 @@ export const POST: APIRoute = async ({ request }) => {
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
     const kursDate = formData.kursDate
+    const kursWeek = formData.kursWeek
     const sivPrice = formData.sivPrice
     const boendeType = formData.boendeType
     const boendePrice = formData.boendePrice
@@ -66,12 +63,12 @@ export const POST: APIRoute = async ({ request }) => {
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
 
-    const output = htmlSivKundBookTemplate(name, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, BookingTimestamp )
-    const outputSky = htmlSivSkyTemplate(name, tel, telday, email, message, kursDate, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
+    const output = htmlSivKundBookTemplate(name, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
+    const outputSky = htmlSivSkyTemplate(name, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
 
     
 
-    const Skysubject = "SIV Bokning : " + name + ' : ' + onlydate
+    const Skysubject = "SIV Bokning : " + name 
     const Skymessage = `
     SIV bokning: ${kursDate}   
 
