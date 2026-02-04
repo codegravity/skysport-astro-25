@@ -5,7 +5,7 @@ import { flygbehorighet } from '@data/formData';
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
-
+import FortKursOverlay from "@elements/modals/fortkursbooking.astro";
 const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
 
 interface BookingPageContent {
@@ -59,14 +59,16 @@ const { content } = Astro.props;
         
         <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
             <h3>Fortsättnings Kurser<span class="text-amber-600 text-xl">*</span></h3>
+            <div id="missed-fort-kurs" class="hidden text-amber-600 text-xl">Obs! Välj en av kurser</div>
         </div>
         <div class="lg:col-span-3 py-3"><!-- col 2,3,4 -->
             <div class="flex flex-col gap-y-3">
                 { fortsattningsKurser.map((kurs, index) => (
                         <div class="flex">
                             
-                            <input type="radio" id={`hs-radio-vertical-group-kurs-${index + 1}`} value={kurs.kursValue} name="hs-radio-vertical-group-kurs"  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <input type="radio" id={`hs-radio-vertical-group-kurs-${index + 1}`}  name="hs-radio-vertical-group-kurs"  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
                             <label for={`hs-radio-vertical-group-kurs-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{kurs.kursLabel} </label>
+                            <input type="hidden"  id={`hs-kurs-${index + 1}`} value={kurs.kursValue} name={kurs.kursID} >
                         </div>
                     ))
                 }
@@ -78,7 +80,7 @@ const { content } = Astro.props;
         </div>
         <div id="kursPris" class="py-1 sm:py-4 hidden lg:col-span-3  ">
             <input type="hidden" id="checkedKursName" name="checkedKursName" >
-            <input type="text" id="hs-kursPris" name="hs-kursPris" value="4500?" class="py-2.5 sm:py-3 px-4 block w-s border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" > 
+            <input type="text" id="hs-kursPris" name="hs-kursPris" disabled  class="py-2.5 sm:py-3 px-4 block w-s border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200 dark:placeholder-neutral-500 dark:focus:border-neutral-700 dark:focus:ring-neutral-600" > 
             <label for="hs-kursPris" id="kursPrisLabel" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">kurs comment</label>
         </div>
 
@@ -89,20 +91,23 @@ const { content } = Astro.props;
         { boende2026.map((season) => (
             <div id={`${season.season}-h3`} class="hidden lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
                 <h3>Boende <span>{season.season}</span><span class="text-amber-600 text-xl">*</span></h3>
+                <div id="missed-fort-kurs-bo" class="hidden text-amber-600 text-xl">Obs! Välj en av boende alternativ.</div>
             </div>
 
             <div id={`${season.season}-radio`} class="hidden lg:col-span-3 py-3 "><!-- col 2,3,4 -->
             <div class="flex flex-col gap-y-3">
                 { season.boendeTypes.map((boende, index) => (
                         <div class="flex">
-                            <input type="radio" id={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`} value={boende.boValue} name={`hs-radio-vertical-group-bo-${season.season}`}  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <input type="radio" id={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`}  name={`hs-radio-vertical-group-bo-${season.season}`}  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
                             <label for={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{boende.boLabel}</label>
+                            <input type="hidden"  id={`hs-bo-${season.season}-${index + 1}`} value={boende.boValue} name={boende.boID} >
                         </div>
                     ))
                 }
                 <input type="hidden" id="boendeDescription" name="boendeDescription" value="">
                 <input type="hidden" id="rawBoPrice" name="rawBoPrice" >
                 <input type="hidden" id="BoPriceISO" name="BoPriceISO" >
+                <input type="hidden" id="BoSeason" name="BoSeason" >
             </div>
             <p class="mt-2 text-sm text-gray-500 dark:text-neutral-400 text-justify">
                 Våra rum ligger I lägenheter. Det finns två eller tre sovrum I varje lägenhet. Om man bokar del I dubbelrum får man dela ett sovrum med en annan person. Bokar man enkelrum får man ett eget sovrum. Kök, badrum och vardagsrum delas med andra som bor I lägenheten. Om du vill bo helt själv utan någon annan I lägenheten måste du boka hel lägenhet.
@@ -144,14 +149,14 @@ const { content } = Astro.props;
                 <h3>Antal flygtimmar<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0  col-span-3 sm:col-span-1">
-                <input type="text" name="hs-antal-flyg-timmer" id="hs-antal-flyg-timmer" placeholder=""  class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-antal-flyg-timmer" id="hs-antal-flyg-timmer" class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                 <label for="hs-antal-flyg-timmer" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white"></label>
             </div>
             <div class="lg:text-2xl font-bold col-span-3 sm:col-span-1"><!--col 1 -->
                 <h3>Antal timmar i år<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0 col-span-3 sm:col-span-2">
-                <input type="text" name="hs-flyg-this-year" id="hs-flyg-this-year" placeholder="" class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-flyg-this-year" id="hs-flyg-this-year"  class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                 <label for="hs-flyg-this-year" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Antal flygtimmar senaste 12 månader. </label>
             </div>
 
@@ -159,19 +164,19 @@ const { content } = Astro.props;
                 <h3>Antal flygr<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0  col-span-3 sm:col-span-1 ">
-                <input type="text" name="hs-antal-flyg" id="hs-antal-flyg" placeholder=""  class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-antal-flyg" id="hs-antal-flyg"   class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                 <label for="hs-antal-flyg" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white"></label>
             </div>
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
                 <h3>Antal flyg i år<span class="text-amber-600 text-xl">*</span></h3>
             </div>
             <div class="py-0 col-span-2 ">
-                <input type="text" name="hs-antal-flyg-this-year" id="hs-antal-flyg-this-year" placeholder="" class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-antal-flyg-this-year" id="hs-antal-flyg-this-year"  class="p-2 sm:py-3 sm:px-2 w-s block  border  border-gray-200 rounded-lg sm:text-sm focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                 <label for="hs-antal-flyg-this-year" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Antal starter senaste 12 månader. </label>
             </div>
 
             <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1"><!--col 1 -->
-                <h3>Flygbehörighet<span class="text-amber-600 text-xl">*</span></h3>
+                <h3>Flygbehörighet</h3>
             </div>
             <div class="py-0 sm:py-1  col-span-2 sm:col-span-4 ">
                 <div class="flex flex-col gap-y-3">
@@ -317,13 +322,13 @@ const { content } = Astro.props;
       
         <div class="mt-3 flex">
             <div class="mt-6 grid">
-                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka SIV Bokning</button>
+                <button type="button" id="fortkurs-booking" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka SIV Bokning</button>
             </div>
         </div>
         
     </form>
 </div>
-
+<FortKursOverlay />
 <script>
     window.onload = (event) => {
          const getWeekNumberx = (date) => {
@@ -429,11 +434,13 @@ const { content } = Astro.props;
                 document.getElementById("sommar-radio").classList.remove("hidden");
                 document.getElementById("vinter-h3").classList.add("hidden");
                 document.getElementById("vinter-radio").classList.add("hidden");
+                document.getElementById('BoSeason').value = 'summer';
             } else {
                 document.getElementById("vinter-h3").classList.remove("hidden");
                 document.getElementById("vinter-radio").classList.remove("hidden");            
                 document.getElementById("sommar-h3").classList.add("hidden");
                 document.getElementById("sommar-radio").classList.add("hidden");
+                document.getElementById('BoSeason').value = 'winter';
             }
         },        
     })};
@@ -456,11 +463,11 @@ const { content } = Astro.props;
                     if (eleK[i].type = "radio") {
                         if (eleK[i].checked ) {
                             const kursTyper = eleK[i].id; 
-                            const kursPris = eleK[i].value;
+                            const kursPris = get('hs-kurs-'+ (i + 1)).value;
                             const formattedPris = new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
-                                    }).format(eleK[i].value);  
+                                    }).format(kursPris);  
                             document.getElementById("hs-kursPris").value = formattedPris;
                             document.getElementById("rawKursPrice").value = kursPris;
                             const bobo = document.getElementById("rawBoPrice").value;
@@ -505,7 +512,7 @@ const { content } = Astro.props;
                                 document.getElementById("apartRa").innerHTML = '<h3 class="lg:text-2xl font-bold py-3">Kurs namn<span class="text-amber-600 text-xl">Pris</span></h3>';
                                 document.getElementById("kursPris").classList.remove("hidden");
                                 document.getElementById('hs-radio-vertical-group-bo-3').label.classList.add("font-semibold");
-                          
+                        
                                 document.getElementById("kursChecked").classList.add("hidden");
                                 document.getElementById("kursPris").classList.add("hidden");
                                                                                
@@ -534,7 +541,7 @@ const { content } = Astro.props;
                     if (ele[i].type = "radio") {
                         if (ele[i].checked ) {
                             const boendeTyper = ele[i].id;
-                            const boSPris =  ele[i].value;  
+                            const boSPris =  get('hs-bo-sommar-' + (i+1)).value; 
                             document.getElementById("rawBoPrice").value = boSPris;
                             const summerPrice =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
@@ -583,7 +590,7 @@ const { content } = Astro.props;
                     if (eleV[i].type = "radio") {
                         if (eleV[i].checked ) {
                             const boendeTyper = eleV[i].id;
-                            const boVPris =  eleV[i].value;  
+                            const boVPris =  get('hs-bo-vinter-' + (i+1)).value;  
                             document.getElementById("rawBoPrice").value = boVPris; 
                             const winterPrice =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
@@ -631,6 +638,15 @@ const { content } = Astro.props;
 
 <script is:inline>
 
+    //const submitBtn = document.querySelector('[type="submit"]')
+    //submitBtn?.addEventListener('click', submitForm)
+
+    const submitFortKurs = document.getElementById('fortkurs-booking')
+    submitFortKurs.addEventListener('click', () => { 
+             //   submitForm()
+             validateFortKurs()
+        });
+
     function radioValue(radiogroupname) {
         var rbv = document.getElementsByName(radiogroupname);
         for (i = 0; i < rbv.length; i++) {
@@ -640,12 +656,138 @@ const { content } = Astro.props;
             }   
         }
     }
+    function radioID(radiogroupname) {
+        var rbvc = document.getElementsByName(radiogroupname);
+        for (i = 0; i < rbvc.length; i++) {
+            if (rbvc[i].type = "radio") {
+                if (rbvc[i].checked) 
+                    return(rbvc[i].id); 
+            }   
+        }
+    }
 
-const get = (id) => document.getElementById(id) || { value: '' }
+//const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
   //saveInput()
-  sendmail()
+ // sendmail()
 }
+const validateFortKurs = () => {
+    const radioFortKurs = radioValue('hs-radio-vertical-group-kurs');
+    
+     if (get('flatpickr-date').value.length < 4) {
+      get('flatpickr-date').classList.remove('border-gray-200')
+      get('flatpickr-date').classList.add('border-red-500')
+      get('flatpickr-date').focus();
+       HSOverlay.open('#hs-date-alert');
+        return false;
+    } else if (radioFortKurs !== 'on') {
+        get('missed-fort-kurs').classList.remove('hidden')
+        get('hs-radio-vertical-group-kurs-1').focus();
+        HSOverlay.open('#hs-kurs-alert');
+        return false;
+    } else {
+        get('missed-fort-kurs').classList.add('hidden')  
+    } 
+
+    const theSeason =  get('BoSeason').value;
+    if (theSeason ==='summer'){
+        const  radioFortKursBo = radioValue('hs-radio-vertical-group-bo-sommar');
+        if (radioFortKursBo !== 'on') {
+        get('missed-fort-kurs-bo').classList.remove('hidden')
+        get('hs-radio-vertical-group-bo-sommar-1').focus();
+        HSOverlay.open('#hs-bo-alert');
+        return false;
+    } else {
+        get('missed-fort-kurs').classList.add('hidden')
+    } 
+    } else if (theSeason === 'winter') {
+        const radioFortKursBo = radioValue('hs-radio-vertical-group-bo-vinter');
+        if (radioFortKursBo !== 'on') {
+        get('missed-fort-kurs-bo').classList.remove('hidden')
+        get('hs-radio-vertical-group-bo-vinter-1').focus();
+        HSOverlay.open('#hs-bo-alert');
+        return false;
+    } else {
+        get('missed-fort-kurs').classList.add('hidden')
+    }  
+    }
+     if (get('hs-antal-flyg-timmer').value.length < 1) {
+      get('hs-antal-flyg-timmer').classList.remove('border-gray-200')
+      get('hs-antal-flyg-timmer').classList.add('border-red-500')
+      get('hs-antal-flyg-timmer').focus();
+       HSOverlay.open('#hs-flyg-histori-alert');
+    } else if (get('hs-flyg-this-year').value.length < 1) {
+      get('hs-flyg-this-year').classList.remove('border-gray-200')
+      get('hs-flyg-this-year').classList.add('border-red-500')
+      get('hs-flyg-this-year').focus();
+       HSOverlay.open('#hs-flyg-histori-alert');
+    } else if (get('hs-antal-flyg').value.length < 1) {
+      get('hs-antal-flyg').classList.remove('border-gray-200')
+      get('hs-antal-flyg').classList.add('border-red-500')
+      get('hs-antal-flyg').focus();
+       HSOverlay.open('#hs-flyg-histori-alert');
+    } else if (get('hs-antal-flyg-this-year').value.length < 1) {
+      get('hs-antal-flyg-this-year').classList.remove('border-gray-200')
+      get('hs-antal-flyg-this-year').classList.add('border-red-500')
+      get('hs-antal-flyg-this-year').focus();
+       HSOverlay.open('#hs-flyg-histori-alert');
+
+    }  else  if (get('hs-firstname-contacts-1').value.length < 2) {
+      get('hs-firstname-contacts-1').classList.remove('border-gray-200')
+      get('hs-firstname-contacts-1').classList.add('border-red-500')
+      get('hs-firstname-contacts-1').focus();
+       HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-lastname-contacts-1').value.length < 2) {
+      get('hs-lastname-contacts-1').classList.remove('border-gray-200')
+      get('hs-lastname-contacts-1').classList.add('border-red-500')
+      get('hs-lastname-contacts-1').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-birthyear').value.length < 4) {    
+      get('hs-birthyear').classList.remove('border-gray-200')
+      get('hs-birthyear').classList.add('border-red-500')
+      get('hs-birthyear').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-gatu').value.length < 5) {      
+      get('hs-gatu').classList.remove('border-gray-200')
+      get('hs-gatu').classList.add('border-red-500')
+      get('hs-gatu').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-city').value.length < 2) {      
+      get('hs-city').classList.remove('border-gray-200')
+      get('hs-city').classList.add('border-red-500')
+      get('hs-city').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-post-nr').value.length < 5) {      
+      get('hs-post-nr').classList.remove('border-gray-200')
+      get('hs-post-nr').classList.add('border-red-500')
+      get('hs-post-nr').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-land').value.length < 4) {      
+      get('hs-land').classList.remove('border-gray-200')
+      get('hs-land').classList.add('border-red-500')
+      get('hs-land').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-email-contacts-1').value.length < 5 || !get('hs-email-contacts-1').value.includes('@')) {
+      get('hs-email-contacts-1').classList.remove('border-gray-200')
+      get('hs-email-contacts-1').classList.add('border-red-500')
+      get('hs-email-contacts-1').focus();
+      HSOverlay.open('#hs-email-alert');
+    } else if (get('hs-mobile').value.length < 5) {      
+      get('hs-mobile').classList.remove('border-gray-200')
+      get('hs-mobile').classList.add('border-red-500')
+      get('hs-mobile').focus();
+      HSOverlay.open('#hs-mobil-alert');
+    } else if (!get('hs-integ').checked) {      
+      get('hs-integ').classList.remove('border-gray-200')
+      get('hs-integ').classList.add('border-red-500')
+      get('hs-integ').focus();
+      HSOverlay.open('#hs-vilkor-alert');
+    } else {
+      sendmail()
+     //alert('validated!!!')
+    }
+
+  }
 
 const getFormData = () => {
   const store = Object.create(null)
@@ -654,30 +796,43 @@ const getFormData = () => {
     store.kursDate = get("flatpickr-date")?.value
     store.kursVeckan = get("kurs-veckan")?.value
     store.kursRawPrice = get("rawKursPrice")?.value 
-    store.kursPrice = radioValue('hs-radio-vertical-group-kurs')
+    //store.kursPrice = radioValue('hs-radio-vertical-group-kurs')
+    store.kursPrice = get('hs-kursPris')?.value
     store.boendeType = get('boendeDescription')?.value
     store.boendeRawPrice = get("rawBoPrice")?.value 
     store.boendePriceISO = get('BoPriceISO')?.value
     store.apartmentRequest = get('hs-apartR')?.value
     store.summa = get("hs-summa")?.value
 
+
     //flygerfarenhet
     store.totalFlyingHours =  get("hs-antal-flyg-timmer")?.value
     store.flyingHoursThisYear =  get("hs-flyg-this-year")?.value
     store.totalFlights =  get("hs-antal-flyg")?.value
     store.flightsThisYear =  get("hs-antal-flyg-this-year")?.value
+
+
+    //store.bergsflyg = get('hs-behorighet-berg')?.value
       if( get('hs-behorighet-berg')?.checked){
         store.bergsflyg =  'checked'
+    } else {
+        store.bergsflyg =  ''
     }
      if( get('hs-behorighet-hang')?.checked){
         store.hangflyg =  'checked' 
+     }else {
+        store.hangflyg =  '' 
      }
     if( get('hs-behorighet-termik')?.checked){
         store.termikflyg =  'checked'
+    } else {
+        store.termikflyg =  ''
     }
     if( get('hs-behorighet-bogser')?.checked){
         store.bogserflyg =  'checked'
-    }  
+    }  else {
+        store.bogserflyg =  ''
+    }
     store.ovrigflyg =  get("hs-ovrig-flyg")?.value
 
     // Contact Info
@@ -690,23 +845,33 @@ const getFormData = () => {
     store.postNr = get('hs-post-nr')?.value
     store.country = get('hs-land')?.value
     store.email = get('hs-email-contacts-1')?.value
-    
-    store.telDay = get('hs-tel-day')?.value 
-    if (store.telDay.length < 3 ) 
-        store.telDay = 'N/A';
+    store.telday = get('hs-tel-day')?.value 
+    if (store.telday.length < 3 ){
+        store.telday = 'N/A';
+    }     
     store.tel = get('hs-mobile')?.value
     store.weight = get('hs-weight')?.value
-    if( store.weight.length < 2 ) 
+    if( store.weight.length < 2 ) {
         store.weight = 'N/A';
+    }
+  
     store.message = get('hs-meddelande')?.value
-    store.newsletter = get('hs-news')?.value
-    store.checkboxOK = get('remember-me')?.value
+
+    if( get('hs-news')?.checked){
+        store.newsletter =  'Ja'
+    }  else {
+        store.newsletter =  'Nej'
+    }
+    if( get('hs-integ')?.checked){
+        store.checkboxOK =  'Ja'
+    }  else {
+        store.checkboxOK =  'Nej'
+    }
 store.subject = 'Fortsättnings Kurs Bokning'
   return store
 }
 
-const submitBtn = document.querySelector('[type="submit"]')
-submitBtn?.addEventListener('click', submitForm)
+
 
 const sendmail = async () => {
   const {kursName, kursDate, kursVeckan, kursPrice, boendeType,boendePriceISO, apartmentRequest, summa,totalFlyingHours,flyingHoursThisYear,totalFlights,flightsThisYear,bergsflyg,hangflyg,termikflyg,bogserflyg,ovrigflyg,firstName, lastName, tel, telday, email, message,  weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()

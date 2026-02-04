@@ -54,10 +54,10 @@ const htmlFortSkyTemplate = (kursName, kursDate, kursVeckan, kursPrice, boendeTy
   Antal flygtimmer: <b>${totalFlyingHours}</b>&nbsp;&nbsp;  Antal timmer i år: <b>${flyingHoursThisYear}</b><br>
   Antal flyg: <b>${totalFlights}</b>&nbsp;&nbsp; Antal flyg i år: <b>${flightsThisYear}</b><br>
   Flygbehörighet: <br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${bergsflyg}> &nbsp;Bergsbehörighet${bergsflyg}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${hangflyg}> &nbsp;Hangbehörighet${hangflyg}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${termikflyg}> &nbsp;Termikbehörighet ${termikflyg}<br>
-  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${bogserflyg}> &nbsp;Bogserbehörighet${bogserflyg}<br><br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${bergsflyg}> &nbsp;Bergsbehörighet<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${hangflyg}> &nbsp;Hangbehörighet<br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${termikflyg}> &nbsp;Termikbehörighet <br>
+  &nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="berg" disabled  ${bogserflyg}> &nbsp;Bogserbehörighet<br><br>
   Övrig flygerfarenhet: <i>${ovrigflyg}</i><br><br>
   
 
