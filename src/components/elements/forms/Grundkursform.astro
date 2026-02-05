@@ -510,6 +510,7 @@ const submitForm = () => {
    //alert(' NO bobo 3' + boVPris);
  // sendmail()
  validateGrundKurs()
+
 }
 
 //const submitBtn = document.querySelector('[type="submit"]')
@@ -608,7 +609,8 @@ const validateGrundKurs = () => {
       get('hs-integ').focus();
       HSOverlay.open('#hs-vilkor-alert');
     } else {
-      sendmail()
+       // alert('validation klar')
+     sendmail()
     }
 
   }
@@ -633,19 +635,23 @@ const getFormData = () => {
     store.postNr = get('hs-post-nr')?.value
     store.country = get('hs-land')?.value
     store.email = get('hs-email-contacts-1')?.value
-    store.telDay = get('hs-tel-day')?.value 
-    if (store.telday.length < 3 ) 
+    store.telday = get('hs-tel-day')?.value 
+    if (store.telday.length < 3 ){
         store.telday = 'N/A';
+    } 
+        
     store.tel = get('hs-mobile')?.value
     store.weight = get('hs-weight')?.value
-    if( store.weight.length < 2 ) 
+    if( store.weight.length < 2 ){
         store.weight = 'N/A';
+    } 
+        
     store.message = get('hs-meddelande')?.value
     
      if( get('hs-kursvilkor')?.checked){
         store.kursvilkor =  'Ja'
     }  else {
-        sstore.kursvilkor =  'Nej'
+        store.kursvilkor =  'Nej'
     }
      if( get('hs-news')?.checked){
         store.newsletter =  'Ja'
@@ -665,7 +671,7 @@ store.subject = 'Grundkurs Bokning'
 
 const sendmail = async () => {
   
-  const { kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight, birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject } = getFormData()
+  const { kursDate, kursVeckan, kursPriceISO, boendeType, boendePriceISO, apartmentRequest, summa, firstName, lastName, tel, telday, email, message, weight, birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject } = getFormData()
   const data = await fetch('/api/sendGrundKursBooking.json', {
     method: 'POST',
     headers: {
