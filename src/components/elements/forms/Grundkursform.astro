@@ -2,7 +2,7 @@
 import { grundKurser } from '@data/formData';
 import { boende2026 } from '@data/formData';
 import Hr1 from "@components/elements/SeparatorLine.astro";
-
+import GrundKursOverlay from "@elements/modals/grundkursbooking.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
@@ -27,7 +27,7 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
 ---
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <form method="POST">
+    <form id="grundKurs" method="POST">
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="lg:text-2xl font-bold"><!--col 1 -->
             <h3>Välj önskat kursdatum<span class="text-amber-600 text-xl">*</span></h3>
@@ -76,24 +76,27 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
         <div class="lg:col-span-4">
            <Hr1 />
         </div>
-
         { boende2026.map((season) => (
             <div id={`${season.season}-h3`} class="hidden lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
                 <h3>Boende <span>{season.season}</span><span class="text-amber-600 text-xl">*</span></h3>
+                <div id="missed-kurs-box" class="hidden text-amber-600 text-xl">Obs! Välj en av boende alternativ.</div>
+                <div id="missed-kurs-bo" class="hidden text-amber-600 text-xl">Obs! Välj en av sommar boende alternativ.</div>
             </div>
 
             <div id={`${season.season}-radio`} class="hidden lg:col-span-3 py-3 "><!-- col 2,3,4 -->
             <div class="flex flex-col gap-y-3">
                 { season.boendeTypes.map((boende, index) => (
                         <div class="flex">
-                            <input type="radio" id={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`} value={boende.boValue} name={`hs-radio-vertical-group-bo-${season.season}`}  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <input type="radio" id={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`}  name={`hs-radio-vertical-group-bo-${season.season}`}  class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
                             <label for={`hs-radio-vertical-group-bo-${season.season}-${index + 1}`} class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">{boende.boLabel}</label>
+                            <input type="hidden"  id={`hs-bo-${season.season}-${index + 1}`} value={boende.boValue} name={boende.boID} >
                         </div>
                     ))
                 }
                 <input type="hidden" id="boendeDescription" name="boendeDescription" value="">
                 <input type="hidden" id="rawBoPrice" name="rawBoPrice" >
                 <input type="hidden" id="BoPriceISO" name="BoPriceISO" >
+                <input type="hidden" id="BoSeason" name="BoSeason" >
             </div>
             <p class="mt-2 text-sm text-gray-500 dark:text-neutral-400 text-justify">
                 Våra rum ligger I lägenheter. Det finns två eller tre sovrum I varje lägenhet. Om man bokar del I dubbelrum får man dela ett sovrum med en annan person. Bokar man enkelrum får man ett eget sovrum. Kök, badrum och vardagsrum delas med andra som bor I lägenheten. Om du vill bo helt själv utan någon annan I lägenheten måste du boka hel lägenhet.
@@ -242,16 +245,13 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
       
         <div class="mt-3 flex">
             <div class="mt-6 grid">
-                <button type="submit" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka Grundkurs Bokning</button>
+                <button type="button" id="grundkurs-booking" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">Skicka Grundkurs Bokning</button>
             </div>
-        </div>
-        
+        </div>     
     </form>
-
 </div>
-
+<GrundKursOverlay />
 <script>
-    
     window.onload = (event) => {
          const getWeekNumberx = (date) => {
             const firstDay = new Date(date.getFullYear(), 0, 1)
@@ -300,7 +300,6 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
                 return false;
             }
     };
-
 
     const getWeekNumber = (date) => {
         const firstDay = new Date(date.getFullYear(), 0, 1)
@@ -359,21 +358,22 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
                 document.getElementById("sommar-radio").classList.remove("hidden");
                 document.getElementById("vinter-h3").classList.add("hidden");
                 document.getElementById("vinter-radio").classList.add("hidden");
+                document.getElementById('BoSeason').value = 'summer';
             } else {
                 document.getElementById("vinter-h3").classList.remove("hidden");
                 document.getElementById("vinter-radio").classList.remove("hidden");            
                 document.getElementById("sommar-h3").classList.add("hidden");
                 document.getElementById("sommar-radio").classList.add("hidden");
+                document.getElementById('BoSeason').value = 'winter';
             }
         },        
     })};
 
  datepickerCG();
+
 </script>
 
 <script is:inline>
- 
-
 
     const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo-sommar');
     bobuttons.forEach((button) => {
@@ -389,12 +389,14 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
     });
 
     function BoSummar() {
+                document.getElementById("missed-kurs-bo").classList.add("hidden");
                 var ele = document.getElementsByName('hs-radio-vertical-group-bo-sommar');                
                 for (i = 0; i < ele.length; i++) {
                     if (ele[i].type = "radio") {
                         if (ele[i].checked ) {
                             const boendeTyper = ele[i].id;
-                            const boSPris =  ele[i].value;  
+                            //const boSPris =  ele[i].value;
+                            const boSPris =  get('hs-bo-sommar-' + (i+1)).value; 
                             document.getElementById("rawBoPrice").value = boSPris;
                            const summerPrice =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
@@ -438,29 +440,28 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
             }
 
     function BoVinter() {
+                document.getElementById("missed-kurs-bo").classList.add("hidden");
                 var eleV = document.getElementsByName('hs-radio-vertical-group-bo-vinter');                
                 for (i = 0; i < eleV.length; i++) {
                     if (eleV[i].type = "radio") {
                         if (eleV[i].checked ) {
                             const boendeTyper = eleV[i].id;
-                            const boVPris =  eleV[i].value;  
-                          
-                            document.getElementById("rawBoPrice").value = boVPris; 
-                             
+                            //const boVPris =  eleV[i].value;  
+                            const boVPris =  get('hs-bo-vinter-' + (i+1)).value; 
+                            document.getElementById("rawBoPrice").value = boVPris;                            
                             const winterPrice =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
                                     }).format(boVPris);   
                                   //  alert('bobo happened v' + boVPris); 
-                            document.getElementById("BoPriceISO").value = winterPrice;                         
-                             
+                            document.getElementById("BoPriceISO").value = winterPrice;                                                     
                             const kurser = document.getElementById("hs-kursRawPris").value;
                             const rawTotal = (parseInt(kurser) + parseInt(boVPris)) ;
                             const vintersumma =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
                                     }).format(parseInt(kurser) + parseInt(boVPris));                             
-                            
+                           
                             document.getElementById("hs-summa").value = vintersumma; 
                                      
                             if(boendeTyper === 'hs-radio-vertical-group-bo-vinter-1'){
@@ -502,12 +503,115 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
         }
     }
 
-const get = (id) => document.getElementById(id) || { value: '' }
+//const get = (id) => document.getElementById(id) || { value: '' }
+
 const submitForm = () => {
   //saveInput()
    //alert(' NO bobo 3' + boVPris);
-  sendmail()
+ // sendmail()
+ validateGrundKurs()
 }
+
+//const submitBtn = document.querySelector('[type="submit"]')
+ const submitBTN = document.getElementById('grundkurs-booking')
+submitBTN?.addEventListener('click', submitForm)
+
+
+const validateGrundKurs = () => {
+    
+    
+     if (get('flatpickr-date').value.length < 4) {
+      get('flatpickr-date').classList.remove('border-gray-200')
+      get('flatpickr-date').classList.add('border-red-500')
+      get('flatpickr-date').focus();
+       HSOverlay.open('#hs-date-alert');
+        return false;
+    } 
+
+    const theSeason =  get('BoSeason').value;
+    
+    if (theSeason ==='summer'){
+        const  radioKursBo = radioValue('hs-radio-vertical-group-bo-sommar');
+        if (radioKursBo !== 'on') {
+        document.getElementById('missed-kurs-bo').classList.remove('hidden')
+        get('hs-radio-vertical-group-bo-sommar-1').focus();
+        HSOverlay.open('#hs-bo-alert');
+        return false;
+    } else {
+        get('missed-kurs-bo').classList.add('hidden')
+        }
+    } else if (theSeason === 'winter') {
+        const radioKursBo = radioValue('hs-radio-vertical-group-bo-vinter')
+        if (radioKursBo !== 'on') {
+            document.getElementById('hs-radio-vertical-group-bo-vinter-1').focus()
+            HSOverlay.open('#hs-bo-alert')
+            document.getElementById('missed-kurs-box').classList.remove('hidden')
+            return false;
+    } else {
+            get('missed-kurs-box').classList.add('hidden')
+        }  
+    }
+        if (get('hs-firstname-contacts-1').value.length < 2) {
+      get('hs-firstname-contacts-1').classList.remove('border-gray-200')
+      get('hs-firstname-contacts-1').classList.add('border-red-500')
+      get('hs-firstname-contacts-1').focus();
+       HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-lastname-contacts-1').value.length < 2) {
+      get('hs-lastname-contacts-1').classList.remove('border-gray-200')
+      get('hs-lastname-contacts-1').classList.add('border-red-500')
+      get('hs-lastname-contacts-1').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-birthyear').value.length < 4) {    
+      get('hs-birthyear').classList.remove('border-gray-200')
+      get('hs-birthyear').classList.add('border-red-500')
+      get('hs-birthyear').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-gatu').value.length < 5) {      
+      get('hs-gatu').classList.remove('border-gray-200')
+      get('hs-gatu').classList.add('border-red-500')
+      get('hs-gatu').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-city').value.length < 2) {      
+      get('hs-city').classList.remove('border-gray-200')
+      get('hs-city').classList.add('border-red-500')
+      get('hs-city').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-post-nr').value.length < 5) {      
+      get('hs-post-nr').classList.remove('border-gray-200')
+      get('hs-post-nr').classList.add('border-red-500')
+      get('hs-post-nr').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-land').value.length < 4) {      
+      get('hs-land').classList.remove('border-gray-200')
+      get('hs-land').classList.add('border-red-500')
+      get('hs-land').focus();
+      HSOverlay.open('#hs-contact-alert');
+    } else if (get('hs-email-contacts-1').value.length < 5 || !get('hs-email-contacts-1').value.includes('@')) {
+      get('hs-email-contacts-1').classList.remove('border-gray-200')
+      get('hs-email-contacts-1').classList.add('border-red-500')
+      get('hs-email-contacts-1').focus();
+      HSOverlay.open('#hs-email-alert');
+    } else if (get('hs-mobile').value.length < 5) {      
+      get('hs-mobile').classList.remove('border-gray-200')
+      get('hs-mobile').classList.add('border-red-500')
+      get('hs-mobile').focus();
+      HSOverlay.open('#hs-mobil-alert');
+    } else if (!get('hs-kursvilkor').checked) {      
+      get('hs-kursvilkor').classList.remove('border-gray-200')
+      get('hs-kursvilkor').classList.add('border-red-500')
+      get('hs-kursvilkor').focus();
+      HSOverlay.open('#hs-kurs-vilkor-alert');
+    } 
+    else if (!get('hs-integ').checked) {      
+      get('hs-integ').classList.remove('border-gray-200')
+      get('hs-integ').classList.add('border-red-500')
+      get('hs-integ').focus();
+      HSOverlay.open('#hs-vilkor-alert');
+    } else {
+      sendmail()
+    }
+
+  }
 
 const getFormData = () => {
   const store = Object.create(null)
@@ -530,22 +634,34 @@ const getFormData = () => {
     store.country = get('hs-land')?.value
     store.email = get('hs-email-contacts-1')?.value
     store.telDay = get('hs-tel-day')?.value 
-    if (store.telDay.length < 3 ) 
-        store.telDay = 'N/A';
+    if (store.telday.length < 3 ) 
+        store.telday = 'N/A';
     store.tel = get('hs-mobile')?.value
     store.weight = get('hs-weight')?.value
     if( store.weight.length < 2 ) 
         store.weight = 'N/A';
     store.message = get('hs-meddelande')?.value
-    store.kursvilkor = get('hs-kursvilkor')?.value
-    store.newsletter = get('hs-news')?.value
-    store.checkboxOK = get('remember-me')?.value
+    
+     if( get('hs-kursvilkor')?.checked){
+        store.kursvilkor =  'Ja'
+    }  else {
+        sstore.kursvilkor =  'Nej'
+    }
+     if( get('hs-news')?.checked){
+        store.newsletter =  'Ja'
+    }  else {
+        store.newsletter =  'Nej'
+    }
+    if( get('hs-integ')?.checked){
+        store.checkboxOK =  'Ja'
+    }  else {
+        store.checkboxOK =  'Nej'
+    }
 store.subject = 'Grundkurs Bokning'
   return store
 }
 
-const submitBtn = document.querySelector('[type="submit"]')
-submitBtn?.addEventListener('click', submitForm)
+
 
 const sendmail = async () => {
   
