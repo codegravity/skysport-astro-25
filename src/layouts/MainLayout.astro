@@ -5,13 +5,11 @@ import { Icon } from "astro-icon/components";
 import Meta from "@ui//Meta.astro";
 import TrackGa from "@widgets/TrackGa.astro";
 import PreFooter from "@components/sections/preFooter.astro";
-import HeaderFour from "@components/sections/Header4.astro";
+import HeaderFour from "@components/sections/Header.astro";
 import Footer from "@components/sections/Footer.astro";
 import SideDrawer from "@components/elements/sideDrawer.astro";
-import HeaderTwo from "@components/sections/HeaderTwo.astro";
-import HeaderFive from "@components/sections/Header5.astro";
+import MegaNav from "@components/HSNav.astro"
 //import favIcon from "@/components/assets/images/favicon.ico";
-
 
 interface Props {
   title?: string | undefined;
@@ -51,10 +49,9 @@ const { title, description, keywords } = Astro.props;
 
   </head>
   <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"  >
-    
-    <!--    <TopBg />  -->
- <!--    <Banner /> -->
-    <HeaderFour />
+    <MegaNav />
+
+  <!--  <HeaderFour />  -->
    
     <slot />
 
