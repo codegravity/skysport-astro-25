@@ -90,7 +90,7 @@ const htmlGrundSkyTemplate = (kursDate, kursVeckan, kursPriceISO, boendeType, bo
                          Lägenhetsförfrågan:  ${apartmentRequest}
                         </p>
                        <p style="font-weight: bolder; font-size: 18px; letter-spacing: 0.025em; color:black;">
-                         Summa SIV kurs och boende:  ${summa}
+                         Summa  Grundkurs och boende:  ${summa}
                         </p>
                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 15px;  padding-bottom: 12px;">
                             Skickade: ${BookingTimestamp}
