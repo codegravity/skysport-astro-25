@@ -1,33 +1,13 @@
 ---
-import { siteConfig } from "@config/site";
 import Layout from "@layouts/MainLayout.astro";
 import InnerHero from "@components/sections/InnerHero.astro";
-//import ImageHero from "@components/sections/ImageHero.astro";
-//import VideoHero from "@components/sections/VideoHero.astro";
-//import HeroImage from '../assets/images/IMG_7422.jpg';
-//import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
-import ThreeCards from "@components/sections/ThreeCards.astro";
-import CardImage1 from '@assets/images/mellanmullfjallet27.jpg';
-import CardImage2 from '@assets/images/tandemhenning23.jpg';
-import CardImage3 from '@assets/images/pie3.jpg';
-
 import BookingCTA from  "@sections/bookingCTA.astro";
-
-
-import VtabInfo from  "@sections/FeatureVtabs.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
-import MasonaryIntro from  "@sections/masonary2.astro";
 import innerHero from "@assets/images/omoss/Draklanda19.jpg";
 import tandemLanding from "@assets/images/tandem/sommar-1536x1536.jpg";
 import sommarSkutan from "@assets/images/tandem/sommarskutan1.jpg";
-import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
-import toptandem from "@assets/images/tandem-tandem.jpeg";
-import hummelnare from "@assets/images/pie3.jpg"
 import draklanda200 from "@assets/images/omoss/draklandafrom200m.jpg";
 import draklanda2 from "@assets/images/omoss/dl5.jpg";
-import hummelneast from "@assets/images/kurs/1.jpg";
-import grundkurs from "@assets/images/kurs/1a.jpg";
-import Divider1 from  "@elements/SeparatorLine.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -45,94 +25,11 @@ const customLastPart = [
   }, */
 ];
 
-
-
-/* const HeroContent = {
-    title: "Om Oss",
-    description: " Skysport här varit igång sedan 1991 och är en av Sveriges äldsta skärmflygskolor. Vi håller till i Åre där vi bedriver skärmflygutbildning, tandemflygning, försäljning av utrustning samt arrangerar resor och kurser både i Sverige och utomlands. Vår ambition är att erbjuda högkvalitativa tjänster inom skärmflygning med fokus på säkerhet, glädje och gemenskap.",
-    backgroundImage: HeroImage,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    fadeOut: true,
-  
-} */
 const InnerHeroContent = {
   title: '',
   description: '',
   backgroundImage: innerHero,
   overlayOpacity: 6,
-}
-
- const MasonaryContent = {
-    title: 'Om Skysport i Åre',
-    masoncards: [    //only 5 per mason
-      {
-        masonImg: hummelnare,
-        imgHeight: 360,
-        imgWidth: 360,
-       /*  imgAlt: '', */
-        link: [
-          {
-            text: "Skysport i Åre sen 1990",
-            link: "",
-            target: "_self",
-          },
-        ]
-      },
-      {
-        masonImg: toptandem,
-        imgHeight: '',
-        imgWidth: '',
-        imgAlt: 'Vi flya tandem åretrunt.',
-        link: [
-          {
-            text: "Vi flya tandem åretrunt.",
-            link: "",
-            target: "_self",
-          },
-        ]
-      },
-      {
-        masonImg: hummelneast,
-        imgHeight: 260,
-        imgWidth: 340,
-        imgAlt: '',
-        link: [
-          {
-            text: "Drömen bli verklighet",
-            link: "",
-            target: "_self",
-          },
-        ]
-      },
-     
-      {
-        masonImg: grundkurs,
-        imgHeight: '460',
-        imgWidth: '320',
-        imgAlt: 'Grundkurs',
-        link: [
-          {
-            text: "Grundkurs",
-            link: "",
-            target: "_self",
-          },
-        ]
-      },
-      {
-        masonImg: topStugan,
-        imgHeight: '',
-        imgWidth: '',
-        imgAlt: 'Top stugan',
-        link: [
-          {
-            text: "Besok oss upp på Åreskutan",
-            link: "",
-            target: "_self",
-          },
-        ]
-      }, 
-     ],
 }
 
 const BookingCtaContent = {
@@ -230,31 +127,6 @@ const Feature50cContent = {
     infoIcon: '',  
 }
 
-
- const VtabInfoContent = {
-  infoTitle: "Om Skysport i Åre.",
-  infoIcon: 'meteocons--windsock-fill',
-  infoCards:[
-    {
-      cardText: "Skysport är en skärmflygskola som har sin bas vid Draklanda i Åre. Besöksadress är Årevägen 173. Skysport startade sin verksamhet i Åre 1990 och har sedan dess bedrivit verksamhet året runt.",
-      cardImg: "summarSkutan",
-      cardIcon: '',
-      cardNr: 1,
-    },
-    {
-      cardText: 'Vanligen sker flygningen på förmiddagen, mellan kl 9-12. Senare under dagen/eftermiddagen/kvällen kan också fungera, beroende på väder/årstid. Tiden för flygningen meddelas vanligen kvällen innan. Sista minuten bokning(samma dag) kan göras i mån av plats och om väder/vind är bra.',
-      cardImg: 'topStugan',
-      cardIcon: '',
-      cardNr: 2,
-    },
-    {
-      cardText: 'Samlingsplats för alla tandemflyg är Skysport, som ligger på Årevägen 173 i västra delen av Åre. Det är skyltat från bilvägen och det går att köra ända fram till samlingsplatsen.',
-      cardImg: 'cardImage2',
-      cardIcon: '',
-      cardNr: 3,
-    },
-  ],
-}
 ---
 <Layout title="Skysport Skärmflygskola i Åre" description="" keywords="">
   <InnerHero content={InnerHeroContent} />
@@ -290,7 +162,6 @@ const Feature50cContent = {
           </svg>
       </Breadcrumbs>
   </div> 
-  <MasonaryIntro content={MasonaryContent}/>
   <Feature50 content={Feature50Content}/>
   <Feature50 content={Feature50bContent}/>
   <BookingCTA content={BookingCtaContent}/>
@@ -298,25 +169,3 @@ const Feature50cContent = {
 
 </Layout>
 
-<script is:inline>
-  // nav header change on white page with inner Hero
-  const checkInnerHero = document.querySelector('.innerhero');
-  if (checkInnerHero) {
-    let lastScrollTop = 0;
-    const navHeader = document.getElementById("navheader");
-    let sscy = 400; 
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
-      if (currentScroll > sscy) {
-        // Scrollar nedåt   
-        navHeader.classList.add('lg:bg-slate-600/50');
-        navHeader.classList.add('lg:rounded-full');
-      } else {
-        // Scrollar uppåt
-        navHeader.classList.remove('lg:bg-slate-600/50');
-        navHeader.classList.remove('lg:rounded-full');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-    });
-  }
-</script> 
