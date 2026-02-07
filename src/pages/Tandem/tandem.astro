@@ -1,31 +1,21 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
-import Button from "@components/ui/Button.astro";
-import GoogleMap from "@elements/karta.astro";
-import navScroll from "@components/scripts/scrollfornav.astro";
-import TandemInfo from "@components/sections/TandemInfo.astro";
 import BookTandem from "@components/sections/tandemBookClean.astro";
-import FeatureMain from "@components/sections/3imagefeature.astro";
 import FourImgFeature from "@components/sections/4imagefeature.astro";
-import TandemMasonary from "@components/sections/MasonaryCards.astro";
 import TandemPriceCard from "@widgets/TandemPriceCard.astro";
 import ListWidget from "@widgets/listwidget.astro";
 import VtabInfo from  "@sections/FeatureVtabs.astro";
 import BookingCTA from  "@sections/bookingCTA.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
-
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
-
 import HeroImage from "@assets/images/paraglide-are.jpg";
 import Nygondol from "@assets/images/nygondol.jpg";
 import featureImg1 from "@assets/images/tandem/tandem111.jpg";
 import featureImg2 from "@assets/images/tandem/tandemlanding.jpg";
 import featureImg3 from "@assets/images/tandem/magnum3.jpg";
 import tandemLanding from "@assets/images/tandem/sommar-1536x1536.jpg";
-import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
-import sommarSkutan from "@assets/images/tandem/sommarskutan1.jpg";
 
 const customLastPart = [
   { index: "last", text: "Tandem" },
@@ -43,21 +33,6 @@ const customLastPart = [
 
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-aa.mp4";
 const Mobvideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-mob3.mp4";
-
-
-const masonV1 =
-  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem-25-m22.mp4";
-const masonV2 =
-  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/vinter_Tandem-dji.mp4";
-const masonV3 =
-  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandemapril-M6.mp4";
-const masonV4 =
-  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1000tandem-m5.m4v";
-const masonV5 =
-  "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem-vinter-klipp-m3.mp4";
-
-
-
 
 const Feature4Content = {
   title: "Vi arrangerar tandemflyg året runt",
@@ -80,41 +55,14 @@ const Feature4Content = {
     bild3: featureImg3,
 };
 
-const MasonContent = {
-  video1: masonV1,
-  video5: masonV5,
-  video2: masonV2,
-  video3: masonV3,
-  video4: masonV4,
-};
+
 
 const VideoContent = {
-  //title: "Vi erbjuder tandemflyg från Åreskutan året runt",
-  //description: "Vi erbjuder tandemflyg från Åreskutan året runt",
   backgroundVideo: myVideo,
   mobileVideo: Mobvideo,
-  //descriptionImage: LogoImage,
   position: "justify-end",
   overlayOpacity: 0.2,
   page: "tandem",
-  
- /* buttons: [
-    {
-      text: "BOKA TANDEM",
-      link: "#bokatandem",
-      target: "_self",
-    },
-     {
-      text: "Köp Tandem Presentkort",
-      link: "/Tandem/Presentkort#koppresentkort",
-      target: "_self",
-    },
-    {
-      text: "Förlänga Tandem Presentkort",
-      link: "#forlanga",
-      target: "_self",
-    }, 
-  ],*/
 };
 
 const HeroContent = {
@@ -172,13 +120,7 @@ const Feature50Content = {
      ],
     infoImg:  Nygondol,
     infoIcon: '',
-   /*  buttons: [
-      {
-        text: "",
-        link: "",
-        target: "_self",
-      },
-    ], */
+ 
 }
 const  TandemGearListContent = {
   listTitle: "Utrustning du håller med själv är:",
@@ -292,32 +234,11 @@ const VtabInfoContent = {
   <TandemPriceCard content={TandemPriceCardContent} />
   <Feature50 content={Feature50Content}/>
   <BookingCTA content={BookingCtaContent}/>
-  <TandemMasonary content={MasonContent} />
   <ListWidget content={TandemGearListContent} />
   <ListWidget content={TandemVaderListContent} />
   <VtabInfo content={VtabInfoContent} />
   <BookTandem />
 </Layout>
 
-<script is:inline> 
- 
-  const checkVideoHero = document.querySelector('.videohero');
-  if (checkVideoHero) {
-    let windowHeight = window.innerHeight;
-    const navHeader = document.getElementById("navheader");
-    window.addEventListener('scroll', () => {
-      let currentScroll = window.pageYOffset || document.documentElement.scrollTop; 
-      if (currentScroll > windowHeight) {
-        // Scrollar nedåt   
-        navHeader.classList.add('lg:bg-slate-600/50');
-        navHeader.classList.add('lg:rounded-full');
-      } else {
-        // Scrollar uppåt
-        navHeader.classList.remove('lg:bg-slate-600/50');
-        navHeader.classList.remove('lg:rounded-full');
-      }
-      lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
-    });
-  };
-</script> 
+
  
