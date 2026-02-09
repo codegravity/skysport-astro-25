@@ -1,0 +1,152 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import Button from "@components/ui/Button.astro";
+
+interface FeatureStepsContent {
+    stepsTitle?: string;
+    stepsDescription?: string;
+    stepsText: {
+        preText?: string;
+        spanText?: string;
+        spanClasses?: string;
+        postText?: string;
+        linkTarget?: string;
+        linkText?: string;
+        linkUrl?: string; 
+    }[],
+    stepsImg:  ImageMetadata;
+    imgHeight?: number;
+    imgWidth?: number;
+    infoIcon?: string;
+    buttons?: {
+        text: string;
+        link: string;
+        target?: string;
+    }[];
+    stepsPostText?: string;
+}
+
+interface Props {
+    content: FeatureStepsContent;
+} 
+const { content } = Astro.props;
+
+---
+<!-- Approach -->
+<div class="bg-white dark:bg-gray-800">
+  <!-- Approach -->
+  <div class="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+    <!-- Title -->
+    <div class="max-w-3xl mb-10 lg:mb-14">
+    {content.stepsTitle &&
+        <h2 class="text-white dark:text-gray-200 font-semibold text-2xl md:text-4xl md:leading-tight">{content.stepsTitle}</h2>
+      }
+    {content.stepsDescription &&
+      <p class="mt-1 text-gray-500 dark:text-gray-400">{content.stepsDescription}</p>
+      }
+    </div>
+    <!-- End Title -->
+
+    <!-- Grid -->
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
+      <div class="aspect-w-16 aspect-h-9 lg:aspect-none">
+          <Image 
+                    src={content.stepsImg}
+                    alt="Skysports Tandem i Åre"
+                    class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl"
+                    width={content.imgWidth || '500'}
+                    height={content.imgHeight || '900'}
+                    quality={80}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"
+                    layout="constrained"
+                />
+<!--         <img class="w-full object-cover rounded-xl" src="https://images.unsplash.com/photo-1587614203976-365c74645e83?q=80&w=480&h=600&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Features Image">
+ -->      </div>
+      <!-- End Col -->
+
+      <!-- Timeline -->
+      <div>
+        <!-- Heading -->
+        <div class="mb-4">
+          <h3 class="text-cyan-600 dark:text-cyan-500 text-xs font-medium uppercase">
+            Steg
+          </h3>
+        </div>
+        <!-- End Heading -->
+        {content.stepsText.map((text, index) => (
+        <!-- Item -->
+        <div class="flex gap-x-5 ms-1">
+          <!-- Icon -->
+          <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-gray-200 dark:after:border-neutral-700">
+            <div class="relative z-10 size-8 flex justify-center items-center">
+              <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-cyan-600 dark:text-cyan-500 font-semibold text-xs uppercase rounded-full">
+                {index + 1}
+              </span>
+            </div>
+          </div>
+          <!-- End Icon -->
+
+          <!-- Right Content -->
+          <div class="grow pt-0.5 pb-8 sm:pb-12">
+            <p class="text-sm lg:text-base text-gray-500 dark:text-gray-400">
+              <span class="text-gray-800 dark:text-gray-200">{text.spanText}</span>
+              {text.postText &&
+               <span>{text.postText}</span>
+              }
+            </p>
+          </div>
+          <!-- End Right Content -->
+        </div>
+        <!-- End Item -->
+  ))}
+        {content.stepsPostText &&
+        <div class="flex gap-x-5 ms-1">
+          <!-- Icon -->
+          <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-gray-200 dark:after:border-neutral-700">
+            <div class="relative z-10 size-8 flex justify-center items-center">
+              <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-cyan-600 dark:text-cyan-500 font-semibold text-xs uppercase rounded-full">
+                 <Icon id="ikon-white-mob" type="button" name="solar--info-circle-linear" class="dark:hidden  text-xl pt-3  sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-kontakt" data-hs-overlay="#hs-offcanvas-kontakt"/>  
+                 
+              </span>
+            </div>
+          </div>
+          <!-- End Icon -->
+
+          <!-- Right Content -->
+          <div class="grow pt-0.5 pb-8 sm:pb-12">
+            <p class="text-sm lg:text-base text-gray-500 dark:text-gray-400">
+<!--               <span class="text-gray-800 dark:text-gray-200">{text.spanText}</span>
+ -->              {content.stepsPostText }
+            </p>
+          </div>
+          <!-- End Right Content -->
+        </div>
+        
+}
+      
+
+        {
+      content.buttons && content.buttons.length > 0 && (
+        <div class="flex  flex-col md:flex-row gap-4 mt-8 items-center">
+          {content.buttons.map((button) => (
+            <Button
+              href={button.link}
+              target={button.target || "_self"}
+              variant={button.variant || "primary"}
+            >
+              {button.text}
+            </Button>
+          ))}
+        </div>
+      )
+    }
+      </div> 
+      <!-- End Timeline -->
+    </div>
+    <!-- End Grid -->
+  </div>
+</div>
+<!-- End Approach -->

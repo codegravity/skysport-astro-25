@@ -1,20 +1,19 @@
 ---
-
 import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
-
-
 import ImageHero from "@components/sections/ImageHero.astro";
-import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from '../../assets/images/IMG_7595.jpg';
-import LogoImage from '../../assets/images/Skysport_Logo-01-invert-468.png';
-import ThreeCards from "@components/sections/ThreeCards.astro";
-import CardImage1 from '../../assets/images/mellanmullfjallet27.jpg';
-import CardImage2 from '../../assets/images/tandemhenning23.jpg';
-import CardImage3 from '../../assets/images/pie3.jpg';
-import Reco from "@components/sections/RecoBar.astro";
+import Feature50 from  "@sections/Feature-50-50.astro";
+import FeatureSteps from  "@sections/FeatureSteps.astro";
+import VtabInfo from  "@sections/FeatureVtabs.astro";
+import HeroImage from '@assets/images/IMG_7038.jpg';
+import Skarmflyg1 from '@assets/images/kurs/hummeln5.jpg';
+import Skarmflyg2 from '@assets/images/kurs/rennberg.jpg';
+import Skarmflyg3 from '@assets/images/kurs/skysport-slider-1.jpg';
+import Skarmflyg4 from '@assets/images/kurs/p12.jpg';
 
+import StepIMG from '@assets/images/kurs/1a.jpg';
+
+import Reco from "@components/sections/RecoBar.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -33,50 +32,136 @@ const customLastPart = [
 ];
 
 
-const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
-
-const VideoContent = {
-    title: "Skärmflyg i Åre ",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
-    backgroundVideo: myVideo,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    page: "start"
-}
-
 const HeroContent = {
     title: "Skärmflyg i Åre",
     description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
     backgroundImage: HeroImage,
-    descriptionImage: LogoImage,
+   /* descriptionImage: LogoImage,*/
     overlayOpacity: 0.2,
   
 }
-
-const CardContent = {
-    title1: "Grundkurs",
-    description1: "Förverkliga drömmen och lär dig skärmflyga. Under en 5 dagars intensivkurs i Åre flyger du både i liten backe och höjdflyg från Åreskutan. Kursen leder fram till licens.",
-    image1: CardImage1,
-    url1left: "start",
-    linktext1left: "Läs Mer",
-    url1right: "",
-    linktext1right: "BOKA",
-    title2: "Tandem",
-    description2: "Tillsammans med en erfaren instruktör flyger du på ett säkert och avslappnat sätt från Åreskutan. Arrangeras dagligen under säsong. Inga förkunskaper krävs.",
-    image2: CardImage2,
-    url2left: "start",
-    linktext2left: "Läs Mer",
-    url2right: "tandem",
-    linktext2right: "BOKA",
-    title3: "Nyheter",
-    description3: "Vinter/Vår 2026:  Vi startar säsongen 2 februari. Under februari-september arrangeras kurser kontinuerligt.",
-    image3: CardImage3,
-    url3left: "",
-    linktext3left: "",
-    url3right: "/blog",
-    linktext3right: "NYHETER",
-
+const Feature50Content = {
+     infoTitle: 'Äntligen kan människan flyga!',
+     infoText: [
+      {
+        preText: 'På ett enkelt och hyfsat billigt sätt blir du pilot. Skärmflyg är den enklaste och mest lättillgängliga formen av flygsport. All utrustning går ner i en ryggsäck som väger 10-15 kg. Detta gör att du enkelt tar med utrustningen i bilen eller på en resa. Och vill du gå upp på höga berg och starta där så är inte utrustningen tyngre än att det går bra. Den lättaste utrustningen väger endast 6 kg komplett.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+     
+     /* 
+      {
+        preText: 'För att kunna gå säkerhetskursen måste du ha gilitig elevlicens eller annan licens av högre nivå. Kursen arrangeras under perioden juni-september.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      }, */
+     ],
+    //infoDescription1: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca 185 kr.',
+    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
+    infoImg:  Skarmflyg1,
+    infoIcon: '',
+    buttons: [
+     /*  {
+        text: "",
+        link: "",
+        target: "",
+      }, */
+    ],
 }
+const Feature50Content2 = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Anledningen att skärmflyg blivit en populär sport är enkelheten, att man efter kort utbildning kan få flyga på hög höjd och lång tid i luften. Skärmarna har utvecklats mycket de sista 10 åren och flyger idag fantastiskt bra, samtidigt som de håller hög säkerhet. Även selarna har utvecklats, med lättare material och bättre sittkomfort.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg2,
+}
+const Feature50Content3 = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Åreskutan har 10 olika startplatser, beroende på vindriktning. Högsta fallhöjden är över 1000 meter. Detta ihop med enkla upptransporter gör att det flygs mycket – året runt.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      }, 
+      {
+        preText: 'Skysports utbildningslokal och butik finns precis vid landningsplatsen Draklanda. I samma hus finns också bra boende – Lake Lodge Åre',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg4,
+}
+
+const FeatureStepsContent = {
+
+    stepsTitle: 'Grundkursen är indelad i 4 steg',
+   // stepsDescription: '',
+    stepsText: [
+        {
+        preText: '',
+        spanText: 'Markträning',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+         {
+        preText: '',
+        spanText: 'Flygning i liten backe',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+         {
+        preText: '',
+        spanText: 'Höjdflyg',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+         {
+        preText: '',
+        spanText: 'Teori',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+    ],
+    stepsImg:  StepIMG,
+    //imgHeight:  ,
+    //imgWidth: ,
+    //infoIcon: ,
+    stepsPostText: 'Allt detta tränas under veckokursen. När kursen avslutas har du elevlicens med bergsbehörighet. Den berättigar dig att flyga vidare på egen hand. Med mer träning och en fortsättningskurs, kan du även flyga i stigande luft, sk hang eller termik. Då kan flygtiderna ibland bli flera timmar långa. Ett vanligt flyg, utan flygning i stigande luft, är ca 10-15 minuter vid flygning från Åreskutan. Åre är Sveriges skärmflygcenter. Kabinbana och Gondollift transporterar upp till bergets topp. Under vissa årstider och på kvällen, när liften är stängd, kommer vi upp med hjälp av minibuss.',
+    buttons:[ 
+        {
+        text: 'Boka Grundkurs',
+        link: '/Kurs/Grundkurs/boka',
+        },
+    ],
+}
+
+
+
 ---
 
 <Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
@@ -114,8 +199,13 @@ const CardContent = {
     </Breadcrumbs>
 </div>
     <section >
-     <ThreeCards content={CardContent}/>
+     <Feature50 content={Feature50Content}/>
+      <Feature50 content={Feature50Content2}/>
+  
+      <FeatureSteps content={FeatureStepsContent}/>
+          <Feature50 content={Feature50Content3}/>
   </section>
+ 
   <section >
      <Reco />
   </section>

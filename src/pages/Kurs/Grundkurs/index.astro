@@ -1,19 +1,21 @@
 ---
-
-import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
-
 import FeatureCTA from "@components/sections/FeatureCTA.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
-import VideoHero from "@components/sections/VideoHero.astro";
-//import InnerHero from "@components/sections/InnerHero.astro"
+import Feature50 from  "@sections/Feature-50-50.astro";
+import FourImgFeature from "@components/sections/4imagefeature.astro";
+
 import HeroImage from '@assets/images/IMG_7595.jpg';
+
 import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
 import backgroundIMG from '@assets/images/kurs/nordosthummeln.jpg';
+import featureImg1 from "@assets/images/kurs/18.jpg";
+import featureImg2 from "@assets/images/tandem/tandemlanding.jpg";
+import featureImg3 from "@assets/images/IMG_7621.jpg";
+import Skarmflyg1 from "@assets/images/paraglide-are.jpg";
+import Skarmflyg2 from '@assets/images/kurs/rennberg.jpg';
+import Skarmflyg3 from '@assets/images/kurs/balans.jpg';
 
-
-import Reco from "@components/sections/RecoBar.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -30,16 +32,7 @@ const customLastPart = [
     text: "Grundkurs",
   }, */
 ];
-const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
 
-const VideoContent = {
-    title: "Skärmflyg i Åre ",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
-    backgroundVideo: myVideo,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    page: "start"
-}
 
 const HeroContent = {
     title: "Skärmflyg i Åre",
@@ -57,6 +50,76 @@ const InnerHeroContent = {
     descriptionImage: LogoImage,
     overlayOpacity: 0.2,
   
+}
+const Feature4Content = {
+  title: "Låt drömmen bli verklighet",
+  description: 'Grundkursen i Åre tar en vecka och är upplagd efter en kursplan som Svenska Skärmflygförbundet, SSFF, fastställt. Kursen leder fram till Studentlicens, med behörigheterna backglidning och berg. Under veckan gör vi både låga flyg (backglidningar) och höjdflyg (bergsflyg). De låga flygen genomförs i en liten backe, med 20-30 meters fallhöjd. De höga flygen genomförs från Åreskutan. Start sker vanligen från Hummeln (530 meters fallhöjd), Röda Rappet (820 meters fallhöjd) eller 1000 m starten (920 meters fallhöjd). Vi har 8 olika startplatser beroende på vindriktning och vindstyrka. Åreskutan är formad som en pyramid, vilket gör att vi kan starta på samtliga vindriktningar.',
+ /* postText: '',
+  listItems: [
+    {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Vi har en åldersgräns på 7 år',
+      listClasses: 'font-bold',
+    },
+    {
+      listIcon: 'solar--info-circle-linear',
+      listText: 'Viktgräns är 135 kg',
+      listClasses: 'font-bold',
+    },  
+    ],*/
+    bild1: featureImg1,
+    bild2: featureImg2,
+    bild3: featureImg3,
+};
+
+const Feature50Content = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Efter avslutad utbildning (student och bergslicens), får du flyga självständigt i backar upp till ca 100 m fallhöjd. För att flyga höjdflyg krävs närvara av mer erfaren pilot, som innehar Pilot 1 eller Pilot 2 licens. Vill du bli kunna flyga bergsflyg helt självständigt, och även kunna flyga utomlands utan instruktör, krävs att du gör fortsättningsflyg och så småningom går en Pilot 1 licens kurs. För att påbörja Pilot 1 kursen krävs att du har minst 50 st höjdflyg och totaltid på 10 timmar. Men börja med grundkursen, det är en fantastiskt roligt vecka, som du aldrig glömmer. Och gå din kurs i Åre – som är en bra plats att börja flyga på.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg1,
+}
+
+const Feature50Content2 = {
+     infoOrientationL: false,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoText: [
+      {
+        preText: 'Åre är Sveriges skärmflygcenter. Åre är det flygställe som har i särklass högst fallhöjd och det enda stället i Sverige som kan jämföras med Alperna. Kabinbana och Gondollift transporterar upp till Åreskutan. Och när liftarna är stängda har vi möjlighet till upptransport med minibuss. När du väl kommit upp till starten förstår du vad vi menar med fallhöjd. 500-1000 meter ger dig en flygtid på minst 10 minuter. Utan att flyga i uppvindar. Med grundläggande kunskaper att flyga i uppvindar, är det vanligt med flygtider på 30 minuter. En expert kan flyga i timtal. Rekord i Åre: 6 timmar i luften i sträck.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg2,
+}
+const Feature50Content3 = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Under kursen erbjuder Skysport också bra boende i anslutning till landningplatsen Draklanda, i centrala Åre. Boendeanläggningen heter LAKE LODGE – och ligger väldigt naturskönt, precis vid Åresjöns strand.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      }, 
+       {
+        preText: 'Åre erbjuder dessutom en mängd andra aktiviteter som skidåkning, mountainbike, fjällvandring, golf, klättring, forsränning, paddling mm. Så även om inte din familj eller kompisar är intresserade av kursen, så kan de ändå följa med och ägna sig åt andra aktiviteter.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },  
+     ],
+    infoImg:  Skarmflyg3,
 }
 
 const FeatureCTAContent ={
@@ -88,7 +151,10 @@ description=""
 keywords=""
 >
   <ImageHero content={HeroContent} /> 
-    
+    <FourImgFeature content={Feature4Content}/>
+     <Feature50 content={Feature50Content}/>
+     <Feature50 content={Feature50Content2}/>
+      <Feature50 content={Feature50Content3}/>
     <section >
       <FeatureCTA content={FeatureCTAContent} />
   </section>
