@@ -1,5 +1,5 @@
 ---
-import Logo from "@components/elements/LogoWhite.astro";
+import Logo from "@components/elements/LogoCG.astro";
 import NavSuffix from '@elements/bannersuffix.astro';
 import { Icon } from 'astro-icon/components';
 
@@ -7,11 +7,11 @@ import { Icon } from 'astro-icon/components';
 
 <!-- ========== HEADER ========== -->
 <header class="fixed  lg:top-4 inset-x-0 before:absolute before:inset-0  rounded-none before:max-w-5xl after:max-w-5xl before:mx-0 after:mx-0 md:before:mx-2 lg:before:mx-auto lg:before:rounded-full before:border before:border-navbar-line after:absolute after:inset-0 after:-z-1  lg:after:mx-2 lg:after:mx-auto lg:after:rounded-full  after:bg-navbar flex flex-wrap md:justify-start lg:flex-nowrap z-50 w-full">
-  <nav class="relative max-w-5xl w-full  lg:px-8 py-2 lg:py-0 bg-blue-950 md:bg-slate-950/60 dark:bg-slate-950/60 rounded-none lg:rounded-full md:flex lg:items-center lg:justify-between lg:gap-3 ps-2 lg:ps-5 pe-3 lg:pe-2 :mx-2 lg:mx-auto ">
+  <nav class="relative max-w-5xl w-full  lg:px-8 py-2 lg:py-0 bg-blue-950 lg:bg-slate-950/60 dark:bg-slate-950/60 rounded-none lg:rounded-full lg:flex lg:items-center lg:justify-between lg:gap-3 ps-2 lg:ps-5 pe-3 lg:pe-2 :mx-2 lg:mx-auto ">
     <!-- Logo w/ Collapse Button -->
     <div class="flex items-center justify-between">
-      <a class="flex-none font-semibold text-xl text-gray-800 dark:text-gray-200 focus:outline-hidden focus:opacity-80" href="#" aria-label="Skysport"><Logo /></a>
-
+      <!-- <a class="flex-none font-semibold text-xl text-gray-800 dark:text-gray-200 focus:outline-hidden focus:opacity-80" href="#" aria-label="Skysport"><Logo /></a> -->
+<Logo />
       <!-- Collapse Button -->
       <div class="lg:hidden">
         <button type="button" class="hs-collapse-toggle relative size-9 flex justify-center items-center text-sm font-semibold rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-gray-800 dark:text-white hover:bg-gray-50 dark:hover:bg-gray-700 focus:outline-hidden focus:bg-gray-50 dark:focus:bg-gray-700 disabled:opacity-50 disabled:pointer-events-none" id="hs-header-classic-collapse" aria-expanded="false" aria-controls="hs-header-classic" aria-label="Toggle navigation" data-hs-collapse="#hs-header-classic">
@@ -29,10 +29,10 @@ import { Icon } from 'astro-icon/components';
       <div class="overflow-hidden overflow-y-auto max-h-[75vh] [&::-webkit-scrollbar]:w-2 [&::-webkit-scrollbar-thumb]:rounded-none [&::-webkit-scrollbar-track]:bg-gray-100 dark:[&::-webkit-scrollbar-track]:bg-gray-700 [&::-webkit-scrollbar-thumb]:bg-gray-300 dark:[&::-webkit-scrollbar-thumb]:bg-gray-500">
         <div class="py-2 lg:py-0 flex flex-col lg:flex-row lg:items-center lg:justify-center gap-0.5 lg:gap-1">
            <a  class="lg:hidden p-2 flex items-center text-xl group text-slate-100 dark:text-cyan-500 focus:outline-hidden"  aria-current="page">
-            <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
+            <svg class="shrink-0 size-4 me-3 md:me-2 block lg:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8"/><path d="M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>
             START
           </a> 
-           <div class="hidden hs-tooltip sm:[--placement:bottom] md:inline-block">
+           <div class="hidden hs-tooltip sm:[--placement:bottom] lg:inline-block">
               <a class="sm:px-2 font-medium  focus:outline-hidden group text-slate-100" href="/" aria-current="page">
                 <Icon type="button" name="mingcute--home-blue" class="hidden text-2xl pt-1 sm:pt-0 sm:text-xl"   />
                 <Icon type="button" name="mingcute--home-Vit" class=" text-2xl pt-1 sm:pt-0 sm:text-xl"   />
@@ -45,42 +45,42 @@ import { Icon } from 'astro-icon/components';
           <!--Kurs  Dropdown -->
           <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false]">
             <button id="hs-header-classic-dropdown" type="button" class=" hs-dropdown-toggle w-full p-2 flex items-center  text-gray-200 text-bold text-xl dark:text-gray-200 hover:text-amber-400/90 focus:text-blue-400 dark:hover:text-gray-400 focus:outline-hidden focus:text-blue-400 dark:focus:text-gray-400" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-              <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
+              <svg class="shrink-0 size-4 me-3 md:me-2 block lg:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
               KURS
               <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
 
             <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-52 hidden z-10 top-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-amber-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown">
               <div class="py-1 md:px-1 space-y-0.5 ">
-                <a href="/Kurs/omskarmflyg" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40  hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Kurs/omskarmflyg" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40  hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Om Skärmflyg
                 </a>
                 <!--Grundkurs -->
                 <div class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--is-collapse:true] md:[--is-collapse:false] relative">
-                  <button id="hs-header-classic-dropdown-sub" type="button" class="hs-dropdown-toggle w-full py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-amber-500 dark:hover:text-gray-400 focus:outline-hidden focus:uppercase  focus:text-amber-500 dark:focus:text-gray-400 ">
+                  <button id="hs-header-classic-dropdown-sub" type="button" class="hs-dropdown-toggle w-full py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-amber-500 dark:hover:text-gray-400 focus:outline-hidden focus:uppercase  focus:text-amber-500 dark:focus:text-gray-400 ">
                     Grundkurs
                     <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:-rotate-90 md:-rotate-90 ms-auto shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
 
-                  <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-48 hidden z-10 md:mt-2 md:mx-2.5! md:top-0 md:end-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-orange-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown-sub">
+                  <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-48 hidden z-10 md:mt-2 md:mx-2.5! md:top-0 md:start-full lg:end-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-orange-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown-sub">
                     <div class="p-1 space-y-0.5 md:space-y-1 ">
-                      <a href="/Kurs/Grundkurs/" class="group py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Grundkurs/" class="group py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Om Grundkursen
                       </a>
 
-                      <a href="/Kurs/Grundkurs/vadingor" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Grundkurs/vadingor" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Väd ingår i Grundkursen
                       </a>
 
-                      <a href="/Kurs/Grundkurs/kursschema" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Grundkurs/kursschema" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Kursschema 2026
                       </a>
 
-                      <a href="/Kurs/Grundkurs/presentkort" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Grundkurs/presentkort" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Presentkort Grundkurs
                       </a>
 
-                      <a href="/Kurs/Grundkurs/boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Grundkurs/boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Boka
                       </a>
                     </div>
@@ -88,46 +88,46 @@ import { Icon } from 'astro-icon/components';
                 </div><!--end grundkurs -->
                 <!--fortsättningskurs -->
                 <div class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--is-collapse:true] md:[--is-collapse:false] relative">
-                  <button id="hs-header-classic-dropdown-sub" type="button" class="hs-dropdown-toggle w-full py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-amber-500 dark:hover:text-gray-400 focus:outline-hidden focus:uppercase focus:text-amber-500 dark:focus:text-gray-400">
+                  <button id="hs-header-classic-dropdown-sub" type="button" class="hs-dropdown-toggle w-full py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-amber-500 dark:hover:text-gray-400 focus:outline-hidden focus:uppercase focus:text-amber-500 dark:focus:text-gray-400">
                     Fortsättningskurser
                     <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:-rotate-90 md:-rotate-90 ms-auto shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
 
-                  <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-48 hidden z-10 md:mt-2 md:mx-2.5! md:top-0 md:end-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-orange-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown-sub">
+                  <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-48 hidden z-10 md:mt-2 md:mx-2.5! md:top-0 md:start-full lg:end-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-orange-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown-sub">
                     <div class="p-1 space-y-0.5 md:space-y-1">
-                      <a href="/Kurs/Fort/" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Fortsättningskurser
                       </a>
 
-                      <a href="/Kurs/Fort/kursschema" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/kursschema" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Kursschema 2026
                       </a>
 
-                      <a href="/Kurs/Fort/berg-termik" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/berg-termik" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Berg och Termik
                       </a>
 
-                      <a href="/Kurs/Fort/samlaflyg" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/samlaflyg" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Samlaflyg
                       </a>
 
-                      <a href="/Kurs/Fort/pilot1" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/pilot1" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Pilot 1
                       </a>
 
-                      <a href="/Kurs/Fort/pilot2" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/pilot2" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Pilot 2
                       </a>
 
-                      <a href="/Kurs/Fort/hang" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/hang" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Hang
                       </a>
 
-                      <a href="/Kurs/Fort/SIV" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/SIV" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Säkerhetskurs
                       </a>
 
-                      <a href="/Kurs/Fort/Boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Fort/Boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Boka
                       </a>
                     </div>
@@ -135,33 +135,33 @@ import { Icon } from 'astro-icon/components';
                 </div><!--end fortsättningskurs -->
                 <!--parakurs -->
                 <div class="hs-dropdown [--strategy:static] md:[--strategy:absolute] [--adaptive:none] md:[--trigger:hover] [--is-collapse:true] md:[--is-collapse:false] relative">
-                  <button id="hs-header-classic-dropdown-sub" type="button" class="hs-dropdown-toggle w-full py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-amber-500 dark:hover:text-gray-400 focus:outline-hidden focus:uppercase focus:text-amber-500 dark:focus:text-gray-400">
+                  <button id="hs-header-classic-dropdown-sub" type="button" class="hs-dropdown-toggle w-full py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-amber-500 dark:hover:text-gray-400 focus:outline-hidden focus:uppercase focus:text-amber-500 dark:focus:text-gray-400">
                     Paramotor
                     <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:-rotate-90 md:-rotate-90 ms-auto shrink-0 size-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
                   </button>
 
-                  <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-48 hidden z-10 md:mt-2 md:mx-2.5! md:top-0 md:end-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-orange-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown-sub">
+                  <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative md:w-48 hidden z-10 md:mt-2 md:mx-2.5! md:top-0 md:start-full lg:end-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:hidden md:before:block before:absolute before:-end-5 before:top-0 before:h-full before:w-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-orange-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown-sub">
                     <div class="p-1 space-y-0.5 md:space-y-1">
-                      <a href="/Kurs/Paramotor/" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Paramotor/" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Utbildning Paramotor
                       </a>
 
-                      <a href="/Kurs/Paramotor/vadingo" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Paramotor/vadingo" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Vad ingår i kursen
                       </a>
 
-                      <a href="/Kurs/Paramotor/Boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                      <a href="/Kurs/Paramotor/Boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                         Boka
                       </a>
                     </div>
                   </div>
                 </div><!--end parakurs -->
 
-                <a href="/Kurs/speed" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Kurs/speed" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Speed
                 </a>
 
-                <a href="/Kurs/licenssystem" class="py-1.5 px-2 flex items-center text-sm text-gray-200 lg:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Kurs/licenssystem" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Om Licensen
                 </a>
               </div>
@@ -171,26 +171,26 @@ import { Icon } from 'astro-icon/components';
           <!-- Tandem Dropdown -->
           <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false]">
             <button id="hs-header-classic-dropdown" type="button" class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-200 text-bold text-xl dark:text-gray-200 hover:text-amber-400/90 focus:text-blue-400 dark:hover:text-gray-400 focus:outline-hidden  dark:focus:text-gray-400" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-              <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
+              <svg class="shrink-0 size-4 me-3 md:me-2 block lg:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
               TANDEM
               <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
 
             <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-52 hidden z-10 top-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-amber-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown">
               <div class="py-1 md:px-1 space-y-0.5">
-                <a href="/Tandem/tandem" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Tandem/tandem" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Tandem
                 </a>
 
-                <a href="/Tandem/Presentkort" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Tandem/Presentkort" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Tandem Presentkort
                 </a>
 
-                <a href="/Tandem/Pilots" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Tandem/Pilots" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Tandem Pilots
                 </a>
 
-                <a href="/Tandem/Boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Tandem/Boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Boka
                 </a>
               </div>
@@ -200,24 +200,24 @@ import { Icon } from 'astro-icon/components';
           
 
          <a href="/butik"  class="p-2 flex items-center text-sm text-gray-200 text-bold text-xl dark:text-gray-200 hover:text-amber-400/90 focus:text-blue-400 dark:hover:text-gray-400 focus:outline-hidden  dark:focus:text-gray-400" >
-            <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            <svg class="shrink-0 size-4 me-3 md:me-2 block lg:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
             BUTIK
           </a>
           <!-- resor  Dropdown -->
           <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false]">
             <button id="hs-header-classic-dropdown" type="button" class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-200 text-bold text-xl dark:text-gray-200 hover:text-amber-400/90 focus:text-blue-400 dark:hover:text-gray-400 focus:outline-hidden  dark:focus:text-gray-400" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-              <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
+              <svg class="shrink-0 size-4 me-3 md:me-2 block lg:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
               RESOR
               <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
 
             <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-52 hidden z-10 top-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-amber-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown">
               <div class="py-1 md:px-1 space-y-0.5">
-                <a href="/Resor/" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Resor/" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Resor
                 </a>
 
-                <a href="/Resor/boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/Resor/boka" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Boka
                 </a>
 
@@ -227,26 +227,26 @@ import { Icon } from 'astro-icon/components';
            <!-- om oss  Dropdown -->
           <div class="hs-dropdown [--strategy:static] md:[--strategy:fixed] [--adaptive:none] md:[--adaptive:adaptive] [--is-collapse:true] md:[--is-collapse:false]">
             <button id="hs-header-classic-dropdown" type="button" class="hs-dropdown-toggle w-full p-2 flex items-center text-sm text-gray-200 text-bold text-xl dark:text-gray-200 hover:text-amber-400/90 focus:text-blue-400 dark:hover:text-gray-400 focus:outline-hidden  dark:focus:text-gray-400" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-              <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
+              <svg class="shrink-0 size-4 me-3 md:me-2 block lg:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 10 2.5-2.5L3 5"/><path d="m3 19 2.5-2.5L3 14"/><path d="M10 6h11"/><path d="M10 12h11"/><path d="M10 18h11"/></svg>
               OM OSS
               <svg class="hs-dropdown-open:-rotate-180 md:hs-dropdown-open:rotate-0 duration-300 shrink-0 size-4 ms-auto md:ms-1" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>
             </button>
 
             <div class="hs-dropdown-menu transition-[opacity,margin] duration-[0.1ms] md:duration-[150ms] hs-dropdown-open:opacity-100 opacity-0 relative w-full md:w-52 hidden z-10 top-full ps-7 md:ps-0 md:bg-white dark:md:bg-gray-900 md:border md:border-gray-200 dark:md:border-gray-700 md:rounded-lg md:shadow-md before:absolute before:-top-4 before:start-0 before:w-full before:h-5 md:after:hidden after:absolute after:top-1 after:start-4.5 after:h-[calc(100%-4px)] after:border-s after:border-gray-200 dark:after:border-amber-200" role="menu" aria-orientation="vertical" aria-labelledby="hs-header-classic-dropdown">
               <div class="py-1 md:px-1 space-y-0.5">
-                <a href="/OmOss/omoss" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/OmOss/omoss" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Om Skysport
                 </a>
 
-                <a href="/OmOss/instruktor" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/OmOss/instruktor" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Instruktör
                 </a>
 
-                <a href="/OmOss/historik" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/OmOss/historik" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Historik
                 </a>
 
-                <a href="/OmOss/integritetspolicy" class="py-1.5 px-2 flex items-center text-sm text-gray-200 sm:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
+                <a href="/OmOss/integritetspolicy" class="py-1.5 px-2 flex items-center text-sm text-gray-200 md:text-gray-800 dark:text-gray-200 hover:bg-blue-300/40 hover:text-gray-500 dark:hover:text-gray-400 focus:outline-hidden focus:text-gray-500 dark:focus:text-gray-400" >
                   Integritetspolicy
                 </a>
 
@@ -264,11 +264,12 @@ import { Icon } from 'astro-icon/components';
             <svg class="shrink-0 size-4 me-3 md:me-2 block md:hidden" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg>
             BLOG
           </a> -->
-          <div class="md:hidden  relative flex flex-row justify-center border-t-2 border-gray  gap-x-3.5 text-6xl before:block before:absolute before:top-1/2 before:-start-px before:w-px before:h-4   before:-translate-y-1/2">
+          <div class="lg:hidden  relative flex flex-row justify-center border-t-2 border-gray  gap-x-3.5 text-6xl before:block before:absolute before:top-1/2 before:-start-px before:w-px before:h-4   before:-translate-y-1/2">
               <div class="text-center  px-0  sm:pt-2">
                 <div class="hs-tooltip [--placement:auto] inline-block">
-            
-                  <Icon id="weather-links-mobil" type="button" name="fa7-solid--external-link" class="md:hidden text-5xl pt-3 sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-example" data-hs-overlay="#hs-offcanvas-example"/>
+<!--                    <Icon id="weather-links-mobil" type="button" name="fa7-solid--external-link" class="lg:hidden text-5xl pt-3 sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-example" data-hs-overlay="#hs-offcanvas-example"/>
+ -->                 
+                  <Icon id="weather-links-mobil" type="button" name="meteocons--windsock-fill" class="lg:hidden text-6xl pt-3 sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-example" data-hs-overlay="#hs-offcanvas-example"/>
                   <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
                     Väder Länkar
                 </span>
