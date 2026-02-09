@@ -14,9 +14,15 @@ interface Feature4Content {
     listClasses?: string;
   } [];
   postText: string;
-  bild1: ImageMetadata;
-  bild2: ImageMetadata;
-  bild3: ImageMetadata;
+  fourImages: {
+    bild: ImageMetadata;
+    imgHeight:  number;
+    imgWidth:  number;
+    imgAlt:  string;
+  }[],
+  bild1?: ImageMetadata;
+  bild2?: ImageMetadata;
+  bild3?: ImageMetadata;
  
 }
 
@@ -24,9 +30,6 @@ interface Props {
   content: Feature4Content;
 }
 const { content } = Astro.props;
-const Img1 = content.bild1;
-const Img2 = content.bild2;
-const Img3 = content.bild3;
 
 ---
 
@@ -43,75 +46,33 @@ const Img3 = content.bild3;
       <!-- Grid -->
       <!-- Image Grid -->
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        <a class="hidden group sm:block relative overflow-hidden rounded-lg" href="#">
-            <Image 
-            src={Img3}
-            alt="Skysports Tandem i Åre"
-            class="w-full size-80 object-cover bg-gray-100  dark:bg-neutral-800 rounded-xl"
-            inferSize
-            layout="constrained"
-          />
-           <!--  <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="https://images.unsplash.com/photo-1656618724305-a4257e46e847?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project">
-            --> <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
-            <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
-                <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <span class="text-xs">View</span>
-            </div>
-            </div>
-        </a>
+          {content.fourImages.map((bild) => (
+            <a class="hidden group sm:block relative overflow-hidden rounded-lg" href="#">
+                <Image 
+                  src={bild.bild}
+                  alt={bild.imgAlt ||  "Skysports Tandem i Åre"}
+                  class="w-full size-80 object-cover bg-gray-100  dark:bg-neutral-800 rounded-xl"
+                  width={bild.imgWidth || '514'}
+                  height={bild.imgHeight || '514'}
+                  quality={80}
+                  format="webp"
+                  loading="lazy"
+                  decoding="async"
+                  layout="constrained"
+              />
+              {/* <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
+                <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
+                    <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+                    <span class="text-xs">View</span>
+                </div>
+                </div> */}
+            </a>
+        ))}
+       
 
-        <a class="group block relative overflow-hidden rounded-lg" href="#">
-             <Image 
-            src={Img1}
-            alt="Skysports Tandem i Åre"
-            class="w-full size-80 object-cover bg-gray-100  dark:bg-neutral-800 rounded-xl"
-            inferSize
-            layout="constrained"
-          />
-<!--             <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="https://images.unsplash.com/photo-1616427592793-67b858804534?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project">
- -->            <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
-            <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
-                <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <span class="text-xs">View</span>
-            </div>
-            </div>
-        </a>
 
-        <!-- <a class="group block relative overflow-hidden rounded-lg" href="#">
-            
-             <Image 
-            src={Img2}
-            alt="Skysports Tandem i Åre"
-            class="w-full size-80 object-cover bg-gray-100  dark:bg-neutral-800 rounded-xl"
-            inferSize
-            layout="constrained"
-          />
-            <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project">
-            <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
-            <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
-                <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <span class="text-xs">View</span>
-            </div>
-            </div>
-        </a>
 
-        <a class="group block relative overflow-hidden rounded-lg" href="#">
-            
-             <Image 
-            src={Img1}
-            alt="Skysports Tandem i Åre"
-            class="w-full size-80 object-cover bg-gray-100  dark:bg-neutral-800 rounded-xl"
-            inferSize
-            layout="constrained"
-          />
-            <img class="w-full size-40 object-cover bg-gray-100 rounded-lg dark:bg-neutral-800" src="https://images.unsplash.com/photo-1707760696486-2a2cd7e0b6a6?q=80&w=320&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Project">
-            <div class="absolute bottom-1 end-1 opacity-0 group-hover:opacity-100 transition">
-            <div class="flex items-center gap-x-1 py-1 px-2 bg-white border border-gray-200 text-gray-800 rounded-lg dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-200">
-                <svg class="shrink-0 size-3" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
-                <span class="text-xs">View</span>
-            </div>
-            </div>
-        </a> -->
+       
 
         
 
