@@ -3,41 +3,27 @@ import Layout from "@layouts/MainLayout.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import Reco from "@components/sections/RecoBar.astro";
-import Button from "@components/ui/Button.astro";
+//import Button from "@components/ui/Button.astro";
 
 import Tandem1 from '../assets/images/tandem/summartandem.jpg';
 import kurs1 from '../assets/images/kurs/1.jpg';
 import butik1 from '@assets/images/IMG_7038.jpg';
-import HeroImage from '../assets/images/IMG_7595.jpg';
-import LogoImage from '../assets/images/Skysport_Logo-01-invert-468.png';
-import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
-import ProductIMG from '@assets/images/products/solarxon.jpg';
-import { siteConfig } from "@config/site";
+
 
 
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1ASIDA.mp4";
 const mobVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/start/1ASIDA-mobb.mp4";
 
 const VideoContent = {
-  //title: "Vi erbjuder tandemflyg från Åreskutan året runt",
-  //description: "Vi erbjuder tandemflyg från Åreskutan året runt",
   backgroundVideo: myVideo,
   mobileVideo: mobVideo,
-  //descriptionImage: LogoImage,
   overlayOpacity: 0.2,
   page: "start",
   position: "justify-end",
-  buttons: [
-   /* {
-      text: "BOKA TANDEM",
-      link: "#bokatandem",
-      target: "_self",
-    },*/
-  ],
 };
 
  const HeroTandemContent = {
-    title: "Tandemflyg från Åreskutan",
+    title: "TANDEMFLYG",
     description: "",
     backgroundImage: Tandem1,
     overlayOpacity: 0.2,
@@ -51,8 +37,8 @@ const VideoContent = {
     ],
 };
  const HeroKursContent = {
-    title: "Skärmflygutbildning i Åre",
-    description: "Skysport erbjuder grundkurs, fortsättningskurser, säkerhetskurser och paramotorkurser",
+    title: "LÄR DEJ FLYGGA - GÅR EN KURS",
+    description: "",
     backgroundImage: kurs1,
     overlayOpacity: 0.2,
     position: "justify-end",
@@ -66,8 +52,8 @@ const VideoContent = {
 }; 
 
  const HeroButikContent = {
-    title: "Butik",
-    description: "Återförsljare för Ozone, BDG Design, U-Turn, Swing, Icaro, Sup Air, mm ",
+    title: "BUTIK",
+    description: "",
     backgroundImage: butik1,
     overlayOpacity: 0.2,
     position: "justify-end",
@@ -80,8 +66,8 @@ const VideoContent = {
   ], 
 }; 
 const HeroResContent = {
-    title: "Resor",
-    description: "Turkiet, Columbia, mm",
+    title: "RESOR",
+    description: "Spanien, Turkiet, Morocco",
     backgroundImage: kurs1,
     overlayOpacity: 0.2,
     position: "justify-end",
