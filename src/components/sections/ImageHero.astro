@@ -1,13 +1,18 @@
 ---
-//import Button from '@/components/ui/Button.astro';
 import Button from "@components/ui/Button.astro";
 import { Image } from 'astro:assets';
 
 interface HeroContent {
-    title: string;
-    description: string;
+    title?: string;
+    titleTextStyles?: string;
+    description?: string;
+    descriptionTextStyles?: string;
     descriptionImage?: string | any;
     backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
+    imgHeight?: number;
+    imgWidth?: number;
+    imgLoading?: string;
+    imgAlt?: string;
     overlayOpacity?: number; 
     fadeOut?: number;// Value between 0 and 1
     position?: string;
@@ -17,7 +22,6 @@ interface HeroContent {
     target?: string;
   }[];
 }
-
 interface Props {
     content: HeroContent;
 } 
@@ -67,10 +71,13 @@ const overlayPosition = content.position || "justify-center";
                 />
             </div>
         )} 
-        <h4 class="lg:text-white text-balance lg:text-6xl lg:text-bold" >{content.title}</h4>
-        <p class="text-white mt-2 text-balance" data-aos="fade-up" data-aos-delay="100">{content.description}</p>
-        {
-      content.buttons && content.buttons.length > 0 && (
+        { content.title &&
+        <h4 class="lg:text-white text-balance lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || ''} >{content.title}</h4>
+        }
+        { content.description &&
+        <p class=" mt-2 text-balance" class:list={content.descriptionTextStyles || 'text-white'} >{content.description}</p>
+        }
+        { content.buttons && content.buttons.length > 0 && (
         <div class="flex  flex-col md:flex-row gap-4 mt-8 items-center">
           {content.buttons.map((button) => (
             <Button
