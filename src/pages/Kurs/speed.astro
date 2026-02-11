@@ -1,11 +1,11 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from '@assets/images/paraglide-are.jpg';
-import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+import Booking from "@components/elements/forms/speedkursform.astro";
+import Divider1 from  "@elements/SeparatorLine.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
 import SpeedImage from '@assets/images/kurs/speed1.png';
-import SivForm from "@components/elements/forms/SIVForm.astro";
+import SpeedImage2 from '@assets/images/kurs/speedDraklanda.png';
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -32,60 +32,83 @@ const VideoContent = {
     //description: "Speedgliding från Åreskutan.",
     backgroundVideo: myVideo,
     mobileVideo: Mobvideo,
-    descriptionImage: LogoImage,
+    //descriptionImage: LogoImage,
     overlayOpacity: 0.2,
-    //page: "tandem",
     position: "justify-end"
-}
-
-
-const HeroContent = {
-    title: "Tandemflyg hos Skysport",
-    description: "A good place to start.",
-    backgroundImage: HeroImage,
-    overlayOpacity: 0.2
 }
 
 const Feature50Content = {
      infoTitle: 'Speedgliding',
+      infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
      infoText: [
       {
-        preText: 'Skicka intresse anmälning.',
-        spanText: '',
-        spanClasses: 'text-xl font-bold text-orange-600',
+        spanText: 'Vi erbjuder speed flyg kurser i Åre.',
+        spanClasses: 'text-lg font-semibold text-slate-600',
         postText: '',
       },
-       {
-        preText: '',
-        spanText: 'speed@skysport.se',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      },
-     /* {
-        preText: 'Kursen tar ca 2-3 dagar med bra väder. Antalet flyg för att hinna med alla ovanstående moment är ca 4-5 stycken. ',
+      {
+        preText: 'En speedskärm är en mindre paragliderskärm med en något annan design än en vanlig paraglider. Den flyger snabbare, ca 40-60 km/h och sjunker mer än en vanlig paraglider. Vi anpassar storleken och modellen efter din erfarenhet och vikt. Allt för att du ska få rätt förutsättningar under din utbildning.',
         spanText: '',
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },
       {
-        preText: 'För att kunna gå säkerhetskursen måste du ha gilitig elevlicens eller annan licens av högre nivå. Kursen arrangeras under perioden juni-september.',
+        preText: 'Kalfjället i Åre erbjuder fina förutsättningar under februari, mars och april. Vi har då snötäcke och liftar som lätt tar oss upp till startplatserna.Du bör vara medelgod skidåkare för att kunna gå kursen.',
         spanText: '',
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
-      }, */
+      },
      ],
-    //infoDescription1: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca 185 kr.',
-    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
     infoImg:  SpeedImage,
-    infoIcon: '',
-    buttons: [
-     /*  {
-        text: "",
-        link: "",
-        target: "",
-      }, */
-    ],
+    imgHeight: 500,
+    imgWidth: 900,
+    imgAlt: 'Speedgliding Åre',
 }
+
+const Feature50Content2 = {
+    // infoTitle: '',
+     infoText: [
+      {
+        preText: 'Om du vill gå utbildningen under sommaren, krävs först vanlig paragliding kurs. Sedan kan du gå vidare med speed',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },     
+     {
+        preText: '',
+        spanText: 'Priser:',
+        spanClasses: 'text-xl font-semibold text-slate-600',
+        postText: '',
+      },
+      {
+        preText: '1 dag: ',
+        spanText: ' 3.500 kr',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      }, 
+      {
+        preText: '2 dagar: ',
+        spanText: ' 5.900 kr',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+      {
+        preText: '',
+        spanText: 'I priserna ingår instruktör och utrustning.',
+        spanClasses: 'text-sm  text-slate-800',
+        postText: '',
+      },
+     ],
+    infoImg:  SpeedImage2,
+    imgHeight: 500,
+    imgWidth: 900,
+    imgAlt: 'Speedgliding Åre',   
+}
+
+
+
 ---
 
 <Layout title="Skysport Tandemflyg i Åre" description="." keywords="" >
@@ -122,9 +145,13 @@ const Feature50Content = {
         </svg>
     </Breadcrumbs>
     </div>
+ 
   <Feature50 content={Feature50Content} />
+  <Feature50 content={Feature50Content2} />
+  <Divider1 />
+  <Booking />
 </Layout>
-
+<!--
 <script is:inline> 
  
   const checkVideoHero = document.querySelector('.videohero');
@@ -145,4 +172,4 @@ const Feature50Content = {
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
     });
   };
-</script> 
+</script> -->

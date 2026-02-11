@@ -1,14 +1,16 @@
 export const siteData = {
-  name: "Skysport",
+  name: "Skysport AB",
   coordinates:  { "lat": 63.402557, "lng": 13.057222 },
-  tagline: "Transform Your Body, Transform Your Life",
-  description: "Your premier destination for fitness and wellness",
+  tagline: "Skärmflyg i Åre",
+  description: "Drömen bli verklighet",
   address: {
     "full": "Årevägen 173, Åre, Sweden, 83752",
     "short": "Draklanda, Åre",
   },
-  phone: "+1 (555) 123-4567",
-  email: "info@fitzonegym.com",
+  phone: "+46 67-51186",
+  mobil1: '+46 70-5699089',
+  mobil2: '+46 70-2113842',
+  email: "info@skysport.se",
   social: {
     facebook: "https://facebook.com",
     instagram: "https://instagram.com",
@@ -16,6 +18,7 @@ export const siteData = {
     youtube: "https://youtube.com",
   },
 };
+
 
 export const contactInfo = [
   {

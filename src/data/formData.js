@@ -102,6 +102,25 @@ export const  grundKurser = [
   
 ];
 
+export const  speedKurser = [
+    {
+        kursLabel: 'Speedkurs 1 dag',
+        kursValue: '3500',
+        kursID: 'oneDay',
+        kursPris: '3500',
+        kursComment: 'I priserna ingår instruktör och utrustning.',
+    },
+    {
+        kursLabel: 'Speedkurs 2 dagar',
+        kursValue: '5900',
+        kursID: 'twoDay',
+        kursPris: '5900',
+        kursComment: 'I priserna ingår instruktör och utrustning.',
+    },
+ 
+  
+];
+
 export const  fortsattningsKurser = [
     {
         kursLabel: 'Bergsbehörighet',

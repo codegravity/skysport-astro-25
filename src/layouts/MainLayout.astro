@@ -1,16 +1,11 @@
 ---
 import "../styles/global.css";
-//import { ClientRouter } from "astro:transitions";
-import { Icon } from "astro-icon/components";
 import Meta from "@ui//Meta.astro";
 import TrackGa from "@widgets/TrackGa.astro";
 import PreFooter from "@components/sections/preFooter.astro";
-
 import Footer from "@components/sections/Footer.astro";
 import SideDrawer from "@components/elements/sideDrawer.astro";
 import MegaNav from "@components/HSNav.astro"
-//import favIcon from "@/components/assets/images/favicon.ico";
-
 interface Props {
   title?: string | undefined;
   description?: string | undefined;
@@ -19,7 +14,6 @@ interface Props {
 const { title, description, keywords } = Astro.props;
 
 ---
-
 <html lang="sv">
   <head>
     <meta charset="UTF-8" />
@@ -37,40 +31,29 @@ const { title, description, keywords } = Astro.props;
         }
       }
     </script>
-
-    <!-- <link  rel="icon"   type="image/x-icon"   href="@/components/assets/images/favicon.ico" /> -->
-
+  
     <link rel="icon" type="image/png" href="/Skysport-favicon/favicon-96x96.png" sizes="96x96" />
     <link rel="icon" type="image/svg+xml" href="/Skysport-favicon/favicon.svg" />
     <link rel="shortcut icon" href="/Skysport-favicon/favicon.ico" />
     <link rel="apple-touch-icon" sizes="180x180" href="/Skysport-favicon/apple-touch-icon.png" />
     <meta name="apple-mobile-web-app-title" content="Skysport" />
-    <!-- <link rel="manifest" href="/Skysport-favicon/site.webmanifest" /> -->
-
   </head>
   <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"  >
+
     <MegaNav />
-
-  <!--  <HeaderFour />  -->
-   
-    <slot />
-
-    <PreFooter />
+      <slot />
+    <PreFooter /> 
     <Footer />
     <SideDrawer />
-    
     <!-- Preline UI -->
-  <script>  import "preline/dist/preline.js";    </script>
- <!--   <script>  import "lodash/lodash.min.js";  </script>
-  <script>  import "flatpickr/dist/flatpickr.js"; </script>  -->
+  
+    <script>  import "preline/dist/preline.js";    </script>
   <script>
         document.addEventListener("astro:page-load", async () => {
           const preline = await import("preline/dist/preline.js");
           preline.HSStaticMethods.autoInit();   
         });
   </script>
-
-  
 
   </body>
 </html>

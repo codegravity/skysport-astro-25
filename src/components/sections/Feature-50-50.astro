@@ -23,6 +23,7 @@ interface Feature50Content {
     infoImg:  ImageMetadata;
     imgHeight?: number;
     imgWidth?: number;
+    imgAlt?: string;
     infoImg2?:  ImageMetadata;
     infoIcon?: string;
     buttons?: {
@@ -64,7 +65,7 @@ content.infoOrientationL  && {
       <div class="relative  pt-0 rounded-lg">
         <Image 
                     src={content.infoImg}
-                    alt="Skysports Tandem i Åre"
+                    alt={content.imgAlt || "Skysports Tandem i Åre"}
                     class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl"
                     width={content.imgWidth || '900'}
                     height={content.imgHeight || '514'}
