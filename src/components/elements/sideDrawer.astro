@@ -51,7 +51,7 @@ const WeatherContent = {
         </button>
       </div>
       <div class="p-4">
-        <p class="text-gray-800 dark:text-neutral-400">
+        <p class="text-gray-800 dark:text-gray-200">
           <Weather content={WeatherContent} />
         </p>
       </div>
@@ -68,12 +68,7 @@ const WeatherContent = {
       <div
         class="flex justify-between items-center py-3 px-4 border-b border-gray-200 dark:border-neutral-700"
       >
-        <h3
-          id="hs-offcanvas-kontakt-label"
-          class="font-bold text-gray-800 dark:text-white"
-        >
-          Kontakt
-        </h3>
+        <h4  id="hs-offcanvas-kontakt-label"  class="font-bold text-gray-800 dark:text-white"  >  Kontakt </h4>
         <button
           type="button"
           class="size-8 inline-flex justify-center items-center gap-x-2 rounded-full border border-transparent bg-gray-100 text-gray-800 hover:bg-gray-200 focus:outline-hidden focus:bg-gray-200 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-700 dark:hover:bg-neutral-600 dark:text-neutral-400 dark:focus:bg-neutral-600"
@@ -98,16 +93,19 @@ const WeatherContent = {
           </svg>
         </button>
       </div>
-      <div class="p-4">
-        <p class="text-gray-800 dark:text-neutral-400">
-          <p class="text-sm/6">0647-51186</p>
-          <p class="text-sm/6">070-5699089</p>
-          <p class="text-sm/6">
-            <a href="mailto:bokning@skysport.se" class="text-sm/6"
-              >bokning@skysport.se</a
-            >
-          </p>
-        </p>
+      <div class="p-4 group text-sm/6 text-gray-800 dark:text-gray-200">
+          <p>Skysport AB</p>
+          <p>Årevägen 173</p>
+          <p>837 52, Åre, Sweden</p>
+          <p>Besöksadress: Årevägen 173 (Draklanda)</p>
+          <p></p>
+          <p>Tel: 0647-51186, 0647-51185</p>
+          <p>Mobil 1: 070-569 90 89 (Frågor om skärmflygning)</p>
+          <p>Mobil 2: 070-211 38 42 (Frågor om boende på Lake Lodge)</p>
+          <p>E-post för bokning:<a href="mailto:bokning@skysport.se" class="text-sm/6">bokning@skysport.se</a>  </p>
+          <p>E-post för frågor:<a href="mailto:info@skysport.se" class="text-sm/6">info@skysport.se</a>  </p>
+          <p>E-post för Lars Hedström:<a href="mailto:lars@skysport.se" class="text-sm/6">lars@skysport.se</a>  </p>
+     
       </div>
       <div class="flex flex-1 justify-center sm:justify-end gap-x-3 sm:gap-x-6 items-center">
         <div class="hs-tooltip [--placement:auto] inline-block">
@@ -129,25 +127,6 @@ const WeatherContent = {
             </span>
         </div>
 
-         <p class="text-2l sm:xl  px-2 sm:px-1  text-sm text-neutral-100 dark:text-neutral-100    sm:text-neutral-100 dark:sm:text-neutral-100"> | </p>   
-       
-        <div class="text-center  px-0 sm:px-1 sm:pt-2">
-            <div class="hs-tooltip [--placement:auto] inline-block">
-                <Icon type="button" name="wi--day-cloudy-gusts-white" class=" text-2xl pt-1 sm:pt-0 sm:text-3xl" aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-example" data-hs-overlay="#hs-offcanvas-example"/>
-                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
-                    Väder Länkar
-                </span>
-            </div>
-        </div>
-        <div class="text-center sm:px-1 px-0 sm:pt-2">
-            <div class="hs-tooltip [--placement:auto] inline-block">
-                <Icon type="button" name="mdi-light--phone (1)" class=" sm:text-3xl text-2xl pt-1  sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-kontakt" data-hs-overlay="#hs-offcanvas-kontakt"/>
-                <span class="hs-tooltip-content hs-tooltip-shown:opacity-100 hs-tooltip-shown:visible opacity-0 transition-opacity inline-block absolute invisible z-10 py-1 px-2 bg-gray-900 text-xs font-medium text-white rounded-md shadow-2xs dark:bg-neutral-700" role="tooltip">
-                    Kontakt
-                </span>
-            </div>
-        
-        </div>    
     </div>
     </div>
     <!--end kontakt panel -->
