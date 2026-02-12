@@ -4,6 +4,7 @@ import VideoHero from "@components/sections/VideoHero.astro";
 import Booking from "@components/elements/forms/speedkursform.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
+import GreenAlert from "@components/elements/greenAlert.astro";
 import SpeedImage from '@assets/images/kurs/speed1.png';
 import SpeedImage2 from '@assets/images/kurs/speedDraklanda.png';
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -109,7 +110,11 @@ const Feature50Content2 = {
     imgAlt: 'Speedgliding Åre',   
 }
 
+const GreenAlertContent = {
+    title: 'Om du behöver boende under utbildning:',
+    description: 'Skriv antal nätter och personer i meddelande fält. Vi återkommer med boende alternativ.',
 
+}
 
 ---
 
@@ -151,6 +156,7 @@ const Feature50Content2 = {
   <Feature50 content={Feature50Content} />
   <Feature50 content={Feature50Content2} />
   <Divider1 />
+  <section class="site-container"><GreenAlert content={GreenAlertContent} /></section>
   <Booking />
 </Layout>
 <!--
