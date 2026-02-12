@@ -4,6 +4,8 @@ import { Icon } from 'astro-icon/components';
 import { siteData, contactInfo } from '@data/siteData';
 import NewsForm from '@elements/forms/nyhetsbrevForm.astro';
 import HittaOss from '@elements/altKarta.astro';
+
+
 ---
 <section class="bg-slate-600 border-t border-slate-800">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
@@ -11,8 +13,7 @@ import HittaOss from '@elements/altKarta.astro';
         <!-- Newsletter -->
         <div class="sm:w-auto">
             <h4 class="text-lg font-semibold text-white mb-4">Skysports Nyhetsbrev</h4>
-            <NewsForm/>
-
+             <NewsForm/> 
             <div class="pt-6 flex flex-1 justify-center sm:justify-end gap-x-3 sm:gap-x-6 items-center">
         <div class="hs-tooltip [--placement:auto] inline-block">
             <Icon type="button" name="logos--facebook" class=" sm:text-3xl text-2l  "/>
@@ -78,20 +79,30 @@ import HittaOss from '@elements/altKarta.astro';
       <!-- Contact Info -->
       <div>
         <h4 class="text-lg font-semibold text-white mb-4">Kontakta Oss</h4>
-        <ul class="space-y-4 text-gray-400">
-          {contactInfo.slice(0, 3).map((info) => (
-            <li class="flex items-start gap-3">
-              <i class={`${info.icon} text-orange-500 text-xl mt-1 shrink-0`}></i>
-              {info.link ? (
-                <a href={info.link} class="hover:text-orange-500 transition-colors leading-relaxed">
-                  {info.content}
+        <div class="group text-slate-200 dark:text-slate-200 text-sm">
+          <h5 class=" text-bold">Skysport AB</h5>
+          <p>Årevägen 173</p>
+          <p>837 52, Åre, Sweden</p>
+          <p>Besöksadress: Årevägen 173 (Draklanda)</p>
+          <p>Tel: 0647-511 86, 0647-511 85</p>
+          <p>Mobil 1: 070-569 90 89 (Frågor om skärmflygning)</p>
+          <p>Mobil 2: 070-211 38 42 (Frågor om boende på Lake Lodge)</p>
+          <p>E-post för bokning: bokning@skysport.se</p>
+          <p>E-post för frågor: info@skysport.se</p>
+          <p>E-post Lars Hedström: lars@skysport.se</p>
+        </div>
+       <!--  <ul class="space-y-4 text-gray-400"> 
+            <li class="">
+
+                <a href='' class="hover:text-orange-500 transition-colors leading-relaxed">
+                
                 </a>
-              ) : (
-                <span class="leading-relaxed">{info.content}</span>
-              )}
+            
+                <span class="leading-relaxed"></span>
+         
             </li>
-          ))}
-        </ul>
+       
+        </ul> -->
       </div>
 
     <!-- Hitta oss karta -->
