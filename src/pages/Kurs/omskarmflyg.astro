@@ -5,11 +5,16 @@ import ImageHero from "@components/sections/ImageHero.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
 import FeatureSteps from  "@sections/FeatureSteps.astro";
 import VtabInfo from  "@sections/FeatureVtabs.astro";
+
 import HeroImage from '@assets/images/IMG_7038.jpg';
-import Skarmflyg1 from '@assets/images/kurs/hummeln5.jpg';
-import Skarmflyg2 from '@assets/images/kurs/rennberg.jpg';
-import Skarmflyg3 from '@assets/images/kurs/skysport-slider-1.jpg';
-import Skarmflyg4 from '@assets/images/kurs/p12.jpg';
+
+
+
+
+import Skarmflyg1 from '@assets/images/kurs/åre10.jpg';
+import Skarmflyg2 from '@assets/images/kurs/åre9.jpg';
+import Skarmflyg3 from '@assets/images/kurs/åre8.jpg';
+import Skarmflyg4 from '@assets/images/kurs/åre7.jpg';
 
 import StepIMG from '@assets/images/kurs/1a.jpg';
 
@@ -33,12 +38,12 @@ const customLastPart = [
 
 
 const HeroContent = {
-    title: "Skärmflyg i Åre",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
+    title: "Om Skärmflyg i Åre",
     backgroundImage: HeroImage,
     imgMob: HeroImage,
-   /* descriptionImage: LogoImage,*/
+    titleTextStyles: 'bg-slate-200/70 p-3 rounded-lg lg:text-primary',
     overlayOpacity: 0.2,
+    position: "justify-end",
   
 }
 const Feature50Content = {
@@ -83,7 +88,8 @@ const Feature50Content2 = {
         postText: '',
       },   
      ],
-    infoImg:  Skarmflyg2,
+    infoImg:  Skarmflyg3,
+    imgPosition: 'object-bottom',
 }
 const Feature50Content3 = {
      infoOrientationL: true,
@@ -148,7 +154,7 @@ const FeatureStepsContent = {
         linkUrl: '',
         },
     ],
-    stepsImg:  StepIMG,
+    stepsImg:  Skarmflyg2,
     //imgHeight:  ,
     //imgWidth: ,
     //infoIcon: ,

@@ -24,6 +24,7 @@ interface Feature50Content {
     imgHeight?: number;
     imgWidth?: number;
     imgAlt?: string;
+    imgPosition?: string;
     infoImg2?:  ImageMetadata;
     infoIcon?: string;
     buttons?: {
@@ -47,7 +48,7 @@ const anchorLink = content.infoAnchorLink || '';
 content.infoOrientationL  && {
   
 }
-
+const overlayPosition = content.imgPosition || "justify-center";
 ---
 
 <!-- Card Blog -->
@@ -66,7 +67,7 @@ content.infoOrientationL  && {
         <Image 
                     src={content.infoImg}
                     alt={content.imgAlt || "Skysports Tandem i Åre"}
-                    class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl"
+                    class="object-bottom shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl"
                     width={content.imgWidth || '900'}
                     height={content.imgHeight || '514'}
                     quality={80}

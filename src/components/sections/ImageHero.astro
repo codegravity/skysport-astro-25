@@ -94,7 +94,7 @@ const overlayPosition = content.position || "justify-center";
             </div>
         )} 
         { content.title &&
-        <h4 class=" lg:text-white text-balance lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || ''} >{content.title}</h4>
+        <h4 class="   lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || 'text-balance lg:text-white'} >{content.title}</h4>
         }
         { content.btnTitle &&
         <Button href={content.btnTitleLink} class="bg-primary text-white  rounded-xl px-6 py-8  lg:px-10 lg:py-10 lg:rounded-2xl text-4xl lg:text-white lg:text-balance lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || ''} >{content.btnTitle}</Button>

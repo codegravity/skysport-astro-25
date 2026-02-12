@@ -3,18 +3,17 @@ import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import KursInfo from  "@sections/Feature-50-50.astro";
 
-import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
-import BergImg2 from "@assets/images/kurs/gondola-winter.jpg";
+import BergImg1 from "@assets/images/kurs/IMG_2452b.jpg";
+import BergImg2 from "@assets/images/kurs/åre6.jpg";
 import ParamotorFAQ from '@sections/faqPara.astro';
 
 import Divider1 from  "@elements/SeparatorLine.astro";
-import Topper from  "@elements/navTopper.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
-const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PMF-d.mp4";
-const tabVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PMF-t.mp4";
-const mobVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PMF-m1.mp4";
+const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PM-d.mp4";
+const tabVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PM-t.mp4";
+const mobVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PM-m1.mp4";
 
 const customLastPart = [
   { index: "last", text: "Paramotor" },
@@ -32,11 +31,10 @@ const customLastPart = [
 
 const VideoContent = {
    // title: "SIV (säkerhetskurs) i Åre ",
-  //  description: "SIV (säkerhetskurs) för skärmflygare i Åre.",
+ 
     backgroundVideo: myVideo,
     tabVideo: tabVideo,
     mobVideo: mobVideo,
-  //  descriptionImage: LogoImage,
     overlayOpacity: 0.2,
     page: "paramotor",
     position: "justify-end"
@@ -44,9 +42,9 @@ const VideoContent = {
 
 const Feature50Content = {
      infoTitle: 'Paramotor Kurs',
-     infoOrientationL: true,
-     infoColL: 'sm:order-1',
-     infoColR: 'sm:order-2',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
      infoAnchorLink: 'berg',
      infoDescription: '',
      isTandemPage: false,
@@ -72,9 +70,9 @@ const Feature50Content = {
 
 const Feature50Content2 = {
      infoTitle: '',
-     infoOrientationL: false,
-     infoColL: 'sm:order-2',
-     infoColR: 'sm:order-1',
+     infoOrientationL: true,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
      infoAnchorLink: 'berg2',
      infoDescription: '',
      isTandemPage: false,
