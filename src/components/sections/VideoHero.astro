@@ -10,6 +10,7 @@ interface VideoContent {
   descriptionImage?: ImageMetadata;
   backgroundVideo: string;
   mobileVideo?: string;
+  tabVideo?: string;
   buttons?: {
     text: string;
     link: string;
@@ -28,6 +29,7 @@ const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const myVideo = content.backgroundVideo;
 const mobileVideo = content.mobileVideo;
+const tabletVideo = content.tabVideo
 const overlayPosition = content.position || "justify-center";
 
 const pageLink = content.page;
@@ -37,8 +39,11 @@ const currentPage = content.page;
 <astro-page data-page={currentPage}></astro-page>
 <section class="videohero">
   <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden">
-    <video  autoplay loop muted playsinline class="hidden md:block min-h-full w-full object-cover">
+    <video  autoplay loop muted playsinline class="hidden lg:block min-h-full w-full object-cover">
       <source src={myVideo} type="video/mp4" />
+    </video>
+    <video  autoplay loop muted playsinline class="hidden md:block lg:hidden min-h-full w-full object-cover">
+      <source src={tabletVideo} type="video/mp4" />
     </video>
 
     <video  autoplay loop muted playsinline class="md:hidden min-h-full w-full object-cover">
