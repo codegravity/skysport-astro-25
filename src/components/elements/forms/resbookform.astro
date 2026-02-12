@@ -3,7 +3,7 @@ import { resor } from '@data/formData';
 import Topper from  "@elements/navTopper.astro";
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import ResOverlay from "@elements/modals/resbooking.astro";
- 
+ import GreenAlert from "@components/elements/greenAlert.astro";
 const anhorigaRawPrice =  resor[0].resAnhorigaPris;
 const anhorigaComment = resor[0].resAnhorigaComment;
 const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
@@ -11,6 +11,11 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                                     currency: 'SEK'
                                     }).format(anhorigaRawPrice) + ' person.');  
 
+const GreenAlertContent = {
+    title: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra.',
+    description: 'De betalar då 4.900 kr per anhöriga. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fältclear.',
+
+}
 ---
 <section class="bg-slate-800">
 <div class="max-w-[85rem]  px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
@@ -57,8 +62,20 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
                     ))
                     }  
              ))
-             } <!--end res destination -->                  
-            <div id="anhoriga" class=" lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
+             } <!--end res destination --> 
+                <div id="anhoriga" class=" lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
+                    <h3>Anhöriga till Turkiet</h3>
+                </div>
+                <div id="anhoriga-data" class=" col-span-1 lg:col-span-3 py-0  sm:py-3">
+                <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
+                    <section class="site-container"><GreenAlert content={GreenAlertContent} /></section>
+
+                </div>  
+                  <Hr1 />     
+            </div>
+
+
+            {/* <div id="anhoriga" class=" lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
                     <h3>Anhöriga till Turkiet</h3>
             </div>
 
@@ -93,7 +110,7 @@ const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
 
                 </div>  
                   <Hr1 />     
-            </div> 
+            </div>  */}
          
         
 
