@@ -3,13 +3,12 @@ import Layout from "@layouts/MainLayout.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import Reco from "@components/sections/RecoBar.astro";
-//import Button from "@components/ui/Button.astro";
+
 
 import Tandem1 from '../assets/images/tandem/summartandem.jpg';
 import kurs1 from '../assets/images/kurs/1.jpg';
-import butik1 from '@assets/images/IMG_7038.jpg';
-
-
+import TandemMob from '../assets/images/tandem/3b.jpg';
+import kursMob from '../assets/images/kurs/Draklanda20192b.jpg';
 
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/1ASIDA.mp4";
 const mobVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/start/Mobil-start-720.mp4";
@@ -25,15 +24,19 @@ const VideoContent = {
 };
 
  const HeroTandemContent = {
-    title: "TANDEMFLYG",
-    description: "",
+    //title: "TANDEMFLYG",
+    //titleTextStyles: 'text-slate-200 text-4xl',
+    //description: "",
     backgroundImage: Tandem1,
+    imgMob: TandemMob,
     overlayOpacity: 0.2,
     position: "justify-end",
+    btnTitle: 'TANDEMFLYG',
+    btnTitleLink: '/Tandem/tandem',
     buttons: [
         {
         text: "BOKA",
-        link: "/Tandem/tandem",
+        link: "/Tandem/Boka",
         target: "_self",
         },
     ],
@@ -42,42 +45,13 @@ const VideoContent = {
     title: "LÄR DIG FLYGA - GÅ EN KURS",
     description: "",
     backgroundImage: kurs1,
+    imgMob: kursMob,
     overlayOpacity: 0.2,
     position: "justify-end",
     buttons: [
     {
       text: "BOKA",
       link: "/Kurs/omskarmflyg",
-      target: "_self",
-    },
-  ], 
-}; 
-
- const HeroButikContent = {
-    title: "BUTIK",
-    description: "",
-    backgroundImage: butik1,
-    overlayOpacity: 0.2,
-    position: "justify-end",
-    buttons: [
-    {
-      text: "TILL BUTIKEN",
-      link: "/butik",
-      target: "_self",
-    },
-  ], 
-}; 
-const HeroResContent = {
-    title: "RESOR",
-    description: "Spanien | Turkiet | Morocco",
-    descriptionTextStyles: 'text-4xl text-white',
-    backgroundImage: kurs1,
-    overlayOpacity: 0.2,
-    position: "justify-end",
-    buttons: [
-    {
-      text: "BOKA",
-      link: "/resor",
       target: "_self",
     },
   ], 
@@ -93,12 +67,6 @@ const HeroResContent = {
   </section>
   <section class="relative">
     <ImageHero content={HeroKursContent}/> 
-  </section>
-  <section class="relative">
-    <ImageHero content={HeroButikContent}/> 
-  </section>
-  <section class="relative">
-    <ImageHero content={HeroResContent}/> 
   </section>
   <section >
       <Reco />

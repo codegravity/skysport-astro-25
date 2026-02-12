@@ -4,6 +4,8 @@ import { Image } from 'astro:assets';
 
 interface HeroContent {
     title?: string;
+    titleColor?: string;
+    titleColorDark?: string;
     titleTextStyles?: string;
     description?: string;
     descriptionTextStyles?: string;
@@ -13,9 +15,16 @@ interface HeroContent {
     imgWidth?: number;
     imgLoading?: string;
     imgAlt?: string;
+    imgMob?: ImageMetadata;
+    imgMobHeight?: number;
+    imgMobWidth?: number;
+    imgMobLoading?: string;
+    imgMobAlt?: string;
     overlayOpacity?: number; 
     fadeOut?: number;// Value between 0 and 1
     position?: string;
+    btnTitle?: string;
+    btnTitleLink?: string;
     buttons?: {
     text: string;
     link: string;
@@ -40,7 +49,7 @@ const overlayPosition = content.position || "justify-center";
                 alt="Skysport tandemflyg i Åre"
                 width={1920}
                 height={1080}
-                class="lg:w-full h-full object-cover object-[82%_50%] "
+                class="hidden md:block lg:w-full h-full object-cover object-[82%_50%] "
                 quality={70}
                 format="webp"
                 loading="eager"
@@ -48,6 +57,19 @@ const overlayPosition = content.position || "justify-center";
                 priority 
        
             />  
+            <Image
+                src={content.imgMob}
+                alt="Skysport tandemflyg i Åre"
+                width={960}
+                height={540}
+                class="md:hidden lg:w-full h-full object-cover object-[82%_50%] "
+                quality={80}
+                format="webp"
+                loading="eager"
+                decoding="async"
+                priority 
+       
+            /> 
             <div
                 class="hero-background absolute inset-0 left-0 top-0 w-full h-full overflow-hidden"
                 style={`opacity: ${opacity};`}
@@ -55,7 +77,7 @@ const overlayPosition = content.position || "justify-center";
         </div>
     )}
 
-     <div class="site-container mx-auto p-20 relative z-10 flex flex-col h-screen items-center justify-center text-center fadeOut delay-3500" class:list={overlayPosition}>
+     <div class="site-container mx-auto p-20 relative z-10 flex  flex-col h-screen items-center justify-center text-center fadeOut delay-3500" class:list={overlayPosition}>
                 {content.descriptionImage && (
             <div class="">
                 <Image
@@ -72,7 +94,10 @@ const overlayPosition = content.position || "justify-center";
             </div>
         )} 
         { content.title &&
-        <h4 class="lg:text-white text-balance lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || ''} >{content.title}</h4>
+        <h4 class=" lg:text-white text-balance lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || ''} >{content.title}</h4>
+        }
+        { content.btnTitle &&
+        <Button href={content.btnTitleLink} class="bg-primary text-white  rounded-xl px-6 py-8  lg:px-10 lg:py-10 lg:rounded-2xl text-4xl lg:text-white text-balance lg:text-6xl lg:text-bold" class:list={content.titleTextStyles || ''} >{content.btnTitle}</Button>
         }
         { content.description &&
         <p class=" mt-2 text-balance" class:list={content.descriptionTextStyles || 'text-white'} >{content.description}</p>
