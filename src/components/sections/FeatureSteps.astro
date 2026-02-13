@@ -34,27 +34,26 @@ const { content } = Astro.props;
 
 ---
 <!-- Approach -->
-<div class="bg-white dark:bg-gray-800">
+<div class="dark:bg-slate-100/60 bg-slate-800">
   <!-- Approach -->
-  <div class="max-w-5xl px-4 xl:px-0 py-10 lg:pt-20 lg:pb-20 mx-auto">
+  <div class="max-w-5xl px-4 xl:px-0 py-10 lg:max-w-[85rem] site-container  lg:pt-20 lg:pb-20 mx-auto">
     <!-- Title -->
-    <div class="max-w-3xl mb-10 lg:mb-14">
+    <div class="flex justify-center mb-10 lg:mb-14">
     {content.stepsTitle &&
-        <h2 class="text-white dark:text-gray-200 font-semibold text-2xl md:text-4xl md:leading-tight">{content.stepsTitle}</h2>
+        <h2 class="text-white text-center dark:text-gray-200 font-semibold text-4xl text-pretty md:text-5xl md:leading-tight">{content.stepsTitle}</h2>
       }
     {content.stepsDescription &&
       <p class="mt-1 text-gray-500 dark:text-gray-400">{content.stepsDescription}</p>
       }
     </div>
     <!-- End Title -->
-
     <!-- Grid -->
     <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 lg:items-center">
       <div class="aspect-w-16 aspect-h-9 lg:aspect-none">
           <Image 
                     src={content.stepsImg}
                     alt="Skysports Tandem i Åre"
-                    class="shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl"
+                    class=" rounded-xl dark:shadow-gray-900/20 w-full h-auto object-cover rounded-xl"
                     width={content.imgWidth || '500'}
                     height={content.imgHeight || '900'}
                     quality={80}
@@ -71,8 +70,8 @@ const { content } = Astro.props;
       <div>
         <!-- Heading -->
         <div class="mb-4">
-          <h3 class="text-cyan-600 dark:text-cyan-500 text-xs font-medium uppercase">
-            Steg
+          <h3 class="text-primary dark:text-cyan-500 text-2xl lg:text-4xl font-medium uppercase">
+            Steg:
           </h3>
         </div>
         <!-- End Heading -->
@@ -82,7 +81,7 @@ const { content } = Astro.props;
           <!-- Icon -->
           <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-gray-200 dark:after:border-neutral-700">
             <div class="relative z-10 size-8 flex justify-center items-center">
-              <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-cyan-600 dark:text-cyan-500 font-semibold text-xs uppercase rounded-full">
+              <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-orange-600 dark:text-cyan-500 font-semibold text-xl uppercase rounded-full">
                 {index + 1}
               </span>
             </div>
@@ -91,8 +90,8 @@ const { content } = Astro.props;
 
           <!-- Right Content -->
           <div class="grow pt-0.5 pb-8 sm:pb-12">
-            <p class="text-sm lg:text-base text-gray-500 dark:text-gray-400">
-              <span class="text-gray-800 dark:text-gray-200">{text.spanText}</span>
+            <p class="md:text-xl text-base text-slate-200 dark:text-gray-400">
+              <span class="text-gray-200 dark:text-gray-200">{text.spanText}</span>
               {text.postText &&
                <span>{text.postText}</span>
               }
@@ -108,7 +107,7 @@ const { content } = Astro.props;
           <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-gray-200 dark:after:border-neutral-700">
             <div class="relative z-10 size-8 flex justify-center items-center">
               <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-cyan-600 dark:text-cyan-500 font-semibold text-xs uppercase rounded-full">
-                 <Icon id="ikon-white-mob" type="button" name="solar--info-circle-linear" class="dark:hidden  text-xl pt-3  sm:pt-0 " aria-haspopup="dialog" aria-expanded="false" aria-controls="hs-offcanvas-kontakt" data-hs-overlay="#hs-offcanvas-kontakt"/>  
+                 <Icon id="ikon-white-mob" type="button" name="solar--info-circle-linear-vit" class="dark:hidden  text-xl   pt-0 " />  
                  
               </span>
             </div>
@@ -117,8 +116,8 @@ const { content } = Astro.props;
 
           <!-- Right Content -->
           <div class="grow pt-0.5 pb-8 sm:pb-12">
-            <p class="text-sm lg:text-base text-gray-500 dark:text-gray-400">
-<!--               <span class="text-gray-800 dark:text-gray-200">{text.spanText}</span>
+            <p class="md:text-lg text-base text-gray-200 dark:text-gray-400">
+<!--               <span class="text-gray-200 dark:text-gray-200">{text.spanText}</span>
  -->              {content.stepsPostText }
             </p>
           </div>
@@ -130,7 +129,7 @@ const { content } = Astro.props;
 
         {
       content.buttons && content.buttons.length > 0 && (
-        <div class="flex  flex-col md:flex-row gap-4 mt-8 items-center">
+        <div class="flex  flex-row gap-4 md:mt-0 items-center">
           {content.buttons.map((button) => (
             <Button
               href={button.link}
