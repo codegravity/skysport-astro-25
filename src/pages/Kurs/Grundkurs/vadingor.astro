@@ -1,6 +1,5 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
-import FeatureMain from "@components/sections/3imagefeature.astro";
 import InnerHero from "@components/sections/InnerHero.astro";
 import KursInfo from  "@sections/Feature-50-50.astro";
 import FeatureCTA from "@components/sections/FeatureCTA.astro";
@@ -10,7 +9,6 @@ import featureImg1 from "@assets/images/kurs/IMG_8673.jpg";
 import featureImg2 from "@assets/images/kurs/IMG_5851b-1.jpg";
 import BergImg3 from "@assets/images/kurs/hummeln5.jpg";
 import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
-
 import backgroundIMG from '@assets/images/kurs/nordosthummeln.jpg';
 
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -74,8 +72,6 @@ const  GrundkursListContent = {
     {
       listItem: 'Som elev på Skysport har du rabatt vid köp av ny utrustning.'
     },
-   
-   
   ],
 }
 const Feature3Content = {
@@ -116,7 +112,6 @@ const Feature3Content = {
       listText: 'Under Påskveckan kan vi tyvärr inte hålla dessa priser på boendet (Enkelrum 3.600 kr/vecka och del i dubbelrum 2.400 kr/vecka)Det totala priset inkl kurs, boende o försäkring hamnar därmed på ca 13.000 kr',
       listClasses: 'font-semibold',
     }, 
-    
     ],
     bild1: featureImg1,
     bild2: featureImg2,
@@ -128,7 +123,6 @@ const FeatureCTAContent ={
     description: '',
     bgIMG: backgroundIMG,
     buttons: [
-    
       {
         text: "Boka Grundkurs",
         link: "/Kurs/Grundkurs/boka",
@@ -215,7 +209,6 @@ const Feature50Content4 = {
         spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
         postText: ' (gäller kalenderår, ca 1.400 kr för juli-dec)',
       },
-      
       {
         preText: 'Boende, del i dubbelrum, kostar ',
         spanText: ' 1.250 kr/vecka ',
@@ -246,13 +239,12 @@ const Feature50Content4 = {
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: '',
       },
-       {
+      {
         preText: 'Det totala priset inkl kurs, boende o försäkring hamnar därmed på',
         spanText: ' ca 13.000 kr',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: '',
       },
-      
      ],
     infoImg:  featureImg3,
     imgHeight: 1200,
@@ -285,7 +277,6 @@ const Feature50Content = {
      ],
     infoImg:  BergImg1,
     infoIcon: '',
-    
 }
 
 ---
@@ -335,7 +326,7 @@ const Feature50Content = {
   <FeatureCTA content={FeatureCTAContent} />
 
 </Layout>
-<script is:inline>
+<!-- <script is:inline>
   // nav header change on white page with inner Hero
   const checkInnerHero = document.querySelector('.innerhero');
   if (checkInnerHero) {
@@ -356,4 +347,4 @@ const Feature50Content = {
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
     });
   }
-</script> 
+</script>  -->

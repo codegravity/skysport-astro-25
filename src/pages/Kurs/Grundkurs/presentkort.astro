@@ -1,12 +1,9 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import InnerHero from "@components/sections/InnerHero.astro";
-
 import KursInfo from  "@sections/Feature-50-50.astro";
 import KortInfo2 from "@components/sections/presentkort2.astro";
-import Carosel from "@components/sections/HeroCarosel.astro";
-import BergImg4 from "@assets/images/mellanmullfjallet27.jpg";
-import presentkort from '@assets/images/products/presentkort2.jpg';
+
 import balans from '@assets/images/kurs/balans.jpg';
 
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -64,21 +61,12 @@ const Feature50Content4 = {
         spanText: ' 11.000 kr',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
         postText: ' Grundkurs 1 vecka (inkl boende)',
-      },
-      
-      
+      },  
      ],
     infoImg:  balans,
     imgHeight: 360,
     imgWidth: 600,
     infoIcon: '',
-    /* buttons: [
-      {
-        text: "Boka Berg Kursen",
-        link: "/Kurs/Fort/boka",
-        target: "_self",
-      },
-    ], */
 }
 
 const customLastPart = [
@@ -135,14 +123,11 @@ keywords="Grundkurs, Paraglide, Presentkort, Åre"
             </svg>
         </Breadcrumbs>
     </div> 
-
-
-    <Carosel />
     <KursInfo content={Feature50Content4}/>
     <KortInfo2 /> 
 </Layout>
 
-<script is:inline>
+<!-- <script is:inline>
   // nav header change on white page with inner Hero
   const checkInnerHero = document.querySelector('.innerhero');
   if (checkInnerHero) {
@@ -163,4 +148,4 @@ keywords="Grundkurs, Paraglide, Presentkort, Åre"
       lastScrollTop = currentScroll <= 0 ? 0 : currentScroll; // Förhindra negativ scroll
     });
   }
-</script> 
+</script>  -->

@@ -3,18 +3,18 @@ import { Image } from "astro:assets";
 import { Icon } from "astro-icon/components";
 
 interface Feature4Content {
-  title: string;
+  title?: string;
   subTitle?: string;
   subTitleClasses?: string;
-  description: string;
+  description?: string;
   listItemsIntro?: string;
   listItems?: {
     listIcon?: string;
     listText: string;
     listClasses?: string;
   } [];
-  postText: string;
-  fourImages: {
+  postText?: string;
+  fourImages?: {
     bild: ImageMetadata;
     imgHeight:  number;
     imgWidth:  number;

@@ -2,10 +2,7 @@
 import Layout from "@layouts/MainLayout.astro";
 import InnerHero from "@components/sections/InnerHero.astro";
 import PresentKort from "@components/sections/TandemPresentKort.astro";
-import TandemInfo from "@components/sections/TandemInfo.astro";
 import TandemInfo2 from "@components/sections/tandeminfo2.astro";
-import Carosel from "@components/sections/HeroCarosel.astro";
-
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -68,7 +65,6 @@ const InnerHeroContent = {
             </svg>
         </Breadcrumbs>
     </div>
-    <Carosel />
     <PresentKort />
     <TandemInfo2 /> 
 </Layout>
