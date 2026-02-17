@@ -1,13 +1,16 @@
 
-
+export const transportUp = {
+    skysportBus: 90,
+    skistarLift: 200,
+}
 export const kursPriser26 = [ 
     {
         kursName: 'Grundkurs',
         kursPris: 9500,
         highFlight: 200,
-        transportBil: 80,
+        transportBil: 90,
         takeOffKit: 2020,
-        forsakringSSFF: 1750,
+        forsakringSSFF: 2071,
         avbokning2v: 1000,
         avbokning1v: 2000,
     },

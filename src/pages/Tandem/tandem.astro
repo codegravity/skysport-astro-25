@@ -31,6 +31,20 @@ const customLastPart = [
   }, */
 ];
 
+
+
+import { transportUp } from "@data/prisData";
+const rawSkysportUp =  transportUp.skysportBus;
+const rawSkistarUp = transportUp.skistarLift;
+const skysportUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkysportUp); 
+const skistarUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkistarUp); 
+
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-aa.mp4";
 const Mobvideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-mob3.mp4";
 
@@ -125,13 +139,13 @@ const Feature50Content = {
       },
       {
         preText: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca',
-        spanText: '200 kr',
+        spanText: skistarUpISO,
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },
             {
         preText: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar ',
-        spanText: '90 kr',
+        spanText: skysportUpISO,
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },

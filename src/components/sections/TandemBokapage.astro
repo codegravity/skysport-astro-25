@@ -22,7 +22,17 @@ import TandemPriceCard from "@widgets/TandemPriceCard.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
-
+import { transportUp } from "@data/prisData";
+const rawSkysportUp =  transportUp.skysportBus;
+const rawSkistarUp = transportUp.skistarLift;
+const skysportUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkysportUp); 
+const skistarUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkistarUp); 
 
 const TandemPriceCardContent = {
 bookingPageClass: 'lg:grid-cols-1',
@@ -144,7 +154,7 @@ bookingPage : 'boka',
       <div id="hs-basic-collapse-four" class="hs-accordion-content hidden w-full overflow-hidden transition-[height] duration-300" role="region" aria-labelledby="hs-basic-heading-four">
         <div class="pb-4 px-4 md:px-6">
           <p class="text-sm text-gray-200 dark:text-neutral-200 text-left text-balance">
-            Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten 60 kr/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar 185 kr/st.
+            Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten {skysportUpISO}/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar {skistarUpISO}/st.
   
           </p>
         </div>

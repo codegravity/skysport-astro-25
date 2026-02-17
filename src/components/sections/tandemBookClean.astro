@@ -1,8 +1,24 @@
 ---
 import { Image } from 'astro:assets';
 import SkysportLogo from '@assets/images/Skysport_Logo-01-invert-468.png';
+
+
+import { transportUp } from "@data/prisData";
+
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
+
+
+const rawSkysportUp =  transportUp.skysportBus;
+const rawSkistarUp = transportUp.skistarLift;
+const skysportUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkysportUp); 
+const skistarUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkistarUp); 
 
 ---
 
@@ -57,6 +73,7 @@ import "@assets/css/flatpickrDark.css";
                                             placeholder="Välj alternativ datum" 
                                     >
 
+                                    
                                     <!-- End Datepicker -->
                                     <p class="text-left pt-1 text-xs sm:text-s">Om du har flera dagar som alternativ, t ex du är i Åre en weekend eller en hel vecka, kan du informera oss i meddelande rutan.</p>
                                 </div> 
@@ -103,7 +120,7 @@ import "@assets/css/flatpickrDark.css";
                                 <p class="relative">Vi behöver ett mobil nummer för att kontakta dig, angående flygförhållande(väder) och exakt tid för ditt tandemflyg.</p>
                         </div>
                         <p class="py-6 sm:py12 text-left">Alla tandemflyg filmas och kan köpas efter flyget för 400 kr/st. Man måste inte köpa filmen om man inte vill. Tandemflyget kostar 1.800 kr</p>
-                        <p class="py-0 sm:py-0 text-left">Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten 60 kr/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar 185 kr/st.</p>
+                        <p class="py-0 sm:py-0 text-left">Upptransport på berget ingår inte I flygpriset, om vi åker buss upp på berget kostar transporten {skysportUpISO}/st. Åker vi liftarna får man köpa en enkelbiljett vilket kostar {skistarUpISO}/st.</p>
                
 
                         <div class="py-6 sm:py12 text-left">
