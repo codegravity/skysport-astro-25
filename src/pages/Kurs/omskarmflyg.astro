@@ -4,15 +4,15 @@ import Layout from "@layouts/MainLayout.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
 import FeatureSteps from  "@sections/FeatureSteps.astro";
-import VtabInfo from  "@sections/FeatureVtabs.astro";
 
-import HeroImage from '@assets/images/IMG_7038.jpg';
+import HeroImage from '@assets/images/kurs/IMG_6836d.jpg';
+import HeroImage2 from '@assets/images/kurs/5338.jpg';
 import Skarmflyg1 from '@assets/images/kurs/åre10.jpg';
 import Skarmflyg2 from '@assets/images/kurs/åre9.jpg';
 import Skarmflyg3 from '@assets/images/kurs/åre8.jpg';
 import Skarmflyg4 from '@assets/images/kurs/åre7.jpg';
 
-import StepIMG from '@assets/images/kurs/1a.jpg';
+
 
 import Reco from "@components/sections/RecoBar.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -37,6 +37,15 @@ const HeroContent = {
     title: "Om Skärmflyg i Åre",
     backgroundImage: HeroImage,
     imgMob: HeroImage,
+    titleTextStyles: 'bg-slate-200/70 p-3 rounded-lg lg:text-primary',
+    overlayOpacity: 0.2,
+    position: "justify-end",
+  
+}
+const Hero2Content = {
+    title: "Om Skärmflyg i Åre",
+    backgroundImage: HeroImage2,
+    imgMob: HeroImage2,
     titleTextStyles: 'bg-slate-200/70 p-3 rounded-lg lg:text-primary',
     overlayOpacity: 0.2,
     position: "justify-end",
@@ -167,7 +176,8 @@ const FeatureStepsContent = {
 ---
 
 <Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
-   <ImageHero content={HeroContent}/>  
+  <!--  <ImageHero content={HeroContent}/>   -->
+   <ImageHero content={Hero2Content}/> 
    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
