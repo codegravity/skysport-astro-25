@@ -40,7 +40,7 @@ const { content } = Astro.props;
     <!-- Title -->
     <div class="flex justify-center mb-10 lg:mb-14">
     {content.stepsTitle &&
-        <h2 class="text-white text-center dark:text-gray-200 font-semibold text-4xl text-pretty md:text-5xl md:leading-tight">{content.stepsTitle}</h2>
+        <h4 class="text-white text-center dark:text-gray-200 font-semibold text-4xl text-pretty md:text-5xl md:leading-tight">{content.stepsTitle}</h4>
       }
     {content.stepsDescription &&
       <p class="mt-1 text-gray-500 dark:text-gray-400">{content.stepsDescription}</p>
@@ -70,9 +70,9 @@ const { content } = Astro.props;
       <div>
         <!-- Heading -->
         <div class="mb-4">
-          <h3 class="text-primary dark:text-cyan-500 text-2xl lg:text-4xl font-medium uppercase">
+          <h4 class="text-white dark:text-cyan-200 text-2xl lg:text-3xl font-medium uppercase">
             Steg:
-          </h3>
+          </h4>
         </div>
         <!-- End Heading -->
         {content.stepsText.map((text, index) => (
