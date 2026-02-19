@@ -43,7 +43,7 @@ export const boende2026 = [
                 boPris:  1500,
             },
             {
-                boLabel: 'Enkeltrum (2200 kr)',
+                boLabel: 'Enkelrum (2200 kr)',
                 boValue: '2200',
                 boID: 'enkelt',
                 boPris:  '2200',
