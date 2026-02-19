@@ -1,6 +1,6 @@
 ---
 
-import { Leaflet, CreateLeafletIcon } from "astro-leaflet";
+import { Leaflet,  Circle, Popup } from "astro-leaflet";
 import type {AstroLeafletOptionsType, AstroLeafletMarkerType}  from 'astro-leaflet';
 
 const markers: AstroLeafletMarkerType[] = []
@@ -10,16 +10,26 @@ const options: AstroLeafletOptionsType = {
 	tileByName: 'Google&type=hybrid',
   center: [ 63.402557, 13.057222],
   zoom: 16,
-	// tileLayer: 'https://{s}.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}',
-	// tileLayerOptions: {
-	// 	subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
-	// 	attribution: 'Map data &copy; Google',
-	// },
+	 tileLayer: 'https://{s}.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}',
+	 tileLayerOptions: {
+	 	subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
+	 	attribution: 'Map data &copy; Google',
+	 },
 	markers: markers,
 }
 ---
-<CreateLeafletIcon name='myicon-name' options={{className:"leaflet-icon-myicon", iconSize: [30,30]}}/>
-<Leaflet options={options}/>
+
+  
+<Leaflet id="hitta-oss" options={options}/>
+	<Circle latlng={[63.402557, 13.057222]}, options={{
+      color: '#2D6DC3',
+      fillColor: '#f03',
+      fillOpacity: 0.5,
+      radius: 500
+      }}>
+      <Popup content="Skysport" />
+    </Circle>
+</Leaflet>
 
 <style is:global>
 /* class definition used to define the custom icon */
@@ -29,3 +39,32 @@ const options: AstroLeafletOptionsType = {
   border-radius:50%;
 }
 </style>
+<script>
+  import { getMapFromId } from "astro-leaflet"
+  import L from 'leaflet'
+
+  window.addEventListener('load', () => {
+    const map = getMapFromId('hitta-oss')
+
+    if (map) {
+
+		const circle = L.circle([63.402557, 13.057222], {
+		color: '#2D6DC3',
+		fillColor: '#2D6DC3',
+		fillOpacity: 0.6,
+		radius: 80
+	}).addTo(map).bindPopup('Skysport.');
+
+
+      var popup = L.popup();
+      function onMapClick(e: any) {
+        popup
+            .setLatLng(e.latlng)
+            .setContent("Skysport finns på ost sidan av Draklanda " + e.latlng.toString())
+            .openOn(map!);
+      }
+      map.on('click', onMapClick);
+    }
+  })
+
+</script>
