@@ -1,13 +1,9 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
 import FeatureCTA from "@components/sections/FeatureCTA.astro";
-import ImageHero from "@components/sections/ImageHero.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
 import FourImgFeature from "@components/sections/4imagefeature.astro";
-
-import HeroImage from '@assets/images/IMG_7595.jpg';
-
-import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
 import backgroundIMG from '@assets/images/kurs/nordosthummeln.jpg';
 import featureImg1 from "@assets/images/kurs/18.jpg";
 import featureImg3 from "@assets/images/IMG_7621.jpg";
@@ -17,6 +13,9 @@ import Skarmflyg3 from '@assets/images/kurs/balans.jpg';
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
+ 
+const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/om/grundkurs.mp4";
+const Mobvideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/om/grundkurs4.mp4";
 
 const customLastPart = [
   { index: "last", text: "Om Grundkurs" },
@@ -32,23 +31,12 @@ const customLastPart = [
   }, */
 ];
 
-const HeroContent = {
-    title: "Grundkurs Skärmflyg",
-    backgroundImage: HeroImage,
-    titleTextStyles: 'bg-slate-200/40 sm:bg-slate-200/70 p-2 text-2xl text-white  lg:p-3 rounded-lg md:text-4xl  md:text-primary',
-    overlayOpacity: 0.2,
-    position: "justify-end",
-  
-}
-
-const InnerHeroContent = {
-    title: "Skärmflyg i Åre",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
-    backgroundImage: HeroImage,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-  
-}
+const VideoContent = {
+  backgroundVideo: myVideo,
+  mobileVideo: Mobvideo,
+  position: "justify-end",
+  overlayOpacity: 0.2,
+};
 
 const Feature4Content = {
   title: "Låt drömmen bli verklighet",
@@ -142,7 +130,39 @@ const FeatureCTAContent ={
 ---
 
 <Layout title="Om Grundkurs" description="" keywords="" >
-  <ImageHero content={HeroContent} /> 
+  <VideoHero content={VideoContent} /> 
+   <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+    <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+        <svg
+            slot="index"
+            aria-label="Home Page"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+            points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </Breadcrumbs>
+</div>
     <FourImgFeature content={Feature4Content}/>
      <Feature50 content={Feature50Content}/>
      <Feature50 content={Feature50Content2}/>
