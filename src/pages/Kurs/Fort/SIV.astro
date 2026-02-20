@@ -2,13 +2,10 @@
 import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
 import HeroImage from '@assets/images/paraglide-are.jpg';
-import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
 import Feature50 from  "@sections/Feature-50-50.astro";
 import SivImage from '@assets/images/kurs/siv-inslagg.jpg';
 import SivForm from "@components/elements/forms/SIVForm.astro";
-
 import Divider1 from  "@elements/SeparatorLine.astro";
-import Topper from  "@elements/navTopper.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
@@ -26,14 +23,12 @@ const customLastPart = [
   }, */
 ];
 
-
 const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/SIV/SIV2.mp4";
+const mobVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/SIV/siv-mobile.mp4";
 
 const VideoContent = {
-   // title: "SIV (säkerhetskurs) i Åre ",
-  //  description: "SIV (säkerhetskurs) för skärmflygare i Åre.",
     backgroundVideo: myVideo,
-  //  descriptionImage: LogoImage,
+     mobileVideo: mobVideo,
     overlayOpacity: 0.2,
     page: "tandem",
     position: "justify-end"
@@ -74,17 +69,8 @@ const Feature50Content = {
         postText: '',
       },
      ],
-    //infoDescription1: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca 185 kr.',
-    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
     infoImg:  SivImage,
     infoIcon: '',
-    buttons: [
-     /*  {
-        text: "",
-        link: "",
-        target: "",
-      }, */
-    ],
 }
 ---
 
