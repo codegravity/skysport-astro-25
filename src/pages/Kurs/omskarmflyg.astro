@@ -1,18 +1,17 @@
 ---
-import { siteConfig } from "@config/site";
 import Layout from "@layouts/MainLayout.astro";
-import ImageHero from "@components/sections/ImageHero.astro";
+import VideoHero from "@components/sections/VideoHero.astro";
 import Feature50 from  "@sections/Feature-50-50.astro";
-import FeatureSteps from  "@sections/FeatureSteps.astro";
-
-import HeroImage from '@assets/images/kurs/IMG_7038.jpg';
-import HeroImage2 from '@assets/images/hummeln1.jpg';
+import FeatureSteps from  "@sections/FeatureSteps.astro"
 import Skarmflyg1 from '@assets/images/kurs/åre10.jpg';
 import Skarmflyg2 from '@assets/images/kurs/åre9.jpg';
 import Skarmflyg3 from '@assets/images/kurs/åre8.jpg';
 import Skarmflyg4 from '@assets/images/kurs/åre7.jpg';
 
 
+
+const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/om/Omskarmflyg3.mp4";
+const Mobvideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/om/Omskarmflyg2.mp4";
 
 import Reco from "@components/sections/RecoBar.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -32,25 +31,13 @@ const customLastPart = [
   }, */
 ];
 
+const VideoContent = {
+  backgroundVideo: myVideo,
+  mobileVideo: Mobvideo,
+  position: "justify-end",
+  overlayOpacity: 0.2,
+};
 
-const HeroContent = {
-    title: "Om Skärmflyg i Åre",
-    backgroundImage: HeroImage,
-    imgMob: HeroImage,
-    titleTextStyles: 'bg-slate-200/70 p-3 rounded-lg lg:text-primary',
-    overlayOpacity: 0.2,
-    position: "justify-end",
-  
-}
-const Hero2Content = {
-    title: "Om Skärmflyg i Åre",
-    backgroundImage: HeroImage,
-    imgMob: HeroImage2,
-    titleTextStyles: 'bg-slate-200/70 p-3 rounded-lg lg:text-primary',
-    overlayOpacity: 0.2,
-    position: "justify-end",
-  
-}
 const Feature50Content = {
      infoTitle: 'Äntligen kan människan flyga!',
      infoText: [
@@ -60,27 +47,9 @@ const Feature50Content = {
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },
-     
-     /* 
-      {
-        preText: 'För att kunna gå säkerhetskursen måste du ha gilitig elevlicens eller annan licens av högre nivå. Kursen arrangeras under perioden juni-september.',
-        spanText: '',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      }, */
      ],
-    //infoDescription1: 'Upptransport till startplatsen ingår ej i priset. (OBS: Detta gäller även presentkort) Upptransport med Gondolbanan i Åre kostar ca 185 kr.',
-    //infoDescription2: 'Under årstider/tider på dagen när inte liftarna är öppna sker transport med Skysports minibuss,  som kostar 80 kr',
-    infoImg:  Skarmflyg1,
+   infoImg:  Skarmflyg1,
     infoIcon: '',
-    buttons: [
-     /*  {
-        text: "",
-        link: "",
-        target: "",
-      }, */
-    ],
-    //sectionStyles: 'bg-slate-800 dark:bg-slate-100',
 }
 const Feature50Content2 = {
      infoOrientationL: true,
@@ -119,9 +88,7 @@ const Feature50Content3 = {
 }
 
 const FeatureStepsContent = {
-
     stepsTitle: 'Grundkursen är indelad i 4 steg',
-   // stepsDescription: '',
     stepsText: [
         {
         preText: '',
@@ -161,9 +128,6 @@ const FeatureStepsContent = {
         },
     ],
     stepsImg:  Skarmflyg2,
-    //imgHeight:  ,
-    //imgWidth: ,
-    //infoIcon: ,
     stepsPostText: 'Allt detta tränas under veckokursen. När kursen avslutas har du elevlicens med bergsbehörighet. Den berättigar dig att flyga vidare på egen hand. Med mer träning och en fortsättningskurs, kan du även flyga i stigande luft, sk hang eller termik. Då kan flygtiderna ibland bli flera timmar långa. Ett vanligt flyg, utan flygning i stigande luft, är ca 10-15 minuter vid flygning från Åreskutan. Åre är Sveriges skärmflygcenter. Kabinbana och Gondollift transporterar upp till bergets topp. Under vissa årstider och på kvällen, när liften är stängd, kommer vi upp med hjälp av minibuss.',
     buttons:[ 
         {
@@ -176,8 +140,7 @@ const FeatureStepsContent = {
 ---
 
 <Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
-   <ImageHero content={Hero2Content}/>  
-
+   <VideoHero content={VideoContent}/>  
    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
     <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
         <svg
