@@ -1,127 +1,112 @@
 ---
-import { resor } from '@data/formData';
-import Topper from  "@elements/navTopper.astro";
+import { resor } from "@data/resData.js";
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import ResOverlay from "@elements/modals/resbooking.astro";
- import GreenAlert from "@components/elements/greenAlert.astro";
-const anhorigaRawPrice =  resor[0].resAnhorigaPris;
-const anhorigaComment = resor[0].resAnhorigaComment;
-const anhorigaPrisISO = (new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(anhorigaRawPrice) + ' person.');  
-
-const GreenAlertContent = {
-    title: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra.',
-    description: 'De betalar då 4.900 kr per anhöriga. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fält.',
-
-}
 ---
+
 <section class="bg-slate-800">
 <div class="max-w-[85rem]  px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto ">
-     <div class="lg:text-3xl  pt-6 sm:pt-0">
-            <h2 >Skysports Turkiet Resa 2026</h2>
+     <div class="  pt-6 sm:pt-0">
+            <h4 class="text-slate-200 text-2xl lg:text-3xl ">Skysports Resor 2026</h4>
             <Hr1 />
     </div>
     <form id="res-booking" method="POST">
     <div class="grid grid-cols-1 lg:grid-cols-4">
+        <div class="text-slate-200 lg:text-2xl font-semibold pt-6 sm:pt-1 py-3"><!--col 1 -->
+            <h4>Välj en resor<span class="text-amber-600 text-3xl"> *</span></h4>
+        </div>
+
+        <div class="lg:col-span-3 lg:text-2xl font-bold pt-6 sm:pt-1 py-3">
+            <div id="missed-resor" class="hidden text-amber-600 text-xl">Obs! Välj en av resor</div>
+        </div>
         { resor.map((res) => (
             
             <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
-                <h3>Välj Resa {res.resDestinationLand}<span class="text-amber-600 text-3xl"> *</span></h3>
-                <div id="missed-resor" class="hidden text-amber-600 text-xl">Obs! Välj en av resor</div>
+                <h3>{res.resDestinationLand}</h3> 
             </div>
-            <div  class=" lg:col-span-3 py-3 ">
+
+            <div  class=" lg:col-span-3 py-3 "><!--col 2 -->
                 <div class="flex flex-col gap-y-3">
-                    { res.rescheckbox.map((veckan, index) => (
+                    { res.rescheckbox.map(( veckan ) => (
                         <div class="flex">
-                            <input id={veckan.resID}   name="hs-res-radio-group" type="radio"  class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                            <label for={veckan.resID} class="px-2 py-0.5 sm:py-0 text-lg text-slate-200  sm:text-xl dark:text-neutral-400">{veckan.resLabel}</label> 
-                            <input type="hidden" id={`hs-resRubrik-${index + 1}`} name={`hs-resTitle-${index + 1}`} value={veckan.resLabel}>
-                           <input type="hidden" id={`hs-resRawPris-${index + 1}`} name={`hs-resRawPris-${index + 1}`} value={veckan.resPris}> 
-                            <input type="hidden" id={`hs-rescomment-${index + 1}`} name={`hs-rescomment-${index + 1}`} value={veckan.resComment}>  
+                            <input id={veckan.resID} name="hs-res-radio-group" type="radio"  class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
+                            <label for={veckan.resID} class="px-2 py-0.5 sm:py-0 text-lg text-slate-200  sm:text-xl dark:text-neutral-400">{veckan.resLabel} </label>
+                            <input type="hidden" id={`hs-resRadioTitle-${veckan.resID}`} name={`hs-resRadioTitle-${veckan.resID}`} value={veckan.resLabel}> 
+                            <input type="hidden" id={`hs-resRawPris-${veckan.resID}`} name={`hs-resRawPris-${veckan.resID}`} value={veckan.resPris}> 
+                            <input type="hidden" id={`hs-rescomment-${veckan.resID}`} name={`hs-rescomment-${veckan.resID}`} value={veckan.resComment}> 
+                            <input type="hidden" id={`hs-resCountry-${veckan.resID}`} name={`hs-resCountry-${veckan.resID}`} value={res.resDestinationLand}> 
                         </div>
-                    ))
+                        ))
                     }
                 </div>
-                </div>
-                </div>
-                    { res.rescheckbox.map((resdata, index) => (
-                        <div id={`hs-resTitle-${index + 1}`} class="hidden lg:text-2xl font-bold pt-6 py-0 sm:py-3">
-                                <h3>{resdata.resLabel}</h3>
-                        </div>
-
-                        <div id={`hs-resInfo-${index + 1}`} class="hidden col-span-1 lg:col-span-3 py-0  sm:py-3">
-                            <span class="flex flex-col sm:flex-row gap-1 ">
-                                <input type="text" name={`hs-resPriceISO-${index + 1}`} id={`hs-resPriceISO-${index + 1}`} disabled  value='' class="text-slate-200 lg:w-1/5 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg   disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                                <label for={`hs-resPriceISO-${index + 1}`} class="text-sm  lg:text-md text-gray-200 ms-2 lg:w-2xl dark:text-neutral-400">{resdata.resComment}</label>
-                            </span>
-                        </div>       
-                    ))
-                    }  
-             ))
-             } <!--end res destination --> 
-                <div id="anhoriga" class=" lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
-                    <h3>Anhöriga till Turkiet</h3>
-                </div>
-                <div id="anhoriga-data" class=" col-span-1 lg:col-span-3 py-0  sm:py-3">
-                <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                    <section class="site-container"><GreenAlert content={GreenAlertContent} /></section>
-
-                </div>  
-                  <Hr1 />     
             </div>
+            ))
+        }
+        { resor.map((resinfo) => (
+           
+            resinfo.rescheckbox.map(( item ) => (
+                <div id={`hs-resTitle-${item.resID}`}  class="hidden lg:text-xl font-bold pt-6 py-0 sm:py-3">
+                     <h4 class=" lg:text-xl py-3 text-amber-600">{item.resLabel}</h4> 
+                </div>
 
-
-            {/* <div id="anhoriga" class=" lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
-                    <h3>Anhöriga till Turkiet</h3>
-            </div>
-
-             <div id="anhoriga-data" class=" col-span-1 lg:col-span-3 py-0  sm:py-3">
-                <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
+                <div id={`hs-resInfo-${item.resID}`} class="hidden col-span-1 lg:col-span-3 py-0  sm:py-3">
                     <span class="flex flex-col sm:flex-row gap-1 ">
-                        <input type="text" name="hs-anhoriga-pris" id="hs-anhoriga-pris" disabled placeholder=""  disabled class="placeholder-slate-500 lg:w-1/3 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                        <label for="hs-anhoriga-pris" class="px-2 py-0.5 sm:py-0 text-lg text-slate-200  sm:text-xl dark:text-neutral-400"></label>
-                        <div class="py-3 px-3 sm:w-1/3 bg-white border border-gray-200 rounded-lg dark:bg-neutral-900 dark:border-neutral-700">
-                            <div id="antalCon" class="w-auto flex justify-between items-center gap-x-3" data-hs-input-number="">
-                                <div>
-                            <input id="hs-anhor-antal" class="w-1/2 sm:w-1/2 p-0 bg-transparent border-0 text-gray-800 focus:ring-0 [&::-webkit-inner-spin-button]:appearance-none [&::-webkit-outer-spin-button]:appearance-none dark:text-white" style="-moz-appearance: textfield;" type="text" 
-                            aria-roledescription="Number field" value="0" data-hs-input-number-input="">
-                            </div>
-                            <div class="sm:w-1/3 flex justify-end items-center gap-x-1.5 ">
-                                <button type="button" id="minus" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Decrease" data-hs-input-number-decrement="">
-                                    <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M5 12h14"></path>
-                                    </svg>
-                                </button>
-                                <button type="button" id="plus" class="size-6 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-full border border-gray-200 bg-white text-gray-800 shadow-2xs hover:bg-gray-50 focus:outline-hidden focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-800 dark:focus:bg-neutral-800" tabindex="-1" aria-label="Increase" data-hs-input-number-increment="">
-                                    <svg class="shrink-0 size-3.5" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M5 12h14"></path>
-                                        <path d="M12 5v14"></path>
-                                    </svg>
-                                </button>
-                            </div><span class="block text-xs text-gray-500 dark:text-neutral-400">Antal anhöriga</span>
+                         <input type="text" name={`hs-resPriceISO-${item.resID}`} id={`hs-resPriceISO-${item.resID}`} disabled  value='' class="text-slate-200 lg:w-1/5 w-2/3 p-2 sm:py-3 sm:px-4 block  border  border-gray-200 rounded-lg sm:text-sm lg:text-lg   disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                        <label for={`hs-resPriceISO-${item.resID}`} class="text-sm  lg:text-md text-gray-200 ms-2 lg:w-2xl dark:text-neutral-400">{item.resComment}</label>
+                     </span>
+                     <input type="hidden" id={`hs-resanhoriga-${item.resID}`} name={`hs-resanhoriga-${item.resID}`} value={item.resAnhoriga}> 
+                </div> 
+                
+                <div id={`anhoriga-${item.resID}`}  class="hidden pt-6 py-0 sm:py-3"><!--col 1 -->
+                    <h4 class=" text-slate-200 lg:text-lg font-semibold">Anhöriga till {item.resLabel}</h4>
+                </div>
+
+                        <div id={`anhoriga-data-${item.resID}`} class="hidden col-span-1 lg:col-span-3 py-0  sm:py-3">
+                            <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
+                                <div class="bg-green-50 border border-green-600 text-sm text-yellow-800 rounded-lg p-4 dark:bg-green-200/10 dark:border-yellow-900 dark:text-yellow-500" role="alert" tabindex="-1" aria-labelledby="hs-with-description-label">
+                                    <div class="flex">
+                                        <div class="shrink-0">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 24 24">
+                                                <rect width="24" height="24" fill="none" />
+                                                <g fill="none" stroke="#24a014" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.7">
+                                                    <path stroke-width="1.5" d="M13.925 21h-3.85c-4.63 0-6.945 0-7.799-1.506c-.853-1.506.331-3.503 2.7-7.495L6.9 8.753C9.176 4.918 10.313 3 12 3s2.824 1.918 5.1 5.753L19.023 12c2.369 3.992 3.553 5.989 2.7 7.495C20.87 21 18.555 21 13.924 21M12 17v-4.5" />
+                                                    <path stroke-width="1.8" d="M12 8.998v-.01" />
+                                                </g>
+                                            </svg>
+                                        </div>
+                                        <div class="ms-4">
+                                            <h3 id={`hs-with-description-label-${item.resID}}`} class="text-sm font-semibold">
+                                                {item.resAnhorigaAlertTitle}
+                                            </h3>
+                                            <div class="mt-1 text-sm text-slate-800 dark:text-slate-200 text-semibold">
+                                                {item.resAnhorigaComment}
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                             <label for="hs-anhoriga-pris" class="text-sm  lg:text-lg text-gray-200 ms-2 dark:text-neutral-400">{anhorigaComment}</label>
-                    </span>   
+                        <Hr1 />
+                        </div>
+                 
+                
 
-                </div>  
-                  <Hr1 />     
-            </div>  */}
-         
+             ))
         
-
+        
+            ))
+        }  
+        <!--end res destination --> 
+            
         <div class="lg:text-2xl font-bold pt-6 py-0 sm:py-3"><!--col 1 -->
-           {/*  <h3>Summa:</h3>  */}
+             <h3></h3>  
         </div>
         <div class="col-span-1 lg:col-span-3 py-0  sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="none" hidden class="  text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-summa" id="hs-summa" placeholder=""  hidden class="  text-slate-200 lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                  <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400"></label>
-                 <input type="number" id="hs-raw-summa" name="hs-raw-summa" hidden value='0'>
-                 <input type="text" id="hs-res-name" name="hs-res-name" hidden value='None'>
-          </div>      
+                 <input type="text" id="hs-res-name" name="hs-res-name" hidden >
+                 <input type="text" id="hs-res-country" name="hs-res-country" hidden >
+            </div>      
         </div>
 
     </div><!--end grid-->
@@ -246,24 +231,20 @@ const GreenAlertContent = {
                 <button id="hs-submit-resa" type="button" class="w-s py-3 px-4 inline-flex justify-center items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-amber-700 focus:outline-hidden focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none">SKICKA BOKNING</button>
             </div>
         </div>
-       
+     
     </form>
 </div>
 </section>
 
-
 <script is:inline>
+
 
     const resVilkorPopup = document.getElementById('res-vilkor-popup')
     resVilkorPopup.addEventListener('click', () => { 
         HSOverlay.open('#hs-vilkor-alert');
     });
 
-    
-
-    
-
-    document.getElementById("hs-raw-summa").value = 0;
+    //document.getElementById("hs-raw-summa").value = 0;
 
     const radioResa =  document.getElementsByName('hs-res-radio-group');
             radioResa.forEach((button) => {
@@ -273,56 +254,47 @@ const GreenAlertContent = {
         });
 
     function ShowResData() {
-
         var ele = document.getElementsByName('hs-res-radio-group');
         for (i = 0; i < ele.length; i++) {
                     if (ele[i].type = "radio") {
-                        document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden")
-                        document.getElementById("hs-resInfo-" + (i + 1)).classList.add("hidden")
-                       // document.getElementById("hs-raw-summa" ).value = 0
-                       // document.getElementById("hs-summa" ).value = ''
-                        //document.getElementById("hs-res-name" ).value = ""
-
                         if (ele[i].checked) {
                             const resItemID = ele[i].id;
                             const resCheckboxcheck =  ele[i].value;
                             ele[i].value = 'true';
-
-                            const currentRawSumma =  document.getElementById("hs-raw-summa" ).value;
-                            const resanRawPrice = document.getElementById("hs-resRawPris-" + (i + 1)  ).value;
-                            const resaRubrik = document.getElementById("hs-resRubrik-" + (i + 1)  ).value;
-                            //const rawTotal = (parseInt(currentRawSumma) + parseInt(resanRawPrice)) ;
-                            const rawTotal = (parseInt(resanRawPrice)) ;
+                            const resanRawPrice = document.getElementById("hs-resRawPris-" + resItemID  ).value;
+                            const resanAnhoriga = document.getElementById("hs-resanhoriga-" + resItemID  ).value;
+                            const resRadioRubrik = document.getElementById("hs-resRadioTitle-" + resItemID  ).value;
+                           
+                            const resCountry = document.getElementById("hs-resCountry-" + resItemID  ).value;
+                            if(resanAnhoriga === 'true'){
+                                document.getElementById("anhoriga-" + resItemID).classList.remove("hidden");
+                                document.getElementById("anhoriga-data-" + resItemID).classList.remove("hidden");
+                            }
                             const summaISO =  new Intl.NumberFormat('sv-SE', {
                                     style: 'currency',
                                     currency: 'SEK'
                                     }).format(resanRawPrice);
-                            document.getElementById("hs-raw-summa" ).value = rawTotal;
-                            document.getElementById("hs-summa" ).value = summaISO;
-                            document.getElementById("hs-res-name" ).value = resaRubrik;
-                            const resPriceISO =  new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(resanRawPrice);    
-                            document.getElementById("hs-resPriceISO-" + (i + 1)).value = resPriceISO; 
-                            document.getElementById("hs-resTitle-" + (i + 1)).classList.remove("hidden");
-                            document.getElementById("hs-resInfo-" + (i + 1)).classList.remove("hidden");
+                            document.getElementById("hs-resPriceISO-" + resItemID).value = summaISO;
+                            document.getElementById("hs-summa").value = summaISO;
+                            document.getElementById("hs-res-name").value = resRadioRubrik;
+                            document.getElementById("hs-res-country").value = resCountry;
                             
-                        } else  {  
-
+                            document.getElementById("hs-resTitle-" + resItemID).classList.remove("hidden");
+                            document.getElementById("hs-resInfo-" + resItemID).classList.remove("hidden");
+                        } else  {
+                            const resItemID = ele[i].id;
                             ele[i].value = 'false';
-                            document.getElementById("hs-resTitle-" + (i + 1)).classList.add("hidden");
-                            document.getElementById("hs-resInfo-" + (i + 1)).classList.add("hidden");
-                            
+                            document.getElementById("hs-resTitle-" + resItemID).classList.add("hidden");
+                            document.getElementById("hs-resInfo-" + resItemID).classList.add("hidden");
+                            document.getElementById("anhoriga-" + resItemID).classList.add("hidden");
+                            document.getElementById("anhoriga-data-" + resItemID).classList.add("hidden");
                         }
                     }
                 }
-    }
-
+            }
 </script>
 
 <script is:inline>
-   
 
     const checkResa = document.getElementById('hs-submit-resa')
     //const submitBtn = document.querySelector('[type="submit"]')
@@ -429,6 +401,7 @@ const getFormData = () => {
   const store = Object.create(null)
     store.resa = get("hs-res-name")?.value
     store.resPriceISO = get("hs-summa")?.value
+    store.resCountry = get("hs-res-country")?.value
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
     store.lastName = get('hs-lastname-contacts-1')?.value
@@ -467,14 +440,14 @@ const getFormData = () => {
 
 const sendmail = async () => {
   
-  const { resa, resPriceISO, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject } = getFormData()
+  const { resa, resPriceISO, resCountry, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject } = getFormData()
   console.log('Sending booking for:', firstName, lastName, resa)
   const data = await fetch('/api/sendResBooking.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ resa, resPriceISO, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject }),
+    body: JSON.stringify({ resa, resPriceISO, resCountry, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
       if (!res.ok) {

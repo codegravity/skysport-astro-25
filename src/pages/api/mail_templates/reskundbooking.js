@@ -1,5 +1,5 @@
 
-const htmlResKundBookTemplate = (name, tel, telday, email, Meddelande, resa, resPriceISO, birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp) => {
+const htmlResKundBookTemplate = (name, tel, telday, email, Meddelande, resa, resPriceISO, resCountry, birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -109,7 +109,7 @@ Skysport AB
 <h4>Du här bokad med följande informationen:</h4>
 
   <p class="p1">
-  Res bokad datum: <b>${resa}</b><br>
+  Res bokad datum: <b>${resa}</b> &nbsp;  ${resCountry}<br>
   Pris: <b>${resPriceISO}</b><br>
  
   Namn: <i>${name}</i><br>

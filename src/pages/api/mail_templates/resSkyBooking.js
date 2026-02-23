@@ -1,5 +1,5 @@
 
-const htmlResSkyTemplate = (name, tel, telday, email, Meddelande, resa, resPriceISO,  birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp) => {
+const htmlResSkyTemplate = (name, tel, telday, email, Meddelande, resa, resPriceISO, resCountry,  birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp) => {
     return ` 
 <!DOCTYPE html>
 <html lang="en">
@@ -71,7 +71,7 @@ const htmlResSkyTemplate = (name, tel, telday, email, Meddelande, resa, resPrice
 
                 <tr style="display: inline-block;">
                     <td style="min-height: 150px; padding: 6px 20px; border: none; border-bottom: 2px solid #361B0E; background-color: white;">
-                        <h2 style="text-align: left; align-items: center;">Res bokad datum: ${resa}</h2>
+                        <h2 style="text-align: left; align-items: center;">Res bokad datum: ${resa}&nbsp;&nbsp;Land:  ${resCountry}</h2>
                         <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
                             Pris: ${resPriceISO}
                        </p>
