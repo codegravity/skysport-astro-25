@@ -35,6 +35,7 @@ export const POST: APIRoute = async ({ request }) => {
     const formData = await request.json()
     const resa = formData.resa
     const resPriceISO = formData.resPriceISO
+    const resCountry = formData.resCountry
     const fname = formData.firstName
     const lname = formData.lastName
     const name = fname + ' ' + lname
@@ -56,8 +57,8 @@ export const POST: APIRoute = async ({ request }) => {
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
 
-    const output = htmlResKundBookTemplate(name, tel, telday, email, message, resa, resPriceISO, birthyr, adress, postnr, city, country, vilkor, newsletter,checkboxOK, BookingTimestamp )
-    const outputSky = htmlResSkyTemplate(name, tel, telday, email, message, resa, resPriceISO, birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp )
+    const output = htmlResKundBookTemplate(name, tel, telday, email, message, resa, resPriceISO, resCountry, birthyr, adress, postnr, city, country, vilkor, newsletter,checkboxOK, BookingTimestamp )
+    const outputSky = htmlResSkyTemplate(name, tel, telday, email, message, resa, resPriceISO, resCountry, birthyr, adress, postnr, city, country, vilkor, newsletter, checkboxOK, BookingTimestamp )
 
   
 
@@ -76,6 +77,7 @@ export const POST: APIRoute = async ({ request }) => {
 
     const Kmessage = `
     Res bokning: ${resa}  
+    Land: ${resCountry}
 
     
     ----------------------------------------------------------------------
