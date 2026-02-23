@@ -1,11 +1,6 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import Booking from "@components/elements/forms/fortsatningskursForm.astro";
-
-import tandemLanding from "@assets/images/tandem/sommar-1536x1536.jpg";
-import sommarSkutan from "@assets/images/tandem/sommarskutan1.jpg";
-import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
-
 import Divider1 from  "@elements/SeparatorLine.astro";
 import Topper from  "@elements/navTopper.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -30,27 +25,6 @@ const BookingPageContent = {
     schemaDate: schemaDate,
   
 }
-
-const TandemPriceCardContent = {
-bookingPage: 'boka',
-  tandemProducts:[
-    {
-      title: "Tandemflyg",
-      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
-      price: "1.800 kr",
-      foto: 0,
-    },
-    {
-      title:  "Tandemflyg med film/foto",
-      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
-      price: "2.200 kr",
-      foto: 1,
-    }
-  ],
-}
-
-
-
 
 ---
 <Layout title="Boka tandemflyg hos Skysport i Åre" description="" keywords="Tandemflyg, Paragliding, Åre" >

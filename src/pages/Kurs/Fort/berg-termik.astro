@@ -107,19 +107,13 @@ const Feature50Content = {
         spanClasses: '',
         postText: '',
       },
-      /* {
-        preText: ' Kursens längd är Kortvecka (måndag-onsdag), Weekend (torsdag-lördag) eller Helvecka (måndag-lördag) Störst sannolikhet att bli klar med kursen är om du väljer en vecka. Kortvecka kan även fungera, men då gäller det att vi har bra väder för flygning minst 1,5 av de 3 dagarna. 1.5 dags flygning från berget är ett minimum för att bli godkänd på licensen.',
-        spanText: '',
-        spanClasses: '',
-        postText: '',
-      }, */
      ],
     infoImg:  BergImg1,
     infoIcon: '',
     buttons: [
       {
         text: "Boka Berg Kursen",
-        link: "/Kurs/Fort/boka",
+        link: "/Kurs/Fort/Boka",
         target: "_self",
       },
     ],
@@ -141,19 +135,13 @@ const Feature50Content2 = {
         spanClasses: '',
         postText: '',
       },
-      /* {
-        preText: ' Kursens längd är Kortvecka (måndag-onsdag), Weekend (torsdag-lördag) eller Helvecka (måndag-lördag) Störst sannolikhet att bli klar med kursen är om du väljer en vecka. Kortvecka kan även fungera, men då gäller det att vi har bra väder för flygning minst 1,5 av de 3 dagarna. 1.5 dags flygning från berget är ett minimum för att bli godkänd på licensen.',
-        spanText: '',
-        spanClasses: '',
-        postText: '',
-      }, */
      ],
     infoImg:  BergImg2,
     infoIcon: '',
     buttons: [
       {
         text: "Boka Berg Kursen",
-        link: "/Kurs/Fort/boka",
+        link: "/Kurs/Fort/Boka",
         target: "_self",
       },
     ],
@@ -168,12 +156,6 @@ const Feature50Content3 = {
      isTandemPage: false,
      isKursPage: true,
      infoText: [
-      /* {
-        preText: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan. Gondolbana som snabbt transporterar oss upp till startplatsen. På morgon och kväll finns möjlighet till upptransport med minibuss. Åreskutan har 8 olika startplatser på olika vindriktningar – vilket innebär att vi ofta kan flyga. Kursen lägger stor vikt på att lära dig olika tekniker för inflygning och pricklandning. Vi tränar också mycket på tekniken för baklängesstart, när det blåser mycket. Starttekniken ska först sitta på plan mark, innan vi beger oss upp på Åreskutan. Du får också lära dig öron(vingspetsarna viks in) samt även använda speedsystemet. Har du egen utrustning hjälper vi dig att ställa in och trimma in speedsystemet så att det är enkelt att använda. De första 3 flygen instrueras du via radio, för position och höjdbedömning. Sedan ska pricklandning (inom 50 m) på Draklanda göras självständigt minst 2 ggr, för att du ska bli godkänd på licensen. ',
-        spanText: '',
-        spanClasses: '',
-        postText: '',
-      }, */
       {
         preText: ' Kursens längd är Kortvecka (måndag-onsdag), Weekend (torsdag-lördag) eller Helvecka (måndag-lördag) Störst sannolikhet att bli klar med kursen är om du väljer en vecka. Kortvecka kan även fungera, men då gäller det att vi har bra väder för flygning minst 1,5 av de 3 dagarna. 1.5 dags flygning från berget är ett minimum för att bli godkänd på licensen.',
         spanText: '',
@@ -186,7 +168,7 @@ const Feature50Content3 = {
     buttons: [
       {
         text: "Boka Berg Kursen",
-        link: "/Kurs/Fort/boka",
+        link: "/Kurs/Fort/Boka",
         target: "_self",
       },
     ],
@@ -265,7 +247,7 @@ const Feature50Content4 = {
     buttons: [
       {
         text: "Boka Berg Kursen",
-        link: "/Kurs/Fort/boka",
+        link: "/Kurs/Fort/Boka",
         target: "_self",
       },
     ],
@@ -310,7 +292,7 @@ const Feature50ContentTermik = {
     buttons: [
       {
         text: "Boka Termik Kursen",
-        link: "Kurs/Fort/boka",
+        link: "/Kurs/Fort/Boka",
         target: "_self",
       },
     ],
@@ -367,11 +349,8 @@ const Feature50ContentTermik = {
  <script is:inline>
         const scrollElementB = document.querySelector("#berg");
         const scrollBergBtn = document.querySelector("#bergKurs");
-        const scrollTandemtBtn = document.querySelector(".scroll-left-btn");
         const outputDiv = document.querySelector(".output");
-
         scrollBergBtn.addEventListener("click", function () {
-          alert("Hej");
             scrollElementB.scrollTop += 25;
         });
         scrollLeftBtn.addEventListener("click", function () {

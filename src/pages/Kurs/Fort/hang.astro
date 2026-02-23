@@ -1,20 +1,12 @@
 ---
-
-import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
-
 import VideoHero from "@components/sections/VideoHero.astro";
-import FeatureMain from "@components/sections/3imagefeature.astro";
 import ListWidget from "@widgets/listwidget.astro";
 import BookingCTA from  "@sections/bookingCTA.astro";
-
 import hummlnHang from "@assets/images/kurs/hang-po-hummln.jpg";
-
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
-
 const customLastPart = [
   { index: "last", text: "Hangflyg" },
 /*   {
@@ -29,10 +21,11 @@ const customLastPart = [
   }, */
 ];
 
+//const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/winterHang-212mb.mp4";
+const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/start/Skystart-utube.mp4";
 
-const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/winterHang-212mb.mp4";
 const VideoContent = {
-    title: "Fortsättningskurs Hangflyg ",
+    title: "",
     description: "Hangflyg på Åreskutan. Lär dig mer om termikflygning och avancerade tekniker för hangflygning under vår fortsättningskurs.",
     backgroundVideo: myVideo,
     overlayOpacity: 0.2,
@@ -48,7 +41,7 @@ const BookingCtaContent = {
     buttons: [
     {
       text: "Boka Hangkurs",
-      link: "#bokatandem",
+      link: "/Kurs/Fort/Boka",
       target: "_self",
     },
   ],
