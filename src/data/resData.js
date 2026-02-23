@@ -1,0 +1,56 @@
+export const  resor = [
+    {   
+        destinationID: 1,
+        resDestinationLand: 'Turkiet',
+        resDestinationPlats: 'Ölüdeniz',
+        rescheckbox: [
+            {
+                resLabel: '17 - 24 Maj Ölüdeniz SIV',
+                resValue: '16800',
+                resID: 'turkietMaj',
+                resPris: '16800',
+                resComment: 'Resan kostar 16 800 kr ( SIV kurs 3 dagar är inkluderad i priset) I det priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer).',
+                resAnhoriga: 'true',
+                resAnhorigaAlertTitle: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra.',
+                resAnhorigaComment: ' De betalar då 4.900 kr. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fält.',
+            },
+            {
+                resLabel: '20 - 27 Sept Ölüdeniz ',
+                resValue: '12800',
+                resID: 'turkietSept',
+                resPris: '12800',
+                resComment: 'Resan kostar 12 800 kr ( ingen SIV kurs ) I det priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer). Boende i dubbelrum. Enkelrum mot tillägg 1.900 kr.',
+                resAnhoriga: 'true',
+                resAnhorigaAlertTitle: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra.',
+                resAnhorigaComment: ' De betalar då 4.900 kr. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fält.',
+            },
+        ],
+    },
+    {   
+        destinationID: 2,
+        resDestinationLand: 'Morokko',
+        resDestinationPlats: 'Cassablance',
+        rescheckbox: [
+            {
+                resLabel: '17 - 24 Sept Rock the casbar',
+                resValue: '16800',
+                resID: 'morokko1',
+                resPris: '16800',
+                resComment: 'Resan kostar 16 800 kr. alt annat extra',
+                resAnhoriga: 'true',
+                resAnhorigaAlertTitle: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra.',
+                resAnhorigaComment: ' De betalar då 9.900 kr. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fält.',
+            },
+            {
+                resLabel: '20 - 27 Okt Atlas XC camp',
+                resValue: '19800',
+                resID: 'morokko2',
+                resPris: '19800',
+                resComment: 'Resan kostar 19 800 kr  I det priset ingår transfer, boende på hotell med pool och frukost, all transport upp på berget, samt flygguidning (2 instruktörer). Boende i dubbelrum. Enkelrum mot tillägg 1.900 kr.',
+                resAnhoriga: 'false',
+                resAnhorigaAlertTitle: 'Ingen mölighet för anhöriga a följe med på denna resan.',
+                resAnhorigaComment: ' ',
+            },
+        ],
+    },
+];
