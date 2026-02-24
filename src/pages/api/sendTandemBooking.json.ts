@@ -5,6 +5,18 @@ import nodemailer from 'nodemailer';
 import { htmlTandemTemplate } from './mail_templates/tandemBooking.js'
 import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
 
+import { transportUp } from "@data/prisData";
+const rawSkysportUp =  transportUp.skysportBus;
+const rawSkistarUp = transportUp.skistarLift;
+const skysportUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkysportUp); 
+const skistarUpISO = new Intl.NumberFormat('sv-SE', {
+                                    style: 'currency',
+                                    currency: 'SEK'
+                                    }).format(rawSkistarUp);
+
 //const emailUser = import.meta.env.PUBLIC_EMAIL_USER
 //const emailTo1 = import.meta.env.PUBLIC_EMAIL
 //const emailToPass = import.meta.env.PUBLIC_EMAIL_PASS
@@ -49,7 +61,7 @@ export const POST: APIRoute = async ({ request }) => {
     const direktBokning = formData.direktBokning
     const vilkor = formData.vilkor
 
-    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Ksubject, BookingTimestamp )
+    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, skysportUpISO, skistarUpISO,  Ksubject, BookingTimestamp )
     const outputSky = htmlTandemSkyTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, vilkor, direktBokning, BookingTimestamp )
 
     if (!email || !name ) {

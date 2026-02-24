@@ -1,5 +1,5 @@
 
-const htmlTandemTemplate = (name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, Bookingtimestamp) => {
+const htmlTandemTemplate = (name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, skistarUpISO, skysportUpISO, Bookingtimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -166,7 +166,7 @@ Har du presentkort måste du ta med det. En bild på presentkortet, där koder o
 </h5>
 <h5><strong>Transport till startplatsen: </strong></h5>
 <h5 style="text-wrap: balance;">
-Om flygningen sker från Åreskutans topp, sker upptransport med VM8:an och Gondolen. Om flygningen sker från den lägre startplatsen, Hummeln, sker upptransport med VM6:an och Hummelliften. Priset för liftkortet är 185 kr. Under tider på dagen/året, när liftarna inte är öppna, sker transport upp med Skysports minibuss. Biltransporten kostar 80 kr.
+Om flygningen sker från Åreskutans topp, sker upptransport med VM8:an och Gondolen. Om flygningen sker från den lägre startplatsen, Hummeln, sker upptransport med VM6:an och Hummelliften. Priset för liftkortet är ${skistarUpISO}. Under tider på dagen/året, när liftarna inte är öppna, sker transport upp med Skysports minibuss. Biltransporten kostar ${skysportUpISO}.
 </h5>
 <h5><strong>Boende:</strong></h5>
 <h5 style="text-wrap: balance;">
