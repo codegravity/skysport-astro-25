@@ -232,6 +232,19 @@ export const pilots = [
     ],
   },
   {
+    name: "Fredrik Lindholm",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fredrik-L.jpeg",
+    bio: "Bor i Åre. Uppväxt i Åre.",
+    flewSince: "",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+ /*  {
     name: "Cecilia Granerot",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/ceciliaa.jpg",
     bio: "Bor i Åre. Född 1979. ",
@@ -243,7 +256,7 @@ export const pilots = [
     { type: "Instruktör", working: false },
     { type: "Hjälpinstruktör", working: false  },
     ],
-  },
+  }, */
   {
     name: "Emil Krabbe",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/krabbe.jpg",
@@ -270,7 +283,7 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-  {
+  /* {
     name: "Andreas Florén",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/floren.jpg",
     bio: "Bor i Åre. Född 1980. ",
@@ -282,7 +295,7 @@ export const pilots = [
     { type: "Instruktör", working: false },
     { type: "Hjälpinstruktör", working: false  },
     ],
-  },
+  }, */
   {
     name: "Jonas Ostwald",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/jonasO.jpg",
@@ -337,7 +350,7 @@ export const pilots = [
   },
    {
     name: "Mauritz Sjöström",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fakeMurra.jpg",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mauritz.jpeg",
     bio: "Bor i Åre. Född 1969. IT ansvarig på Skysport ",
     flewSince: "2010",
     role: [
@@ -350,7 +363,7 @@ export const pilots = [
   },
    {
     name: "Emil Svantesson",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fakeEmil.jpg",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/emil.jpeg",
     bio: "Bor i Åre. Född 1996. ",
     flewSince: "",
     role: [
@@ -363,13 +376,39 @@ export const pilots = [
   },
    {
     name: "Pontus Olsson",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fakePontus.jpg",
-    bio: "Bor i Åre. Född 1993. äsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/pontus.jpeg",
+    bio: "Bor i Åre. Född 1993. Säsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
     flewSince: "",
     role: [
     { type: "Skysports Drift Ansvarig", working: false },
     { type: "Tandempilot", working: false },
     { type: "Tandemaspirant", working: true },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Linda Kits",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/linda-K.jpeg",
+    bio: " ",
+    flewSince: "",
+    role: [
+    { type: "Skysports Drift Ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Elias Evertsson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/elias-E.jpeg",
+    bio: " ",
+    flewSince: "",
+    role: [
+    { type: "Skysports Drift Ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
     { type: "Instruktör", working: false },
     { type: "Hjälpinstruktör", working: false  },
     ],
