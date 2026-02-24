@@ -2,6 +2,7 @@
 import { resor } from "@data/resData.js";
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import ResOverlay from "@elements/modals/resbooking.astro";
+
 ---
 
 <section class="bg-slate-800">
@@ -10,7 +11,8 @@ import ResOverlay from "@elements/modals/resbooking.astro";
             <h4 class="text-slate-200 text-2xl lg:text-3xl ">Skysports Resor 2026</h4>
             <Hr1 />
     </div>
-    <form id="res-booking" method="POST">
+    <form id="res-booking" method="POST" >
+      
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="text-slate-200 lg:text-2xl font-semibold pt-6 sm:pt-1 py-3"><!--col 1 -->
             <h4>Välj en resor<span class="text-amber-600 text-3xl"> *</span></h4>
@@ -237,6 +239,7 @@ import ResOverlay from "@elements/modals/resbooking.astro";
 </section>
 
 <script is:inline>
+   
 
 
     const resVilkorPopup = document.getElementById('res-vilkor-popup')
@@ -296,9 +299,13 @@ import ResOverlay from "@elements/modals/resbooking.astro";
 
 <script is:inline>
 
+    const loadingFormSpinnerHtml = '•••';
+
     const checkResa = document.getElementById('hs-submit-resa')
     //const submitBtn = document.querySelector('[type="submit"]')
     checkResa.addEventListener('click', () => { 
+
+       
     
                 submitResForm()
             });
@@ -389,8 +396,10 @@ const validateResan = () => {
       get('hs-integ').focus();
       HSOverlay.open('#hs-res-vilkor-alert');
     }  else {
-      sendmail()
-       // alert('Validation successful! Form can be submitted.');
+         
+         
+     // sendmail()
+        alert('Validation successful! Form can be submitted.');
        // document.getElementById("res-booking").reset(); 
     }
 

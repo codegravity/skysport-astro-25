@@ -1,12 +1,15 @@
 ---
 export const prerender = false;  // not needed in server mode
-import NewsModal from '../modals/newsletter.astro'
-
+import { alert } from '@components/starwind/alert/Alert.astro';
+import NewsModal from '../modals/newsletter.astro';
+import Spinner from '@components/ui/submitSpinner.astro';
+//import { setTimeout as delay } from 'timers/promises';
 
 
 
 ---
 <div class="form-container relative z-0">
+  <Spinner />
   <form method="POST" class="flex flex-col space-y-2" > 
    
       <input required id="hs-email-nyhetsbrev" name="hs-email-nyhetsbrev" type="email" autocomplete="email" placeholder="E-post"
@@ -24,6 +27,8 @@ import NewsModal from '../modals/newsletter.astro'
 
 
 <script is:inline>
+//import { alert } from "@components/starwind/alert/Alert.astro";
+
 
   const displaySuccessMessage = () => {
     document.getElementById("successMessage").classList.remove("hidden");
@@ -35,7 +40,7 @@ import NewsModal from '../modals/newsletter.astro'
     //sendNewsmail()
     validateNews()
    // alert('Tack! Din anmälan är skickad.')
-    element.open();
+   // element.open();
   }
 
 const validateNews = () => {
@@ -46,12 +51,15 @@ const validateNews = () => {
       get('hs-email-nyhetsbrev').classList.add('border-red-500')
       get('hs-email-nyhetsbrev').focus();
     } else {
+       get("submit-spinner").classList.remove('hidden');
       HSOverlay.open('#hs-task-newsletter-alert'); // not working as page reloads after sending...
+        
       sendNewsmail()
       displaySuccessMessage()
     }
 
   }
+
 
   const getNewsFormData = () => {
     const store = Object.create(null)
@@ -66,11 +74,12 @@ const validateNews = () => {
   const submitNewsBtn = document.getElementById('newsSubmit')
   submitNewsBtn?.addEventListener('click', submitNewsForm)
 
+ 
+    
+
   const sendNewsmail = async () => {
-    //console.log('sending email step 1')
-    //alert('getting form data?')
-    const {  email, subject } = getNewsFormData()
-      
+ 
+    const {  email, subject } = getNewsFormData()     
     const data = await fetch('/api/sendAnmalanNyhetsBrev.json', {
       method: 'POST',
       headers: {
@@ -80,7 +89,7 @@ const validateNews = () => {
     })
       .then((res) => {
         if (!res.ok) {
-         result.innerHTML = "Sending xxx..."; // this is shown if error occurs
+         result.innerHTML = "Sending problem..."; // this is shown if error occurs
           throw new Error(res.status)
         }
  if (res.status == 200) {
