@@ -5,17 +5,8 @@ import nodemailer from 'nodemailer';
 import { htmlTandemTemplate } from './mail_templates/tandemBooking.js'
 import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
 
-import { transportUp } from "@data/prisData";
-const rawSkysportUp =  transportUp.skysportBus;
-const rawSkistarUp = transportUp.skistarLift;
-const skysportUpISO = new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(rawSkysportUp); 
-const skistarUpISO = new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(rawSkistarUp);
+const skysportUpISO =  '90 kr';
+const skistarUpISO = '200 kr';
 
 //const emailUser = import.meta.env.PUBLIC_EMAIL_USER
 //const emailTo1 = import.meta.env.PUBLIC_EMAIL
@@ -61,7 +52,7 @@ export const POST: APIRoute = async ({ request }) => {
     const direktBokning = formData.direktBokning
     const vilkor = formData.vilkor
 
-    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, skysportUpISO, skistarUpISO,  Ksubject, BookingTimestamp )
+    const output = htmlTandemTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, skysportUpISO, skistarUpISO, BookingTimestamp )
     const outputSky = htmlTandemSkyTemplate(name, tel, email, Meddelande, TandemDate, AltDate, AntalPass, Tsubject, vilkor, direktBokning, BookingTimestamp )
 
     if (!email || !name ) {
@@ -130,7 +121,7 @@ export const POST: APIRoute = async ({ request }) => {
     } catch (error) {
       console.log('******* Error: ', error)
     }
-      console.log('Message sent: %s', mailresult?.messageId)
+      console.log('Meddelandet skickat: %s', mailresult?.messageId)
 
     let mailresultSky
     try {

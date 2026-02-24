@@ -2,7 +2,6 @@
 import { Image } from 'astro:assets';
 import SkysportLogo from '@assets/images/Skysport_Logo-01-invert-468.png';
 
-
 import { transportUp } from "@data/prisData";
 
 import "@assets/css/flatpickr.css";
@@ -267,14 +266,11 @@ const skistarUpISO = new Intl.NumberFormat('sv-SE', {
  datepickerCG();
 </script>
 
-
 <script is:inline>
 
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
-  //saveInput()
   validateInfo()
-  //sendmail()
 }
 
 const getFormData = () => {
@@ -376,7 +372,7 @@ const sendmail = async () => {
       throw new Error('Network error.')
     })
   console.log(data) // Here is the response from backend
-   alert('Message successfully sent');
+   alert('Meddelandet skickat!');
  
   document.getElementById("booking-form").reset();
 }
