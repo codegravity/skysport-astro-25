@@ -28,7 +28,7 @@ const emailTo1 = process.env.PUBLIC_EMAIL */
 
 const emailTo = emailTo1 + ', brett@skysport.se'
 
-export const POST: APIRoute = async ({ request, redirect }) => {
+export const POST: APIRoute = async ({ request }) => {
 
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()

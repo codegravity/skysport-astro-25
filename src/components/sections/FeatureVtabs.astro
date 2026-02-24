@@ -1,7 +1,6 @@
 ---
 import { Image } from 'astro:assets';
 import { Icon } from 'astro-icon/components';
-
 import landingDraklanda from "@assets/images/tandem/tandemlanding.jpg";
 import topStugan from "@assets/images/tandem/tandem_stugan.jpg";
 import winterTandem from '@assets/images/tandem-tandem.jpeg';
@@ -9,24 +8,20 @@ import winterTandem from '@assets/images/tandem-tandem.jpeg';
 const btnID ='tabs-with-card-item-';
 const dataTab = '#tabs-with-card-';
 const btnControls = 'tabs-with-card-';
-const zeroctl = 0;
 interface VtabInfoContent {
-    infoTitle: string,
+    infoTitle?: string,
     infoIcon?: string,
-    infoCards: {
-        cardText: string,
+    infoCards?: {
+        cardText?: string,
         cardImg?: ImageMetadata,
         cardIcon?: string,
-        cardNr?: any,
+        cardNr?: string,
     }[];
-
 }
-
 interface Props {
     content: VtabInfoContent;
 } 
 const { content } = Astro.props;
-
 
 ---
 

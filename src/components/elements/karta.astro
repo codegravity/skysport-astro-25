@@ -10,27 +10,16 @@ const options: AstroLeafletOptionsType = {
 	tileByName: 'Google&type=hybrid',
   center: [ 63.402557, 13.057222],
   zoom: 16,
-	 tileLayer: 'https://{s}.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}',
+	 /* tileLayer: 'https://{s}.google.com/vt/lyrs=s,h&hl=en&x={x}&y={y}&z={z}',
 	 tileLayerOptions: {
 	 	subdomains: [ 'mt0', 'mt1', 'mt2', 'mt3' ],
 	 	attribution: 'Map data &copy; Google',
-	 },
+	 },*/
 	markers: markers,
 }
 ---
 
-  
-<Leaflet id="hitta-oss" options={options}/>
-	<Circle latlng={[63.402557, 13.057222]}, options={{
-      color: '#2D6DC3',
-      fillColor: '#f03',
-      fillOpacity: 0.5,
-      radius: 500
-      }}>
-      <Popup content="Skysport" />
-    </Circle>
-</Leaflet>
-
+<Leaflet id="hitta-oss"  options={options}/>
 <style is:global>
 /* class definition used to define the custom icon */
 .leaflet-icon-myicon {
