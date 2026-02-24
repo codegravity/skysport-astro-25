@@ -16,7 +16,7 @@ import partytown from '@astrojs/partytown';
 
 
 export default defineConfig({
-    prefetch: true,
+  //  prefetch: true,
   
   site: 'https://stage.skysport.se',
 
@@ -54,7 +54,7 @@ export default defineConfig({
 
   
   
-  adapter: node({
+  /* adapter: node({
       mode: 'standalone'
-    })
+    }) */
 });
