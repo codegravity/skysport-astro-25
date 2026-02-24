@@ -1,18 +1,5 @@
 ---
-
-import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
-
-import ImageHero from "@components/sections/ImageHero.astro";
-//import HeroImage from '../assets/images/IMG_7595.jpg';
-
-import FourCardGrid from "@components/sections/FourCardGrid.astro";
-
-//import CardImage1 from '../assets/images/mellanmullfjallet27.jpg';
-//import CardImage2 from '../assets/images/tandemhenning23.jpg';
-//import CardImage3 from '../assets/images/pie3.jpg';
-
 import KursSchema from "@components/sections/fortsattSchema.astro";
 import Topper from  "@elements/navTopper.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -31,81 +18,6 @@ const customLastPart = [
     text: "Fortsättningskurser",
   }, 
 ];
-
-
-
-/* const HeroContent = {
-    title: "Skärmflyg i Åre",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan.",
-    backgroundImage: HeroImage,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-  
-} */
-
-const FourCardGridContent = {
-     sectionTitle: 'Forsättningskurs Schema 2026',
-    sectionDescription: '',
-    gridCards: [
-        {
-            title: 'Bergs och Termik',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-        {
-            title: 'Samlaflyg',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-        {
-            title: 'Pilot 1',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-        {
-            title: 'Pilot 2',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-        {
-            title: 'Hang',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-        {
-            title: 'Säkerhetskurs',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-        {
-            title: 'Boka Direkt',
-            subtitle: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
-            cardImage:  '',
-            linkTarget: '',
-            linkText: '',
-            linkUrl: '', 
-        },
-    ],
- 
-}
 
 const SchemaContent = {
     title: "Fortsättningskurs Schema 2026",
@@ -154,7 +66,7 @@ keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative
           </svg>
       </Breadcrumbs>
   </div> 
-<!--   <FourCardGrid content={SchemaContent}/> -->
+
 <KursSchema content={SchemaContent}/>
 
 </Layout>

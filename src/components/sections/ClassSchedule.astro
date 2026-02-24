@@ -1,15 +1,7 @@
 ---
-import { classSchedule } from '../../data/siteData';
-import { classFortSchedule } from '../../data/siteData';
+import { classSchedule } from '@data/siteData';
 const { content } = Astro.props;
-
 const Datehref= content.bookingForm + "?startdate=";
-const schema = content.schema;
-
-const classSchedulex = "classFortSchedule";
-
-//(schema === "classSchedule") ? { classSchedulex = "classSchedule" }: 
-
 
 ---
 <div class="relative  px-0 bg-slate-900 text-center shadow-xl">
