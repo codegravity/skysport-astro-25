@@ -1,12 +1,7 @@
 ---
-import { Icon } from 'astro-icon/components';
-//import { siteData, navigation, contactInfo } from '@data/siteData';
-import { siteData, contactInfo } from '@data/siteData';
 import NewsForm from '@elements/forms/nyhetsbrevForm.astro';
 import HittaOss from '@elements/karta.astro';
-
 ---
-<!-- <section class="bg-slate-800 border-t border-slate-600"> -->
  <section class="bg-primary border-t border-slate-600">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
@@ -49,7 +44,9 @@ import HittaOss from '@elements/karta.astro';
       <!-- Hitta oss karta -->
       <div class="sm:col-span-2 ">
         <h4 class="text-lg font-semibold text-white  mb-4">Hitta Oss</h4>
+
          <HittaOss />
+ 
       </div>
     </div>
   </div>
