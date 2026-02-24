@@ -1,0 +1,204 @@
+---
+import { Image } from "astro:assets";
+import { Icon } from 'astro-icon/components';
+import Arrow from '../../icons/icon-arrow.svg';
+
+
+
+import '@assets/css/bs-swiper.css'
+
+
+
+
+
+interface BigSwiperContent {
+    title?: string,
+    description?: string,
+    carouselItems: {
+        title?: string,
+        intro?: string,
+        content?: string,
+        cta?: string,
+        image?: ImageMetadata,
+        image_alt?: string,
+        imgHeight?: number,
+        imgWidth?: number,
+        buttons?: {
+          text?: string,
+          link?: string,
+          target?: string,
+        }[],
+    }[],
+    
+}
+interface Props {
+  content: BigSwiperContent;
+}
+const { content } = Astro.props;
+
+---
+
+<section id="services" class="w-full ">
+
+  <!-- Header -->
+  <header class="bs-container max-w-6xl flex items-center justify-between">
+
+    { content.title && 
+      <h4 class="text-slate-800  dark:text-slate-200 text-xl sm:text-3xl">{ content.title }</h4>
+    } 
+
+    <!-- Buttons -->
+    <nav class="bs-st-button-wrapper p-8 flex justify-center gap-4">
+
+      <!-- Prev -->
+      <button aria-label="Previous slide" class="js-fc-btn-prev group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12">
+
+        <Arrow class="opacity-90 h-4 w-4 -translate-x-[2px] group-active:translate-y-[1px]" height="16" width="25" />
+
+      </button>
+
+      <!-- Next -->
+      <button aria-label="Next slide" class="js-fc-btn-next group bs-btn rounded-full !p-0 flex items-center justify-center h-10 w-10 md:h-12 md:w-12 -scale-x-100">
+
+        <Arrow class="opacity-60 h-4 w-4 -translate-x-[2px] group-active:translate-y-[1px]" height="16" width="25" />
+
+      </button>
+    </nav>
+
+  </header>
+
+  <!-- Slides -->
+  
+  <div class="js-fc-swiper swiper select-none ">
+    <div class="swiper-wrapper">
+
+      { content.carouselItems.map( (item, index) =>
+    
+      // Slides
+    
+      <div class="swiper-slide bg-bs-surface-0 border border-bs-surface-3 rounded-xl overflow-hidden !h-auto">
+        <figure class="flex flex-col gap-6 isolate min-h-[50svh] md:min-h-[40rem] h-full">
+          {item.image &&
+           <Image
+                    src={item.image}
+                    alt="Skysports i Åre"
+                    width={1024}
+                    height={768}
+                    class="  rounded-xl   overflow-hidden w-full h-full object-cover object-left absolute inset-0"
+                    quality={90}
+                    format="webp"
+                    loading="lazy"
+                    decoding="async"   
+                />
+          }
+
+          {/* Gradient mask */}
+         {/*  <div
+            class="hidden md:block absolute rounded-xl overflow-hidden w-full h-full object-cover object-left inset-0 bg-gradient-to-r from-bs-surface-0/90 via-bs-surface-0/60">
+          </div> */}
+
+          {/* Content */}
+          <figcaption class=" z-10 p-6 sm:p-10 md:p-20 lg:max-w-xl flex flex-col gap-6 h-full">
+
+            {/* Title */}
+            <h4 class="text-lg w-fit py-1 px-3 sm:text-3xl text-white text-center bg-primary  sm:py-3 px-0 rounded-lg" set:html={ item.title } />
+            {/* Intro */}
+            <div class="hidden sm:block text-amber-200 text-xl text-bold flex-1" set:html={ item.intro } />
+                <p class="hidden sm:block text-white text-xl text-pretty ">{item.content}  </p>
+            {/* Cta */}
+            <button type="button" class="bs-btn inline-block self-start bs-mt-sm" onclick="demo.showModal()">
+              { item.cta }
+            </button>
+
+          </figcaption>
+
+        </figure>
+
+      </div>
+
+      )}
+
+    </div>
+    
+  </div>
+       
+
+ <div class="swiper-pagination"></div>
+
+</section>
+
+ <script>
+import Swiper from "swiper"
+import 'swiper/css'
+
+const prev_btn = document.querySelector('.js-fc-btn-prev')
+const next_btn = document.querySelector('.js-fc-btn-next')
+
+const swiper = new Swiper('.js-fc-swiper', {
+  slidesPerView: 1.05,
+  spaceBetween: 8,
+  speed: 500,
+  loop: true,
+  centeredSlides: true,
+  breakpoints: {
+    '640': {
+      slidesPerView: 1.2,
+      spaceBetween: 32,
+    },
+    '1600': {
+      slidesPerView: 1.4,
+      spaceBetween: 64,
+    },
+    '1900': {
+      slidesPerView: 1.6,
+      spaceBetween: 64,
+    },
+  },
+
+})
+
+// Add event listeners to buttons
+prev_btn.addEventListener('click', () => swiper.slidePrev())
+next_btn.addEventListener('click', () => swiper.slideNext())
+
+// Trigger swiper
+swiper.init?.()
+
+</script> 
+
+<style>
+ /* Containers */
+.bs-container {
+  inline-size: min(92vw, 90rem);
+  margin-inline: auto;
+}
+.swiper-slide{
+    transform: scale(1);
+    background: #fc0; 
+    filter: grayscale(100%);
+  }
+  .swiper-slide-active{
+    transform: scale(1);
+    background: none;
+    filter: none;
+    
+    
+  }
+
+/* Show buttons only when in view */
+
+@keyframes show-buttons {
+  to { opacity: 1; }
+ }
+
+@supports (animation-timeline: view()) {
+  .bs-st-button-wrapper {
+    opacity: 0;
+    animation: show-buttons linear forwards;
+    animation-timeline: view(20% block);
+  }
+}
+
+
+
+</style>
