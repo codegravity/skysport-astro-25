@@ -2,14 +2,14 @@
 export const prerender = false;  // not needed in server mode
 import { alert } from '@components/starwind/alert/Alert.astro';
 import NewsModal from '../modals/newsletter.astro';
-import Spinner from '@components/ui/submitSpinner.astro';
+//import Spinner from '@components/ui/submitSpinner.astro';
 //import { setTimeout as delay } from 'timers/promises';
 
 
 
 ---
 <div class="form-container relative z-0">
-  <Spinner />
+
   <form method="POST" class="flex flex-col space-y-2" > 
    
       <input required id="hs-email-nyhetsbrev" name="hs-email-nyhetsbrev" type="email" autocomplete="email" placeholder="E-post"
@@ -27,8 +27,6 @@ import Spinner from '@components/ui/submitSpinner.astro';
 
 
 <script is:inline>
-//import { alert } from "@components/starwind/alert/Alert.astro";
-
 
   const displaySuccessMessage = () => {
     document.getElementById("successMessage").classList.remove("hidden");
@@ -51,7 +49,7 @@ const validateNews = () => {
       get('hs-email-nyhetsbrev').classList.add('border-red-500')
       get('hs-email-nyhetsbrev').focus();
     } else {
-       get("submit-spinner").classList.remove('hidden');
+
       HSOverlay.open('#hs-task-newsletter-alert'); // not working as page reloads after sending...
         
       sendNewsmail()
@@ -110,7 +108,7 @@ const validateNews = () => {
        //return redirect('/OmOss/integritetspolicy');
    // console.log(data) // Here is the response from backend
 
-   //alert('Message successfully sent' + data); // works
+   alert('Meddelandet skickat! ' + data); // works
    
    //return data;
     

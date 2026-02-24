@@ -299,14 +299,8 @@ import ResOverlay from "@elements/modals/resbooking.astro";
 
 <script is:inline>
 
-    const loadingFormSpinnerHtml = '•••';
-
     const checkResa = document.getElementById('hs-submit-resa')
-    //const submitBtn = document.querySelector('[type="submit"]')
     checkResa.addEventListener('click', () => { 
-
-       
-    
                 submitResForm()
             });
 
@@ -396,10 +390,8 @@ const validateResan = () => {
       get('hs-integ').focus();
       HSOverlay.open('#hs-res-vilkor-alert');
     }  else {
-         
-         
-     // sendmail()
-        alert('Validation successful! Form can be submitted.');
+      sendmail()
+       // alert('Validation successful! Form can be submitted.');
        // document.getElementById("res-booking").reset(); 
     }
 
@@ -470,7 +462,7 @@ const sendmail = async () => {
     })
 
   console.log(data) // Here is the response from backend
-   alert('Message successfully sent');
+   alert('Meddelandet skickat!');
   document.getElementById("res-booking").reset();
 }
 
