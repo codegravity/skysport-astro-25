@@ -18,7 +18,8 @@ interface Feature50Content {
         postText?: string;
         linkTarget?: string;
         linkText?: string;
-        linkUrl?: string; 
+        linkURL?: string; 
+        linkClasses?: string;
     }[],
     infoImg:  ImageMetadata;
     imgHeight?: number;
@@ -97,7 +98,7 @@ const overlayPosition = content.imgPosition || "justify-center";
         }
       {content.infoText.map((text) => (
       
-           <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400 text-balance text-pretty">{text.preText} <span class:list={text.spanClasses} >{text.spanText}</span>{text.postText}</p>
+           <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400 text-balance text-pretty">{text.preText} <span class:list={text.spanClasses} >{text.spanText}</span><span class:list={text.linkClasses} ><a href={text.linkURL} target={text.linkTarget}>{text.linkText}</a></span>{text.postText}</p>
           ))}
 
       <!-- <p class="mt-3 text-lg text-gray-800 dark:text-neutral-400">{content.text}</p> -->
