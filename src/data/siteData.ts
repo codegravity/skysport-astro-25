@@ -288,7 +288,7 @@ export const pilots = [
   {
     name: "Elias Evertsson",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/elias-E.jpeg",
-    bio: "Bo i Åre ",
+    bio: "Bor i Åre ",
     flewSince: "2022",
     role: [
     { type: "Skysports Drift Ansvarig", working: false },
@@ -309,6 +309,19 @@ export const pilots = [
     { type: "Tandemaspirant", working: false },
     { type: "Instruktör", working: false },
     { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Mauritz Sjöström",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mauritz.jpeg",
+    bio: "Bor i Åre. Född 1969. IT ansvarig på Skysport ",
+    flewSince: "2010",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: true  },
     ],
   },
   {
@@ -378,7 +391,7 @@ export const pilots = [
   },
   
   {
-    name: "Mats andersson",
+    name: "Mats Andersson",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mats.jpg",
     bio: "Bor i Lund. Född 1976. Säsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
     flewSince: "2003",
@@ -390,19 +403,7 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-   {
-    name: "Mauritz Sjöström",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mauritz.jpeg",
-    bio: "Bor i Åre. Född 1969. IT ansvarig på Skysport ",
-    flewSince: "2010",
-    role: [
-    { type: "Skysports drift ansvarig", working: false },
-    { type: "Tandempilot", working: true },
-    { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: false },
-    { type: "Hjälpinstruktör", working: true  },
-    ],
-  },
+   
    
   {
     name: "Linda Kits",
