@@ -286,10 +286,49 @@ export const pilots = [
     ],
   },
   {
+    name: "Elias Evertsson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/elias-E.jpeg",
+    bio: "Bo i Åre ",
+    flewSince: "2022",
+    role: [
+    { type: "Skysports Drift Ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
     name: "Magnus Hjelm",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mHjelm.jpg",
     bio: "Bor i Sundsvall. Född 1978. Säsongande tandempilot i Åre ",
     flewSince: "2009",
+    role: [
+    { type: "Skysports drift ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Pontus Olsson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/pontus.jpeg",
+    bio: "Bor i Åre. Född 1993. Säsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
+    flewSince: "",
+    role: [
+    { type: "Skysports Drift Ansvarig", working: false },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: false },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
+    name: "Emil Svantesson",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/emil.jpeg",
+    bio: "Bor i Åre. Född 1996. ",
+    flewSince: "",
     role: [
     { type: "Skysports drift ansvarig", working: false },
     { type: "Tandempilot", working: true },
@@ -364,32 +403,7 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: true  },
     ],
   },
-   {
-    name: "Emil Svantesson",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/emil.jpeg",
-    bio: "Bor i Åre. Född 1996. ",
-    flewSince: "",
-    role: [
-    { type: "Skysports drift ansvarig", working: false },
-    { type: "Tandempilot", working: false },
-    { type: "Tandemaspirant", working: true },
-    { type: "Instruktör", working: false },
-    { type: "Hjälpinstruktör", working: false  },
-    ],
-  },
-   {
-    name: "Pontus Olsson",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/pontus.jpeg",
-    bio: "Bor i Åre. Född 1993. Säsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
-    flewSince: "",
-    role: [
-    { type: "Skysports Drift Ansvarig", working: false },
-    { type: "Tandempilot", working: true },
-    { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: false },
-    { type: "Hjälpinstruktör", working: false  },
-    ],
-  },
+   
   {
     name: "Linda Kits",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/linda-K.jpeg",
@@ -403,19 +417,7 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-  {
-    name: "Elias Evertsson",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/elias-E.jpeg",
-    bio: " ",
-    flewSince: "",
-    role: [
-    { type: "Skysports Drift Ansvarig", working: false },
-    { type: "Tandempilot", working: true },
-    { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: false },
-    { type: "Hjälpinstruktör", working: false  },
-    ],
-  },
+  
 
 ];
 
