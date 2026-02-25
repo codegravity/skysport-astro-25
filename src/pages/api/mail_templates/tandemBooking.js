@@ -107,7 +107,7 @@ Tack för din bokning. </h2>
 </strong></h4>
 <h4>Om du bokat ditt flyg efter 18.00 dagen innan så har du ingen tid.
 Då måste du ringa: 070 211 38 42.</h4>
-<h4>Du här bokad med följande informationen:</h4>
+<h4>Du har bokat med följande information:</h4>
 
   <h5>
   Bokad datum: <b>${TandemDate}</b><br>
