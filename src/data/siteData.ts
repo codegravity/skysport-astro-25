@@ -195,6 +195,19 @@ export const instructers = [
 
 export const pilots = [
   {
+    name: "Lars Hedström",
+    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/larssa.jpg",
+    bio: "Bor i Åre. Född 1970. Uppväxt i Åre.  ",
+    flewSince: "1988",
+    role: [
+    { type: "Skysports drift ansvarig", working: true },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
+    { type: "Instruktör", working: true },
+    { type: "Hjälpinstruktör", working: false  },
+    ],
+  },
+  {
     name: "Pål Hammar Rognøy",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/polh.jpg",
     bio: "Född 1973. Uppväxt i Stavanger, Norge. Har bott i Åre sedan 2005. Akrobatik som specialitet.",
@@ -237,7 +250,7 @@ export const pilots = [
     name: "Fredrik Lindholm",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/fredrik-L.jpeg",
     bio: "Bor i Åre. Uppväxt i Åre.",
-    flewSince: "",
+    flewSince: "1993",
     role: [
     { type: "Skysports drift ansvarig", working: false },
     { type: "Tandempilot", working: true },
@@ -314,7 +327,7 @@ export const pilots = [
   {
     name: "Tobbe Hinas",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/tobbe_hinas.jpg",
-    bio: "Bor i Täby. Född 1973. ",
+    bio: "Gotlänning som säsongar i Åre. Född 1973. ",
     flewSince: "1999",
     role: [
     { type: "Skysports drift ansvarig", working: false },
@@ -324,19 +337,7 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-  {
-    name: "Lars Hedström",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/larssa.jpg",
-    bio: "Bor i Åre. Född 1970. Uppväxt i Åre.  ",
-    flewSince: "1988",
-    role: [
-    { type: "Skysports drift ansvarig", working: true },
-    { type: "Tandempilot", working: true },
-    { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: true },
-    { type: "Hjälpinstruktör", working: false  },
-    ],
-  },
+  
   {
     name: "Mats andersson",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mats.jpg",
@@ -383,8 +384,8 @@ export const pilots = [
     flewSince: "",
     role: [
     { type: "Skysports Drift Ansvarig", working: false },
-    { type: "Tandempilot", working: false },
-    { type: "Tandemaspirant", working: true },
+    { type: "Tandempilot", working: true },
+    { type: "Tandemaspirant", working: false },
     { type: "Instruktör", working: false },
     { type: "Hjälpinstruktör", working: false  },
     ],
