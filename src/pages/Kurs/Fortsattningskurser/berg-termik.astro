@@ -1,0 +1,354 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import BergIntro from "@components/sections/BlogCard50.astro";
+import KursInfo from  "@sections/Feature-50-50.astro";
+import TusanStart from "@assets/images/kurs/1000berg.jpg";
+import SunnyStart from "@assets/images/kurs/IMG_7038.jpg";
+import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
+import BergImg2 from "@assets/images/kurs/gondola-winter.jpg";
+import BergImg3 from "@assets/images/kurs/hummeln9.jpg";
+import BergImg4 from "@assets/images/mellanmullfjallet27.jpg";
+
+import Divider1 from  "@elements/SeparatorLine.astro";
+import Topper from  "@elements/navTopper.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+
+import { transportUp } from "@data/prisData";
+const rawSkysportUp =  transportUp.skysportBus;
+const rawSkistarUp = transportUp.skistarLift;
+
+const customLastPart = [
+  { index: "last", text: "Berg och Termik" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+const Kurs50Content = {
+  pageTitle: 'Berg och Termik Kurs',
+  pageDescription: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan.',
+  kursCards: [
+      {
+        kursOrientationL: true,
+        kursPreText: 'Denna kurs passar för dig som har avslutat en grundkurs(studentlicens) och vill ta behörighet Berg. ',
+        kursSpanText: '',
+        kursSpanClasses: '',
+        kursPostText: '',
+        kursTitle: "Berg",
+      content: "<strong>Gondolbana som snabbt transporterar oss upp till startplatsen.</strong> På morgon och kväll finns möjlighet till upptransport med minibuss. Åreskutan har 8 olika startplatser på olika vindriktningar – vilket innebär att vi ofta kan flyga. ",
+      cta: "Boka Berg och Termik kurs",
+      kursImg: TusanStart,
+      infoIcon: '',
+      image_alt: "",
+      kursLinkID: "bergKurs",
+      buttons: [
+          {
+          text: "BOKA",
+          link: "#berg",
+          target: "_self",
+          },
+      ],   
+    },
+     {
+        kursOrientationL: false,
+        kursPreText: 'Lära sig flyga i stigande luft',
+        kursSpanText: '',
+        kursSpanClasses: '',
+        kursTitle: " Termik",
+      content: "<strong>Gondolbana som snabbt transporterar oss upp till startplatsen.</strong> På morgon och kväll finns möjlighet till upptransport med minibuss. Åreskutan har 8 olika startplatser på olika vindriktningar – vilket innebär att vi ofta kan flyga. ",
+      cta: "Boka Berg och Termik kurs",
+      kursImg: SunnyStart,
+      infoIcon: '',
+      image_alt: "",
+      buttons: [
+          {
+          text: "BOKA",
+          link: "#termik",
+          target: "_self",
+          },
+      ],   
+    },
+    
+   
+  ],
+}
+
+
+const Feature50Content = {
+     infoTitle: 'Bergskurs',
+     infoOrientationL: true,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'berg',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: 'Denna kurs passar för dig som har avslutat en grundkurs(studentlicens) och vill ta behörighet Berg. Inträdeskrav för att deltaga på kursen är Studentlicens (grundkurs i skärmflygning)',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      },
+     ],
+    infoImg:  BergImg1,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Bergskursen",
+        link: "/Kurs/Fortsattningskurser/Boka",
+        target: "_self",
+      },
+    ],
+}
+
+const Feature50Content2 = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoAnchorLink: 'berg2',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: 'I Åre flyger vi höjdflyg från Sveriges mest lättillgängliga berg – Åreskutan. Gondolbana som snabbt transporterar oss upp till startplatsen. På morgon och kväll finns möjlighet till upptransport med minibuss. Åreskutan har 8 olika startplatser på olika vindriktningar – vilket innebär att vi ofta kan flyga. Kursen lägger stor vikt på att lära dig olika tekniker för inflygning och pricklandning. Vi tränar också mycket på tekniken för baklängesstart, när det blåser mycket. Starttekniken ska först sitta på plan mark, innan vi beger oss upp på Åreskutan. Du får också lära dig öron(vingspetsarna viks in) samt även använda speedsystemet. Har du egen utrustning hjälper vi dig att ställa in och trimma in speedsystemet så att det är enkelt att använda. De första 3 flygen instrueras du via radio, för position och höjdbedömning. Sedan ska pricklandning (inom 50 m) på Draklanda göras självständigt minst 2 ggr, för att du ska bli godkänd på licensen. ',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      },
+     ],
+    infoImg:  BergImg2,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Bergskursen",
+        link: "/Kurs/Fortsattningskurser/Boka",
+        target: "_self",
+      },
+    ],
+}
+const Feature50Content3 = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'berg3',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+      {
+        preText: ' Kursens längd är Kortvecka (måndag-onsdag), Weekend (torsdag-lördag) eller Helvecka (måndag-lördag) Störst sannolikhet att bli klar med kursen är om du väljer en vecka. Kortvecka kan även fungera, men då gäller det att vi har bra väder för flygning minst 1,5 av de 3 dagarna. 1.5 dags flygning från berget är ett minimum för att bli godkänd på licensen.',
+        spanText: '',
+        spanClasses: '',
+        postText: '',
+      }, 
+     ],
+    infoImg:  BergImg3,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Bergskursen",
+        link: "/Kurs/Fortsattningskurser/Boka",
+        target: "_self",
+      },
+    ],
+}
+const Feature50Content4 = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoAnchorLink: 'berg4',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+       {
+        preText: ' ',
+        spanText: 'Priser Bergskurs:',
+        spanClasses: 'text-orange-600 font-bold',
+        postText: '',
+      }, 
+      {
+        preText: 'Vid kursstart betalar du ',
+        spanText: '4.500 kr ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: ' i grundavgift(gäller hel vecka). I detta pris ingår instruktör som håller teori, hjälper till vid balansering samt ser till att höjdflygningen genomförs på ett säkert sätt.',
+      }, 
+      {
+        preText: 'Om du endast önskar deltaga halva veckan är grundpriset',
+        spanText: ' 3.000 kr',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: '. Du kan ej deltaga mindre än 3 dagar.',
+      },
+      {
+        preText: '',
+        spanText: ' Utöver denna avgift betalar du per flyg.  Det är väldigt individuellt hur många flyga man behöver göra för att bli godkänd, men det vanliga är 5-10 st. ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: '',
+      },
+      {
+        preText: 'Pris',
+        spanText: ' 300 kr/bergsflyg',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: ' inkl utrustning och instruktör.',
+      },
+      {
+        preText: 'Har du egen utrustning är priset',
+        spanText: ' 200 kr/bergsflyg. ',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: ' inkl utrustning och instruktör.',
+      },
+      
+      {
+        preText: 'Boende kostar',
+        spanText: ' 295-495 kr/dygn',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
+        postText: ' beroende på säsong. Priset styrs också av om du vill ha enkelrum eller dubbelrum.',
+      },
+      {
+        preText: 'Liftkort tillkommer',
+        spanText: ' Dagkort: ca 700 kr/dag (vinter), ca 600 kr/dag  (sommar)',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: '',
+      },
+      {
+        preText: 'Upptransport till Hummeln med minibuss kostar',
+        spanText: rawSkysportUp +'/tur.',
+        spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
+        postText: '',
+      },
+      
+     ],
+    infoImg:  BergImg4,
+    imgHeight: 1200,
+    imgWidth: 685,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Bergskursen",
+        link: "/Kurs/Fortsattningskurser/Boka",
+        target: "_self",
+      },
+    ],
+}
+
+const Feature50ContentTermik = {
+     infoTitle: 'Termik Kurs',
+     infoOrientationL: false,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'termik',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+       {
+        preText: ' Termik kursen är ca 3 dagar lång. Inträdeskravet är Pilot 1 licens och minst 50 höjdflyg totalt. ',
+        spanText: '',
+        spanClasses: 'text-orange-600 font-bold',
+        postText: '',
+      }, 
+      {
+        preText: 'Vi börjar med en teoretisk genomgång om meteorologi, flyglära och säkerhetsträning. Vi justerar in ditt speedsystem, samt kontrollerar att du behärskar öron, och även öron och speed kombinerat.',
+        spanText: ' ',
+        spanClasses: 'text-slate-200 font-semibold',
+        postText: ' Flygningen görs från Åreskutan eller Hummeln. Termiken finns längs bergskanten och ute i dalen.  ',
+      }, 
+      {
+        preText: 'Teorikurs på ca 3 timmar.',
+        spanText: '',
+        spanClasses: 'text-slate-200 font-semibold',
+        postText: '',
+      },
+
+     ],
+    infoImg:  BergImg4,
+    imgHeight: 1200,
+    imgWidth: 685,
+    infoIcon: '',
+    buttons: [
+      {
+        text: "Boka Termik Kursen",
+        link: "/Kurs/Fortsattningskurser/Boka",
+        target: "_self",
+      },
+    ],
+}
+
+
+---
+
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="">
+  <Topper />
+    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+          <svg
+              slot="index"
+              aria-label="Home Page"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+              points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </Breadcrumbs>
+  </div> 
+  <Divider1 /> 
+  <section >
+<BergIntro content={Kurs50Content}/>
+</section>
+<KursInfo content={Feature50Content}/>
+ <KursInfo content={Feature50Content2}/>
+ <KursInfo content={Feature50Content3}/>
+ <KursInfo content={Feature50Content4}/>
+<KursInfo content={Feature50ContentTermik}/>
+</Layout>
+
+ <script is:inline>
+        const scrollElementB = document.querySelector("#berg");
+        const scrollBergBtn = document.querySelector("#bergKurs");
+        const outputDiv = document.querySelector(".output");
+        scrollBergBtn.addEventListener("click", function () {
+            scrollElementB.scrollTop += 25;
+        });
+        scrollLeftBtn.addEventListener("click", function () {
+            scrollElement.scrollLeft += 125;
+        });
+        scrollElement.addEventListener("scroll", () => {
+            outputDiv.innerHTML = 
+            `scrollTop: ${Math.ceil(scrollElement.scrollTop)}
+            <br> scrollLeft: ${Math.ceil(scrollElement.scrollLeft)} `;
+        });
+    </script>
