@@ -1,7 +1,7 @@
 
 export const transportUp = {
-    skysportBus: 90,
-    skistarLift: 200,
+    skysportBus: '90 kr',
+    skistarLift: '200 kr',
 }
 export const kursPriser26 = [ 
     {
