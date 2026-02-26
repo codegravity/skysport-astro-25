@@ -60,6 +60,7 @@ export const classSchedule = [
   { week: "10", month: "Mars",datum: "02 - 07", kurs: "Grundkurs", linkDate: "2026-03-02" },
   { week: "11", month: "Mars",datum: "09 - 14", kurs: "Grundkurs", linkDate: "2026-03-09" },
   { week: "12", month: "Mars",datum: "16 - 21", kurs: "Grundkurs", linkDate: "2026-03-16" },
+  { week: "13", month: "Mars",datum: "23 - 28", kurs: "Grundkurs", linkDate: "2026-03-23" },
   { week: "14", month: "Mars",datum: "30 - Apr 04", kurs: "Grundkurs", linkDate: "2026-03-30" },
   { week: "15", month: "Apr",datum: "06 - 11", kurs: "Grundkurs", linkDate: "2026-04-06" },
   { week: "16", month: "Apr",datum: "13 - 18", kurs: "Grundkurs", linkDate: "2026-04-13" },
