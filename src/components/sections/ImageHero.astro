@@ -11,6 +11,7 @@ interface HeroContent {
     descriptionTextStyles?: string;
     descriptionImage?: string | any;
     backgroundImage?: string | any; // Using any for now to handle both string paths and imported images
+    bgImagePosition?: string;
     imgHeight?: number;
     imgWidth?: number;
     imgLoading?: string;
@@ -38,18 +39,20 @@ interface Props {
 const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const overlayPosition = content.position || "justify-center";
+const bgImgPosition = content.bgImagePosition || "center";
+const bgImgStdClasses = 'hidden md:block lg:w-full h-full object-cover object-[82%_50%]' + bgImgPosition;
 ---
 
  <!-- <section class="header-offset relative h-screen"> -->
  <section class="imagehero header-offset  h-screen"> 
     {content.backgroundImage && (
-        <div class="absolute inset-0 left-0 top-0 w-full  h-screen overflow-hidden ">
+        <div class="absolute inset-0 left-0 top-0 w-full  h-screen overflow-hidden  ">
             <Image
                 src={content.backgroundImage}
                 alt="Skysport tandemflyg i Åre"
                 width={1920}
                 height={1080}
-                class="hidden md:block lg:w-full h-full object-cover object-[82%_50%] "
+                class={bgImgStdClasses}
                 quality={70}
                 format="webp"
                 loading="eager"
