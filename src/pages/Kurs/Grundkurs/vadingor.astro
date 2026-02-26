@@ -17,14 +17,6 @@ import "astro-breadcrumbs/breadcrumbs.css";
 import { transportUp } from "@data/prisData";
 const rawSkysportUp =  transportUp.skysportBus;
 const rawSkistarUp = transportUp.skistarLift;
-const skysportUpISO = new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(rawSkysportUp); 
-const skistarUpISO = new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(rawSkistarUp);
 
 const InnerHeroContent = {
   title: '',
@@ -211,7 +203,7 @@ const Feature50Content4 = {
       },
       {
         preText: 'Upptransport till startplatsen: ',
-        spanText:  skysportUpISO + ' med minibuss och ' + skistarUpISO +' med Gondolbanan',
+        spanText:  rawSkysportUp + ' med minibuss och ' + rawSkistarUp +' med Gondolbanan',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
         postText: '',
       },
