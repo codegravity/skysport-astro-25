@@ -1,33 +1,188 @@
 ---
-
-import { siteConfig } from "@config/site";
-
 import Layout from "@layouts/MainLayout.astro";
 import VideoHero from "@components/sections/VideoHero.astro";
-import LogoImage from '@assets/images/Skysport_Logo-01-invert-468.png';
+import Feature50 from  "@sections/Feature-50-50.astro";
+import FeatureSteps from  "@sections/FeatureSteps.astro"
+import Skarmflyg1 from '@assets/images/kurs/åre10.jpg';
+import Skarmflyg2 from '@assets/images/kurs/åre9.jpg';
+import Skarmflyg3 from '@assets/images/kurs/åre8.jpg';
+import Skarmflyg4 from '@assets/images/kurs/åre7.jpg';
 
+
+
+const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/om/Omskarmflyg3.mp4";
+const Mobvideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/om/Omskarmflyg2.mp4";
 
 import Reco from "@components/sections/RecoBar.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
 
-const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/winter-start-25.MP4";
+const customLastPart = [
+  { index: "last", text: "Om Skärmflyg" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
 
 const VideoContent = {
-    title: "Skärmflygkurser i Åre ",
-    description: "Skärmflygutbildning, Butik, Resor och Tandemflygning från Åreskutan. ",
-    backgroundVideo: myVideo,
-    descriptionImage: LogoImage,
-    overlayOpacity: 0.2,
-    page: "start"
+  backgroundVideo: myVideo,
+  mobileVideo: Mobvideo,
+  position: "justify-end",
+  overlayOpacity: 0.2,
+};
+
+const Feature50Content = {
+     infoTitle: 'Äntligen kan människan flyga!',
+     infoText: [
+      {
+        preText: 'På ett enkelt och hyfsat billigt sätt blir du pilot. Skärmflyg är den enklaste och mest lättillgängliga formen av flygsport. All utrustning går ner i en ryggsäck som väger 10-15 kg. Detta gör att du enkelt tar med utrustningen i bilen eller på en resa. Och vill du gå upp på höga berg och starta där så är inte utrustningen tyngre än att det går bra. Den lättaste utrustningen väger endast 6 kg komplett.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },
+     ],
+   infoImg:  Skarmflyg1,
+    infoIcon: '',
+}
+const Feature50Content2 = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Anledningen att skärmflyg blivit en populär sport är enkelheten, att man efter kort utbildning kan få flyga på hög höjd och lång tid i luften. Skärmarna har utvecklats mycket de sista 10 åren och flyger idag fantastiskt bra, samtidigt som de håller hög säkerhet. Även selarna har utvecklats, med lättare material och bättre sittkomfort.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg3,
+    imgPosition: 'object-bottom',
+}
+const Feature50Content3 = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Åreskutan har 10 olika startplatser, beroende på vindriktning. Högsta fallhöjden är över 1000 meter. Detta ihop med enkla upptransporter gör att det flygs mycket – året runt.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      }, 
+      {
+        preText: 'Skysports utbildningslokal och butik finns precis vid landningsplatsen Draklanda. I samma hus finns också bra boende – Lake Lodge Åre',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg4,
 }
 
+const FeatureStepsContent = {
+    stepsTitle: 'Grundkursen är indelad i 4 steg',
+    stepsText: [
+        {
+        preText: '',
+        spanText: 'Markträning',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+         {
+        preText: '',
+        spanText: 'Flygning i liten backe',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+         {
+        preText: '',
+        spanText: 'Höjdflyg',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+         {
+        preText: '',
+        spanText: 'Teori',
+        spanClasses: '',
+        postText: '',
+        linkTarget: '',
+        linkText: '',
+        linkUrl: '',
+        },
+    ],
+    stepsImg:  Skarmflyg2,
+    stepsPostText: 'Allt detta tränas under veckokursen. När kursen avslutas har du elevlicens med bergsbehörighet. Den berättigar dig att flyga vidare på egen hand. Med mer träning och en fortsättningskurs, kan du även flyga i stigande luft, sk hang eller termik. Då kan flygtiderna ibland bli flera timmar långa. Ett vanligt flyg, utan flygning i stigande luft, är ca 10-15 minuter vid flygning från Åreskutan. Åre är Sveriges skärmflygcenter. Kabinbana och Gondollift transporterar upp till bergets topp. Under vissa årstider och på kvällen, när liften är stängd, kommer vi upp med hjälp av minibuss.',
+    buttons:[ 
+        {
+        text: 'Boka Grundkurs',
+        link: '/Kurs/Grundkurs/boka',
+        },
+    ],
+}
 
 ---
 
-<Layout
-title="Skysport Skärmflygskola i Åre"
-description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
-keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
->
-
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
    <VideoHero content={VideoContent}/>  
+   <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+    <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+        <svg
+            slot="index"
+            aria-label="Home Page"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+            points="9 22 9 12 15 12 15 22"></polyline>
+        </svg>
+        <svg
+            slot="separator"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            ><polyline points="9 18 15 12 9 6"></polyline>
+        </svg>
+    </Breadcrumbs>
+</div>
+    <section >
+        <Feature50 content={Feature50Content}/>
+        <Feature50 content={Feature50Content2}/>
+        <FeatureSteps content={FeatureStepsContent}/>
+        <Feature50 content={Feature50Content3}/>
+  </section>
+ 
+  <section >
+     <Reco />
+  </section>
+ 
 </Layout>
+
