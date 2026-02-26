@@ -1,0 +1,174 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import Divider1 from  "@elements/SeparatorLine.astro";
+import Topper from  "@elements/navTopper.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+const customLastPart = [
+  { index: "last", text: "Integritetspolicy" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+---
+
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="" >
+<Topper />
+    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+          <svg
+              slot="index"
+              aria-label="Home Page"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+              points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </Breadcrumbs>
+  </div> 
+  <Divider1 />
+ <section >
+    <div class="site-container px-0 pt-6 pb-24 text-center ">
+       <p class="text-lg py-3 italic text-slate-600 lg:text-xl w-full dark:text-slate-200" >The following information is in swedish. For english <a href="#english" class="text-orange-600">Click here.</a></p>
+     
+      <h5 class="text-2xl text-slate-600 lg:text-4xl w-full dark:text-slate-200" >Integritetspolicy i enlighet med GDPR</h5>
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full "><h3></h3></li>
+        <li class="w-full "><p>Vi respekterar och värderar din integritet. Därför kommer inga personliga uppgifter att säljas, ges eller överföras på något sätt till tredje part.</p></li>
+        <li class="w-full "><p>Du har rätt att begära ut den personliga information vi har om dig. Om den personliga informationen visar sig vara felaktig eller ofullständig, har du rätt att kräva att personuppgifterna korrigeras eller raderas. Du kan också begära att dina data överförs till en tredje part du väljer (portabilitet). För frågor angående din personliga information, skicka ett mail till info@skysport.se. Om du anser att vi använder eller behandlar dina personuppgifter på ett oacceptabelt sätt kan du kontakta oss eller lämna in ett klagomål till behörig myndighet.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-bold"><h3>Vilka vi är</h3></li>
+        <li class="w-full"><p>Skysport AB är vårt varumärke och företagets namn.</p></li>
+        <li class="w-full"><p>Vår hemsida: https://skysport.se.</p></li>
+        <li class="w-full"><p>Årevägen 173.</p></li>
+        <li class="w-full"><p>837 52  Åre</p></li>
+        <li class="w-full"><p>Sweden</p></li>
+        <li class="w-full"><p>E-mail: info@skysport.se</p></li>
+        <li class="w-full"><p>Phone: +46 647-511 86,  +46 647-511 85</p></li>
+        <li class="w-full"><p></p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-bold"><h3>Vilka personuppgifter samlar vi in ​​och varför samlar vi in ​​dem?</h3></li>
+        <li class="w-full font-semibold italic "><h4>Cookies</h4></li>
+        <li class="w-full"><p>Om du har ett konto och du loggar in på den här sidan kommer vi att ange en tillfällig cookie för att avgöra om din webbläsare accepterar cookies. Denna cookie innehåller inga personuppgifter och kasseras när du stänger webbläsaren.</p></li>
+        <li class="w-full"><p>När du loggar in, kommer vi också att skapa flera cookies för att spara din inloggningsinformation och dina skärmdisplayval. Login cookies varar i två dagar, och skärmalternativ cookies håller i ett år. Om du väljer ”Kom ihåg mig” kommer din inloggning att fortsätta i två veckor. Om du loggar ut från ditt konto, kommer Login cookies att tas bort.</p></li>
+        <li class="w-full"><p>Om du redigerar eller publicerar en artikel sparas en ytterligare cookie i din webbläsare. Denna cookie innehåller inga personuppgifter och anger bara post-id för den artikel som du just redigerat. Den löper ut efter 1 dag.</p></li>
+        <li class="w-full"><p></p></li>     
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Inbäddat innehåll från andra webbplatser</h4></li>
+       <li class="w-full"><p>Artiklar på den här webbplatsen kan innehålla inbäddat innehåll (t ex videor, bilder, artiklar, etc.). Inbäddat innehåll från andra webbplatser beter sig på samma sätt som om besökaren har besökt den andra webbplatsen. Dessa webbplatser kan samla in data om dig, använda cookies, bädda in ytterligare spårning från tredje part och övervaka din interaktion med det inbyggda innehållet, inklusive att spåra din interaktion med det inbäddade innehållet om du har ett konto och är inloggad på den webbplatsen.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Analytics</h4></li>
+       <li class="w-full"><p>Vi spårar besök på skysport.se med Google Analytics.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Vem delar vi dina data med?</h4></li>
+       <li class="w-full"><p>Vi delar inte dina uppgifter med någon.</p></li>
+      </ul>
+
+      <ul id="english" class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Hur länge behåller vi dina data?</h4></li>
+       <li class="w-full"><p>För användare som registrerar sig på vår hemsida lagrar vi den personliga informationen de tillhandahåller i deras användarprofil. Alla användare kan när som helst se, redigera eller ta bort sin personliga information (förutom att de inte kan ändra sitt användarnamn). Webbplatsadministratörer kan också se och redigera den informationen.</p></li>
+      </ul>
+
+      <ul  class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Vilka rättigheter har du över dina data?</h4></li>
+       <li class="w-full"><p>Om du har ett konto på den här webbplatsen kan du begära att du får en exporterad fil med de personuppgifter vi har om dig, inklusive alla uppgifter du har lämnat till oss. Du kan också begära att vi raderar alla personuppgifter vi håller om dig. Detta inkluderar inte några uppgifter som vi är skyldiga att behålla för administrativa, juridiska eller säkerhetsändamål.</p></li>
+      </ul>
+
+      <Divider1 />
+
+      <h5  class="text-2xl pt-8 text-slate-600 lg:text-4xl w-full dark:text-slate-200" >Privacy policy in compliance with GDPR</h5>
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full "><h3></h3></li>
+        <li class="w-full "><p>We respect and value your privacy and integrity. Hence, no personal information will be sold, given or transferred in any way to a third party.</p></li>
+        <li class="w-full "><p>You have the right to request the personal information we have about you. If the personal information should be found to be incorrect, incomplete or inaccurate, you have the right to demand that the personal information is corrected or deleted. You can also request to have your data transferred to a third-party of your choosing (portability). For requests concerning your personal information, send an e-mail to info@skysport.se .  If you believe we use or process your personal data in an unacceptable manner, you can contact us or raise a complaint to a higher authority. </p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-bold"><h3>Who we are:</h3></li>
+        <li class="w-full"><p>Our brand and corporate name is Skysport AB.</p></li>
+        <li class="w-full"><p>Our Swedish website address is: https://skysport.se.</p></li>
+        <li class="w-full"><p>Address:</p></li>
+        <li class="w-full"><p>Årevägen 173.</p></li>
+        <li class="w-full"><p>837 52  Åre</p></li>
+        <li class="w-full"><p>Sweden</p></li>
+        <li class="w-full"><p>E-mail: info@skysport.se</p></li>
+        <li class="w-full"><p>Phone: +46 647-511 86,  +46 647-511 85</p></li>
+        <li class="w-full"><p></p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-bold"><h3>What personal data we collect and why we collect it</h3></li>
+        <li class="w-full font-semibold italic "><h4>Cookies</h4></li>
+        <li class="w-full"><p>If you have an account and you log in to this site, we will set a temporary cookie to determine if your browser accepts cookies. This cookie contains no personal data and is discarded when you close your browser.</p></li>
+        <li class="w-full"><p>When you log in, we will also set up several cookies to save your login information and your screen display choices. Login cookies last for two days, and screen options cookies last for a year. If you select ”Remember Me”, your login will persist for two weeks. If you log out of your account, the login cookies will be removed.</p></li>
+        <li class="w-full"><p>If you edit or publish an article, an additional cookie will be saved in your browser. This cookie includes no personal data and simply indicates the post ID of the article you just edited. It expires after 1 day.</p></li>
+        <li class="w-full"><p></p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Embedded content from other websites</h4></li>
+       <li class="w-full"><p>Articles on this site may include embedded content (e.g. videos, images, articles, etc.). Embedded content from other websites behaves in the exact same way as if the visitor has visited the other website.</p></li>
+        <li class="w-full"><p>These websites may collect data about you, use cookies, embed additional third-party tracking, and monitor your interaction with that embedded content, including tracing your interaction with the embedded content if you have an account and are logged in to that website.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Analytics</h4></li>
+       <li class="w-full"><p>We track visits to skysport.se with Google Analytics.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>Who do we share your data with?</h4></li>
+       <li class="w-full"><p>We do not share your data with anyone.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>How long do we retain your data?</h4></li>
+       <li class="w-full"><p>For users that register on our website (if any), we also store the personal information they provide in their user profile. All users can see, edit, or delete their personal information at any time (except they cannot change their username). Website administrators can also see and edit that information.</p></li>
+      </ul>
+
+      <ul class="mt-5 space-y-3 text-left dark:text-slate-200">
+        <li class="w-full font-semibold italic "><h4>What rights do you have over your data?</h4></li>
+       <li class="w-full"><p>f you have an account on this site,  you can request to receive an exported file of the personal data we hold about you, including any data you have provided to us. You can also request that we erase any personal data we hold about you. This does not include any data we are obliged to keep for administrative, legal, or security purposes.</p></li>
+      </ul> 
+
+  </div>
+</section>
+</Layout>
+

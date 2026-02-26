@@ -1,0 +1,312 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import TimeLine from  "@components/widgets/timeLine.astro";
+
+import BookingCTA from  "@sections/bookingCTA.astro";
+
+import train1 from "@assets/images/omoss/tag1-00.jpg"; 
+import bergbana1 from "@assets/images/omoss/bergb1.jpg"; 
+import lundslift from "@assets/images/omoss/lunds-vm.jpg"; 
+import hummellift from "@assets/images/omoss/hummel54.jpg"; 
+import vm54 from "@assets/images/omoss/vm54.jpg";
+import arevallen from "@assets/images/omoss/arevallen.jpg"; 
+import kabinbana from "@assets/images/omoss/kab1.jpg"; 
+import hangflyg from "@assets/images/omoss/hanggliding88.jpg"; 
+import gondol from "@assets/images/omoss/gondolen.jpg";
+import instruktor from "@assets/images/omoss/instruktor.jpg"; 
+import topstugan from "@assets/images/omoss/topstugan.jpg";
+import drakklandatv from "@assets/images/omoss/draklanda2004.jpg"; 
+import lundsgordsky from "@assets/images/omoss/skysport2003.jpg";
+import lakelodge1 from "@assets/images/omoss/draklanda-lake.jpg"; 
+import vm19 from "@assets/images/omoss/arevm.jpg";     
+
+import Divider1 from  "@elements/SeparatorLine.astro";
+import Topper from  "@elements/navTopper.astro";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+const customLastPart = [
+  { index: "last", text: "Historik" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+const TimeLineContent = {
+     title: 'Historik',
+     description: 'Åre och Skysport',
+     orderByDate: false,
+     timeLineItems: [
+      {
+        date: '1892',
+        icon: '',
+        title: 'Järnvägen till Åre byggs. Nu blir det enkare för folk att ta sig till Åre',
+        description: '',
+        image: train1,
+      },
+      {
+        date: '1909',
+        icon: '',
+        title: 'Åre Bergbanan byggs. Åres första lift, som går halvvägs upp på fjället',
+        description: '',
+        image: bergbana1,
+      },
+      {
+        date: '1951',
+        icon: '',
+        title: 'Första skidliften byggs på den plats där VM-målet nu ligger, strax ovanför Draklanda',
+        description: '',
+        image: lundslift,
+      },
+      {
+        date: '1953',
+        icon: '',
+        title: 'Liftar byggs till Hummeln',
+        description: '',
+        image: hummellift,
+      },
+      {
+        date: '1954',
+        icon: '',
+        title: 'Alpina VM i Åre. Lite av startskottet för utbyggnaden av Åre som skidanläggning',
+        description: '',
+        image: vm54,
+      },
+      {
+        date: '1972',
+        icon: '',
+        title: 'De första vingarna flyger från Hummeln. Landning sker i byn eller på Årevallen vid Åresjön',
+        description: '',
+        image: arevallen,
+      },
+      {
+        date: '1975',
+        icon: '',
+        title: 'Åre Kabinbana byggs. Nu tar man sig snabbt upp på Åreskutan.',
+        description: '',
+        image: kabinbana,
+      },
+      {
+        date: '1975',
+        icon: '',
+        title: 'Andreas och Lars Hedström åker helikopter för första gången. Flygintresset föds redan här!',
+        description: '',
+     //   image: '',
+      },
+       {
+        date: '1988',
+        icon: '',
+        title: 'Andreas och Lars Hedström börjar med hängflyg. Går grundkursen i Åre.',
+        description: '',
+        image: hangflyg,
+      },
+       {
+        date: '1988',
+        icon: '',
+        title: 'De första skärmarna flyger i Åre. Andreas vinner SM i hängflyg i augusti. Andreas blir instruktör',
+        description: '',
+     //   image: '',
+      },
+       {
+        date: '1989',
+        icon: '',
+        title: 'Den nya liften ”Olympiagondolen” byggs. Plats för 12 personer i varje gondol',
+        description: '',
+        image: gondol,
+      },
+       {
+        date: '1990',
+        icon: '',
+        title: 'Skysport AB registreras som företag. Boendeanläggningen på Årevägen 3 i Åre byggs. Andreas och Lars börjar flyga skärm',
+        description: '',
+     //   image: '',
+      },
+       {
+        date: '1990',
+        icon: '',
+        title: 'Andreas arrangerar kurser i Hängflyg i Åre.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '1992',
+        icon: '',
+        title: 'Andreas och Lars åker på träningsläger i skärmflyg under 2 månader i Alperna under september och oktober. Flygning sker huvudsakligen i St André Les Alpes i Frankrike.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '1993',
+        icon: '',
+        title: 'Andreas och Lars går instruktörskursen i skärmflyg.',
+        description: 'I Mars börjar Skysport arrangera utbildningar i skärmflyg. Skärmarna som används är Apco Prima',
+        image: instruktor,
+      },
+       {
+        date: '1994',
+        icon: '',
+        title: 'Skysport bygger sin butik och teorilokal på Årevägen 3 i Åre. Invigning sker i februari 1995.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '1995',
+        icon: '',
+        title: 'På sommaren byggs en skärmflygstuga på Åreskutan. Materialet lyfts upp med Kabinbanan. Denna skall fungera som informationspunkt för skärmflyg på Åreskutan. Här bokas tandemflyg och Åreskutan har fått en naturlig mötesplats för alla skärmflygare',
+        description: '',
+        image: topstugan,
+      },
+       {
+        date: '1996',
+        icon: '',
+        title: 'Skysport på Internet – skysport.se registreras',
+        description: '',
+     //   image: '',
+      },
+       {
+        date: '1997',
+        icon: '',
+        title: 'Tv-reportern Dag Eriksson går grundkursen. Programmet visas på hösten i SVT:s programserie ”Äventyr”. Programmet ses av över 1.3 miljoner tittare.',
+        description: '',
+        image: drakklandatv,
+      },
+       {
+        date: '1999',
+        icon: '',
+        title: 'TV 4 reportern Hans Fahlén går grundkursen. Programmet visas senare i TV4 i reseprogrammet ”När och Fjärran”. Vi bygger och schaktar en ny backglidningsbacke i Böle, Rännberg',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2001',
+        icon: '',
+        title: 'Nya bilvägen till Hummeln färdigställs. Detta blir ett oerhört lyft för Skysport eftersom vi nu når Hummeln med bil under vår, sommar och höst.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2002',
+        icon: '',
+        title: 'Förre skidskyttestjärnan och kändisen Magdalena Forsberg går grundkursen tillsammans med ett tv-team. Programmet visas i januari 2003 i SVT programmet ”Mera Magdalena”. Programmet är 30 min långt. Hela 2002 präglas av mycket bra väder, särskilt bra är vädret under juli och augusti. Under sommaren och hösten byggs den nya 6-stols liften ”VM-sexan” och den nya 4-stols liften ”Hummelliften”. Därmed tar man sig snabbt och enkelt till Hummeln vintertid.',
+        description: '',
+       // image: '',
+      },
+       {
+        date: '2003',
+        icon: '',
+        title: 'Vi röjer buskar och schaktar i ordning vår andra backglidningsbacke i Tossön, Järpen. Skysport har därmed 2 st träningsbackar av högsta klass. Vi har nu med våra 2 backar möjlighet att flyga på alla vindriktningar förutom nordväst och nord.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2004',
+        icon: '',
+        title: 'Omfattande markarbeten vid landningsfältet Draklanda. De flesta höga träd runt fältet är nu borta. I augusti 2004 köper Skysport gården vid Draklanda. Under hösten 2004 flyttar Skysport till Draklanda.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2005',
+        icon: '',
+        title: 'I februari öppnar vi vår nya anläggning vid Draklanda. Här finns butik, uthyrning, lager, teoriokal, kontor, landningsplats och boendeanläggning samlat på ett ställe',
+        description: '',
+        image: lundsgordsky,
+      },
+       {
+        date: '2007',
+        icon: '',
+        title: 'VM i alpint i Åre. Skysport hamnar mitt i händelsernas centrum. Flygning från skutan och mycket paramotorflygning.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2010',
+        icon: '',
+        title: 'Start för planering av Lake Lodge. En boendeanläggning med verksamhetslokaler för Skysport planeras.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2011',
+        icon: '',
+        title: 'Fortsatt planering av Lake Lodge.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2013',
+        icon: '',
+        title: 'Skysports lokal och bostadshuset Gula Villan rivs för att lämna plats för Lake Lodge.',
+        description: '',
+      //  image: '',
+      },
+       {
+        date: '2014',
+        icon: '',
+        title: 'Lake Lodge öppnar',
+        description: '',
+        image: lakelodge1,
+      },
+      {
+        date: '2019',
+        icon: '',
+        title: 'Alpina VM i Åre. Svenska landslaget bor på Lake Lodge',
+        description: '',
+        image: vm19,
+      },     
+    ],   
+}
+---
+
+
+<Layout
+
+title="Skysport Skärmflygskola i Åre"
+description="Welcome to Rico's portfolio site! Explore my work as a web/UI designer with 8+ years of experience in creating captivating visuals and interactive experiences."
+keywords="Rico, Portfolio, Web Design, UI Design, Frontend Development, Creative Designer"
+>
+  <Topper />
+    <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+      <Breadcrumbs linkTextFormat="capitalized" separatorAriaHidden={false} customizeLinks={customLastPart}>
+          <svg
+              slot="index"
+              aria-label="Home Page"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"> </path><polyline
+              points="9 22 9 12 15 12 15 22"></polyline>
+          </svg>
+          <svg
+              slot="separator"
+              xmlns="http://www.w3.org/2000/svg"
+              width="24"
+              height="24"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              ><polyline points="9 18 15 12 9 6"></polyline>
+          </svg>
+      </Breadcrumbs>
+  </div> 
+  <Divider1 />
+    <section >
+        <TimeLine content={TimeLineContent}/>
+    </section>
+
+</Layout>
