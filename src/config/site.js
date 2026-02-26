@@ -37,12 +37,12 @@ export const socialLinks = [
 	},
 	{
 		name: 'Instagram',
-		url: 'https://www.instagram.com/skysportare/',
+		url: 'https://www.instagram.com/skysport_are/',
 		icon: 'logos--instagram-icon'
 	},
 	{
 	  name: 'Vimeo',
-	  url: 'https://vimeo.com/skysport',
+	  url: 'https://vimeo.com/user58363115?fbclid=IwAR3oPCNzTwYeAfxtt3xHQBs413hMlK__4m6Gh4XUANqIiAzMZ70VkmA0_A8',
 	  icon: 'logos--vimeo-icon'
 	},
 ];

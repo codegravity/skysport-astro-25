@@ -4,49 +4,49 @@ import HittaOss from '@elements/karta.astro';
 ---
  <section class="bg-primary border-t border-slate-600">
   <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        <!-- Newsletter -->
-        <div class="sm:w-auto">
-            <h4 class="text-lg font-semibold text-white mb-4">Skysports Nyhetsbrev</h4>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div class="sm:w-auto  lg:col-span-1">
+           <div class="sm:w-auto  lg:w-2/3">
+            <h4 class="text-lg font-semibold text-white ">Skysports Nyhetsbrev</h4>
              <NewsForm/> 
-             <!-- Bank info -->
-      <div>
-        <h4 class="text-lg font-semibold text-white mb-4">Bank information:</h4>
-        <div class="group text-slate-200 dark:text-slate-200 text-sm">
-          <h5 class=" text-bold"></h5>
-          <p>Organisations nr: 556430-4474</p>
-          <p>Moms nummer/VAT no: SE556430447401</p>
-          <p>Bankgiro: 5334-1764</p>
-          <p>Swift code: SWEDSESS</p>
-          <p>IBAN: SE 9780000000078871310055</p>
-          <p>Bank: Swedbank Åre, Årevägen 88, 837 52 Åre</p>
-          <p>SWISH: 1234659926 (mottagare Skysport AB) </p>
-          <p>Kom ihåg att ange fakturanummer, eller vad betalningen avser</p>
           </div>
+          <!-- Contact Info -->
+          <div>
+            <h4 class="text-lg font-semibold text-white">Kontakta Oss</h4>
+            <div class="group text-slate-200 dark:text-slate-200 text-sm">
+              <h5 class=" text-bold">Skysport AB</h5>
+              <p>Årevägen 173</p>
+              <p>837 52, Åre, Sweden</p>
+              <p>Besöksadress: Årevägen 173 (Draklanda)</p>
+              <p>Tel: 0647-511 86</p>
+              <p>Mobil 1: 070-569 90 89 (Frågor om skärmflygning)</p>
+              <p>Mobil 2: 070-211 38 42 (Frågor om boende på Lake Lodge)</p>
+              <p>E-post för bokning: bokning@skysport.se</p>
+              <p>E-post för frågor: info@skysport.se</p>
+            </div>     
+          </div>
+           <!-- Bank info -->
+          <div>
+            <h4 class="text-lg font-semibold text-white pt-2">Bank information:</h4>
+            <div class="group text-slate-200 dark:text-slate-200 text-sm">
+              <h5 class=" text-bold"></h5>
+              <p>Organisations nr: 556430-4474</p>
+              <p>Moms nummer/VAT no: SE556430447401</p>
+              <p>Bankgiro: 5334-1764</p>
+              <p>Swift code: SWEDSESS</p>
+              <p>IBAN: SE 9780000000078871310055</p>
+              <p>Bank: Swedbank Åre, Årevägen 88, 837 52 Åre</p>
+              <p>SWISH: 1234659926 (mottagare Skysport AB) </p>
+              <p>Kom ihåg att ange fakturanummer, eller vad betalningen avser</p>
+              </div>
+          </div>
+         
+          
       </div>
-        </div>
-      <!-- Contact Info -->
-      <div>
-        <h4 class="text-lg font-semibold text-white mb-4">Kontakta Oss</h4>
-        <div class="group text-slate-200 dark:text-slate-200 text-sm">
-          <h5 class=" text-bold">Skysport AB</h5>
-          <p>Årevägen 173</p>
-          <p>837 52, Åre, Sweden</p>
-          <p>Besöksadress: Årevägen 173 (Draklanda)</p>
-          <p>Tel: 0647-511 86</p>
-          <p>Mobil 1: 070-569 90 89 (Frågor om skärmflygning)</p>
-          <p>Mobil 2: 070-211 38 42 (Frågor om boende på Lake Lodge)</p>
-          <p>E-post för bokning: bokning@skysport.se</p>
-          <p>E-post för frågor: info@skysport.se</p>
-        </div>     
-      </div>
-      
       <!-- Hitta oss karta -->
       <div class="sm:col-span-2 ">
         <h4 class="text-lg font-semibold text-white  mb-4">Hitta Oss</h4>
-
          <HittaOss />
- 
       </div>
     </div>
   </div>

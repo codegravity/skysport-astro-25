@@ -192,7 +192,6 @@ export const instructers = [
     ],
   },
 ];
-
 export const pilots = [
   {
     name: "Lars Hedström",
@@ -259,19 +258,6 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
- /*  {
-    name: "Cecilia Granerot",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/ceciliaa.jpg",
-    bio: "Bor i Åre. Född 1979. ",
-    flewSince: "2007",
-    role: [
-    { type: "Skysports drift ansvarig", working: false },
-    { type: "Tandempilot", working: true },
-    { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: false },
-    { type: "Hjälpinstruktör", working: false  },
-    ],
-  }, */
   {
     name: "Emil Krabbe",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/krabbe.jpg",
@@ -350,19 +336,6 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-  /* {
-    name: "Andreas Florén",
-    bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/floren.jpg",
-    bio: "Bor i Åre. Född 1980. ",
-    flewSince: "2003",
-    role: [
-    { type: "Skysports drift ansvarig", working: false },
-    { type: "Tandempilot", working: true },
-    { type: "Tandemaspirant", working: false },
-    { type: "Instruktör", working: false },
-    { type: "Hjälpinstruktör", working: false  },
-    ],
-  }, */
   {
     name: "Jonas Ostwald",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/jonasO.jpg",
@@ -389,7 +362,6 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-  
   {
     name: "Mats Andersson",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/mats.jpg",
@@ -403,8 +375,6 @@ export const pilots = [
     { type: "Hjälpinstruktör", working: false  },
     ],
   },
-   
-   
   {
     name: "Linda Kits",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/linda-K.jpeg",
