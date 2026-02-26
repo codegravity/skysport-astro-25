@@ -23,16 +23,9 @@ import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
 import { transportUp } from "@data/prisData";
-const rawSkysportUp =  transportUp.skysportBus;
-const rawSkistarUp = transportUp.skistarLift;
-const skysportUpISO = new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(rawSkysportUp); 
-const skistarUpISO = new Intl.NumberFormat('sv-SE', {
-                                    style: 'currency',
-                                    currency: 'SEK'
-                                    }).format(rawSkistarUp); 
+const skysportUpISO =  transportUp.skysportBus;
+const skistarUpISO = transportUp.skistarLift;
+
 
 const TandemPriceCardContent = {
 bookingPageClass: 'lg:grid-cols-1',
