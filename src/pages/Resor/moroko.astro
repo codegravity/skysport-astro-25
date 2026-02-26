@@ -1,0 +1,285 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import ImageHero from "@components/sections/ImageHero.astro";
+import Listwidget from "@widgets/liastwidget2.astro";
+import ListWidgetNeg from "@widgets/listWidgetNeg.astro";
+import Feature50 from  "@sections/Feature-50-50.astro";
+import BookingCTA from  "@sections/bookingCTA.astro";
+
+import Morok4 from '@assets/images/res/morok4.jpg';
+import Morok1 from '@assets/images/res/morok1.jpg';
+import Morok2 from '@assets/images/res/morok2.jpg';
+import Morok5 from '@assets/images/res/morok5.jpg';
+import Morok6 from '@assets/images/res/morok6.jpg';
+import Morok8 from '@assets/images/res/morok8.jpg';
+
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+
+const customLastPart = [
+  { index: "last", text: "Marocko" },
+/*   {
+    "data-link": "home",
+    "aria-label": "Go to the home page",
+    text: "Page 1",
+  },
+  {
+    "data-link": "about",
+    "aria-label": "Go to the about page",
+    text: "Page 2",
+  }, */
+];
+
+const HeroContent = {
+    title: "Marocko",
+   // description: "I år fokusera vi på resor till Turkiet och Marocko. Välkommen att följa med!",
+    backgroundImage: Morok1,
+     titleTextStyles: 'bg-slate-200/40 sm:bg-slate-200/30 p-2 text-2xl text-white  lg:px-3 rounded-xl md:text-4xl  md:text-slate-200',
+    overlayOpacity: 0.2,
+    position: "justify-end",
+}
+
+const BookingCtaContent = {
+  subtitle: 'SKYSPORT → Tamellalt / Nid d’Aigle, Marocko 🇲🇦',
+  text: 'Upplev ridge-soaring vid Atlantkusten! Vi erbjuder dagliga briefings och smidig logistik med boende precis vid startplatsen.',
+  ctaBild: Morok8,
+    buttons: [
+    {
+      text: "BOKA",
+      link: "/Kurs/Resor/boka",
+      target: "",
+    },
+  ],
+  posttext: '✅ Krav: Berg- och hangbehörighet samt självständig start/landning.💰 Pris: Early Bird 13 000 kr (t.o.m. 24/05) – därefter 13 500 kr.⏳ Begränsat antal platser!',
+}
+
+const Feature50Content = {
+     infoTitle: 'Södra Marocko ',
+     infoText: [
+      {
+        preText: '',
+        spanText: '24 – 31 Oktober 2026',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+      {
+        preText: 'Skysport är glada att kunna presentera ett spännande nytt resmål: ',
+        spanText: ' Tamellalt ',
+        spanClasses: ' font-bold ',
+        postText: 'i södra Marocko. Detta är en mycket vädersäker destination där vi vanligtvis flyger varje dag, ofta från morgon till kväll. Beroende på vädret flyger vi på bergskammar längs med havet, kusthang vid stranden eller termikflyger i bergen.',
+      },
+      {
+        preText: '',
+        spanText: 'Early Bird: 13 000 kr ',
+        spanClasses: 'text-s font-semibold text-slate-600 dark:text-slate-200',
+        postText: ' (vid bokning senast 24/05).',
+      },
+      {
+        preText: '',
+        spanText: 'Ordinarie pris: 13 500 kr',
+        spanClasses: 'text-s font-semibold text-slate-600 dark:text-slate-200',
+        postText: '(vid bokning 25/05 – 24/08).',
+      },
+      {
+        preText: '',
+        spanText: 'Sista anmälningsdag: 24 augusti.',
+        spanClasses: 'text-s font-semibold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+     ],
+    infoImg:  Morok6,
+    imgHeight: 514,
+    imgWidth: 900,
+}
+
+const Feature50bContent = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Vi bor på hotell ',
+        spanText: 'Nid d’Aigle',
+        spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+        postText: '(Örnnästet) med en fantastisk utsikt över Atlanten. Hotellet har en egen startplats för lokal flygning, och inom en timmes körning finns ytterligare en handfull flygställen, både inåt landet och längs kusten.',
+      },
+      {
+        preText: '',
+        spanText: 'Vem passar resan?',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+       {
+        preText: 'Resan passar dig som har berg- och hangbehörighet samt startar och landar självständigt. Det finns fina ytor på både start- och landningsplatserna, men då det växer kaktusar runtomkring är det viktigt att du är säker på din skärmkontroll och startteknik.  Med på resan finns den svenska instruktören  ',
+        spanText: ' Emil Krabbe ',
+        spanClasses: 'text-lg font-bold text-slate-600 dark:text-slate-200',
+        postText: ' samt vår mycket kunniga lokala guide och pilot, Larbi.',
+      },
+     ],
+    infoImg:  Morok5,
+}
+
+const Feature50cContent = {
+     infoTitle: '',
+     infoOrientationL: true,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoText: [
+      {
+        preText: ' ',
+        spanText: 'Varför södra Marocko och Nid d’Aigle?',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+      {
+        preText: 'Området är flygbart året runt, med den bästa perioden mellan september och maj. Här får du en perfekt kombination av dynamisk ridge-soaring och termik. Under bra eftermiddagar kan taket ligga på runt 1 000 meter vid kustkammarna, medan molnbasen i bergen längre in i landet ofta når ca 2 700 meter. ',
+        spanText: '',
+        spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+      {
+        preText: ' Boendet och restaurangen ligger direkt vid startplatsen, vilket ger smidig logistik och maximal flygtid. Om vädret vill det besöker vi även andra spännande platser, som tex. Aglou med sina stora sanddyner, eller på termisk hang ovanför Bounamaane.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+     ],
+    infoImg:  Morok4,
+}
+const Feature50dContent = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+       {
+        preText: '',
+        spanText: ' Hur vi flyger (upplägg):',
+        spanClasses: 'text-xl font-bold text-slate-600 dark:text-slate-200',
+        postText: '',
+      },
+       {
+        preText: '',
+        spanText: ' Morgon: ',
+        spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+        postText: 'Gemensam väderbriefing, val av flygställe och genomgång av dagens plan.',
+      },
+      {
+        preText: '',
+        spanText: ' Vid flygning: ',
+        spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+        postText: 'Grundlig genomgång av start och landning vid nya platser.',
+      },
+      {
+        preText: '',
+        spanText: ' Under dagen: ',
+        spanClasses: 'text-lg font-semibold text-slate-600 dark:text-slate-200',
+        postText: 'Guidning i luften eller från marken beroende på plats och förhållanden.',
+      },
+      
+     ],
+    infoImg:  Morok2,
+}
+
+
+const  ResaInkListContent = {
+  listTitle: "Detta ingår:",
+  listDescription: '',
+  listIcon: 'mdi--checkbox-marked-circle-outline',
+  listIconDark: 'mdi--checkbox-marked-circle-outline-light',
+  listList: [
+    {
+      listItem: 'Daglig guidning och briefing om väder och flygställen.',
+    },
+    {
+      listItem: 'Transport till och mellan flygställen samt retrieve.',
+    },
+    {
+      listItem: 'Boende i delat dubbelrum (separata sängar) på Nid d’Aigle (nidaigle.com).',
+    },
+    {
+      listItem: 'Frukost på hotellet.',
+    },
+       {
+      listItem: 'Flygplatstransfer till och från Agadir.',
+    },
+  ],
+}
+const  ResaNotInkListContent = {
+  listTitle: "Detta ingår inte:",
+  listDescription: '',
+  listIcon: 'mdi--checkbox-marked-circle-outline',
+  listIconDark: 'mdi--checkbox-marked-circle-outline-light',
+  listList: [
+    {
+      listItem: 'Flygbiljetter.',
+    },
+    {
+      listItem: 'Lunch och middag.',
+    },
+    {
+      listItem: 'Egen utrustning (skärm, sele, nödskärm, hjälm).',
+    },
+    {
+      listItem: 'Radio (finns att hyra via Skysport vid behov).',
+    },
+    {
+      listItem: 'Giltig licens och försäkring (nivå Pilot Plus rekommenderas).',
+    },
+  ],
+}
+---
+<Layout title="Skysport Skärmflygskola i Åre" description="" keywords="">
+    <ImageHero content={HeroContent}/>  
+   <div class=" py-8 px-4 sm:px-8  md:px-68   dark:text-slate-200">
+    <Breadcrumbs
+      linkTextFormat="capitalized"
+      separatorAriaHidden={false}
+      customizeLinks={customLastPart}
+    >
+      <svg
+        slot="index"
+        aria-label="Home Page"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z">
+        </path><polyline points="9 22 9 12 15 12 15 22"></polyline>
+      </svg>
+      <svg
+        slot="separator"
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        ><polyline points="9 18 15 12 9 6"></polyline>
+      </svg>
+    </Breadcrumbs>
+  </div>
+    <Feature50 content={Feature50Content} />
+  <Feature50 content={Feature50bContent} />
+   <Feature50 content={Feature50cContent} />
+   <Feature50 content={Feature50dContent} />
+<div class="site-container px-0 py-6 text-pretty ">
+   
+    <Listwidget content={ResaInkListContent} />
+    <ListWidgetNeg content={ResaNotInkListContent} />
+   <!--  <YellowAlert content={YellowAlertContent} /> -->
+ </div>
+ <BookingCTA content={BookingCtaContent}/>
+    <!-- <SimpleText content={SimpleTextContent} />  -->
+ 
+</Layout>
+
