@@ -1,21 +1,14 @@
 ---
 export const prerender = false;  // not needed in server mode
-import { alert } from '@components/starwind/alert/Alert.astro';
+
 import NewsModal from '../modals/newsletter.astro';
-//import Spinner from '@components/ui/submitSpinner.astro';
-//import { setTimeout as delay } from 'timers/promises';
-
-
 
 ---
 <div class="form-container relative z-0">
-
   <form method="POST" class="flex flex-col space-y-2" > 
-   
       <input required id="hs-email-nyhetsbrev" name="hs-email-nyhetsbrev" type="email" autocomplete="email" placeholder="E-post"
           class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500"
       />
-       
       <button id="newsSubmit" type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors" >
           Prenumerera
       </button>
@@ -37,8 +30,6 @@ import NewsModal from '../modals/newsletter.astro';
   const submitNewsForm = () => {
     //sendNewsmail()
     validateNews()
-   // alert('Tack! Din anmälan är skickad.')
-   // element.open();
   }
 
 const validateNews = () => {

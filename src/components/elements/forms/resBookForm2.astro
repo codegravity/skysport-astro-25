@@ -2,6 +2,7 @@
 import { resor } from "@data/resData.js";
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import ResOverlay from "@elements/modals/resbooking.astro";
+import SuccessAlert from "../modals/successAlert.astro";
 
 ---
 
@@ -227,6 +228,7 @@ import ResOverlay from "@elements/modals/resbooking.astro";
             </div>
 
         </div>
+        <SuccessAlert   />
         <ResOverlay /> 
         <div class="mt-3 flex">
             <div class="mt-6 grid">
@@ -391,8 +393,9 @@ const validateResan = () => {
       HSOverlay.open('#hs-res-vilkor-alert');
     }  else {
       sendmail()
-       // alert('Validation successful! Form can be submitted.');
-       // document.getElementById("res-booking").reset(); 
+       HSOverlay.open('#hs-task-success-alert');
+        document.getElementById("siv-booking").reset(); 
+   
     }
 
   }
