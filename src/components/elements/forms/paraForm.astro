@@ -302,20 +302,13 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
       get('hs-mobile').classList.add('border-red-500')
       get('hs-mobile').focus();
       HSOverlay.open('#hs-mobil-alert');
-    } /* else if (!get('hs-kursvilkor').checked) {      
-      get('hs-kursvilkor').classList.remove('border-gray-200')
-      get('hs-kursvilkor').classList.add('border-red-500')
-      get('hs-kursvilkor').focus();
-      HSOverlay.open('#hs-res-vilkor-alert');} */
-     else if (!get('hs-integ').checked) {      
+    } else if (!get('hs-integ').checked) {      
       get('hs-integ').classList.remove('border-gray-200')
       get('hs-integ').classList.add('border-red-500')
       get('hs-integ').focus();
       HSOverlay.open('#hs-para-vilkor-alert');
     }  else {
       sendmail()
-     
-       // document.getElementById("res-booking").reset(); 
     }
 
   }
@@ -323,10 +316,6 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
 const get = (id) => document.getElementById(id) || { value: '' }
 const submitForm = () => {
     validateParaBooking()
-    //HSOverlay.open('#hs-res-alert');
-  //saveInput()
- //alert(radioID('hs-radio-vertical-group'));
-  //sendmail()
 }
 
 const getFormData = () => {
@@ -369,9 +358,7 @@ const getFormData = () => {
 }
 
 const submitBtn = document.getElementById('para-book')
-//const submitBtn = document.querySelector('[type="submit"]')
 submitBtn?.addEventListener('click', submitForm)
-
 const sendmail = async () => {
   const { firstName, lastName, tel, telDay, email, message, kursDate, kursVeckan, paraPrice, summa, weight, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
   const data = await fetch('/api/sendParaKursBooking.json', {
@@ -393,7 +380,7 @@ const sendmail = async () => {
     })
 
   console.log(data) // Here is the response from backend
-   alert('Message successfully sent');
+   alert('Meddelandet skickat!');
   document.getElementById("booking-form").reset();
 }
 

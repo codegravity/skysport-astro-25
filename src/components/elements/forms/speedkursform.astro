@@ -190,14 +190,6 @@ const { content } = Astro.props;
                 <label for="hs-meddelande" class="block mb-2 text-sm text-gray-700 font-medium dark:text-white">Meddelande</label>
             </div>
 
-           {/*  <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
-                <h3>Vilkor<span class="text-amber-600 text-xl">*</span></h3>
-            </div>
-            <div class="py-0 sm:py-0 col-span-2 sm:col-span-4 flex flex-row items-center">                  
-                <input id="hs-kursvilkor" name="hs-kursvilkor" type="checkbox" value="true" class="shrink-0 mt-1.5   cursor-pointer rounded-full w-5 h-5 sm:w-4 sm:h-4 p-5 border border-gray-200 rounded-sm text-blue-600 focus:ring-blue-500 dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800">
-                <label for="hs-kursvilkor" class="pt-2 text-sm text-gray-600 px-2 sm:text-xl dark:text-neutral-400">Ja, jag här läst igenom kursinformationen och godkänner dessa. <a class="text-blue-600 decoration-2 hover:underline focus:outline-hidden focus:underline font-medium dark:text-blue-500" href="../../Kurs/kursvilkor">KLICKA HÄR</a> för villkor och kursinformation.</label>
-            </div> */}
-
              <div class="lg:text-2xl font-bold col-span-2 sm:col-span-1 pt-2"><!--col 1 -->
                 <h3>Nyhetsbrev</h3>
             </div>
@@ -310,21 +302,17 @@ const { content } = Astro.props;
                             } 
                             document.getElementById("kursChecked").classList.remove("hidden");
                             document.getElementById("kursPris").classList.remove("hidden");
-                               
                          }
                            // document.getElementById("kursChecked").classList.add("hidden");
                            // document.getElementById("kursPris").classList.add("hidden");
-                                                                               
-                       
+
                     }
                 }
     }
 
-
-
 const submitForm = () => {
  
- validateSpeedKurs()
+    validateSpeedKurs()
 
 }
 
@@ -397,21 +385,12 @@ const validateSpeedKurs = () => {
       get('hs-mobile').focus();
       HSOverlay.open('#hs-mobil-alert');
     } 
-    /*
-    else if (!get('hs-kursvilkor').checked) {      
-      get('hs-kursvilkor').classList.remove('border-gray-200')
-      get('hs-kursvilkor').classList.add('border-red-500')
-      get('hs-kursvilkor').focus();
-      HSOverlay.open('#hs-kurs-vilkor-alert');
-    } 
-    */
     else if (!get('hs-integ').checked) {      
       get('hs-integ').classList.remove('border-gray-200')
       get('hs-integ').classList.add('border-red-500')
       get('hs-integ').focus();
       HSOverlay.open('#hs-vilkor-alert');
     } else {
-       //alert('validation klar')
      sendmail()
     }
 
@@ -422,15 +401,6 @@ const getFormData = () => {
     store.kursDate = get("flatpickr-date")?.value
     store.kursPriceISO = get("hs-kursPris")?.value
     store.kursName = get("checkedKursName")?.value
-
-    /*
-    store.kursVeckan = get("kurs-veckan")?.value
-    store.boendeType = get('boendeDescription')?.value
-    store.boendeRawPrice = get("rawBoPrice")?.value 
-    store.boendePriceISO = get('BoPriceISO')?.value
-    store.apartmentRequest = get('hs-apartR')?.value
-    store.summa = get("hs-summa")?.value
-    */
 
     // Contact Info
     store.firstName = get('hs-firstname-contacts-1')?.value
@@ -445,15 +415,12 @@ const getFormData = () => {
     if (store.telday.length < 3 ){
         store.telday = 'N/A';
     } 
-        
     store.tel = get('hs-mobile')?.value
     store.weight = get('hs-weight')?.value
     if( store.weight.length < 2 ){
         store.weight = 'N/A';
-    } 
-        
+    }
     store.message = get('hs-meddelande')?.value
-    
      if( get('hs-kursvilkor')?.checked){
         store.kursvilkor =  'Ja'
     }  else {
@@ -497,7 +464,7 @@ const sendmail = async () => {
     })
 
   console.log(data) // Here is the response from backend
-   alert('Message successfully sent');
+   alert('Meddelandet skickat!');
   document.getElementById("booking-form").reset();
 }
 
