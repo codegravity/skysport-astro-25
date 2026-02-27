@@ -6,6 +6,7 @@ import { transportUp } from "@data/prisData";
 
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
+import SuccessAlert from '@components/elements/modals/successAlert.astro';
 
 
 const skysportUpISO =  transportUp.skysportBus;
@@ -43,7 +44,7 @@ const skistarUpISO = transportUp.skistarLift;
 
                     <div class="mt-6 group:text-left">
                     <!-- Form -->
-                    <form>                      
+                    <form id="tandem-form" method="POST">                      
                         <!-- Grid -->            
                          <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:gap-6"> 
                             <div class="sm:col-span-full">
@@ -143,7 +144,7 @@ const skistarUpISO = transportUp.skistarLift;
                         
                     </form>
                      <!-- End Form -->
-                      
+                      <SuccessAlert />
                     </div>
                 </div>
                 </div>
@@ -319,6 +320,8 @@ const validateInfo = () => {
       HSOverlay.open('#hs-vilkor-alert');
     } else {
       sendmail()
+      HSOverlay.open('#hs-task-success-alert');
+        document.getElementById("tandem-form").reset(); 
     }
 
   }
@@ -340,9 +343,6 @@ const retrieveInfo = () => {
 
 const submitBtn = document.querySelector('[type="submit"]')
 submitBtn?.addEventListener('click', submitForm)
-//retrieveInfo()
-//;[...document.querySelectorAll('input')][0]?.focus()
-// window.onload = () => {} // don't know why this wont work
 
 const sendmail = async () => {
   const { name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, vilkor, direktBokning, subject } = getFormData()

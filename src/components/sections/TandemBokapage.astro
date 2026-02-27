@@ -23,6 +23,7 @@ import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
 import { transportUp } from "@data/prisData";
+import SuccessAlert from "@components/elements/modals/successAlert.astro";
 const skysportUpISO =  transportUp.skysportBus;
 const skistarUpISO = transportUp.skistarLift;
 
@@ -161,7 +162,7 @@ bookingPage : 'boka',
 
                     <div class="mt-6 group:text-left">
                     <!-- Form -->
-                    <form id="booking-form">                      
+                    <form id="tandem-form">                      
                         <!-- Grid -->            
                          <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4  lg:grid-cols-3 lg:gap-6"> 
                             <div class="sm:col-span-full">
@@ -268,6 +269,7 @@ bookingPage : 'boka',
        </div><!-- end 2 col grid -->
     </div>
   </section>
+  <SuccessAlert />
   <HSOverlay />
 
 <script>
@@ -333,6 +335,8 @@ const validateInfo = () => {
       HSOverlay.open('#hs-vilkor-alert');
     } else {
       sendmail()
+      HSOverlay.open('#hs-task-success-alert');
+        document.getElementById("tandem-booking").reset(); 
     }
 
   }

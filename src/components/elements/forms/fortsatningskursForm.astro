@@ -21,7 +21,7 @@ const { content } = Astro.props;
 ---
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <form method="POST">
+    <form id="fortsatt" method="POST">
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="lg:text-2xl font-bold"><!--col 1 -->
             <h3>Välj önskat kursdatum<span class="text-amber-600 text-xl">*</span></h3>
@@ -786,6 +786,7 @@ const validateFortKurs = () => {
     } else {
         HSOverlay.open('#hs-task-success-alert');
       sendmail()
+       document.getElementById("fortsatt").reset(); 
     
     }
 

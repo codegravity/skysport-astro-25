@@ -5,6 +5,7 @@ import Hr1 from "@components/elements/SeparatorLine.astro";
 import SpeedKursOverlay from "@elements/modals/speedkursbooking.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
+import SuccessAlert from '../modals/successAlert.astro';
 /*
 interface BookingPageContent {
   bookingPage?: string;
@@ -217,6 +218,7 @@ const { content } = Astro.props;
         </div>     
     </form>
 </div>
+<SuccessAlert   />
 <SpeedKursOverlay />
 <script>
   
@@ -392,6 +394,8 @@ const validateSpeedKurs = () => {
       HSOverlay.open('#hs-vilkor-alert');
     } else {
      sendmail()
+     HSOverlay.open('#hs-task-success-alert');
+        document.getElementById("speedKurs").reset(); 
     }
 
   }
