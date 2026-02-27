@@ -29,14 +29,16 @@ const { content } = Astro.props;
        {content.listList.map((item) => (
             <li class="w-full px-4 py-2 ">
                 <div class="grid grid-cols-12 ">
-                    <div class="py-1  col-span-1 ">
-                       
-                        <Icon type="button" name="solar--info-circle-linear" class="dark:hidden sm:text-xl text-xl "/>
-                        <Icon type="button" name="solar--info-circle-linear-vit" class="hidden dark:block sm:text-xl text-lg  "/>
+                    <div class="py-2 sm:py-0  col-span-12 flex flex-row gap-2 sm:gap-4 items-center">  
+                        <span class="">
+                            <Icon type="button" name="solar--info-circle-linear" class="dark:hidden text-2xl  "/>
+                            <Icon type="button" name="solar--info-circle-linear-vit" class="hidden dark:block text-2xl    "/>
+                        </span>
+                        <div class="text-sm sm:text-lg lg:text-xl dark:text-slate-200">{item.listItem}</div>
                     </div>
-                    <div class="col-span-11 l text-left leading-relaxed  text-balanced dark:text-neutral-200">
+                   {/*  <div class="col-span-11 l text-left leading-relaxed  text-balanced dark:text-neutral-200">
                         {item.listItem}
-                    </div>
+                    </div> */}
                 </div>
             </li> 
           ))}
