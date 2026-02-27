@@ -3,6 +3,7 @@ import { grundKurser } from '@data/formData';
 import { boende2026 } from '@data/formData';
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import GrundKursOverlay from "@elements/modals/grundkursbooking.astro";
+import SuccessAlert from "@elements/modals/successAlert.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 
@@ -250,6 +251,7 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
         </div>     
     </form>
 </div>
+<SuccessAlert
 <GrundKursOverlay />
 <script>
     window.onload = (event) => {
@@ -609,7 +611,7 @@ const validateGrundKurs = () => {
       get('hs-integ').focus();
       HSOverlay.open('#hs-vilkor-alert');
     } else {
-       // alert('validation klar')
+       HSOverlay.open('#hs-task-success-alert');
      sendmail()
     }
 
@@ -666,8 +668,6 @@ const getFormData = () => {
 store.subject = 'Grundkurs Bokning'
   return store
 }
-
-
 
 const sendmail = async () => {
   
