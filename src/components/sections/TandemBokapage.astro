@@ -162,7 +162,7 @@ bookingPage : 'boka',
 
                     <div class="mt-6 group:text-left">
                     <!-- Form -->
-                    <form id="tandem-form">                      
+                    <form id="tandem-form1">                      
                         <!-- Grid -->            
                          <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4  lg:grid-cols-3 lg:gap-6"> 
                             <div class="sm:col-span-full">
@@ -336,7 +336,7 @@ const validateInfo = () => {
     } else {
       sendmail()
       HSOverlay.open('#hs-task-success-alert');
-        document.getElementById("tandem-booking").reset(); 
+        document.getElementById("tandem-form1").reset(); 
     }
 
   }
