@@ -1,0 +1,20 @@
+---
+import { Image } from 'astro:assets';
+import logo from '@assets/images/Skysport_Logo-01-invert-468.png';
+import logoVit from '@assets/images/Skysport_Logo-white.png';
+---
+
+
+<a id="logo-link" href="/" class=" flex w-full justify-center">
+    <Image 
+        src={logoVit} 
+        alt="Skysport Home" 
+        class="  w-fit  hs-auto object-contain " 
+        width={468}
+        height={72}
+        decoding="async"
+        loading="eager"
+        format="webp"
+       
+    />
+</a>

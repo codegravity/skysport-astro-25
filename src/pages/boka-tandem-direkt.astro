@@ -1,15 +1,39 @@
 ---
 import Layout from "@layouts/LandingLayout.astro";
-import Booking from "@components/sections/tandemBookClean.astro";
+import Booking from "@components/sections/tandembookQRkodDirekt.astro";
 import TandemPriceCard from "@widgets/TandemPriceCard.astro";
+import Logo from "@components/elements/logo2.astro";
 
 const BookingPageContent = {
     bookingPage: 'boka',
 }
-
+const TandemPriceCardContent = {
+  bookingPageClass: 'lg:grid-cols-2',
+  tandemProducts:[
+    {
+      title: "Tandemflyg",
+      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      price: "1.800 kr",
+      foto: 0,
+    },
+    {
+      title:  "Tandemflyg + Film",
+      description: "Flyg från någon av våra startplatser på Åreskutan med landning nere i dalen på Draklanda.",
+      price: "2.200 kr",
+      foto: 1,
+    }
+  ],
+}
 ---
 <Layout title="Boka tandemflyg direkt" description="Bokning sida för QR kod och mobil" keywords="Tandemflyg, Paragliding, Åre">
-
+    <section class="py-1 bg-slate-600 w-full  flex flex-col items-center justify-center">
+        <div class="max-w-4xl py-3 ">
+            <Logo />
+            <h4 class="text-3xl font-semibold text-white sm:text-6xl py-3 place-self-center">QR KOD BOKNING</h4>
+            <TandemPriceCard content={TandemPriceCardContent}/>
+        </div>
+        
+    </section>
     <Booking content={BookingPageContent}/> 
   
 </Layout>
