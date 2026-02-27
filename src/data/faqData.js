@@ -1,7 +1,7 @@
 export const FAQParamotor = [
     {
         faqQuestion: 'Vad kostar det att lära sig flyga paramotor från grunden? ',
-        faqAnswer: 'En grundutbildning för skärmflyg kostar 7.500-8.000 kr beroende vilken säsong du går. Du måste först börja med grundutbildningen för skärmflyg, för att sen börja med paramotor. När du har gått skärmflygutbildningen kan du påbörja med paramotor och den utbildningen kostar 6.000:-. Kostnad tillkommer till Svenska skärmflygförbundet ( SSFF) för din förbundsavgift/försäkring på 1.900 kr',
+        faqAnswer: 'En grundutbildning för skärmflyg kostar 9.500 kr. Du måste först börja med grundutbildningen för skärmflyg, för att sen börja med paramotor. När du har gått skärmflygutbildningen kan du påbörja med paramotor och den utbildningen kostar 8.000 kr. Kostnad tillkommer till Svenska skärmflygförbundet ( SSFF) för din förbundsavgift/försäkring på 2.071 kr',
     },
     {
         faqQuestion: 'Kan man ta både grundkursen och paramotor utbildning som en intensiv kurs?',
