@@ -6,10 +6,20 @@ import nodemailer from 'nodemailer';
 import { htmlNewsKundTemplate } from './mail_templates/kundnyhetsbrev.js'
 import { htmlNewsSkyTemplate } from './mail_templates/skynyhetsbrev.js'
 
+// local testing
+
+const host = "email-smtp.eu-north-1.amazonaws.com"
+const emailTo1 = "no-reply@skysport.se"
+const emailUser ="AKIAQPMQAGARF7NITJYL"
+const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
+
+// using Vercel env
+/*
 const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
 const emailTo1 = process.env.PUBLIC_EMAIL 
+*/
 
 const emailTo = emailTo1 
 

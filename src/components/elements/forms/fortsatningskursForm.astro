@@ -6,6 +6,7 @@ import Hr1 from "@components/elements/SeparatorLine.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
 import FortKursOverlay from "@elements/modals/fortkursbooking.astro";
+import SuccessAlert from "@elements/modals/successAlert.astro";
 
 interface BookingPageContent {
   bookingPage?: string;
@@ -327,6 +328,7 @@ const { content } = Astro.props;
         
     </form>
 </div>
+<SuccessAlert />
 <FortKursOverlay />
 <script>
     window.onload = (event) => {
@@ -782,8 +784,9 @@ const validateFortKurs = () => {
       get('hs-integ').focus();
       HSOverlay.open('#hs-vilkor-alert');
     } else {
+        HSOverlay.open('#hs-task-success-alert');
       sendmail()
-     //alert('validated!!!')
+    
     }
 
   }
