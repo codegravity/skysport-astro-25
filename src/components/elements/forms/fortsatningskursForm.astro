@@ -870,8 +870,6 @@ store.subject = 'Fortsättnings Kurs Bokning'
   return store
 }
 
-
-
 const sendmail = async () => {
   const {kursName, kursDate, kursVeckan, kursPrice, boendeType,boendePriceISO, apartmentRequest, summa,totalFlyingHours,flyingHoursThisYear,totalFlights,flightsThisYear,bergsflyg,hangflyg,termikflyg,bogserflyg,ovrigflyg,firstName, lastName, tel, telday, email, message,  weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
   const data = await fetch('/api/sendFortKursBooking.json', {

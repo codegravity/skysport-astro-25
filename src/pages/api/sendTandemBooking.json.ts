@@ -96,7 +96,7 @@ export const POST: APIRoute = async ({ request }) => {
     // skicka till Skysport
     let mailDetailsSky = {
       from: emailTo,
-      to: `brett@codegravity.se`,
+      to: emailTo,
       subject:  Skysubject,
     //  subject: `${new URL(request.url).hostname}: ${subject}`,
       text: Skymessage,
