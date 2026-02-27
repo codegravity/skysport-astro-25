@@ -20,11 +20,6 @@ const kursRadioDates = [
     },
 ];
 
-
-
-//const AsteriskSpan = '<span class="text-amber-600 text-xl">*</span>';
-
-
 const sivPrice = 4500.00;
 const delDubbel = 1500.00;
 const enkelt = 1950.00;
@@ -45,8 +40,6 @@ const formattedEget = new Intl.NumberFormat('sv-SE', {
   style: 'currency',
   currency: 'SEK'
 }).format(eget);
-
-//console.log(formattedSiv + ' ' + formattedDub + ' ' + formattedAlone + ' ' + formattedEget);
 
 const boendeTypes = [
     {
@@ -145,7 +138,7 @@ const boendeTypes = [
         <div class="col-span-1 lg:col-span-3 py-0 sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
                 <input type="text" name="hs-summa" id="hs-summa" placeholder="4500 kr" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
-                 <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">Summan räknäs efter val av boende.</label>
+                 <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">Summan räknas efter val av boende.</label>
           </div>      
         </div>
     </div><!--end grid-->
