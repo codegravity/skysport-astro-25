@@ -1,6 +1,7 @@
 ---
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import ParaModal from "@components/elements/modals/parabooking.astro";
+import SuccessAlert from "@elements/modals/successAlert.astro";
 const kursRadioDates = [
     {
         kursLabel: 'Paramotor kurs vecka 21',
@@ -201,7 +202,7 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
     </form>
 
 </div>
-
+<SuccessAlert />
 <ParaModal /> 
 <script is:inline>
     const paraPrice = document.getElementById("hs-pris").value;
@@ -309,6 +310,7 @@ const formattedPara = new Intl.NumberFormat('sv-SE', {
       HSOverlay.open('#hs-para-vilkor-alert');
     }  else {
       sendmail()
+       HSOverlay.open('#hs-task-success-alert');
     }
 
   }
