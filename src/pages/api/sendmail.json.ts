@@ -6,18 +6,11 @@ import nodemailer from 'nodemailer'
 //import { htmlTemplate } from './mail_templates/toSkysport.js'
 import { htmlTemplateTwo } from './mail_templates/templateTwo.js'
 
-
-const emailUser = import.meta.env.PUBLIC_EMAIL_USER
-const emailTo1 = import.meta.env.PUBLIC_EMAIL
-const emailToPass = import.meta.env.PUBLIC_EMAIL_PASS
-const host = import.meta.env.PUBLIC_EMAIL_HOST
-
-const emailTo = emailTo1 + ', brett@skysport.se'
 //vercel env
-/*const emailUser = process.env.PUBLIC_EMAIL_USER
+const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
-const emailTo = process.env.PUBLIC_EMAIL*/
+const emailTo = process.env.PUBLIC_EMAIL
 
 export const POST: APIRoute = async ({ request }) => {
 

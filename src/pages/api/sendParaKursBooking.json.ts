@@ -6,27 +6,13 @@ import nodemailer from 'nodemailer';
 import { htmlParaKundBookTemplate } from './mail_templates/paramotorKundBokning.js'
 import { htmlParaSkyTemplate } from './mail_templates/SkyParamotorBooking.js'
 
-//const emailUser = import.meta.env.PUBLIC_EMAIL_USER
-//const emailTo1 = import.meta.env.PUBLIC_EMAIL
-//const emailToPass = import.meta.env.PUBLIC_EMAIL_PASS
-//const host = import.meta.env.PUBLIC_EMAIL_HOST
-
-// local testing
-
-const host = "email-smtp.eu-north-1.amazonaws.com"
-const emailTo1 = "no-reply@skysport.se"
-const emailUser ="AKIAQPMQAGARF7NITJYL"
-const emailToPass = "BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY"
-
-//EMAIL_PORT = 587
-
 //Note: Vercel env is configured in Vercel app, not from an env file!
-/* const emailUser = process.env.PUBLIC_EMAIL_USER
+const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
-const emailTo1 = process.env.PUBLIC_EMAIL */
+const emailTo1 = process.env.PUBLIC_EMAIL 
 
-const emailTo = emailTo1 + ', brett@skysport.se'
+const emailTo = emailTo1 
 console.log('Email To:', emailTo);
 export const POST: APIRoute = async ({ request }) => {
 
