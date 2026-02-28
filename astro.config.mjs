@@ -1,3 +1,4 @@
+
 // @ts-check
 
 import mdx from '@astrojs/mdx';
@@ -8,19 +9,31 @@ import icon from "astro-icon";
 import robotsTxt from 'astro-robots-txt';
 import node from '@astrojs/node';
 import react from '@astrojs/react';
+import partytown from '@astrojs/partytown';
+import astroConsent from "astro-consent";
+
 // Comment out Vercel for local dev
 import vercel from '@astrojs/vercel';
 
-
-import partytown from '@astrojs/partytown';
-
-
 export default defineConfig({
-  //  prefetch: true,
+    prefetch: true,
   
   site: 'https://stage.skysport.se',
 
   integrations: [
+    astroConsent({
+      siteName: "Skysport",
+      policyUrl: "https://skysport.se/Om-Oss/integritetspolicy",
+      consent: {
+        days: 30,
+        storageKey: "skysport-cookie-consent"
+      },
+      categories: {
+        analytics: true,
+        marketing: false
+      }
+    }),
+
     mdx(),
     sitemap(),
     icon(),
@@ -52,8 +65,6 @@ export default defineConfig({
 
 //   output: 'server',
 
-  
-  
   /* adapter: node({
       mode: 'standalone'
     }) */

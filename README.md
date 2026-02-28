@@ -1,10 +1,6 @@
-# Astro Starter Kit: Blog
+# Astro Skysport working version
 
-```sh
-npm create astro@latest -- --template blog
-```
-
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+preclean version in folder Astro26
 
 Features:
 
@@ -14,16 +10,16 @@ Features:
 - ✅ Sitemap support
 - ✅ RSS Feed support
 - ✅ Markdown & MDX support
-
+- ✅ Astro Consent
 - ✅ Astro Icon
 - ✅ Tailwind css
 - ✅ Preline UI
-- ✅ Astro Navbar
-- ✅ Astro Embed Vimeo
+- ✅ Partytown
+- ✅ Astro Embed Vimeo  --gone
 - ✅ Flat-Pickr date picker
 - ✅ Astro Leaflet
-- ✅ Mux Video player
-
+- ✅ Mux Video player --gone
+- ✅ Astro Forms Utils???
 
 ## 🚀 Project Structure
 

@@ -1,7 +1,7 @@
 {
   "name": "skysport-astro",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
@@ -24,7 +24,7 @@
     "@types/react-dom": "^19.2.3",
     "astro": "^5.17.1",
     "astro-breadcrumbs": "^3.3.3",
-    "astro-consent": "^1.0.14",
+    "astro-consent": "^1.0.17",
     "astro-icon": "^1.1.5",
     "astro-leaflet": "^1.8.1",
     "astro-robots-txt": "^1.0.0",
