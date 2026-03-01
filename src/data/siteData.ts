@@ -314,7 +314,7 @@ export const pilots = [
   {
     name: "Pontus Olsson",
     bioIMG: "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/img/pilots/pontus.jpeg",
-    bio: "Bor i Åre. Född 1993. Säsongande tandempilot i Åre under mars-april och juli-augusti. Jobbar övrig tid i Köpenhamn som service elektriker. ",
+    bio: "Bor i Åre. Född 1993.  ",
     flewSince: "",
     role: [
     { type: "Skysports Drift Ansvarig", working: false },
