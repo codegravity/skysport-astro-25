@@ -57,14 +57,16 @@ export default defineConfig({
     },
   },
 
+ output: 'server',
+ 
   //comment out  Vercel  for local dev
-     output: 'server',
-  adapter: vercel(),   
+ adapter: vercel({
+    webAnalytics: {
+      enabled: true, // set to false when using @vercel/analytics@1.4.0
+    },
+  }),  
 
 // use node for local dev
-
-//   output: 'server',
-
   /* adapter: node({
       mode: 'standalone'
     }) */
