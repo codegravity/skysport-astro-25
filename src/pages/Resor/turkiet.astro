@@ -1,9 +1,10 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
-import HeroImage from '@assets/images/IMG_7595.jpg';
-import SimpleText from '@components/sections/simpletext.astro'
+import HeroImage from '@assets/images/res/turk-1.jpg';
+import SimpleText from '@components/sections/simpletext.astro';
 import ResInfo from "@components/sections/resInfo.astro";
+import BookCTA from '@components/sections/bookingCTA.astro';
 
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
@@ -25,9 +26,10 @@ const customLastPart = [
 
 
 const HeroContent = {
-    title: "Skysport Resor 2026",
-    description: "I 2026 fokusera vi på resor till Turkiet och Morocco. Välkommen att följa med!",
+    title: "Ölüdeniz, Turkiet",
+    description: "",
     backgroundImage: HeroImage,
+    bgImagePosition: "object-top-left",
      titleTextStyles: 'bg-slate-200/40 sm:bg-slate-200/70 p-2 text-2xl text-white  lg:p-3 rounded-lg md:text-4xl  md:text-primary',
     overlayOpacity: 0.2,
     position: "justify-end",
@@ -55,6 +57,23 @@ const SimpleTextContent = {
           postText: '',
         },
      ],
+}
+
+const BookCTAContent = {
+    title: "Ölüdeniz, Turkiet",
+    subtitle: "Följ med Skysport till Turkiet. ",
+    text: "Vill du gå SIV kurs bok vår resa i Maj.",
+    ctaBild: HeroImage,
+    bgImagePosition: "object-top-left",
+     titleTextStyles: 'bg-slate-200/40 sm:bg-slate-200/70 p-2 text-2xl text-white  lg:p-3 rounded-lg md:text-4xl  md:text-primary',
+    buttons:[
+        {
+            text: 'BOKA',
+            link: '/Resor/boka',
+          },
+
+    ]
+  
 }
 ---
 <Layout title="Skysport Skärmflygskola i Åre" description="" keywords="">
@@ -98,6 +117,7 @@ const SimpleTextContent = {
   </div>
     <ResInfo />
     <SimpleText content={SimpleTextContent} /> 
+    <BookCTA content={BookCTAContent} />
  
 </Layout>
 

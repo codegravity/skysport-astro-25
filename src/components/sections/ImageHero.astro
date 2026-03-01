@@ -38,9 +38,9 @@ interface Props {
 
 const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
-const overlayPosition = content.position || "justify-center";
+const overlayPosition = content.position || "justify-center object-[82%_50%]";
 const bgImgPosition = content.bgImagePosition || "center";
-const bgImgStdClasses = 'hidden md:block lg:w-full h-full object-cover object-[82%_50%]' + bgImgPosition;
+const bgImgStdClasses = 'hidden md:block lg:w-full h-full object-cover ' + bgImgPosition;
 ---
 
  <!-- <section class="header-offset relative h-screen"> -->
@@ -119,6 +119,6 @@ const bgImgStdClasses = 'hidden md:block lg:w-full h-full object-cover object-[8
         </div>
       )
     }
-         
+       
     </div> 
 </section>

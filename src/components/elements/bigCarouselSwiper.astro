@@ -1,6 +1,7 @@
 ---
 import { Image } from "astro:assets";
 import Arrow from '../../icons/icon-arrow.svg';
+import Button from "@components/ui/Button.astro";
 import '@assets/css/bs-swiper.css';
 import 'swiper/css';
 import 'swiper/css/navigation';
@@ -100,10 +101,24 @@ const { content } = Astro.props;
             {/* Intro */}
             <div class="hidden sm:block text-amber-200 text-xl text-bold flex-1" set:html={ item.intro } />
                 <p class="hidden sm:block text-white text-xl text-pretty ">{item.content}  </p>
-            {/* Cta */}
-            <button type="button" class="bs-btn inline-block self-start bs-mt-sm" onclick="demo.showModal()">
-              { item.cta }
-            </button>
+
+              { item.buttons && item.buttons.length > 0 && (
+        <div class="flex  flex-col md:flex-row gap-4 mt-8 items-center">
+          {item.buttons.map((button) => (
+            <Button
+              href={button.link}
+              target={button.target || "_self"}
+  
+            >
+              {button.text}
+            </Button>
+          ))}
+          </div>
+            )
+    }
+          
+            
+           
 
           </figcaption>
 

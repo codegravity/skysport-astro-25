@@ -51,6 +51,9 @@ content.infoOrientationL  && {
   
 }
 const overlayPosition = content.imgPosition || "justify-center";
+
+const ImgPosition = content.imgPosition || "center";
+const ImgStdClasses = 'object-bottom shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl ' + ImgPosition;
 ---
 
 <!-- Card Blog -->
@@ -69,7 +72,7 @@ const overlayPosition = content.imgPosition || "justify-center";
         <Image 
                     src={content.infoImg}
                     alt={content.imgAlt || "Skysports Tandem i Åre"}
-                    class="object-bottom shadow-xl shadow-gray-200 rounded-xl dark:shadow-gray-900/20 w-full h-2/3 object-cover rounded-xl"
+                    class={ImgStdClasses}
                     width={content.imgWidth || '900'}
                     height={content.imgHeight || '514'}
                     quality={80}

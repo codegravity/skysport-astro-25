@@ -2,15 +2,15 @@
 import Layout from "@layouts/MainLayout.astro";
 import ImageHero from "@components/sections/ImageHero.astro";
 import BigSwiper from "@elements/bigCarouselSwiper.astro";
-import HeroImage from '@assets/images/IMG_7595.jpg';
+import HeroImage from '@assets/images/res/turk-3.jpg';
 import SimpleText from '@components/sections/simpletext.astro'
 import ResInfo from "@components/sections/resInfo.astro";
 
-import Swiper1 from '@assets/images/res/G0038433.jpg';
+import Swiper1 from '@assets/images/res/turk-1.jpg';
 import Swiper2 from '@assets/images/res/morok1.jpg';
-import Swiper3 from '@assets/images/res/morok2.jpg';
+import Swiper3 from '@assets/images/res/turk-2.jpg';
 import Swiper4 from '@assets/images/res/morok5.jpg';
-import Swiper5 from '@assets/images/res/morok6.jpg';
+import Swiper5 from '@assets/images/res/turk-3.jpg';
 
 
 
@@ -39,67 +39,78 @@ const BigSwiperContent =  {
         title: 'TURKIET',
         intro: 'Ölüdeniz är Turkiets mest kända skärmflygställe och ett av de mest vädersäkra som finns i världen. ',
         content: 'I år erbjuda Sysport resor i Maj och September.  ',
-        cta: 'BOKA',
         image: Swiper1,
         image_alt: 'Skysport Resa till Turkiet',
         imgHeight: 500,
         imgWidth: 900,
         buttons: [
           {
-            text: 'Boka',
-            link: '#turkiet',
-          // target: string,
+            text: 'Läs mer',
+            link: '/Resor/turkiet',
+          },
+          {
+            text: 'BOKA',
+            link: '/Resor/boka',
           },
         ],
     },
     {
-        title: 'MOROKO',
+        title: 'MAROCKO',
         intro: '',
         content: '',
-        cta: 'BOKA',
         image: Swiper2,
-        image_alt: 'Skysport Resa till Moroko',
+        image_alt: 'Skysport Resa till Marocko',
         imgHeight: 500,
         imgWidth: 900,
         buttons: [
           {
             text: 'Läs mer',
-            link: '#turkiet',
+            link: '/Resor/marocko',
+          },
+          {
+            text: 'BOKA',
+            link: '/Resor/boka',
           // target: string,
           },
         ],
     },
      {
-        title: 'Moroko',
+        title: 'TURKIET',
         intro: '',
         content: '',
-        cta: '',
+        //cta: '',
         image: Swiper3,
-        image_alt: 'Skysport Resa till Moroko',
+        image_alt: 'Skysport Resa till Turkiet',
         imgHeight: 500,
         imgWidth: 900,
         buttons: [
           {
             text: 'Läs mer',
-            link: '#turkiet',
-          // target: string,
+            link: '/Resor/turkiet',
+          },
+          {
+            text: 'BOKA',
+            link: '/Resor/boka',
           },
         ],
     },
      {
-        title: 'Moroko',
+        title: 'Marocko',
         intro: '',
         content: '',
-        cta: '',
+        //cta: '',
         image: Swiper4,
-        image_alt: 'Skysport Resa till Moroko',
+        image_alt: 'Skysport Resa till Marocko',
         imgHeight: 500,
         imgWidth: 900,
         buttons: [
           {
             text: 'Läs mer',
-            link: '#turkiet',
-          // target: string,
+            link: '/Resor/marocko',
+          },  
+          {
+            text: 'BOKA',
+            link: '/Resor/boka',
           },
         ],
     },
@@ -107,7 +118,7 @@ const BigSwiperContent =  {
         title: 'Turkiet',
         intro: '',
         content: '',
-        cta: '',
+        //cta: '',
         image: Swiper5,
         image_alt: 'Skysport Resa till Turkiet',
         imgHeight: 500,
@@ -115,8 +126,11 @@ const BigSwiperContent =  {
         buttons: [
           {
             text: 'Läs mer',
-            link: '#turkiet',
-          // target: string,
+            link: '/Resor/turkiet',
+          },  
+          {
+            text: 'BOKA',
+            link: '/Resor/boka',
           },
         ],
     },
@@ -128,6 +142,7 @@ const HeroContent = {
     title: "Skysport Resor 2026",
     description: "I 2026 fokusera vi på resor till Turkiet och Morocco. Välkommen att följa med!",
     backgroundImage: HeroImage,
+    bgImagePosition: "object-bottom-left",
      titleTextStyles: 'bg-slate-200/40 sm:bg-slate-200/70 p-2 text-2xl text-white  lg:p-3 rounded-lg md:text-4xl  md:text-primary',
     overlayOpacity: 0.2,
     position: "justify-end",
