@@ -3,11 +3,14 @@ import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import WindLinks from "@components/elements/windlinks.astro";
 import { Icon } from 'astro-icon/components';
+
+import stdPoster from '@assets/images/video-posters/poster-start.jpg';
+
 interface VideoContent {
   title?: string;
   description?: string;
   descriptionImage?: ImageMetadata;
-  videoPoster: string;
+  videoPoster?: string;
   backgroundVideo?: string;
   mobileVideo?: string;
   tabVideo?: string;
@@ -32,7 +35,7 @@ const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const myVideo = content.backgroundVideo;
 const mobileVideo = content.mobileVideo;
 const tabletVideo = content.tabVideo;
-const videoPoster = content.videoPoster;
+const videoPoster = content.videoPoster || stdPoster;;
 const overlayPosition = content.position || "justify-center";
 const iconColor = content.playIconColour || "blue";
 const pauseIconColour = content.pauseIconColour || "blue";
