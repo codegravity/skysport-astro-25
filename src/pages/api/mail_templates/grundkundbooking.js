@@ -20,7 +20,7 @@ const htmlGrundKundBookTemplate = (kursDate, kursVeckan, kursPriceISO, boendeTyp
   <!--[if !mso]><!--><meta http-equiv="X-UA-Compatible" content="IE=edge"><!--<![endif]-->
 
     <!-- Your title goes here -->
-    <title>Bokningsbekräftelse SIV kurs hos Skysport</title>
+    <title>Bokningsbekräftelse Grundkurs hos Skysport</title>
     <!-- End title -->
 
     <!-- Start stylesheet -->
