@@ -11,6 +11,8 @@ import Divider1 from  "@elements/SeparatorLine.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
+import paraPoster from '@assets/images/video-posters/para-poster.jpg';
+
 const myVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PM-d.mp4";
 const tabVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PM-t.mp4";
 const mobVideo ="https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/Para/PM-m1.mp4";
@@ -35,6 +37,7 @@ const VideoContent = {
     backgroundVideo: myVideo,
     tabVideo: tabVideo,
     mobVideo: mobVideo,
+    videoPoster: paraPoster,
     overlayOpacity: 0.2,
     page: "paramotor",
     position: "justify-end"
