@@ -36,8 +36,11 @@ import { transportUp } from "@data/prisData";
 const skysportUpISO =  transportUp.skysportBus;
 const skistarUpISO = transportUp.skistarLift;
 
+
+import videoPoster from '@assets/images/video-posters/tandem-poster.jpg';
 const myVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-aa.mp4";
 const Mobvideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-mob3.mp4";
+const tabVideo = "https://strapi-cdn-2.s3.eu-north-1.amazonaws.com/skysport25/video/tandem/tandemhem-aaa.mp4";
 
 const Feature4Content = {
   title: "Vi arrangerar tandemflyg året runt",
@@ -77,7 +80,9 @@ const Feature4Content = {
 const VideoContent = {
   backgroundVideo: myVideo,
   mobileVideo: Mobvideo,
- // position: "justify-end md:justify-end",
+  tabVideo: tabVideo,
+  videoPoster: videoPoster,
+   // position: "justify-end md:justify-end",
  playIconColour: "white",
  pauseIconColour: "white",
   overlayOpacity: 0.2,
