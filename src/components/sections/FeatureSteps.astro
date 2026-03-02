@@ -34,16 +34,16 @@ const { content } = Astro.props;
 
 ---
 <!-- Approach -->
-<div class="dark:bg-slate-100/60 bg-slate-800">
+<div class="dark:bg-slate-100 bg-slate-800">
   <!-- Approach -->
   <div class="max-w-5xl px-4 xl:px-0 py-10 lg:max-w-[85rem] site-container  lg:pt-20 lg:pb-20 mx-auto">
     <!-- Title -->
     <div class="flex justify-center mb-10 lg:mb-14">
     {content.stepsTitle &&
-        <h4 class="text-white text-center dark:text-gray-200 font-semibold text-4xl text-pretty md:text-5xl md:leading-tight">{content.stepsTitle}</h4>
+        <h4 class="text-white text-center dark:text-slate-800 font-semibold text-4xl text-pretty md:text-5xl md:leading-tight">{content.stepsTitle}</h4>
       }
     {content.stepsDescription &&
-      <p class="mt-1 text-gray-500 dark:text-gray-400">{content.stepsDescription}</p>
+      <p class="mt-1 text-gray-500 dark:text-slate-800">{content.stepsDescription}</p>
       }
     </div>
     <!-- End Title -->
@@ -70,7 +70,7 @@ const { content } = Astro.props;
       <div>
         <!-- Heading -->
         <div class="mb-4">
-          <h4 class="text-white dark:text-cyan-200 text-2xl lg:text-3xl font-medium uppercase">
+          <h4 class="text-white dark:text-slate-800 test-semibold text-2xl lg:text-3xl font-medium uppercase">
             Steg:
           </h4>
         </div>
@@ -81,7 +81,7 @@ const { content } = Astro.props;
           <!-- Icon -->
           <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-gray-200 dark:after:border-neutral-700">
             <div class="relative z-10 size-8 flex justify-center items-center">
-              <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-orange-600 dark:text-cyan-500 font-semibold text-xl uppercase rounded-full">
+              <span class="flex shrink-0 justify-center items-center size-8 border-2 border-gray-200 dark:border-neutral-700 text-orange-600 dark:text-orange-700 font-semibold text-xl uppercase rounded-full">
                 {index + 1}
               </span>
             </div>
@@ -90,8 +90,8 @@ const { content } = Astro.props;
 
           <!-- Right Content -->
           <div class="grow pt-0.5 pb-8 sm:pb-12">
-            <p class="md:text-xl text-base text-slate-200 dark:text-gray-400">
-              <span class="text-gray-200 dark:text-gray-200">{text.spanText}</span>
+            <p class="md:text-xl text-base text-slate-200 dark:text-slate-600">
+              <span class="text-gray-200 dark:text-slate-600">{text.spanText}</span>
               {text.postText &&
                <span>{text.postText}</span>
               }
@@ -106,8 +106,9 @@ const { content } = Astro.props;
           <!-- Icon -->
           <div class="relative last:after:hidden after:absolute after:top-8 after:bottom-0 after:start-4 after:-translate-x-[0.5px] after:border-s after:border-gray-200 dark:after:border-neutral-700">
             <div class="relative z-10 size-8 flex justify-center items-center">
-              <span class="flex shrink-0 justify-center items-center size-8 border border-gray-200 dark:border-neutral-700 text-cyan-600 dark:text-cyan-500 font-semibold text-xs uppercase rounded-full">
+              <span class="flex shrink-0 justify-center items-center size-8 border-2 border-gray-200 dark:border-neutral-700 text-cyan-600 dark:text-cyan-500 font-semibold text-xs uppercase rounded-full">
                  <Icon id="ikon-white-mob" type="button" name="solar--info-circle-linear-vit" class="dark:hidden  text-xl   pt-0 " />  
+                 <Icon id="ikon-blue-mob" type="button" name="solar--info-circle-linear" class="hidden dark:block text-xl   pt-0 " /> 
                  
               </span>
             </div>
@@ -116,8 +117,8 @@ const { content } = Astro.props;
 
           <!-- Right Content -->
           <div class="grow pt-0.5 pb-8 sm:pb-12">
-            <p class="md:text-lg text-base text-gray-200 dark:text-gray-400">
-<!--               <span class="text-gray-200 dark:text-gray-200">{text.spanText}</span>
+            <p class="md:text-lg text-base text-gray-200 dark:text-slate-600">
+<!--               <span class="text-gray-200 dark:text-slate-600">{text.spanText}</span>
  -->              {content.stepsPostText }
             </p>
           </div>
@@ -134,7 +135,7 @@ const { content } = Astro.props;
             <Button
               href={button.link}
               target={button.target || "_self"}
-              variant={button.variant || "primary"}
+             
             >
               {button.text}
             </Button>

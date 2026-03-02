@@ -10,7 +10,7 @@ interface VideoContent {
   title?: string;
   description?: string;
   descriptionImage?: ImageMetadata;
-  videoPoster?: string;
+  videoPoster?: ImageMetadata;
   backgroundVideo?: string;
   mobileVideo?: string;
   tabVideo?: string;
@@ -123,7 +123,6 @@ const currentPage = content.page;
             <Button
               href={button.link}
               target={button.target || "_self"}
-              variant={button.variant || "primary"}
             >
               {button.text}
             </Button>
