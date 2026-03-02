@@ -7,6 +7,7 @@ interface VideoContent {
   title?: string;
   description?: string;
   descriptionImage?: ImageMetadata;
+  videoPoster: string;
   backgroundVideo?: string;
   mobileVideo?: string;
   tabVideo?: string;
@@ -30,7 +31,8 @@ const { content } = Astro.props;
 const opacity = content.overlayOpacity ?? 1; // Default opacity if not specified
 const myVideo = content.backgroundVideo;
 const mobileVideo = content.mobileVideo;
-const tabletVideo = content.tabVideo
+const tabletVideo = content.tabVideo;
+const videoPoster = content.videoPoster;
 const overlayPosition = content.position || "justify-center";
 const iconColor = content.playIconColour || "blue";
 const pauseIconColour = content.pauseIconColour || "blue";
@@ -54,7 +56,7 @@ const currentPage = content.page;
 
 <astro-page data-page={currentPage}></astro-page>
 <section class="videohero">
-  <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden">
+  <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden bg-cover bg-[url(${videoPoster})]">
     <video id="fullscreenV"   loop muted playsinline  class="hidden md:block min-h-full w-full object-cover" >
       <source src={myVideo} type="video/mp4" />
     </video>
