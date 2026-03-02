@@ -56,7 +56,7 @@ const currentPage = content.page;
 
 <astro-page data-page={currentPage}></astro-page>
 <section class="videohero">
-  <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden bg-cover bg-[url(${videoPoster})]">
+  <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden bg-cover " class:list={{ [`bg-[url('${videoPoster}')]`]: true }}>
     <video id="fullscreenV"   loop muted playsinline  class="hidden md:block min-h-full w-full object-cover" >
       <source src={myVideo} type="video/mp4" />
     </video>
