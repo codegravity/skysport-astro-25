@@ -1,13 +1,7 @@
 ---
 import "../styles/global.css";
-//import { ClientRouter } from "astro:transitions";
 import Meta from "@ui//Meta.astro";
 import TrackGa from "@widgets/TrackGa.astro";
-
-
-import HeaderFour from "@components/sections/Header4.astro";
-
-
 
 import favIcon from "@/components/assets/images/logo.png";
 
@@ -23,11 +17,11 @@ const { title, description, keywords } = Astro.props;
 
 ---
 
-<html lang="">
+<html lang="sv">
   <head>
     <meta charset="UTF-8" />
     <Meta title={title} description={description} keywords={keywords} />
-   <!--  <ClientRouter /> -->
+ 
     <TrackGa />
     <!-- Used to add dark mode right away, adding here prevents any flicker -->
     <script is:inline>
@@ -49,26 +43,22 @@ const { title, description, keywords } = Astro.props;
   </head>
   <body class="antialiased bg-bg-primary dark:bg-bg-primary-dark max-w-full overflow-x-hidden"  >
     
-    <!--    <TopBg />  -->
- <!--    <Banner /> -->
-    <!-- <HeaderFour /> -->
+ 
    
     <slot />
 
-   <!--  <PreFooter />
-    <Footer />
-    <SideDrawer /> -->
+
     
     <!-- Preline UI -->
   <script>  import "preline/dist/preline.js";    </script>
-<!--   <script>  import "lodash/lodash.min.js";  </script>
-  <script>  import "flatpickr/dist/flatpickr.js"; </script> -->
-  <script>
+
+ 
+ <!--  <script>
         document.addEventListener("astro:page-load", async () => {
           const preline = await import("preline/dist/preline.js");
           preline.HSStaticMethods.autoInit();
         });
-  </script>
+  </script> -->
   </body>
 </html>
 
