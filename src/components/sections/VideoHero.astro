@@ -2,6 +2,7 @@
 import { Image } from "astro:assets";
 import Button from "@components/ui/Button.astro";
 import WindLinks from "@components/elements/windlinks.astro";
+import { Icon } from 'astro-icon/components';
 interface VideoContent {
   title?: string;
   description?: string;
@@ -9,6 +10,8 @@ interface VideoContent {
   backgroundVideo?: string;
   mobileVideo?: string;
   tabVideo?: string;
+  playIconColour?: string;
+  pauseIconColour?: string;
   buttons?: {
     text: string;
     link: string;
@@ -29,6 +32,21 @@ const myVideo = content.backgroundVideo;
 const mobileVideo = content.mobileVideo;
 const tabletVideo = content.tabVideo
 const overlayPosition = content.position || "justify-center";
+const iconColor = content.playIconColour || "blue";
+const pauseIconColour = content.pauseIconColour || "blue";
+var playIcon = "boxicons--play-circle";
+var pauseIcon = "boxicons--pause-circle";
+
+if (iconColor === "white") {
+   playIcon = "boxicons--play-circle-vit";
+} else if(iconColor === "blue") {
+   playIcon = "boxicons--play-circle";
+} 
+if (pauseIconColour === "white") {
+   pauseIcon = "boxicons--pause-circle-vit";
+} else if(pauseIconColour === "blue") {
+   pauseIcon = "boxicons--pause-circle";
+}
 
 const pageLink = content.page;
 const currentPage = content.page;
@@ -37,17 +55,17 @@ const currentPage = content.page;
 <astro-page data-page={currentPage}></astro-page>
 <section class="videohero">
   <div class="absolute inset-0 left-0 top-0 w-full h-screen overflow-hidden">
-    <video  autoplay loop muted playsinline class="hidden md:block min-h-full w-full object-cover">
+    <video id="fullscreenV"   loop muted playsinline  class="hidden md:block min-h-full w-full object-cover" >
       <source src={myVideo} type="video/mp4" />
     </video>
     {tabletVideo && (
-      <video  autoplay loop muted playsinline class="hidden sm:block md:hidden min-h-full w-full object-cover">
+      <video  id="tabV" loop muted playsinline class="hidden sm:block md:hidden min-h-full w-full object-cover">
         <source src={tabletVideo} type="video/mp4" />
       </video>
     )}
     {
       mobileVideo && (
-        <video  autoplay loop muted playsinline class="sm:hidden min-h-full w-full object-cover">
+        <video  id="mobileV" loop muted playsinline class="sm:hidden min-h-full w-full object-cover">
           <source src={mobileVideo} type="video/mp4" />
         </video>
       )
@@ -63,17 +81,16 @@ const currentPage = content.page;
   {content.windLinks && <WindLinks />}
  
 
-  <div
-    class="hero-background absolute inset-0 left-0 top-0 h-screen lg:w-full lg:h-full overflow-hidden"
-    style={`opacity: ${opacity};`}
-  >
+  <div    class="hero-background absolute inset-0 left-0 top-0 h-screen lg:w-full lg:h-full overflow-hidden"   style={`opacity: ${opacity};`}  >
+    
   </div>
+  
   <!-- logo and text overlay -->
-  <div
-    class="site-container mx-auto px-4 pt-0 pb-20 relative z-10 flex flex-col justify-center h-screen sm:items-center md:justify-end sm:text-center"
-    class:list={overlayPosition}
-  >
-    {
+  <div  class="site-container mx-auto px-4 pt-0 pb-20 relative z-10 flex flex-col justify-center h-screen items-center  sm:text-center"  class:list={overlayPosition}  >
+   <Icon id="deskVBTN" type="button" name={playIcon} class="hidden md:block transition-opacity duration-100 opacity-90  sm:text-9xl text-5xl cursor-pointer" onclick="playPause(deskV)"/> 
+   <Icon id="mobVBTN" type="button" name={playIcon} class="sm:hidden transition-opacity duration-100 opacity-90  text-8xl cursor-pointer" onclick="playPause(mobV)"/>
+    <Icon id="tabVBTN" type="button" name={playIcon} class="hidden sm:block md:hidden transition-opacity duration-100 opacity-90  text-8xl cursor-pointer" onclick="playPause(tabV)"/>
+   {
       content.descriptionImage && (
         <div class="">
           <Image
@@ -91,7 +108,7 @@ const currentPage = content.page;
     }
     <p class="text-center text-white text-4xl text-balance">{content.title}</p>
     <p class="text-center text-white mt-2 text-balance">
-      {content.description}
+      {content.description} 
     </p>
     {
       content.buttons && content.buttons.length > 0 && (
@@ -108,6 +125,75 @@ const currentPage = content.page;
         </div>
       )
     }
+     <div class="absolute z-20 bottom-0 flex justify-end mt-auto mb-0">
+       <Icon id="deskVPause" type="button" name={pauseIcon} class="hidden md:block transition-opacity duration-100 opacity-0  text-9xl   justify-end cursor-pointer" onclick="playPause(deskV)"/> 
+       <Icon id="mobVPause" type="button" name={pauseIcon} class="sm:hidden transition-opacity duration-100 opacity-0   text-6xl  justify-end cursor-pointer" onclick="playPause(mobV)"/> 
+       <Icon id="tabVPause" type="button" name={pauseIcon} class="hidden sm:block md:hidden transition-opacity duration-100 opacity-0   text-8xl  justify-end cursor-pointer" onclick="playPause(tabV)"/> 
   </div>
+  </div>
+ 
 </section>
+
+<script is:inline>
+   var deskV = document.getElementById("fullscreenV");
+   var tabV = document.getElementById("tabV");
+   var mobV = document.getElementById("mobileV");
+
+  function fadeOutFunc(item) {
+  var el = document.getElementById(item);
+  el.style.opacity = 1; 
+  var tick = function() {
+    el.style.opacity = +el.style.opacity - 0.01;
+    if (+el.style.opacity > 0) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+    }
+  };
+  tick();
+}
+function fadeInFunc(icony) {
+  var el = document.getElementById(icony);
+  el.style.opacity = 0; 
+  var tick = function() {
+    el.style.opacity = +el.style.opacity + 0.01;
+    if (+el.style.opacity < 1) {
+      (window.requestAnimationFrame && requestAnimationFrame(tick)) || setTimeout(tick, 16)
+    }
+  };
+  tick();
+}
+
+function playPause(vidView) { 
+  if (vidView.paused){
+    vidView.play();
+    if(vidView === deskV) {
+      fadeOutFunc("deskVBTN"); 
+      fadeInFunc("deskVPause"); 
+    } else if(vidView === mobV) {
+      fadeOutFunc("mobVBTN"); 
+      fadeInFunc("mobVPause"); 
+    } else if(vidView === tabV) {
+       fadeOutFunc("tabVBTN"); 
+      fadeInFunc("tabVPause"); 
+    }
+    fadeOutFunc("deskVBTN"); 
+    fadeOutFunc("mobVBTN"); 
+    fadeInFunc("deskVPause"); 
+  } else {
+    vidView.pause();
+    if(vidView === deskV) {
+      fadeInFunc("deskVBTN"); 
+      fadeOutFunc("deskVPause"); 
+    } else if(vidView === mobV) {
+      fadeInFunc("mobVBTN"); 
+      fadeOutFunc("mobVPause"); 
+    } else if(vidView === tabV) {
+       fadeInFunc("tabVBTN"); 
+      fadeOutFunc("tabVPause"); 
+    }
+    fadeInFunc("deskVBTN");
+    fadeOutFunc("deskVPause"); 
+  }
+} 
+
+</script>
 
