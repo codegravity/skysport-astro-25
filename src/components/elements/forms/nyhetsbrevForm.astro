@@ -25,7 +25,7 @@ import NewsModal from '../modals/newsletter.astro';
     document.getElementById("successMessage").classList.remove("hidden");
   }
 
-  const get2 = (id) => document.getElementById(id) || { value: '' }  // this creates instance of get for entire site!!
+  const get = (id) => document.getElementById(id) || { value: '' }  // this creates instance of get for entire site!!
 
   const submitNewsForm = () => {
     //sendNewsmail()
@@ -34,10 +34,10 @@ import NewsModal from '../modals/newsletter.astro';
 
 const validateNews = () => {
 
-  if (get2('hs-email-nyhetsbrev').value.length < 5 || !get2('hs-email-nyhetsbrev').value.includes('@')) {
+  if (get('hs-email-nyhetsbrev').value.length < 5 || !get('hs-email-nyhetsbrev').value.includes('@')) {
       HSOverlay.open('#hs-danger-news-alert');
-      get2('hs-email-nyhetsbrev').classList.remove('border-gray-200')
-      get2('hs-email-nyhetsbrev').classList.add('border-red-500')
+      get('hs-email-nyhetsbrev').classList.remove('border-gray-200')
+      get('hs-email-nyhetsbrev').classList.add('border-red-500')
       get('hs-email-nyhetsbrev').focus();
     } else {
 
