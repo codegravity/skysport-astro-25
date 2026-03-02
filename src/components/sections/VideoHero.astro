@@ -87,9 +87,9 @@ const currentPage = content.page;
   
   <!-- logo and text overlay -->
   <div  class="site-container mx-auto px-4 pt-0 pb-20 relative z-10 flex flex-col justify-center h-screen items-center  sm:text-center"  class:list={overlayPosition}  >
-   <Icon id="deskVBTN" type="button" name={playIcon} class="hidden md:block transition-opacity duration-100 opacity-90  sm:text-9xl text-5xl cursor-pointer" onclick="playPause(deskV)"/> 
+   <Icon id="deskVBTN" type="button" name={playIcon} class="hidden md:block transition-opacity duration-100 opacity-90  text-9xl  cursor-pointer" onclick="playPause(deskV)"/> 
    <Icon id="mobVBTN" type="button" name={playIcon} class="sm:hidden transition-opacity duration-100 opacity-90  text-8xl cursor-pointer" onclick="playPause(mobV)"/>
-    <Icon id="tabVBTN" type="button" name={playIcon} class="hidden sm:block md:hidden transition-opacity duration-100 opacity-90  text-8xl cursor-pointer" onclick="playPause(tabV)"/>
+    <Icon id="tabVBTN" type="button" name={playIcon} class="hidden sm:block md:hidden transition-opacity duration-100 opacity-90  text-9xl cursor-pointer" onclick="playPause(tabV)"/>
    {
       content.descriptionImage && (
         <div class="">
@@ -127,8 +127,8 @@ const currentPage = content.page;
     }
      <div class="absolute z-20 bottom-0 flex justify-end mt-auto mb-0">
        <Icon id="deskVPause" type="button" name={pauseIcon} class="hidden md:block transition-opacity duration-100 opacity-0  text-9xl   justify-end cursor-pointer" onclick="playPause(deskV)"/> 
-       <Icon id="mobVPause" type="button" name={pauseIcon} class="sm:hidden transition-opacity duration-100 opacity-0   text-6xl  justify-end cursor-pointer" onclick="playPause(mobV)"/> 
-       <Icon id="tabVPause" type="button" name={pauseIcon} class="hidden sm:block md:hidden transition-opacity duration-100 opacity-0   text-8xl  justify-end cursor-pointer" onclick="playPause(tabV)"/> 
+       <Icon id="mobVPause" type="button" name={pauseIcon} class="sm:hidden transition-opacity duration-100 opacity-0   text-8xl  justify-end cursor-pointer" onclick="playPause(mobV)"/> 
+       <Icon id="tabVPause" type="button" name={pauseIcon} class="hidden sm:block md:hidden transition-opacity duration-100 opacity-0   text-9xl  justify-end cursor-pointer" onclick="playPause(tabV)"/> 
   </div>
   </div>
  
