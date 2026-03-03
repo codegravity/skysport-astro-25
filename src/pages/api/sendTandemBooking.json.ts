@@ -8,6 +8,7 @@ import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
 const skysportUpISO =  '90 kr';
 const skistarUpISO = '200 kr';
 
+
 //Note: Vercel env is configured in Vercel app, not from an env file!
  const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
@@ -44,7 +45,7 @@ export const POST: APIRoute = async ({ request }) => {
       throw new Error("Missing required fields");
     }
 
-    const Skysubject = "Tandem Bokning : " + name + ' : ' + onlydate
+    const Skysubject = "Tandem Bokning : " + name + ' : ' + TandemDate
     const Skymessage = `
     Tandembokning: ${TandemDate}   • alternativ datum:${AltDate}
 

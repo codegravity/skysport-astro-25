@@ -40,6 +40,9 @@ const htmlTandemSkyTemplate = (name, tel, email, Meddelande, TandemDate, AltDate
                     <td align="center" style="border: none;
                             border-bottom: 2px solid #4cb96b;
                             padding-right: 20px;padding-left:20px">
+                                 <p style="font-weight: bolder; font-size: 24px; letter-spacing: 0.025em; color:black;">
+                         Namn:  ${Tsubject}
+                          </p>
                              <p style="font-weight: bolder; font-size: 24px; letter-spacing: 0.025em; color:black;">
                          Namn:  ${name}
                           </p>
