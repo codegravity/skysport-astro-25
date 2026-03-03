@@ -1,10 +1,13 @@
 ---
-const GAID = import.meta.env.PUBLIC_GA4_ID;
+//const GAID = import.meta.env.PUBLIC_GA4_ID;
+
+const GAID = process.env.PUBLIC_GA4_ID;
 
 // const GAID = '';
 
 if (!GAID) {
     // console.error("Google Analytics ID (PUBLIC_GA4_ID) is missing!");
+   
 }
 ---
 

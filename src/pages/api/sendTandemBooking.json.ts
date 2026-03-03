@@ -8,7 +8,6 @@ import { htmlTandemSkyTemplate } from './mail_templates/tandemSkyBooking.js'
 const skysportUpISO =  '90 kr';
 const skistarUpISO = '200 kr';
 
-
 //Note: Vercel env is configured in Vercel app, not from an env file!
  const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS

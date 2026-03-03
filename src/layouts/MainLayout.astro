@@ -58,7 +58,16 @@ const { title, description, keywords } = Astro.props;
           preline.HSStaticMethods.autoInit();   
         });
   </script> -->
-
+<script is:inline>
+  document.addEventListener('astro:after-swap', () => {
+    if (typeof gtag === 'function' && typeof process.env.PUBLIC_GA4_ID !== 'undefined') {
+      gtag('event', 'page_view', {
+        page_path: location.pathname,
+        page_location: location.href,
+      });
+    }
+  });
+</script>
   </body>
 </html>
 
