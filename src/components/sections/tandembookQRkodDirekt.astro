@@ -267,11 +267,6 @@ const getFormData = () => {
   return store
 }
 
-const saveInput = () => {
-  const { message, subject, ...rest } = getFormData()
-  localStorage.setItem('tandembookinfo', JSON.stringify(rest))
-}
-
 const validateInfo = () => {
 
   if (get('flatpickr-date').value.length < 4) {
@@ -300,30 +295,40 @@ const validateInfo = () => {
       get('remember-me').focus();
       HSOverlay.open('#hs-vilkor-alert');
     } else {
+      sendSMS()
       sendmail()
-       HSOverlay.open('#hs-task-success-alert');
-        document.getElementById("tandem-form").reset(); 
+      HSOverlay.open('#hs-task-success-alert');
+      document.getElementById("tandem-form").reset(); 
     }
 
   }
 
-
-const retrieveInfo = () => {
-  const store = JSON.parse(localStorage.getItem('tandembookinfo') || '{}')
-  get('name').value = store.name || ''
-  get('email').value = store.email || ''
-  get('tel').value = store.tel || ''
-  get('Tdate').value = store.Tdate || ''
-  get('altTdate').value = store.altTdate || ''
-  get('TnrPass').value = store.TnrPass || ''
-  get('message').value = store.message || ''
-  get('checkboxOK').value = store.checkboxOK || ''
-  get('subject').value = store.subject || ''
-}
-// end: localstorage
-
 const submitBtn = document.querySelector('[type="submit"]')
 submitBtn?.addEventListener('click', submitForm)
+
+const sendSMS = async () => {
+  const { name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, vilkor, direktBokning, subject } = getFormData()
+
+  const data = await fetch('/api/sendSMS.json', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, vilkor, direktBokning, subject }),
+  })
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(res.status)
+      }
+      return res.json()
+    })
+    .catch((err) => {
+      console.log('Error', err)
+      throw new Error('Network error.')
+    })
+  console.log(data) // Here is the response from backend
+
+}
 
 const sendmail = async () => {
   const { name, email, tel, message, Tdate, altTdate, TnrPass, checkboxOK, vilkor, direktBokning, subject } = getFormData()
