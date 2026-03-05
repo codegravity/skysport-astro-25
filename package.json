@@ -16,6 +16,8 @@
     "@astrojs/rss": "^4.0.15",
     "@astrojs/sitemap": "^3.7.0",
     "@astrojs/vercel": "^9.0.4",
+    "@aws-sdk/client-sns": "^3.1000.0",
+    "@mux/mux-player-astro": "^3.11.5",
     "@preline/datepicker": "^4.0.0",
     "@tabler/icons": "^3.36.1",
     "@tailwindcss/forms": "^0.5.11",
