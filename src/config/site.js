@@ -1,6 +1,6 @@
 // Get site URL from environment variable, use default value if not set
 // Note: Please set the correct PUBLIC_SITE_URL in .env file after first deployment
-const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://stage.skysport.se/';
+const SITE_URL = import.meta.env.PUBLIC_SITE_URL || 'https://skysport.se/';
 
 export const siteConfig = {
 	title: "Skysport i Åre",
@@ -15,7 +15,7 @@ export const siteConfig = {
 	meta:{
 		title: "Skysport i Åre - Din guide till Åres bästa sportaktiviteter",
 		description: "Upptäck spännande skärmflygning och tandemflygning i Åre med Skysport. Boka din äventyrsresa idag och upplev Åres fantastiska natur från luften!",
-		keywords: "Skärmflyg, Tandemflygning, Paragliding, Åre aktiviteter, Äventyrssporter, Utomhusaktiviteter Åre, Flygupplevelser, Skärmflygkurser, Tandemflygning Åre, Paragliding Åre",
+		keywords: "Åre, Skärmflyg, Skärmflygning, Skärmflygning Åre, Tandemflygning, Paragliding, Åre aktiviteter, Äventyrssporter, Utomhusaktiviteter Åre, Flygupplevelser, Skärmflygkurser, Tandemflyg Åre, Paragliding Åre, Sommar aktiviteter Åre, Vinteraktiviteter Åre, Skysport Åre",
 		//image: `${SITE_URL}/og.jpg`,
 	},
 	// social links
