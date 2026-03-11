@@ -37,7 +37,7 @@ export const POST: APIRoute = async ({ request }) => {
     const tel = formData.tel
     const TandemDate = formData.Tdate
     const Meddelande = formData.message
-    const smsMobilNummer = '+46722323010'
+    const smsMobilNummer = '+46705699089'
     const smsMessage = 'Tandembokning: ' + TandemDate + '\n' + 'Telefon: ' + tel + '\n' + 'Namn: ' + name + '\n'  + 'Meddelande: ' + Meddelande + '\n' + 'Epost: ' + email ;
 
     const response = await snsClient.send(
