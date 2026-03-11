@@ -4,12 +4,17 @@ export const prerender = false;
 import type { APIRoute } from 'astro';
 import { SNSClient, PublishCommand } from "@aws-sdk/client-sns";
 
+
+//vercel
 const smsIDKey = process.env.AWS_SNS_KEY
 const smsHemligKey = process.env.AWS_SNS_HEMLIG
 const smsSenderID = process.env.SMS_SENDER_ID 
 const awsRegion = process.env.AWS_REGION
 const snsCGMobilNummer = process.env.AWS_SNS_NUMBER
 const snsSkysportNummer = process.env.AWS_SNS_SKY_NUMBER
+
+
+
 
 
 
@@ -32,8 +37,8 @@ export const POST: APIRoute = async ({ request }) => {
     const tel = formData.tel
     const TandemDate = formData.Tdate
     const Meddelande = formData.message
-    const smsMobilNummer = snsSkysportNummer
-    const smsMessage = 'Tandembokning: ' + TandemDate + '\n' + 'Namn: ' + name + '\n' + 'Epost: ' + email + '\n' + 'Telefon: ' + tel + '\n'  + 'Meddelande: ' + Meddelande;
+    const smsMobilNummer = '+46722323010'
+    const smsMessage = 'Tandembokning: ' + TandemDate + '\n' + 'Telefon: ' + tel + '\n' + 'Namn: ' + name + '\n'  + 'Meddelande: ' + Meddelande + '\n' + 'Epost: ' + email ;
 
     const response = await snsClient.send(
       new PublishCommand({
