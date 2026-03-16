@@ -3,6 +3,7 @@ export const transportUp = {
     skysportBus: '90 kr',
     skistarLift: '200 kr',
 }
+
 export const kursPriser26 = [ 
     {
         kursName: 'Grundkurs',

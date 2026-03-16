@@ -18,7 +18,7 @@ import vercel from '@astrojs/vercel';
 export default defineConfig({
     prefetch: true,
   
-  site: 'https://stage.skysport.se',
+  site: 'https://www.skysport.se',
 
   integrations: [
     astroConsent({
