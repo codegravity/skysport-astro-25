@@ -3,6 +3,8 @@ import { classFortSchedule } from '../../data/siteData';
 const { content } = Astro.props;
 
 const Datehref= content.bookingForm + "?startdate=";
+const today = new Date().toISOString().slice(0, 10);
+const currentFortSchedule = classFortSchedule.filter(schedule => schedule.linkDate >= today);
 
 ---
 <div class="relative  px-0 bg-slate-900 text-center shadow-xl">
@@ -22,14 +24,14 @@ const Datehref= content.bookingForm + "?startdate=";
             <thead class=" sm:hidden bg-slate-900"><!-- mobile table head -->
               <tr>
                 <th class="px-2 sm:px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Boka</th>
-                <th class="px-2 sm:px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Vecko</th>
+                <th class="px-2 sm:px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Vecka</th>
                 <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Startdatum</th>
                 <th class="px-3 sm:px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Kurs</th>
               </tr>
             </thead>
             <thead class="hidden sm:table-header-group bg-slate-900"><!-- desktop table head -->
               <tr>
-                <th class="px-6  py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Vecko</th>
+                <th class="px-6  py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Vecka</th>
                 <th class="px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Startdatum</th>
                 <th class="px-3 sm:px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Kurs</th>
                 <th class="px-2 sm:px-6 py-4 text-left text-sm font-bold text-white uppercase tracking-wider">Boka</th>
@@ -37,7 +39,7 @@ const Datehref= content.bookingForm + "?startdate=";
             </thead>
             <tbody class="divide-y divide-slate-700">
              
-              {classFortSchedule.map((schedule) => (
+              {currentFortSchedule.map((schedule) => (
                 
                 <tr class="hover:bg-slate-700/50 transition-colors">
                 <td class="px-2 py-4 sm:hidden">
