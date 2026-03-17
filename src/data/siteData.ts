@@ -79,7 +79,7 @@ export const classSchedule = [
   { week: "33", month: "Augusti",datum: "10 - 15", kurs: "Grundkurs", linkDate: "2026-08-10" },
   { week: "34", month: "Augusti",datum: "17 - 22", kurs: "Fortsättning", linkDate: "2026-08-17" },
   { week: "35", month: "Augusti",datum: "24 - 29", kurs: "Grundkurs", linkDate: "2026-08-24" },
-  { week: "36", month: "September",datum: "31 - September 05", kurs: "Grundkurs", linkDate: "2026-08-31" },
+  { week: "36", month: "Augusti",datum: "31 - September 05", kurs: "Grundkurs", linkDate: "2026-08-31" },
   { week: "38", month: "September",datum: "14 - 19", kurs: "Grundkurs", linkDate: "2026-09-14" },
   { week: "40", month: "September",datum: "28 - Oktober 03", kurs: "Grundkurs", linkDate: "2026-09-28" },
 ];
