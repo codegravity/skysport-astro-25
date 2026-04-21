@@ -28,10 +28,6 @@
         "url": "https://www.smhi.se/vader/observationer/observationer#ws=wpt-a,proxy=wpt-a,tab=all,stationid=132030,type=weather"
     },
     {
-        "name": "Vind Helags STF",
-        "url": "http://www.meac.se/sub_2/helags/wind.asp"
-    },
-    {
         "name": "LFV Väderkarta",
         "url": "https://www.aro.lfv.se/Links/Link/ViewLink?TorLinkId=229&type=MET"
     },
@@ -48,11 +44,11 @@
         "url": "https://regnradar.se/"
     },
     {
-        "name": "SMHI 10 Dyng Åre",
+        "name": "SMHI 10 Dygn Åre",
         "url": "https://www.smhi.se/vader/prognoser/ortsprognoser/q/%C3%85re/2725432"
     },
     {
-        "name": "YR 2 Dyng Åre",
+        "name": "YR 2 Dygn Åre",
         "url": "https://www.yr.no/nb/v%C3%A6rvarsel/daglig-tabell/2-9114206/Sverige/J%C3%A4mtland%20County/%C3%85re%20kommun/%C3%85re%20i%20Sverige"
     },
     {
@@ -60,15 +56,15 @@
         "url": "http://www.metoffice.gov.uk/weather/uk/surface_pressure.html"
     },
     {
-        "name": "Satellitebild Norden",
+        "name": "Satellitbild Norden",
         "url": "https://www.smhi.se/vader/radar-och-satellit/satellit/q/detaljerad/dagochnatt/plats/Stockholm/2673730"
     },
     {
-        "name": "Satellitebild Sat24",
+        "name": "Satellitbild Sat24",
         "url": "https://www.sat24.com/sv-se/continent/eu"
     },
     {
-        "name": "Windyty",
+        "name": "Windy.com",
         "url": "http://www.windy.com/"
     },
     {
