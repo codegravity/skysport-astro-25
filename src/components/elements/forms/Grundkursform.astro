@@ -422,7 +422,7 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
                                 document.getElementById("boendeDescription").value = 'Enkelrum';
                             } else if (boendeTyper === 'hs-radio-vertical-group-bo-sommar-3'){
                                 document.getElementById("boendeDescription").value = 'Hel Lägenhet';
-                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-somar-4'){
+                            } else if (boendeTyper === 'hs-radio-vertical-group-bo-sommar-4'){
                                 document.getElementById("boendeDescription").value = 'Eget Boende';
                             }
                             //alert('Boende typ vald: ' + document.getElementById("boendeDescription").value + ' Sommar') ;
@@ -678,7 +678,7 @@ const sendmail = async () => {
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight,  birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject }),
+    body: JSON.stringify({ kursDate, kursVeckan, kursPriceISO, boendeType, boendePriceISO, apartmentRequest, summa,firstName, lastName, tel, telday, email, message, weight,  birthYear, adress, postNr, city, country, kursvilkor, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
       if (!res.ok) {
