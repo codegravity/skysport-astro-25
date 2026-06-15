@@ -166,7 +166,10 @@ Har du presentkort måste du ta med det. En bild på presentkortet, där koder o
 </h5>
 <h5><strong>Transport till startplatsen: </strong></h5>
 <h5 style="text-wrap: balance;">
-Om flygningen sker från Åreskutans topp, sker upptransport med VM8:an och Gondolen. Om flygningen sker från den lägre startplatsen, Hummeln, sker upptransport med VM6:an och Hummelliften. Priset för liftkortet är ${skistarUpISO}. Under tider på dagen/året, när liftarna inte är öppna, sker transport upp med Skysports minibuss. Biltransporten kostar ${skysportUpISO}.
+Om flygningen sker från Åreskutans topp, sker upptransport med VM8:an och Gondolen. Om flygningen sker från den lägre startplatsen, Hummeln, sker upptransport med VM6:an och Hummelliften. <br>
+ Priset för liftkortet är ${skistarUpISO}. Under tider på dagen/året, när liftarna inte är öppna, sker transport upp med Skysports minibuss. <br>
+ Biltransporten kostar ${skysportUpISO}.  För att underlätta köpet av liftkort, ladda ner SKISTAR APPEN innan ankomst till oss
+  
 </h5>
 <h5><strong>Boende:</strong></h5>
 <h5 style="text-wrap: balance;">
@@ -193,24 +196,27 @@ Skysport Åre
 
 <h4>Hello,  We hereby confirm the booking of tandem flights on the details below. </h4>
 <h5 style="text-wrap: pretty;">
- Tentativ meeting time is 9.00, <strong><span id="result_box" class="" lang="en"><span class="">We will contact you the night before flight, sometime approx between 18.30-20.30.</span> <span class="">Then we will announce whether the weather is good for flight and what time flight will be carried out.</span></span></strong> We meet at the landing Draklanda. (the reason for the early collection is that the wind usually is weakest  in the morning, ensuring that the flight will be off)
+Usually meeting time is 9.30, We will contact you the night before the flight, approx between 18.30-20.30. <br>
+Then we will announce whether the weather is good for flight and what time flight will be carried out. <br>
+We meet at the landing Draklanda. (the reason for the early time is that the wind usually is weakest  in the morning, ensuring that the flight will be possible)<br>
+The flight is weather depedent and may be cancelled due to strong wind or rain. <br>
+You can find a forecast for Åre here: https://www.smhi.se/q/M%C3%B6rvikshummeln/%C3%85re/2691141 <br>
+We'll call you the day before the flight, and give you the meeting time. If you want to contact us please do so at the following numbers. <br>
+Tel: 0647-51186 or 070-5699089. <br>
 
-The flight is weather sensitive and may be cancelled due to strong wind or rain.  You can find a forecast for Åre here:
-
-<a href="https://www.smhi.se/q/M%C3%B6rvikshummeln/%C3%85re/2691141">https://www.smhi.se/q/M%C3%B6rvikshummeln/%C3%85re/2691141</a>
-
-We'll be on the phone, and agree when it's the right weather promised the weather forecast.  If you want to contact us please do so at the following numbers.
-
-PAYMENT; takes place after the flight by card or cash, we are happy to take cash (no prepayment). If you have gift cards that have been paid in advance to take with it.
-
-We also offer accommodation in the new built Lake Lodge, which is located right on the lake and our landing site. Please take a look at the website; http://lakelodgeare.com
-
-Phone: +4670-2113842
-
-Best Regards, Skysport Åre
-
-https://skysport.se
-https://lakelodgeare.com
+PAYMENT; takes place after the flight by card or cash, we are happy to take cash (no prepayment). <br>
+If you have gift cards that have been paid in advance to take with it.<br> Note: Transport to the take off site at Åreskutan is NOT included in the price. <br>
+The price is 90 SEK for the lower take off, and 195 for the higher take off.<br>
+<br>
+Transport to the Take off: <br>
+If the flight is from the top of Åreskutan, transport up is done with the VM8 and the Gondola. <br>
+If the flight is from the lower starting point, Hummeln, transport up is done with the VM6 and the Hummel lift. <br>
+The price for the lift ticket is ${skistarUpISO}. During times of the day/year, when the lifts are not open, transport up is done with the Skysports minibus.<br>
+Car transport costs ${skysportUpISO}.<br>
+For easy buying a ticket with the lifts, please downlad the SKISTAR APP, before arrival to us.<br><br>
+We also offer accommodation in Lake Lodge, which is located right on the lake and our landing site.<br>
+Please take a look at the website; http://lakelodgeare.com Phone: +4670-2113842 or +4670-5699089<br>
+Best Regards, Team Skysport Åre
 </h5>
             </td>
           </tr>
