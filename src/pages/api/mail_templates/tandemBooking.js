@@ -205,11 +205,13 @@ Skysport Åre
   Message: <i>${Meddelande}</i>
   </h5>
 <h5 style="text-wrap: pretty;">
-<strong>IMPORTANT:Information for the flight:</strong><br>
-Usually meeting time is 9.30, We will contact you the night before the flight, approx between 18.30-20.30. <br>
-Then we will announce whether the weather is good for flight and what time flight will be carried out. <br>
-We meet at the landing Draklanda. (the reason for the early time is that the wind usually is weakest  in the morning, ensuring that the flight will be possible)<br>
-The flight is weather depedent and may be cancelled due to strong wind or rain. <br>
+<strong>IMPORTANT: Flight Information:</strong><br>
+We will contact you the night before the flight, approx between 18.30-20.30. <br>
+At which time we will decide when and if the weather conditions will be good for the flight.<br>
+Meeting time is 9:30, unless otherwise agreed upon. 
+(the reason for the early time is that the wind usually is weakest  in the morning, ensuring that the flight will be possible)<br>
+We meet at the Skysports office located at the eastern edge of Draklanda, our landing field. The address is Årevägen 173B. <br>
+The flight is weather dependent and may be cancelled due to strong wind or rain. <br>
 You can find a forecast for Åre here: https://www.smhi.se/q/M%C3%B6rvikshummeln/%C3%85re/2691141 <br>
 We'll call you the day before the flight, and give you the meeting time. If you want to contact us please do so at the following numbers. <br>
 Tel: 0647-51186 or 070-5699089. <br>
