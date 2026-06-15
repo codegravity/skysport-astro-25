@@ -1,5 +1,5 @@
 
-const htmlGrundKundBookTemplate = (kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,name, tel, telday, email, Meddelande,  weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK, BookingTimestamp) => {
+const htmlGrundKundBookTemplate = (kursDate, kursVeckan, kursPriceISO, boendeType, boendePriceISO, apartmentRequest, summa,name, tel, telday, email, Meddelande,  weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK, BookingTimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -103,7 +103,7 @@ bokning@skysport.se
 Vi kommer snart att kontakta dig med mer information inför kursen.
 </h4>
 &nbsp; 
-  <p>Detta är en automatisk bokningsbekräftelse SIV kurs hos Skysport</p>
+  <p>Detta är en automatisk bokningsbekräftelse Grundkurs hos Skysport</p>
 
         
 <h4>Du här bokad med följande informationen:</h4>

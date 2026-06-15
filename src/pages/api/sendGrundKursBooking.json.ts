@@ -49,8 +49,8 @@ export const POST: APIRoute = async ({ request }) => {
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
 
-    const output = htmlGrundKundBookTemplate(kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa, name, tel, telday, email, message, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK,  BookingTimestamp )
-    const outputSky = htmlGrundSkyTemplate(kursDate, kursVeckan, kursPriceISO, boendeType,boendePriceISO, apartmentRequest, summa,name, tel, telday, email, message, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter, checkboxOK, BookingTimestamp )
+    const output = htmlGrundKundBookTemplate(kursDate, kursVeckan, kursPriceISO, boendeType, boendePriceISO, apartmentRequest, summa, name, tel, telday, email, message, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter,checkboxOK,  BookingTimestamp )
+    const outputSky = htmlGrundSkyTemplate(kursDate, kursVeckan, kursPriceISO, boendeType, boendePriceISO, apartmentRequest, summa,name, tel, telday, email, message, weight, birthyr, adress, postnr, city, country, kursvilkor, newsletter, checkboxOK, BookingTimestamp )
 
     
 
