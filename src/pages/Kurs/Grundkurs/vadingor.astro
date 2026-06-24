@@ -1,4 +1,7 @@
 ---
+import { kursPriser26 } from '@data/prisData';
+import { transportUp } from '@data/prisData';
+import { boendePriser26 } from '@data/prisData';
 import Layout from "@layouts/MainLayout.astro";
 import InnerHero from "@components/sections/InnerHero.astro";
 import KursInfo from  "@sections/Feature-50-50.astro";
@@ -10,13 +13,26 @@ import featureImg2 from "@assets/images/kurs/IMG_5851b-1.jpg";
 import BergImg3 from "@assets/images/kurs/hummeln5.jpg";
 import BergImg1 from "@assets/images/kurs/hummeln4.jpg";
 import backgroundIMG from '@assets/images/kurs/nordosthummeln.jpg';
-
 import { Breadcrumbs } from "astro-breadcrumbs";
 import "astro-breadcrumbs/breadcrumbs.css";
 
-import { transportUp } from "@data/prisData";
 const rawSkysportUp =  transportUp.skysportBus;
 const rawSkistarUp = transportUp.skistarLift;
+const betarawpris =   kursPriser26[0].kursPris;
+const grundKursPrisISO = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(betarawpris); 
+const forsakring = kursPriser26[0].forsakringSSFF;
+const forsakringSSFF = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(forsakring);
+const forsakringJuli = kursPriser26[0].forsakringSSFFJuli;
+const forsakringSSFFJuli = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(forsakringJuli);
+const boDelSummer = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(boendePriser26.sommarDelad);
+const boSingleSummer = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(boendePriser26.sommarEnkelt);  
+const boDelWinter = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(boendePriser26.vinterDelad);
+const boSingleWinter = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(boendePriser26.vinterEnkelt);
+const boDelPost = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(boendePriser26.poskDelad);
+const boSinglePost = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(boendePriser26.poskEnkelt);
+const kursSumma = kursPriser26[0].kurssumma;
+const kursSummaISO = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(kursSumma)
+;
 
 const InnerHeroContent = {
   title: '',
@@ -80,7 +96,7 @@ const  GrundkursListContent = {
 }
 const Feature3Content = {
   title: "Priser Grundkursen:",
-  subTitle: 'Grundpriset är 9.500 kr.',
+  subTitle: 'Grundpriset är {grundKursPrisISO}.',
   subTitleClasses: 'lg:text-2xl text-amber-400font-bold',
   description: 'I detta pris ingår allt som står i punktform ovan.',
   postText: '',
@@ -88,7 +104,7 @@ const Feature3Content = {
   listItems: [
     {
       listIcon: 'solar--info-circle-linear',
-      listText: '200 kr/höjdflyg  (Räkna med att du gör ca 5-10 flyg för att få behörighet Berg)',
+      listText: '{transportUp.skistarLift}/höjdflygd  (Räkna med att du gör ca 5-10 flyg för att få behörighet Berg)',
       listClasses: 'font-semibold',
     },
     {
@@ -179,7 +195,7 @@ const Feature50Content4 = {
      infoText: [
        {
         preText: ' ',
-        spanText: 'Grundpriset är 9.500 kr.',
+        spanText: 'Grundpriset är ' + grundKursPrisISO + ' .',
         spanClasses: 'text-orange-600 font-bold',
         postText: '',
       }, 
@@ -197,7 +213,7 @@ const Feature50Content4 = {
       },
       {
         preText: '',
-        spanText: ' 200 kr/höjdflyg  ',
+        spanText: transportUp.skistarLift + '/höjdflyg  ',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
         postText: '(Räkna med att du gör ca 5-10 flyg för att få behörighet Berg)',
       },
@@ -208,44 +224,44 @@ const Feature50Content4 = {
         postText: '',
       },
       {
-        preText: 'Försäkring och medlemskap i SSFF kostar ',
-        spanText: ' 2.071 kr/år ',
+        preText: 'Försäkring och medlemskap i SSFF kostar',
+        spanText: forsakringSSFF + '/år ',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-bold',
-        postText: ' (gäller kalenderår, ca 1.400 kr för juli-dec)',
+        postText: ' (gäller kalenderår, ca ' + forsakringSSFFJuli + ' för juli-dec)',
       },
       {
         preText: 'Boende, del i dubbelrum, kostar ',
-        spanText: ' 1.250 kr/vecka ',
+        spanText: boDelSummer + '/vecka ',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: 'under sommarhalvåret.',
       },
       {
         preText: 'Boende, enkelrum kostar  ',
-        spanText: '1.800 kr/vecka ',
+        spanText: boSingleSummer + '/vecka ',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: ' under sommarhalvåret.',
       },
       {
         preText: 'Boende, del i dubbelrum, kostar ',
-        spanText: ' 1.500 kr/vecka ',
+        spanText: boDelWinter + '/vecka ',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: 'under vinterhalvåret.',
       },
       {
         preText: 'Boende, enkelrum kostar  ',
-        spanText: '2.200 kr/vecka ',
+        spanText: boSingleWinter + '/vecka ',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: ' under vinterhalvåret.',
       },
       {
         preText: 'Under Påskveckan kan vi tyvärr inte hålla dessa priser på boendet ',
-        spanText: ' (Enkelrum 3.600 kr/vecka och del i dubbelrum 2.400 kr/vecka)',
+        spanText: ' (Enkelrum ' + boSinglePost + '/vecka och del i dubbelrum ' + boDelPost + '/vecka)',
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: '',
       },
       {
-        preText: 'Det totala priset inkl kurs, boende o försäkring hamnar därmed på',
-        spanText: ' ca 13.000 kr',
+        preText: 'Det totala priset inkl kurs, boende, försäkring, upptransport och höjdflyg hamnar därmed på',
+        spanText: ' ca ' + kursSummaISO,
         spanClasses: 'text-slate-800 dark:text-slate-200 font-semibold',
         postText: '',
       },
