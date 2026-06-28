@@ -1,5 +1,5 @@
 
-const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
+const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, kursWeek, sivLicType, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
     return ` 
 <!DOCTYPE html>
 <html lang="en">
@@ -73,6 +73,9 @@ const htmlSivSkyTemplate = (name, tel, telday, email, Meddelande, kursDate, kurs
                 <tr style="display: inline-block;">
                     <td style="min-height: 150px; padding: 6px 20px; border: none; border-bottom: 2px solid #361B0E; background-color: white;">
                         <h2 style="text-align: left; align-items: center;">Siv kursdate: ${kursWeek} &nbsp; </h2>
+                        <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
+                            SIV Licens typ: ${sivLicType}
+                       </p>
                         <p class="data" style="text-align: justify-all;  align-items: center;  font-size: 18px;  padding-bottom: 6px;">
                             SIV kurspris: ${sivPrice}
                        </p>

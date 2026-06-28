@@ -2,6 +2,13 @@
 import Hr1 from "@components/elements/SeparatorLine.astro";
 import SivModal from "@components/elements/modals/sivbooking.astro";
 import SuccessAlert from "@elements/modals/successAlert.astro";
+import { kursPriser26 } from '@data/prisData';
+
+const svenskKursPris =   kursPriser26[1].kursPrisSvensk;
+const svenskKursPrisISO = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(svenskKursPris); 
+const norskKursPris =   kursPriser26[1].kursPrisNorsk;
+const norskkursPrisISO = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(norskKursPris);
+
 
 const kursRadioDates = [
     {
@@ -96,12 +103,32 @@ const boendeTypes = [
            <Hr1 />
         </div>
 
+        <div class="lg:text-2xl font-bold pt-6 sm:pt-1 py-3"><!--col 1 -->
+            <h3>Välj Lic. typ<span class="text-amber-600 text-xl">*</span></h3>
+            <div id="missed-siv-type" class="hidden text-amber-600 text-xl">Obs! Välj en av licens typer</div>
+        </div>
+        <div class="lg:col-span-3 py-3"><!-- col 2,3,4 -->
+            <div class="flex flex-col gap-y-3">
+                        <div class="flex">
+                            <input type="radio" id="sivkursSvensk" value="Svensk" name="hs-radio-sivtype-group" class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-800"  >
+                            <label for="sivkursSvensk" class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">SIV Svensk lic.</label> 
+                            <input type="hidden" id="sivkursSvenskPris" name="sivkursSvenskPris" value={svenskKursPris}} />
+                        </div>
+                        <div class="flex">
+                            <input type="radio" id="sivkursNorsk" value="Norsk" name="hs-radio-sivtype-group" class="shrink-0 mt-0.5 w-5 h-5 lg:w-6 lg:h-6 border-gray-200 rounded-full text-blue-600 focus:ring-blue-500 checked:border-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:checked:bg-blue-500 dark:checked:border-blue-500 dark:focus:ring-offset-gray-80₀"  >
+                            <label for="sivkursNorsk" class="text-md lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">SIV Norsk lic.</label>
+                            <input type="hidden" id="sivkursNorskPris" name="sivkursNorskPris" value={norskKursPris} />
+                        </div>
+            </div>
+        </div>
+
         <div class="lg:text-2xl font-bold py-3"><!--col 1 -->
             <h3>Säkerhetskurs SIV pris:</h3>
         </div>
         <div class="col-span-1 lg:col-span-3 py-0 sm:py-3">
             <div class="py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-pris" id="hs-pris" placeholder="" value={formattedSiv} disabled class="lg:w-1/5 w-1/2 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-pris" id="hs-pris" placeholder="" value="" disabled class="lg:w-1/5 w-1/2 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <label for="hs-pris" class="italic text-sm lg:text-md text-gray-500 ms-2 dark:text-neutral-400">priser i SEK</label> 
             </div>      
         </div>
 
@@ -138,7 +165,7 @@ const boendeTypes = [
         </div>
         <div class="col-span-1 lg:col-span-3 py-0 sm:py-3">
             <div class="py-2 sm:py-0 "><!-- 2 col again -->                                
-                <input type="text" name="hs-summa" id="hs-summa" placeholder="4500 kr" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
+                <input type="text" name="hs-summa" id="hs-summa" placeholder="" value="" disabled class="lg:w-1/5 sm:w-full p-2 sm:py-3 sm:px-4 block w-full border  border-gray-200 rounded-lg sm:text-sm lg:text-lg focus:border-blue-500 focus:ring-blue-500  disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600">
                  <label for="hs-summa" class="text-sm lg:text-lg text-gray-500 ms-2 dark:text-neutral-400">Summan räknas efter val av boende.</label>
           </div>      
         </div>
@@ -274,16 +301,52 @@ const boendeTypes = [
 <SuccessAlert />
 <SivModal />
 <script is:inline>
-    const sivPrice = document.getElementById("hs-pris").value;
+    
+    const licType = document.getElementsByName('hs-radio-sivtype-group');
+    licType.forEach((button) => {
+        button.addEventListener('click', () => {
+            sivPris();
+            SivSumma();
+        });
+     });
+
+    function sivPris() {
+        const sivkursSvensk = document.getElementById("sivkursSvensk");
+        const sivkursNorsk = document.getElementById("sivkursNorsk");
+        if (sivkursSvensk.checked) {
+            const seRawPrice = document.getElementById("sivkursSvenskPris").value;
+            const sePrisISO =  new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK' }).format(seRawPrice);
+            document.getElementById("hs-pris").value = sePrisISO;
+        } else if (sivkursNorsk.checked) {
+            const noRawPrice = document.getElementById("sivkursNorskPris").value;
+            const noPrisISO =  new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK' }).format(noRawPrice);
+            document.getElementById("hs-pris").value = noPrisISO;
+        } else {
+            document.getElementById("hs-pris").value = "Whoops!";
+        }
+    }
+
     const bobuttons =  document.getElementsByName('hs-radio-vertical-group-bo');
         bobuttons.forEach((button) => {
-            button.addEventListener('click', () => {SivSumma()
+            button.addEventListener('click', () => {
+                const radioSivType1 = radioValue('hs-radio-sivtype-group');
+                if (radioSivType1 !== 'on') {
+                    get('missed-siv-type').classList.remove('hidden');
+                    get('sivkursSvensk').focus();
+                    HSOverlay.open('#hs-siv-type-alert');
+                    return false;
+                } else {
+                    get('missed-siv-type').classList.add('hidden')
+                }
+                sivPris();
+                SivSumma();
         });
     });
 
 
     function SivSumma() {
                 var ele = document.getElementsByName('hs-radio-vertical-group-bo');
+                const sivPrice = document.getElementById("hs-pris").value;
                 for (i = 0; i < ele.length; i++) {
                     if (ele[i].type = "radio") {
                         if (ele[i].checked ) {
@@ -309,8 +372,7 @@ const boendeTypes = [
                             } else {
                                 document.getElementById("apartRa").classList.add("hidden");
                                 document.getElementById("apartRb").classList.add("hidden");
-                            }  
-                                                      
+                            }
                         }
                     }
                 }
@@ -352,7 +414,6 @@ const submitForm = () => {
 
 }
 
-
 const validateSIVBooking = () => {
     
     const radioSivKurs = radioValue('hs-radio-siv-group');
@@ -365,6 +426,16 @@ const validateSIVBooking = () => {
         get('missed-siv-kurs').classList.add('hidden')
         
     } 
+    const radioSivType = radioValue('hs-radio-sivtype-group');
+    if (radioSivType !== 'on') {
+        get('missed-siv-type').classList.remove('hidden');
+        get('sivkursSvensk').focus();
+        HSOverlay.open('#hs-siv-type-alert');
+        return false;
+    } else {
+        get('missed-siv-type').classList.add('hidden')
+    }
+
     const radioSivBo = radioValue('hs-radio-vertical-group-bo');
     if (radioSivBo !== 'on') {
         get('missed-siv-bo').classList.remove('hidden');
@@ -431,15 +502,13 @@ const validateSIVBooking = () => {
         document.getElementById("siv-booking").reset(); 
     }
 
-  }
-
- 
-  
+}
 
 const getFormData = () => {
   const store = Object.create(null)
     store.kursDate =  radioID('hs-radio-siv-group')
     store.kursWeek =  radioID('hs-radio-siv-group')
+    store.sivLicType = radioValue('hs-radio-sivtype-group')
     store.sivPrice = document.getElementById("hs-pris").value
     store.boendeType = document.getElementById("boendeDescription").value
     store.boendePrice = document.getElementById("boendeRawPrice").value
@@ -456,7 +525,7 @@ const getFormData = () => {
     store.postNr = get('hs-post-nr')?.value
     store.country = get('hs-land')?.value
     store.email = get('hs-email-contacts-1')?.value
-    
+
     store.telday = get('hs-tel-day')?.value 
     if (store.telday.length < 3 ) {
         store.telday = 'N/A';
@@ -486,13 +555,13 @@ const submitBtn = document.getElementById('siv-book')
 submitBtn?.addEventListener('click', submitForm)
 
 const sendmail = async () => {
-  const { firstName, lastName, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest,  summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
+  const { firstName, lastName, tel, telday, email, message, kursDate, kursWeek, sivLicType, sivPrice, boendeType, boendePrice, apartmentRequest,  summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject } = getFormData()
   const data = await fetch('/api/sendSivKursBooking.json', {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
     },
-    body: JSON.stringify({ firstName, lastName, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject }),
+    body: JSON.stringify({ firstName, lastName, tel, telday, email, message, kursDate, kursWeek, sivLicType, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthYear, adress, postNr, city, country, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
       if (!res.ok) {

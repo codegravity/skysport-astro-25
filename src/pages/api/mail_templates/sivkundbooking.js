@@ -1,5 +1,5 @@
 
-const htmlSivKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate, kursWeek, sivPrice, boendeType,boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
+const htmlSivKundBookTemplate = (name, tel, telday, email, Meddelande, kursDate, kursWeek, sivLicType, sivPrice, boendeType,boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter,checkboxOK, BookingTimestamp) => {
     return `
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD XHTML 1.0 Transitional //EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office">
@@ -110,6 +110,7 @@ Skysport AB
   <p class="p1">
   SIV kurs bokad datum: <b>${kursWeek}</b> &nbsp; <br>
   SIV kurs pris: <b>${sivPrice}</b><br>
+  SIV Licens typ: <b>${sivLicType}</b> <br>
   Boende: <b>${boendeType}</b> <br>
   Boendepris: ${boendePrice}<br>
   Lägenhetsförfrågan: <b>${apartmentRequest}</b><br>

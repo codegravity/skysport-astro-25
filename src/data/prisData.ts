@@ -17,6 +17,19 @@ export const kursPriser26 = [
         avbokning1v: 2000,
         kurssumma: 15000,
     },
+    {
+        kursName: 'SIVkurs',
+        kursPrisSvensk: 6900,
+        kursPrisNorsk: 9600,
+        highFlight: 200,
+        transportBil: 90,
+        takeOffKit: 2020,
+        forsakringSSFF: 2071,
+        forsakringSSFFJuli: 1400,
+        avbokning2v: 1000,
+        avbokning1v: 2000,
+        kurssumma: 15000,
+    },
 ]
 
 export const boendePriser26 = {

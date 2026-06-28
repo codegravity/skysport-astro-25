@@ -20,6 +20,7 @@ export const POST: APIRoute = async ({ request }) => {
     const formData = await request.json()
     const kursDate = formData.kursDate
     const kursWeek = formData.kursWeek
+    const sivLicType = formData.sivLicType
     const sivPrice = formData.sivPrice
     const boendeType = formData.boendeType
     const boendePrice = formData.boendePrice
@@ -48,15 +49,14 @@ export const POST: APIRoute = async ({ request }) => {
     const BookingTimestamp = tempDate.toISOString()
     const Ksubject = Tsubject + ' bekräftelse från Skysport i Åre'
 
-    const output = htmlSivKundBookTemplate(name, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
-    const outputSky = htmlSivSkyTemplate(name, tel, telday, email, message, kursDate, kursWeek, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
+    const output = htmlSivKundBookTemplate(name, tel, telday, email, message, kursDate, kursWeek, sivLicType, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
+    const outputSky = htmlSivSkyTemplate(name, tel, telday, email, message, kursDate, kursWeek, sivLicType, sivPrice, boendeType, boendePrice, apartmentRequest, summa, weight, licNr, birthyr, adress, postnr, city, country, newsletter, checkboxOK, BookingTimestamp )
 
-    
 
     const Skysubject = "SIV Bokning : " + name 
     const Skymessage = `
     SIV bokning: ${kursDate}   
-
+    Siv Licens typ: ${sivLicType}  • Pris: ${sivPrice} SEK  
     Boende: ${boendeType}
     ----------------------------------------------------------------------
     From: ${name}  • email: ${email} • tel: ${tel}

@@ -1,9 +1,12 @@
 ---
 import Layout from "@layouts/MainLayout.astro";
+import { kursPriser26 } from '@data/prisData';
 import VideoHero from "@components/sections/VideoHero.astro";
-import HeroImage from '@assets/images/paraglide-are.jpg';
 import Feature50 from  "@sections/Feature-50-50.astro";
+import ListWidget from "@widgets/listwidget.astro";
+import KursInfo from  "@sections/Feature-50-50.astro";
 import SivImage from '@assets/images/kurs/siv-inslagg.jpg';
+import featureImg3 from "@assets/images/kurs/1a.jpg";
 import SivForm from "@components/elements/forms/SIVForm.astro";
 import Divider1 from  "@elements/SeparatorLine.astro";
 import { Breadcrumbs } from "astro-breadcrumbs";
@@ -48,36 +51,41 @@ const VideoContent = {
  pauseIconColour: "white",
 }
 
-const HeroContent = {
+/* const HeroContent = {
     title: "Tandemflyg hos Skysport",
     description: "A good place to start.",
     backgroundImage: HeroImage,
     overlayOpacity: 0.2
-}
+} */
+
+const svenskKursPris =   kursPriser26[1].kursPrisSvensk;
+const svenskKursPrisISO = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(svenskKursPris); 
+const norskkurspris =   kursPriser26[1].kursPrisNorsk;
+const norskkursPrisISO = new Intl.NumberFormat('sv-SE', { style: 'currency', currency: 'SEK'}).format(norskkurspris);
 
 const Feature50Content = {
      infoTitle: 'Säkerhetskurs i Åre',
      infoText: [
       {
-        preText: 'Man kan välja att göra hela kursen eller endast vissa delar. Alla manövrar görs över Åresjön. Bemannad upphämtningsbåt finns på plats. ',
+        preText: ' ',
+        spanText: 'Vill du ta din flygning till nästa nivå och känna dig tryggare under din skärm?',
+        spanClasses: 'text-xl font-bold text-gray-600',
+        postText: '',
+      },
+      {
+        preText: 'Bemästra din skärm – Bli en säkrare och tryggare pilot genom att gå vår SIV-kurs i Åre! Under juni till september bjuder vi in dig till Åre för sommarens mest givande kurs.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: 'Vi utför fullt SIV program enligt svenska eller norska krav.',
+      },
+      {
+        preText: 'SIV eller säkerhetskursen tycker vi på Skysport är ett måste för alla piloter som vill utveckla sin flygning, inte minst om du vill flyga i berg och i termiska förhållanden. ',
         spanText: '',
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
       },
       {
-        preText: 'Piloten skall bära flytväst och radio. Innan kursen går vi igenom alla manövrar på video.Vi går igenom moment för moment efteråt.',
-        spanText: '',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      },
-      {
-        preText: 'Kursen tar ca 2-3 dagar med bra väder. Antalet flyg för att hinna med alla ovanstående moment är ca 4-5 stycken. ',
-        spanText: '',
-        spanClasses: 'text-xl font-bold text-orange-600',
-        postText: '',
-      },
-      {
-        preText: 'För att kunna gå säkerhetskursen måste du ha gilitig elevlicens eller annan licens av högre nivå. Kursen arrangeras under perioden juni-september.',
+        preText: 'Med säkerhetskursen når du som pilot en ny nivå av självförtroende, skärmkontroll och du kommer vara en båda bättre och säkrare pilot. Vi anpassar kursen efter dina mål och du måste inte nödvändigtvis utföra hela programmet, om du inte vill. Du kanske har ett särskilt fokus på vissa manövrar och vill finslipa specifika delar. (För godkännande av SIV kurs måste alla manövrar utföras)',
         spanText: '',
         spanClasses: 'text-xl font-bold text-orange-600',
         postText: '',
@@ -86,6 +94,91 @@ const Feature50Content = {
     infoImg:  SivImage,
     infoIcon: '',
 }
+
+const  SIVkursListContent = {
+  listTitle: "Varför välja vår säkerhetskurs?",
+  listDescription: '',
+  listIcon: '',
+  listList: [
+    {
+      listItem: 'Personliga och noggranna genomgångar inför varje enskilt moment, båda i våra simulatorer i Skysports teorisal och på video. Vi bryter ner teorin så att du känner dig väll förberedd infor varje flyg.',
+    },
+    {
+      listItem: 'Maximal trygghet: Alla manövrar sker över Åresjön med bemannad upphämtningsbåt, flytväst och konstant radiokontakt. Din säkerhet är vår högsta prioritet.'
+    },
+    {
+      listItem: 'Analys som ger resultat: Efter varje flyg går vi igenom din prestation moment för moment. Med videoanalys och expertfeedback ser vi till att kunskapen verkligen fastnar.'
+    },
+    {
+      listItem: 'Effektivt upplägg: Säkerhetskursen pågår vanligen 2–3 flygdagar (ca 5–7 flyg) Under den relativt korta tiden genomgår du en total förvandling som pilot.'
+    },
+  ],
+}
+const Feature50ContentSIV = {
+     infoTitle: '',
+     infoOrientationL: false,
+     infoColL: 'sm:order-1',
+     infoColR: 'sm:order-2',
+     infoAnchorLink: 'berg4',
+     infoDescription: '',
+     isTandemPage: false,
+     isKursPage: true,
+     infoText: [
+        {
+        preText: '',
+        spanText: 'Vad krävs av dig?',
+        spanClasses: 'text-2xl text-slate-800 dark:text-slate-200 ',
+        postText: '',
+      },
+              {
+        preText: 'Du har en giltig elevlicens eller högre.',
+        spanText: '',
+        spanClasses: 'text-slate-800 dark:text-slate-200 italic',
+        postText: '',
+      },
+                  {
+        preText: 'Du har radio och flytväst, (radio går att hyra via Skysport).',
+        spanText: '',
+        spanClasses: 'text-slate-800 dark:text-slate-200 italic',
+        postText: '',
+      },      {
+        preText: '',
+        spanText: 'Boende finns att hyra vid Draklanda/Lake Lodge.',
+        spanClasses: 'text-slate-800 dark:text-slate-200 ',
+        postText: ' ',
+      }, 
+             {
+        preText: ' ',
+        spanText: 'Svensk SIV ' + svenskKursPrisISO ,
+        spanClasses: ' font-bold',
+        postText: '',
+      }, 
+            {
+        preText: ' ',
+        spanText:  ' Norsk SIV ' + norskkursPrisISO + ' *',
+        spanClasses: ' font-bold',
+        postText: '',
+      },
+      {
+        preText: '',
+        spanText: '*Priser i SEK',
+        spanClasses: 'text-sm text-slate-800 dark:text-slate-200 italic',
+        postText: ' ',
+      },
+    ],
+    infoImg:  featureImg3,
+    imgHeight: 1200,
+    imgWidth: 685,
+    infoIcon: '',
+ /*    buttons: [
+      {
+        text: "Boka Grundkurs",
+        link: "/Kurs/Grundkurs/boka",
+        target: "_self",
+      },
+    ], */
+}
+
 ---
 
 <Layout title="Skysport Tandemflyg i Åre" description="" keywords="" >
@@ -125,5 +218,7 @@ const Feature50Content = {
   </div> 
   <Divider1 />
   <Feature50 content={Feature50Content} />
+  <ListWidget content={SIVkursListContent} />
+    <KursInfo content={Feature50ContentSIV}/>
   <SivForm />
 </Layout>
