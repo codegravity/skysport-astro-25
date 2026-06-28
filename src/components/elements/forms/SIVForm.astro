@@ -426,16 +426,7 @@ const validateSIVBooking = () => {
         get('missed-siv-kurs').classList.add('hidden')
         
     } 
-    const radioSivType = radioValue('hs-radio-sivtype-group');
-    if (radioSivType !== 'on') {
-        get('missed-siv-type').classList.remove('hidden');
-        get('sivkursSvensk').focus();
-        HSOverlay.open('#hs-siv-type-alert');
-        return false;
-    } else {
-        get('missed-siv-type').classList.add('hidden')
-    }
-
+    
     const radioSivBo = radioValue('hs-radio-vertical-group-bo');
     if (radioSivBo !== 'on') {
         get('missed-siv-bo').classList.remove('hidden');
