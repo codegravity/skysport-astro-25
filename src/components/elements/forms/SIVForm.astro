@@ -330,7 +330,7 @@ const boendeTypes = [
         bobuttons.forEach((button) => {
             button.addEventListener('click', () => {
                 const radioSivType1 = radioValue('hs-radio-sivtype-group');
-                if (radioSivType1 !== 'on') {
+                if (radioSivType1 !== 'Svensk' && radioSivType1 !== 'Norsk') {
                     get('missed-siv-type').classList.remove('hidden');
                     get('sivkursSvensk').focus();
                     HSOverlay.open('#hs-siv-type-alert');
