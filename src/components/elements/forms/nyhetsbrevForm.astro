@@ -5,11 +5,11 @@ import NewsModal from '../modals/newsletter.astro';
 
 ---
 <div class="form-container relative z-0">
-  <form method="POST" class="flex flex-col space-y-2" > 
+  <form method="POST" action="/success/newssuccess" class="flex flex-col space-y-2" > 
       <input required id="hs-email-nyhetsbrev" name="hs-email-nyhetsbrev" type="email" autocomplete="email" placeholder="E-post"
           class="px-4 py-2 bg-slate-800 border border-slate-700 rounded-lg text-white placeholder-gray-500 focus:outline-none focus:border-orange-500"
       />
-      <button id="newsSubmit" type="submit" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors" >
+      <button id="newsSubmit"  class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-lg font-semibold transition-colors" >
           Prenumerera
       </button>
   </form>
@@ -27,8 +27,7 @@ import NewsModal from '../modals/newsletter.astro';
 
   const get = (id) => document.getElementById(id) || { value: '' }  // this creates instance of get for entire site!!
 
-  const submitNewsForm = () => {
-    //sendNewsmail()
+  const submitNewsForm = () => { 
     validateNews()
   }
 
@@ -40,15 +39,12 @@ const validateNews = () => {
       get('hs-email-nyhetsbrev').classList.add('border-red-500')
       get('hs-email-nyhetsbrev').focus();
     } else {
-
       HSOverlay.open('#hs-task-newsletter-alert'); // not working as page reloads after sending...
-        
+     
       sendNewsmail()
       displaySuccessMessage()
     }
-
   }
-
 
   const getNewsFormData = () => {
     const store = Object.create(null)
@@ -58,13 +54,8 @@ const validateNews = () => {
   }
 
   const result = document.getElementById("result");
-  //const submitNewsBtn = document.querySelector('[type="submit"]')
-
   const submitNewsBtn = document.getElementById('newsSubmit')
   submitNewsBtn?.addEventListener('click', submitNewsForm)
-
- 
-    
 
   const sendNewsmail = async () => {
  
@@ -77,33 +68,22 @@ const validateNews = () => {
       body: JSON.stringify({ email, subject }),
     })
       .then((res) => {
+        window.location.assign('/success/newssuccess'); 
         if (!res.ok) {
          result.innerHTML = "Sending problem..."; // this is shown if error occurs
           throw new Error(res.status)
         }
- if (res.status == 200) {
-  
+        if (res.status == 200) {
               result.classList.add("text-green-500");
               result.innerHTML = 'it worked!';
-              res.redirect('/OmOss/integritetspolicy');
-              
             }
-        //alert('Anmälan skickad !' + res.status ) //works if next line has commented out
-       
-        //return res.json()
+        return res.json()
       })
       .catch((err) => {
         console.log('Error', err)
         throw new Error('Network error.')
       })
-       //return redirect('/OmOss/integritetspolicy');
-   // console.log(data) // Here is the response from backend
 
-   alert('Meddelandet skickat! ' + data); // works
-   
-   //return data;
-    
-   // document.getElementById("successMessage").classList.remove("hidden");
   }
 
 </script>
