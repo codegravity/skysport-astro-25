@@ -8,15 +8,24 @@ import { htmlNewsSkyTemplate } from './mail_templates/skynyhetsbrev.js'
 
 // using Vercel env
 
-const emailUser = process.env.PUBLIC_EMAIL_USER
+/* const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
-const emailTo1 = process.env.PUBLIC_EMAIL 
-
-
+const emailTo1 = process.env.PUBLIC_EMAIL  
 const emailTo = emailTo1 
+*/
 
-export const POST: APIRoute = async ({ request }) => {
+//using local nodemailer
+//for local mailer
+ const emailUser = 'AKIAQPMQAGARF7NITJYL'
+const emailToPass = 'BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY'
+const host = 'email-smtp.eu-north-1.amazonaws.com'
+const emailTo1 = 'no-reply@skysport.se' 
+const emailTo = emailTo1
+
+
+
+export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
@@ -80,7 +89,8 @@ export const POST: APIRoute = async ({ request }) => {
     // skicka till Skysport
     let mailDetailsSky = {
       from: emailTo,
-      to: emailTo,
+     // to: emailTo,
+      to: 'brettsimpson54@gmail.com',
       subject:  Skysubject,
     //  subject: `${new URL(request.url).hostname}: ${subject}`,
       text: Skymessage,
@@ -104,15 +114,15 @@ export const POST: APIRoute = async ({ request }) => {
       console.log('******* Error: ', error)
     }
       console.log('Message sent Skysport: %s', mailresult?.messageId)
-       
-
     // return endpoint response
-    //console.log('where are we' + mailDetails);
-   return new Response(JSON.stringify(mailDetails), {
-      status: 200,
-      
-    })
+    
+    //  console.log('where are we' + mailDetails);
+ /*    return new Response(JSON.stringify(mailDetails), {
+        status: 200,
+        
+      })  */
   }
+  //return redirect('/success/newssuccess');
   return new Response(null, { status: 400 }) // if not a json request
 }
 

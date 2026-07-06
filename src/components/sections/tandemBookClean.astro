@@ -326,7 +326,6 @@ const validateInfo = () => {
 
   }
 
-
 const retrieveInfo = () => {
   const store = JSON.parse(localStorage.getItem('tandembookinfo') || '{}')
   get('name').value = store.name || ''
@@ -364,7 +363,7 @@ const sendmail = async () => {
       throw new Error('Network error.')
     })
   console.log(data) // Here is the response from backend
- 
+
   window.location.assign('/success/tandemsuccess'); 
   //document.getElementById("booking-form").reset();
 }
