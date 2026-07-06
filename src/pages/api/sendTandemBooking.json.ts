@@ -9,13 +9,14 @@ const skysportUpISO =  '90 kr';
 const skistarUpISO = '200 kr';
 
 //Note: Vercel env is configured in Vercel app, not from an env file!
- const emailUser = process.env.PUBLIC_EMAIL_USER
+const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
 const emailTo1 = process.env.PUBLIC_EMAIL 
-const emailTo = emailTo1
+const emailTo = emailTo1 
 
-export const POST: APIRoute = async ({ request }) => {
+
+export const POST: APIRoute = async ({ request, redirect }) => {
 
   if (request.headers.get('Content-Type') === 'application/json') {
     const formData = await request.json()
@@ -115,8 +116,6 @@ export const POST: APIRoute = async ({ request }) => {
       console.log('******* Error: ', error)
     }
       console.log('Message sent: %s', mailresult?.messageId)
-
-
 
 
     // return endpoint response

@@ -384,9 +384,9 @@ const sendmail = async () => {
       throw new Error('Network error.')
     })
 
-
   console.log(data) // Here is the response from backend
-   alert('Meddelandet skickat!');
-  document.getElementById("booking-form").reset();
+  // alert('Meddelandet skickat!');
+ // document.getElementById("booking-form").reset();
+ window.location.assign('/success/tandemsuccess'); 
 }
 </script>
