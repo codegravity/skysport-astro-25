@@ -44,7 +44,7 @@ const skistarUpISO = transportUp.skistarLift;
 
                     <div class="mt-6 group:text-left">
                     <!-- Form -->
-                    <form id="tandem-form" method="POST">                      
+                    <form id="tandem-form" method="POST" action="/success/tandemsuccess">                      
                         <!-- Grid -->            
                          <div class="grid grid-cols-1 gap-0 sm:grid-cols-2 sm:gap-4 lg:gap-6"> 
                             <div class="sm:col-span-full">
@@ -364,8 +364,8 @@ const sendmail = async () => {
       throw new Error('Network error.')
     })
   console.log(data) // Here is the response from backend
-   alert('Meddelandet skickat!');
  
-  document.getElementById("booking-form").reset();
+  window.location.assign('/success/tandemsuccess'); 
+  //document.getElementById("booking-form").reset();
 }
 </script>
