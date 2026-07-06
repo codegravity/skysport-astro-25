@@ -28,7 +28,7 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
 ---
 
 <div class="max-w-[85rem] px-4 py-10 sm:px-6 lg:px-8 lg:py-14 mx-auto">
-    <form id="grundKurs" method="POST">
+    <form id="grundKurs" method="POST" action="/success/grundkurssuccess">
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="lg:text-2xl font-bold"><!--col 1 -->
             <h3>Välj önskat kursdatum<span class="text-amber-600 text-xl">*</span></h3>
@@ -692,9 +692,11 @@ const sendmail = async () => {
     })
 
   console.log(data) // Here is the response from backend
-   alert('Meddelandet skickat!');
-  document.getElementById("booking-form").reset();
+ //  alert('Meddelandet skickat!');
+  //document.getElementById("booking-form").reset();
+  window.location.assign('/success/grundkurssuccess'); 
 }
+
 
 </script>
 
