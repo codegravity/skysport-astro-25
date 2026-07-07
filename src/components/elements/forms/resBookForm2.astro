@@ -12,7 +12,7 @@ import SuccessAlert from "../modals/successAlert.astro";
             <h4 class="text-slate-200 text-2xl lg:text-3xl ">Skysports Resa 2026</h4>
             <Hr1 />
     </div>
-    <form id="res-booking" method="POST" >
+    <form id="res-booking" method="POST" action="/success/ressuccess">
       
     <div class="grid grid-cols-1 lg:grid-cols-4">
         <div class="text-slate-200 lg:text-2xl font-semibold pt-6 sm:pt-1 py-3"><!--col 1 -->
@@ -452,6 +452,7 @@ const sendmail = async () => {
     body: JSON.stringify({ resa, resPriceISO, resCountry, firstName, lastName, tel, telday, email, message, birthYear, adress, postNr, city, country, vilkor, newsletter, checkboxOK, subject }),
   })
     .then((res) => {
+        
       if (!res.ok) {
         throw new Error(res.status)
       }
@@ -463,8 +464,9 @@ const sendmail = async () => {
     })
 
   console.log(data) // Here is the response from backend
-   alert('Meddelandet skickat!');
-  document.getElementById("res-booking").reset();
+  // alert('Meddelandet skickat!');
+  //document.getElementById("res-booking").reset();
+  window.location.assign('/success/ressuccess'); 
 }
 
 </script>
