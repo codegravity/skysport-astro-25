@@ -1,0 +1,57 @@
+---
+import Layout from "@layouts/MainLayout.astro";
+import Feature50 from  "@sections/Feature-50-50.astro";
+import Skarmflyg1 from "@assets/images/paraglide-are.jpg";
+import { Breadcrumbs } from "astro-breadcrumbs";
+import "astro-breadcrumbs/breadcrumbs.css";
+import Topper from  "@elements/navTopper.astro";
+
+
+const customLastPart = [
+  { index: "last", text: "Fortsättnings kurs" },
+   {
+    "data-link": "Kurs",
+    "aria-label": "Go to the home page",
+    text: "Kurs",
+  },/*
+  {
+    "data-link": "Grund",
+    "aria-label": "Go to the about page",
+    text: "Grundkurs",
+  }, */
+];
+
+const Feature50Content = {
+     infoOrientationL: true,
+     infoColL: 'sm:order-2',
+     infoColR: 'sm:order-1',
+     infoText: [
+      {
+        preText: 'Efter avslutad utbildning (student och bergslicens), får du flyga självständigt i backar upp till ca 100 m fallhöjd. För att flyga höjdflyg krävs närvara av mer erfaren pilot, som innehar Pilot 1 eller Pilot 2 licens. Vill du bli kunna flyga bergsflyg helt självständigt, och även kunna flyga utomlands utan instruktör, krävs att du gör fortsättningsflyg och så småningom går en Pilot 1 licens kurs. För att påbörja Pilot 1 kursen krävs att du har minst 50 st höjdflyg och totaltid på 10 timmar. Men börja med grundkursen, det är en fantastiskt roligt vecka, som du aldrig glömmer. Och gå din kurs i Åre – som är en bra plats att börja flyga på.',
+        spanText: '',
+        spanClasses: 'text-xl font-bold text-orange-600',
+        postText: '',
+      },   
+     ],
+    infoImg:  Skarmflyg1,
+}
+
+---
+
+
+<Layout title="Fortsättnings kurs anmäld" description="Skärmflyg Fortsättningskurs bokning hos Skysport" keywords="Skärmflyg kurs Åre" >
+    <Topper  />
+    
+  
+    <section class="bg-white py-36 sm:py-16 lg:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h1 class="text-3xl font-extrabold text-gray-900 sm:text-4xl">Tack för din Fortsättningskurs bokning!</h1>
+                <p class="mt-4 text-lg leading-6 text-gray-500">Vi har fått din bokning och kommer att kontakta dig inom kort.</p>
+            </div>
+        </div>
+
+  
+
+  </section>
+</Layout>
