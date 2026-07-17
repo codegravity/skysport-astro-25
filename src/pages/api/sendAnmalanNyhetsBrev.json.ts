@@ -8,20 +8,13 @@ import { htmlNewsSkyTemplate } from './mail_templates/skynyhetsbrev.js'
 
 // using Vercel env
 
-/* const emailUser = process.env.PUBLIC_EMAIL_USER
+ const emailUser = process.env.PUBLIC_EMAIL_USER
 const emailToPass = process.env.PUBLIC_EMAIL_PASS
 const host = process.env.PUBLIC_EMAIL_HOST
 const emailTo1 = process.env.PUBLIC_EMAIL  
 const emailTo = emailTo1 
-*/
 
-//using local nodemailer
-//for local mailer
- const emailUser = 'AKIAQPMQAGARF7NITJYL'
-const emailToPass = 'BKCrVn+E5GS0NTghRrMvgnmpyGeJ+nKMScbsXhHYzjyY'
-const host = 'email-smtp.eu-north-1.amazonaws.com'
-const emailTo1 = 'no-reply@skysport.se' 
-const emailTo = emailTo1
+
 
 
 
@@ -89,8 +82,8 @@ export const POST: APIRoute = async ({ request, redirect }) => {
     // skicka till Skysport
     let mailDetailsSky = {
       from: emailTo,
-     // to: emailTo,
-      to: 'brettsimpson54@gmail.com',
+      to: emailTo,
+     // to: 'brettsimpson54@gmail.com',
       subject:  Skysubject,
     //  subject: `${new URL(request.url).hostname}: ${subject}`,
       text: Skymessage,
