@@ -6,7 +6,6 @@ import GrundKursOverlay from "@elements/modals/grundkursbooking.astro";
 import SuccessAlert from "@elements/modals/successAlert.astro";
 import "@assets/css/flatpickr.css";
 import "@assets/css/flatpickrDark.css";
-
 interface BookingPageContent {
   bookingPage?: string;
   schemaDate?: string;
@@ -258,6 +257,11 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
          const getWeekNumberx = (date) => {
             const firstDay = new Date(date.getFullYear(), 0, 1)
             const days = Math.floor((date - firstDay) / (24 * 60 * 60 * 1000))
+            const currentYear = new Date().getFullYear()
+            const bookyear = date.getFullYear()
+            if (currentYear !== bookyear) {
+                return (Math.ceil((days + firstDay.getDay() + 1) / 7)) - 1
+            }
             return Math.ceil((days + firstDay.getDay() + 1) / 7)
         }
 
@@ -307,6 +311,7 @@ const grundKursPrisISO = new Intl.NumberFormat('sv-SE', {
         const firstDay = new Date(date.getFullYear(), 0, 1)
         const days = Math.floor((date - firstDay) / (24 * 60 * 60 * 1000))
         return Math.ceil((days + firstDay.getDay() + 1) / 7)
+        
     }
 
     import flatpickr from "flatpickr"
@@ -692,8 +697,7 @@ const sendmail = async () => {
     })
 
   console.log(data) // Here is the response from backend
- //  alert('Meddelandet skickat!');
-  //document.getElementById("booking-form").reset();
+
   window.location.assign('/success/grundkurssuccess'); 
 }
 

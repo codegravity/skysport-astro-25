@@ -51,8 +51,68 @@ export const contactInfo = [
     { "lat": 63.402557, "lng": 13.057222 },
  ];
 
+  export const classSchedule = [
+  { week: "6", month: "Febuari", datum: "08 - 12", kurs: "Grundkurs", linkDate: "2027-02-08" },
+  { week: "8", month: "Febuari", datum: "22 - 26", kurs: "Grundkurs", linkDate: "2027-02-22" },
+  { week: "10", month: "Mars", datum: "08 - 12", kurs: "Grundkurs", linkDate: "2027-03-08" },
+  { week: "11", month: "Mars", datum: "15 - 19", kurs: "Grundkurs", linkDate: "2027-03-15" },
+  { week: "12", month: "Mars", datum: "22 - 26", kurs: "Grundkurs", linkDate: "2027-03-22" },
+  { week: "13", month: "Mars", datum: "29 - April 02", kurs: "Grundkurs", linkDate: "2027-03-29" },
+  { week: "14", month: "April", datum: "05 - 09", kurs: "Grundkurs", linkDate: "2027-04-05" },
+  { week: "15", month: "April", datum: "12 - 16", kurs: "Grundkurs", linkDate: "2027-04-12" },
+  { week: "16", month: "April", datum: "19 - 23", kurs: "Grundkurs", linkDate: "2027-04-19" },
+  { week: "17", month: "April", datum: "26 - 30", kurs: "Grundkurs", linkDate: "2027-04-26" },
+  { week: "21", month: "Maj",datum: "24 - 28", kurs: "Grundkurs", linkDate: "2027-05-24" },
+  { week: "22", month: "Maj",datum: "31 - Juni 04", kurs: "Grundkurs", linkDate: "2027-05-31" },
+  { week: "23", month: "Juni",datum: "07 - 11", kurs: "Grundkurs", linkDate: "2027-06-07" },
+  { week: "24", month: "Juni",datum: "14 - 18", kurs: "Grundkurs", linkDate: "2027-06-14" },
+  { week: "26", month: "Juni",datum: "28 - Juli 02", kurs: "Grundkurs", linkDate: "2027-06-28" },
+  { week: "27", month: "Juli",datum: "05 - 09", kurs: "Grundkurs", linkDate: "2027-07-05" },
+  { week: "28", month: "Juli",datum: "12 - 16", kurs: "Grundkurs", linkDate: "2027-07-12" },
+  { week: "29", month: "Juli",datum: "19 - 23", kurs: "Grundkurs", linkDate: "2027-07-19" },
+  { week: "30", month: "Juli",datum: "26 - 30", kurs: "Grundkurs", linkDate: "2027-07-26" },
+  { week: "31", month: "Augusti",datum: "02 - 06", kurs: "Grundkurs", linkDate: "2027-08-02" },
+  { week: "32", month: "Augusti",datum: "09 - 13", kurs: "Grundkurs", linkDate: "2027-08-09" },
+  { week: "33", month: "Augusti",datum: "16 - 20", kurs: "Grundkurs", linkDate: "2027-08-16" },
+  { week: "34", month: "Augusti",datum: "23 - 27", kurs: "Grundkurs", linkDate: "2027-08-23" },
+  { week: "35", month: "Augusti",datum: "30 - September 03", kurs: "Grundkurs", linkDate: "2027-08-30" },
+  { week: "36", month: "September",datum: "06 - 10", kurs: "Grundkurs", linkDate: "2027-09-06" },
+  { week: "38", month: "September",datum: "20 - 24", kurs: "Grundkurs", linkDate: "2027-09-20" },
+  { week: "40", month: "Oktober",datum: "04 - 08", kurs: "Grundkurs", linkDate: "2027-10-04" },
+ ];
+ 
+export const classFortSchedule = [
+  { week: "6", month: "Febuari", datum: "08 - 12", kurs: "Fortsättning", linkDate: "2027-02-08" },
+  { week: "8", month: "Febuari", datum: "22 - 26", kurs: "Fortsättning", linkDate: "2027-02-22" },
+  { week: "10", month: "Mars", datum: "08 - 12", kurs: "Fortsättning", linkDate: "2027-03-08" },
+  { week: "11", month: "Mars", datum: "15 - 19", kurs: "Fortsättning", linkDate: "2027-03-15" },
+  { week: "12", month: "Mars", datum: "22 - 26", kurs: "Fortsättning", linkDate: "2027-03-22" },
+  { week: "13", month: "Mars", datum: "29 - April 02", kurs: "Fortsättning", linkDate: "2027-03-29" },
+  { week: "14", month: "April", datum: "05 - 09", kurs: "Fortsättning", linkDate: "2027-04-05" },
+  { week: "15", month: "April", datum: "12 - 16", kurs: "Fortsättning", linkDate: "2027-04-12" },
+  { week: "16", month: "April", datum: "19 - 23", kurs: "Fortsättning", linkDate: "2027-04-19" },
+  { week: "17", month: "April", datum: "26 - 30", kurs: "Fortsättning", linkDate: "2027-04-26" },
+  { week: "21", month: "Maj",datum: "24 - 28", kurs: "Fortsättning", linkDate: "2027-05-24" },
+  { week: "22", month: "Maj",datum: "31 - Juni 04", kurs: "Fortsättning", linkDate: "2027-05-31" },
+  { week: "23", month: "Juni",datum: "07 - 11", kurs: "Fortsättning", linkDate: "2027-06-07" },
+  { week: "24", month: "Juni",datum: "14 - 18", kurs: "Fortsättning", linkDate: "2027-06-14" },
+  { week: "26", month: "Juni",datum: "28 - Juli 02", kurs: "Fortsättning", linkDate: "2027-06-28" },
+  { week: "27", month: "Juli",datum: "05 - 09", kurs: "Fortsättning", linkDate: "2027-07-05" },
+  { week: "28", month: "Juli",datum: "12 - 16", kurs: "Fortsättning", linkDate: "2027-07-12" },
+  { week: "29", month: "Juli",datum: "19 - 23", kurs: "Fortsättning", linkDate: "2027-07-19" },
+  { week: "30", month: "Juli",datum: "26 - 30", kurs: "Fortsättning", linkDate: "2027-07-26" },
+  { week: "31", month: "Augusti",datum: "02 - 06", kurs: "Fortsättning", linkDate: "2027-08-02" },
+  { week: "32", month: "Augusti",datum: "09 - 13", kurs: "Fortsättning", linkDate:"2027-08-09" },
+  { week:"33", month:"Augusti",datum:"16 - 20", kurs:"Fortsättning", linkDate:"2027-08-16" },
+  { week:"34", month:"Augusti",datum:"23 - 27", kurs:"Fortsättning", linkDate:"2027-08-23" },
+  { week: "35", month: "Augusti",datum: "30 - September 03", kurs: "Fortsättning", linkDate: "2027-08-30" },
+  { week: "36", month: "September",datum: "06 - 10", kurs: "Fortsättning", linkDate: "2027-09-06" },
+  { week: "38", month: "September",datum: "20 - 24", kurs: "Fortsättning", linkDate: "2027-09-20" },
+  { week: "40", month: "Oktober",datum: "04 - 08", kurs: "Fortsättning", linkDate: "2027-10-04" },
+ ];
+ 
 
-export const classSchedule = [
+export const classSchedule26 = [
   { week: "6", month: "Febuari", datum: "02 - 07", kurs: "Grundkurs", linkDate: "2026-02-02" },
   { week: "7", month: "Febuari", datum: "09 - 14", kurs: "Grundkurs", linkDate: "2026-02-09" },
   { week: "8", month: "Febuari", datum: "16 - 21", kurs: "Grundkurs", linkDate: "2026-02-16" },
@@ -77,14 +137,14 @@ export const classSchedule = [
   { week: "31", month: "Juli",datum: "27 - Augusti 01", kurs: "Grundkurs", linkDate: "2026-07-27" },
   { week: "32", month: "Augusti",datum: "03 - 08", kurs: "Grundkurs", linkDate: "2026-08-03" },
   { week: "33", month: "Augusti",datum: "10 - 15", kurs: "Grundkurs", linkDate: "2026-08-10" },
-  { week: "34", month: "Augusti",datum: "17 - 22", kurs: "Fortsättning", linkDate: "2026-08-17" },
+  { week: "34", month: "Augusti",datum: "17 - 22", kurs: "Grundkurs", linkDate: "2026-08-17" },
   { week: "35", month: "Augusti",datum: "24 - 29", kurs: "Grundkurs", linkDate: "2026-08-24" },
   { week: "36", month: "Augusti",datum: "31 - September 05", kurs: "Grundkurs", linkDate: "2026-08-31" },
   { week: "38", month: "September",datum: "14 - 19", kurs: "Grundkurs", linkDate: "2026-09-14" },
   { week: "40", month: "September",datum: "28 - Oktober 03", kurs: "Grundkurs", linkDate: "2026-09-28" },
 ];
 
-export const classFortSchedule = [
+export const classFortSchedule26 = [
   { week: "6", month: "Febuari", datum: "02 - 07", kurs: "Fortsättning", linkDate: "2026-02-02" },
   { week: "8", month: "Febuari", datum: "16 - 21", kurs: "Fortsättning", linkDate: "2026-02-16" },
   { week: "9", month: "Febuari", datum: "23 - 28", kurs: "Fortsättning", linkDate: "2026-02-23" },
@@ -116,10 +176,10 @@ export const classFortSchedule = [
 ];
 
 export const classParaMotorSchedule = [
-  { week: "6", month: "Feb", datum: "02 - 07", kurs: "Fortsättning", linkDate: "2026-02-02" },
-  { week: "7", month: "Feb", datum: "09 - 14", kurs: "Fortsättning", linkDate: "2026-02-09" },
-  { week: "8", month: "Feb", datum: "16 - 21", kurs: "Fortsättning", linkDate: "2026-02-16" },
-  { week: "9", month: "Feb", datum: "23 - 28", kurs: "Fortsättning", linkDate: "2026-02-23" },
+  { week: "6", month: "Feb", datum: "08 - 12", kurs: "Fortsättning", linkDate: "2027-02-08" },
+  { week: "7", month: "Feb", datum: "15 - 19", kurs: "Fortsättning", linkDate: "2027-02-15" },
+  { week: "8", month: "Feb", datum: "22 - 26", kurs: "Fortsättning", linkDate: "2027-02-22" },
+  { week: "9", month: "Mars", datum: "01 - 05", kurs: "Fortsättning", linkDate: "2027-03-01" },
   { week: "11", month: "Mars",datum: "09 - 14", kurs: "Fortsättning", linkDate: "2026-03-09" },
   { week: "12", month: "Mars",datum: "16 - 21", kurs: "Fortsättning", linkDate: "2026-03-16" },
   { week: "14", month: "Mars",datum: "30 - April 04", kurs: "Fortsättning", linkDate: "2026-03-30" },
@@ -146,9 +206,9 @@ export const classParaMotorSchedule = [
 
 export const classSIVSchedule = [
 
-  { week: "28", month: "Juli",datum: "06 - 11", kurs: "Fortsättning", linkDate: "2026-07-06" },
-  { week: "32", month: "Aug",datum: "03 - 08", kurs: "Fortsättning", linkDate: "2026-08-03" },
-  { week: "34", month: "Aug",datum: "17 - 22", kurs: "Fortsättning", linkDate: "2026-08-17" },
+  { week: "28", month: "Juli",datum: "12 - 16", kurs: "Fortsättning", linkDate: "2027-07-12" },
+  { week: "32", month: "Aug",datum: "09 - 13", kurs: "Fortsättning", linkDate: "2027-08-09" },
+  { week: "34", month: "Aug",datum: "23 - 27", kurs: "Fortsättning", linkDate: "2027-08-23" },
 
 ];
 
