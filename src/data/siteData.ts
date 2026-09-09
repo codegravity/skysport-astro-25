@@ -52,6 +52,8 @@ export const contactInfo = [
  ];
 
   export const classSchedule = [
+  { week: "38", month: "2026, September",datum: "14 - 19 ", kurs: "Grundkurs", linkDate: "2026-09-14" },
+  { week: "40", month: "2026, September",datum: "28 - Oktober 03", kurs: "Grundkurs", linkDate: "2026-09-28" },
   { week: "6", month: "Febuari", datum: "08 - 12", kurs: "Grundkurs", linkDate: "2027-02-08" },
   { week: "8", month: "Febuari", datum: "22 - 26", kurs: "Grundkurs", linkDate: "2027-02-22" },
   { week: "10", month: "Mars", datum: "08 - 12", kurs: "Grundkurs", linkDate: "2027-03-08" },
@@ -82,6 +84,8 @@ export const contactInfo = [
  ];
  
 export const classFortSchedule = [
+  { week: "38", month: "2026, September",datum: "14 - 19", kurs: "Fortsättning", linkDate: "2026-09-14" },
+  { week: "40", month: "2026, September",datum: "28 - Oktober 03", kurs: "Fortsättning", linkDate: "2026-09-28" },
   { week: "6", month: "Febuari", datum: "08 - 12", kurs: "Fortsättning", linkDate: "2027-02-08" },
   { week: "8", month: "Febuari", datum: "22 - 26", kurs: "Fortsättning", linkDate: "2027-02-22" },
   { week: "10", month: "Mars", datum: "08 - 12", kurs: "Fortsättning", linkDate: "2027-03-08" },
