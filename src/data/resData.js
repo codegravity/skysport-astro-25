@@ -5,7 +5,7 @@ export const  resor = [
         resDestinationPlats: 'Ölüdeniz',
         rescheckbox: [
             {
-                resLabel: '17 - 24 Maj Ölüdeniz SIV',
+                resLabel: '16 - 23 Maj Ölüdeniz SIV',
                 resValue: '16800',
                 resID: 'turkietMaj',
                 resPris: '16800',
@@ -15,7 +15,7 @@ export const  resor = [
                 resAnhorigaComment: ' De betalar då 5.900 kr. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fält.',
             },
             {
-                resLabel: '20 - 27 Sept Ölüdeniz ',
+                resLabel: '19 - 26 Sept Ölüdeniz ',
                 resValue: '13800',
                 resID: 'turkietSept',
                 resPris: '13800',
@@ -26,7 +26,8 @@ export const  resor = [
             },
         ],
     },
-    {   
+
+   /*  {   
         destinationID: 2,
         resDestinationLand: 'Marocko',
         resDestinationPlats: 'Tamellalt',
@@ -52,6 +53,6 @@ export const  resor = [
                 resAnhorigaComment: ' ',
             },
         ],
-    },
+    }, */
 
 ];
