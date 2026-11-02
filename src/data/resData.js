@@ -27,17 +27,17 @@ export const  resor = [
         ],
     },
 
-   /*  {   
+     {   
         destinationID: 2,
         resDestinationLand: 'Marocko',
         resDestinationPlats: 'Tamellalt',
         rescheckbox: [
             {
-                resLabel: '24 - 31 Okt Tamellalt Early Bird',
+                resLabel: '02 - 09 Maj Tamellalt',
                 resValue: '13000',
                 resID: 'morokko1',
                 resPris: '13000',
-                resComment: 'Early Bird Resan kostar 13 000 kr. (vid bokning senaste 2026-05-24)',
+                resComment: 'Early Bird Resan kostar 13 000 kr. (vid bokning senaste 2027-05-24)',
                 resAnhoriga: 'false',
                 resAnhorigaAlertTitle: 'Ta med dina anhöriga på resan (ej skärmflygare) så går det bra.',
                 resAnhorigaComment: ' De betalar då xxxx kr. I det priset ingår: transfer, boende inkl frukost. Skriv antal anhöriga i meddelande fält.',
@@ -47,12 +47,12 @@ export const  resor = [
                 resValue: '13500',
                 resID: 'morokko2',
                 resPris: '13500',
-                resComment: 'Resan kostar 13 500 kr. (vid bokning efter 2026-05-24)',
+                resComment: 'Resan kostar 13 500 kr. (vid bokning efter 2027-05-24)',
                 resAnhoriga: 'false',
                 resAnhorigaAlertTitle: 'Ingen mölighet för anhöriga a följe med på denna resan.',
                 resAnhorigaComment: ' ',
             },
         ],
-    }, */
+    }, 
 
 ];
